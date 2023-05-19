@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36">
+  <g id="menu_add_items_unselected" transform="translate(0.163 -0.454)">
+    <rect id="Rectangle_218" data-name="Rectangle 218" width="36" height="36" transform="translate(-0.163 0.454)" fill="#fff" opacity="0"/>
+    <g id="Group_56" data-name="Group 56" transform="translate(6.041 6.041)">
+      <path id="Rectangle_142" data-name="Rectangle 142" d="M4,2A2,2,0,0,0,2,4V8a2,2,0,0,0,2,2H8a2,2,0,0,0,2-2V4A2,2,0,0,0,8,2H4M4,0H8a4,4,0,0,1,4,4V8a4,4,0,0,1-4,4H4A4,4,0,0,1,0,8V4A4,4,0,0,1,4,0Z" transform="translate(12.796 0.413)" fill="#a5acae"/>
+      <path id="Rectangle_143" data-name="Rectangle 143" d="M4,2A2,2,0,0,0,2,4V5A2,2,0,0,0,4,7H6A2,2,0,0,0,8,5V4A2,2,0,0,0,6,2H4M4,0H6a4,4,0,0,1,4,4V5A4,4,0,0,1,6,9H4A4,4,0,0,1,0,5V4A4,4,0,0,1,4,0Z" transform="translate(-0.204 0.413)" fill="#a5acae"/>
+      <path id="Rectangle_144" data-name="Rectangle 144" d="M4,2A2,2,0,0,0,2,4V8a2,2,0,0,0,2,2H8a2,2,0,0,0,2-2V4A2,2,0,0,0,8,2H4M4,0H8a4,4,0,0,1,4,4V8a4,4,0,0,1-4,4H4A4,4,0,0,1,0,8V4A4,4,0,0,1,4,0Z" transform="translate(-0.204 12.413)" fill="#a5acae"/>
+      <path id="Union_31" data-name="Union 31" d="M4.75,10a1,1,0,0,1-1-1V6.251H1a1,1,0,0,1-1-1v-.5a1,1,0,0,1,1-1H3.75V1a1,1,0,0,1,1-1h.5a1,1,0,0,1,1,1V3.75H9a1,1,0,0,1,1,1v.5a1,1,0,0,1-1,1H6.25V9a1,1,0,0,1-1,1Z" transform="translate(13.796 13.413)" fill="#a5acae"/>
+    </g>
+  </g>
+</svg>

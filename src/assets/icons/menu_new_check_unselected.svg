@@ -1,0 +1,8 @@
+<svg id="menu_new_check_unselected" xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36">
+  <rect id="Rectangle_216" data-name="Rectangle 216" width="36" height="36" fill="#e57607" opacity="0"/>
+  <g id="Group_56" data-name="Group 56" transform="translate(6 6)">
+    <path id="Rectangle_36" data-name="Rectangle 36" d="M2,2V3A2,2,0,0,0,4,5h8a2,2,0,0,0,2-2V2H2M0,0H16V3a4,4,0,0,1-4,4H4A4,4,0,0,1,0,3Z" transform="translate(4 17)" fill="#e57607"/>
+    <path id="Rectangle_37" data-name="Rectangle 37" d="M4,2A2,2,0,0,0,2,4V15a2,2,0,0,0,2,2H20a2,2,0,0,0,2-2V4a2,2,0,0,0-2-2H4M4,0H20a4,4,0,0,1,4,4V15a4,4,0,0,1-4,4H4a4,4,0,0,1-4-4V4A4,4,0,0,1,4,0Z" fill="#e57607"/>
+    <path id="star_1_" data-name="star (1)" d="M8.291,4.727A.608.608,0,0,0,7.954,3.69L5.9,3.392a.268.268,0,0,1-.2-.147L4.782,1.386a.608.608,0,0,0-1.09,0l-.918,1.86a.268.268,0,0,1-.2.147L.52,3.69A.608.608,0,0,0,.183,4.727L1.668,6.174a.269.269,0,0,1,.077.238L1.4,8.456a.6.6,0,0,0,.133.493.614.614,0,0,0,.749.148l1.835-.965a.275.275,0,0,1,.25,0L6.2,9.1a.6.6,0,0,0,.283.071.609.609,0,0,0,.466-.219.6.6,0,0,0,.133-.493l-.35-2.044a.269.269,0,0,1,.077-.238Z" transform="translate(7.763 4.393)" fill="#e57607"/>
+  </g>
+</svg>

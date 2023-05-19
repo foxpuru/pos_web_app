@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36">
+  <g id="menu_transcations_unselected" transform="translate(0.163 -0.424)">
+    <rect id="Rectangle_219" data-name="Rectangle 219" width="36" height="36" transform="translate(-0.163 0.424)" fill="#a5acae" opacity="0"/>
+    <g id="bank" transform="translate(8.457 6.041)">
+      <path id="Path_14" data-name="Path 14" d="M103.554,0H86.53a1.2,1.2,0,0,0-1.2,1.2V20.685a1.2,1.2,0,0,0,2.394,0V2.394h14.63V19.488h-1.235a1.2,1.2,0,1,0,0,2.394h2.432a1.2,1.2,0,0,0,1.2-1.2V1.2A1.2,1.2,0,0,0,103.554,0Z" transform="translate(-85.333 0)" fill="#a5acae"/>
+      <path id="Path_15" data-name="Path 15" d="M158.77,388.364a1.193,1.193,0,0,0,0-1.47c-.077-.1.154.139-2.529-2.543a1.2,1.2,0,1,0-1.693,1.693l.389.389h-4.406a1.2,1.2,0,1,0,0,2.394h4.406l-.389.389a1.2,1.2,0,1,0,1.693,1.693C158.946,388.2,158.7,388.457,158.77,388.364Z" transform="translate(-145.686 -366.944)" fill="#a5acae"/>
+      <path id="Path_16" data-name="Path 16" d="M198.061,87.727a1.2,1.2,0,0,0,0-2.394H193.2a1.2,1.2,0,1,0,0,2.394Z" transform="translate(-185.92 -80.469)" fill="#a5acae"/>
+      <path id="Path_17" data-name="Path 17" d="M179.16,170.667h-7.3a1.2,1.2,0,1,0,0,2.394h7.3a1.2,1.2,0,1,0,0-2.394Z" transform="translate(-165.803 -160.939)" fill="#a5acae"/>
+    </g>
+  </g>
+</svg>

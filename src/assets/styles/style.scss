@@ -1,0 +1,134 @@
+.otp-form-control {
+  width: 100%;
+  padding-left: 100px;
+  padding-right: 100px;
+  display: flex;
+  gap: 30px;
+  justify-content: space-between;
+
+  input {
+    width: 60px !important;
+    height: 60px !important;
+    border: 2px solid #d7dbdc;
+    border-radius: 10px;
+    color: #000000;
+    font-size: 38px;
+    text-align: center;
+    font-weight: 400;
+  }
+  input:focus-visible {
+    outline: 2px solid #e57607;
+    border: 0 !important;
+  }
+
+  .fill-otp {
+    border: 2px solid #e57607;
+  }
+}
+
+.device-code-form-control {
+  // width: 100%;
+  // padding-left: 50px;
+  // padding-right: 50px;
+  background-color: #ffffff;
+  // display: flex;
+  // justify-content: center;
+  // gap: 50px;
+  border: 2px solid #d7dbdc;
+  border-radius: 10px;
+  // justify-content: space-between;
+  input {
+    min-width: 60px !important;
+    width: unset !important;
+    height: 60px !important;
+    border: 0;
+    // gap: 30px;
+    // border-radius: 10px;
+    color: #a5acae;
+    text-transform: uppercase;
+    font-size: 32px;
+    border-radius: 10px;
+    text-align: center;
+    font-weight: 300;
+
+    &:focus-visible {
+      outline: 0;
+      border: 0 !important;
+    }
+
+    &:nth-child(4n + 4) {
+      border-right: 2px solid #d7dbdc !important;
+      border-radius: 0;
+      margin: 0;
+      // padding: 1rem;
+    }
+
+    &:last-child {
+      border-right: 0 !important;
+      border-radius: 10px;
+    }
+  }
+}
+
+.MuiPaper-root {
+  border-radius: 6px;
+}
+
+.MuiList-root {
+  padding: 0 !important;
+  // background-color: #eef5f6;
+  border-radius: 6px;
+
+  .Mui-selected {
+    background-color: #eef5f6 !important;
+
+    &:hover {
+      background-color: #eef5f6;
+    }
+  }
+
+  li {
+    justify-content: center;
+    color: #000000;
+    font-size: 12px;
+    letter-spacing: 0.4px;
+    font-weight: 400;
+    &:hover {
+      background-color: #eef5f6;
+    }
+  }
+}
+
+.MuiOutlinedInput-notchedOutline {
+  border-color: #f3f3f3 !important;
+}
+
+@media only screen and (max-width: 599px) {
+  .otp-form-control {
+    padding-left: 12px;
+    padding-right: 12px;
+    input {
+      width: 40px !important;
+      height: 40px !important;
+      border-radius: 10px;
+      font-size: 26px;
+    }
+  }
+  
+}
+
+@media only screen and (max-width: 1200px) {
+  .MuiList-root {
+    li {
+      font-size: 10px;
+    }
+  }
+  .device-code-form-control {
+    input {
+      min-width: 30px !important;
+      width: unset !important;
+      height: 40px !important;
+      font-size: 24px;
+    }
+  }
+}

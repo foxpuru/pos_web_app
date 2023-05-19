@@ -1,0 +1,19 @@
+.otp-form-control {
+  width: 100%;
+  display: flex;
+  gap: 30px;
+  justify-content: space-between;
+}
+
+.otp-form-control input {
+  width: 60px !important;
+  height: 60px !important;
+  border: 2px solid #d7dbdc;
+  border-radius: 10px;
+  color: #000000;
+  font-size: 38px;
+  text-align: center;
+  font-weight: 400;
+}
+
+
