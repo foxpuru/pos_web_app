@@ -81,12 +81,16 @@ export default function Header() {
     <Box sx={{ flexGrow: 0 }}>
       <AppBar
         position="static"
-        sx={{ backgroundColor: "white", borderRadius: "0 !important" }}
+        sx={{
+          backgroundColor: "white",
+          borderRadius: "0 !important",
+        }}
       >
         <Toolbar
           sx={{
             minHeight: { lg: "64px", xs: "60px" },
             p: "0 !important",
+            boxShadow: "0px !important",
           }}
           width={{ lg: undefined, xs: "100%" }}
           display={{ lg: undefined, xs: "flex" }}
@@ -95,7 +99,7 @@ export default function Header() {
           <Box
             // py={{ lg: "10px", xs: "7px" }}
             px={{ lg: "22px", xs: "12px" }}
-            width={{ lg: "70%", xs: "60%" }}
+            width={{ lg: "calc(100% - 388px)", xs: "60%" }}
             sx={{
               display: "flex",
               alignItems: "center",
@@ -180,7 +184,8 @@ export default function Header() {
             </Box>
           </Box>
           <Box
-            width={{ lg: "30%", xs: "40%" }}
+            // width={{ lg: "30%", xs: "40%" }}
+            minWidth={{ lg: "388px", xs: "40%" }}
             display="flex"
             alignItems="center"
             justifyContent="space-between"

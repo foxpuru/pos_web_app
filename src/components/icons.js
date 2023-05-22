@@ -437,3 +437,113 @@ export const LogoutIcon = () => {
     </svg>
   )
 }
+
+export const AddFoodToCartIcon = () => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="28"
+      height="28"
+      viewBox="0 0 28 28"
+    >
+      <g id="ic_add_quantity" transform="translate(0 -0.294)">
+        <rect
+          id="Rectangle_223"
+          data-name="Rectangle 223"
+          width="28"
+          height="28"
+          transform="translate(0 0.294)"
+          fill="#00b153"
+          opacity="0"
+        />
+        <path
+          id="Union_11"
+          data-name="Union 11"
+          d="M7.2,15.2V8.8H.8a.8.8,0,0,1,0-1.6H7.2V.8A.8.8,0,0,1,8.8.8V7.2h6.4a.8.8,0,1,1,0,1.6H8.8v6.4a.8.8,0,1,1-1.6,0Z"
+          transform="translate(6 6.294)"
+          fill="#00b153"
+        />
+      </g>
+    </svg>
+  )
+}
+
+export const RemoveFoodToCartIcon = () => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="28"
+      height="28"
+      viewBox="0 0 28 28"
+    >
+      <g id="ic_add_quantity" transform="translate(0 -0.294)">
+        <rect
+          id="Rectangle_223"
+          data-name="Rectangle 223"
+          width="28"
+          height="28"
+          transform="translate(0 0.294)"
+          fill="#ff4141"
+          opacity="0"
+        />
+        <path
+          id="Union_11"
+          data-name="Union 11"
+          d="M16,9a.9.9,0,0,1-.9.9H.9a.9.9,0,0,1,0-1.8H15.1A.9.9,0,0,1,16,9Z"
+          transform="translate(6 5.294)"
+          fill="#ff4141"
+        />
+      </g>
+    </svg>
+  )
+}
+
+export const OfferOnFoodIcon = () => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+    >
+      <g id="ic_discount" transform="translate(0.297 -0.027)">
+        <g id="btn_percentage" transform="translate(0 0)">
+          <rect
+            id="Rectangle_18006"
+            data-name="Rectangle 18006"
+            width="24"
+            height="24"
+            transform="translate(-0.297 0.027)"
+            opacity="0"
+          />
+          <g
+            id="Group_24906"
+            data-name="Group 24906"
+            transform="translate(6.207 3.696)"
+          >
+            <path
+              id="Rectangle_37"
+              data-name="Rectangle 37"
+              d="M2.358,1.572a.786.786,0,1,0,.786.786.787.787,0,0,0-.786-.786M2.358,0A2.358,2.358,0,1,1,0,2.358,2.358,2.358,0,0,1,2.358,0Z"
+              transform="translate(0 0.021)"
+            />
+            <path
+              id="Rectangle_77"
+              data-name="Rectangle 77"
+              d="M2.358,1.572a.786.786,0,1,0,.786.786.787.787,0,0,0-.786-.786M2.358,0A2.358,2.358,0,1,1,0,2.358,2.358,2.358,0,0,1,2.358,0Z"
+              transform="translate(6.288 11.025)"
+            />
+            <rect
+              id="Rectangle_18007"
+              data-name="Rectangle 18007"
+              width="1.572"
+              height="17.292"
+              rx="0.786"
+              transform="translate(9.144 0) rotate(30)"
+            />
+          </g>
+        </g>
+      </g>
+    </svg>
+  )
+}

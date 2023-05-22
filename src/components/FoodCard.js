@@ -18,16 +18,19 @@ export default function FoodCard({ foods }) {
   return (
     <Box
       sx={{
-        width: { lg: "160px", xs: "120px" },
-        height: foods.isCutomizable
-          ? { lg: "180px", xs: "120px" }
-          : { lg: "160px", xs: "120px" },
+        minWidth: { lg: "160px", xs: "119px" },
+        width: { lg: "160px", xs: "119px" },
+        position: "relative",
       }}
     >
       <Card
         sx={{
+          height: foods.isCutomizable
+            ? { lg: "153px", xs: "116px" }
+            : { lg: "160px", xs: "120px" },
           padding: { lg: "3px", xs: "2px" },
           display: "flex",
+          position: "relative",
           border:
             foods.foodType == "veg"
               ? "3px solid #00B153"
@@ -36,7 +39,6 @@ export default function FoodCard({ foods }) {
               : "3px solid #FF4141",
           // "3px solid #000000",
           borderRadius: "10px",
-          position: "relative",
         }}
       >
         <Box borderRadius="10px" overflow="hidden">
@@ -73,19 +75,27 @@ export default function FoodCard({ foods }) {
             </Typography>
           </Box>
         </Box>
-        {foods.isCutomizable && (
-          <Box
-            position="absolute"
-            sx={{
-              py: { lg: "4px", xs: "2px" },
-              borderRadius: "10px",
-              width: { lg: "calc(100% - 6px)", xs: "calc(100% - 4px)" },
-              border: "3px solid #000000",
-              bottom: "0px",
-            }}
-          />
-        )}
       </Card>
+      {foods.isCutomizable && (
+        <Box
+          position="absolute"
+          sx={{
+            py: { lg: "5px", xs: "3px" },
+            left: "50%",
+            transform: "translateX(-50%)",
+            borderRadius: "10px",
+            width: { lg: "calc(100% - 16px)", xs: "calc(100% - 10px)" },
+            border:
+              foods.foodType == "veg"
+                ? "3px solid #00B153"
+                : foods.foodType == "non-veg"
+                ? "3px solid #000000"
+                : "3px solid #FF4141",
+            zIndex: -1,
+            bottom: "-2px",
+          }}
+        />
+      )}
     </Box>
   )
 }

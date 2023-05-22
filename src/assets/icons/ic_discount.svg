@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <g id="ic_discount" transform="translate(0.297 -0.027)">
+    <g id="btn_percentage" transform="translate(0 0)">
+      <rect id="Rectangle_18006" data-name="Rectangle 18006" width="24" height="24" transform="translate(-0.297 0.027)" opacity="0"/>
+      <g id="Group_24906" data-name="Group 24906" transform="translate(6.207 3.696)">
+        <path id="Rectangle_37" data-name="Rectangle 37" d="M2.358,1.572a.786.786,0,1,0,.786.786.787.787,0,0,0-.786-.786M2.358,0A2.358,2.358,0,1,1,0,2.358,2.358,2.358,0,0,1,2.358,0Z" transform="translate(0 0.021)"/>
+        <path id="Rectangle_77" data-name="Rectangle 77" d="M2.358,1.572a.786.786,0,1,0,.786.786.787.787,0,0,0-.786-.786M2.358,0A2.358,2.358,0,1,1,0,2.358,2.358,2.358,0,0,1,2.358,0Z" transform="translate(6.288 11.025)"/>
+        <rect id="Rectangle_18007" data-name="Rectangle 18007" width="1.572" height="17.292" rx="0.786" transform="translate(9.144 0) rotate(30)"/>
+      </g>
+    </g>
+  </g>
+</svg>
