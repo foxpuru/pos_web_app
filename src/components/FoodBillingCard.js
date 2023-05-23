@@ -105,7 +105,7 @@ export default function FoodBillingCard() {
           alignItems="start"
           justifyContent="space-between"
           width="100%"
-          gap={{ lg: "40px", xs: "10px" }}
+          gap={{ lg: "20px", xs: "10px" }}
         >
           <Typography
             sx={{
@@ -114,7 +114,7 @@ export default function FoodBillingCard() {
               fontSize: { lg: "16px", xs: "12px" },
             }}
           >
-            veg. balls in hot garlic
+            veg. balls in hot garlic sauce
           </Typography>
           <Typography
             sx={{

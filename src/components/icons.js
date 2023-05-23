@@ -547,3 +547,113 @@ export const OfferOnFoodIcon = () => {
     </svg>
   )
 }
+
+export const PrintIcon = () => {
+  return (
+    <svg
+      id="ic_print_red"
+      xmlns="http://www.w3.org/2000/svg"
+      width="35"
+      height="35"
+      viewBox="0 0 35 35"
+    >
+      <rect
+        id="Rectangle_248"
+        data-name="Rectangle 248"
+        width="35"
+        height="35"
+        fill="#e57607"
+        opacity="0"
+      />
+      <g id="printer" transform="translate(4.5 4.875)">
+        <g id="Group_164" data-name="Group 164">
+          <g id="Group_163" data-name="Group 163">
+            <path
+              id="Path_255"
+              data-name="Path 255"
+              d="M196.465,392h-4.472a.994.994,0,0,0,0,1.987h4.472a.994.994,0,0,0,0-1.987Z"
+              transform="translate(-181.511 -372.524)"
+              fill="#e57607"
+            />
+            <ellipse
+              id="Ellipse_34"
+              data-name="Ellipse 34"
+              cx="1"
+              cy="1.5"
+              rx="1"
+              ry="1.5"
+              transform="translate(19.5 11.125)"
+              fill="#e57607"
+            />
+            <path
+              id="Path_256"
+              data-name="Path 256"
+              d="M24.444,15.5a.994.994,0,0,0,.994-.994V12.371A3.979,3.979,0,0,0,21.463,8.4h-1.54V.994A.994.994,0,0,0,18.929,0H6.508a.994.994,0,0,0-.994.994V8.4H3.975A3.979,3.979,0,0,0,0,12.371v7.1A3.979,3.979,0,0,0,3.975,23.45h1.54v.994a.994.994,0,0,0,.994.994H18.929a.994.994,0,0,0,.994-.994V23.45h1.54a3.979,3.979,0,0,0,3.975-3.975.994.994,0,0,0-1.987,0,1.99,1.99,0,0,1-1.987,1.987h-1.54V17.339h.547a.994.994,0,0,0,0-1.987H4.968a.994.994,0,0,0,0,1.987h.547v4.124H3.975a1.99,1.99,0,0,1-1.987-1.987v-7.1a1.99,1.99,0,0,1,1.987-1.987H21.463a1.99,1.99,0,0,1,1.987,1.987v2.136A.994.994,0,0,0,24.444,15.5ZM7.5,17.339H17.936V23.45H7.5ZM17.936,8.4H7.5V1.987H17.936Z"
+              fill="#e57607"
+            />
+          </g>
+        </g>
+      </g>
+    </svg>
+  )
+}
+
+export const SaveCheckRedIcon = () => {
+  return (
+    <svg
+      id="ic_save_check_red"
+      xmlns="http://www.w3.org/2000/svg"
+      width="34"
+      height="35"
+      viewBox="0 0 34 35"
+    >
+      <rect
+        id="Rectangle_226"
+        data-name="Rectangle 226"
+        width="34"
+        height="35"
+        fill="#fff"
+        opacity="0"
+      />
+      <g id="Group_56" data-name="Group 56" transform="translate(5 6)">
+        <g
+          id="Rectangle_36"
+          data-name="Rectangle 36"
+          transform="translate(4 16)"
+          fill="rgba(255,255,255,0)"
+          stroke="#00B153"
+          stroke-width="2"
+        >
+          <path
+            d="M0,0H16a0,0,0,0,1,0,0V3a4,4,0,0,1-4,4H4A4,4,0,0,1,0,3V0A0,0,0,0,1,0,0Z"
+            stroke="none"
+          />
+          <path
+            d="M2,1H14a1,1,0,0,1,1,1V3a3,3,0,0,1-3,3H4A3,3,0,0,1,1,3V2A1,1,0,0,1,2,1Z"
+            fill="none"
+          />
+        </g>
+        <g
+          id="Rectangle_37"
+          data-name="Rectangle 37"
+          fill="rgba(255,255,255,0)"
+          stroke="#00B153"
+          stroke-width="2"
+        >
+          <rect width="24" height="19" rx="4" stroke="none" />
+          <rect x="1" y="1" width="22" height="17" rx="3" fill="none" />
+        </g>
+        <g id="left-arrow" transform="translate(7.344 12.97) rotate(-90)">
+          <g id="Group_83" data-name="Group 83" transform="translate(0)">
+            <path
+              id="Path_26"
+              data-name="Path 26"
+              d="M7.521,5.8l.022,0H3.893L5.7,7.613a.779.779,0,0,1,0,1.095l-.461.462a.772.772,0,0,1-1.089,0L.225,5.244a.777.777,0,0,1,0-1.093L4.151.225a.772.772,0,0,1,1.089,0L5.7.686a.763.763,0,0,1,.225.545.741.741,0,0,1-.225.534L3.859,3.6H7.532a.8.8,0,0,1,.782.791v.653A.783.783,0,0,1,7.521,5.8Z"
+              fill="#00B153"
+            />
+          </g>
+        </g>
+      </g>
+    </svg>
+  )
+}

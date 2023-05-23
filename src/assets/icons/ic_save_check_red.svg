@@ -1,0 +1,18 @@
+<svg id="ic_save_check_red" xmlns="http://www.w3.org/2000/svg" width="34" height="35" viewBox="0 0 34 35">
+  <rect id="Rectangle_226" data-name="Rectangle 226" width="34" height="35" fill="#00B153" opacity="0"/>
+  <g id="Group_56" data-name="Group 56" transform="translate(5 6)">
+    <g id="Rectangle_36" data-name="Rectangle 36" transform="translate(4 16)" fill="#00B153" stroke="#00B153" stroke-width="2">
+      <path d="M0,0H16a0,0,0,0,1,0,0V3a4,4,0,0,1-4,4H4A4,4,0,0,1,0,3V0A0,0,0,0,1,0,0Z" stroke="none"/>
+      <path d="M2,1H14a1,1,0,0,1,1,1V3a3,3,0,0,1-3,3H4A3,3,0,0,1,1,3V2A1,1,0,0,1,2,1Z" fill="none"/>
+    </g>
+    <g id="Rectangle_37" data-name="Rectangle 37" fill="#00B153" stroke="#00B153" stroke-width="2">
+      <rect width="24" height="19" rx="4" stroke="none"/>
+      <rect x="1" y="1" width="22" height="17" rx="3" fill="none"/>
+    </g>
+    <g id="left-arrow" transform="translate(7.344 12.97) rotate(-90)">
+      <g id="Group_83" data-name="Group 83" transform="translate(0)">
+        <path id="Path_26" data-name="Path 26" d="M7.521,5.8l.022,0H3.893L5.7,7.613a.779.779,0,0,1,0,1.095l-.461.462a.772.772,0,0,1-1.089,0L.225,5.244a.777.777,0,0,1,0-1.093L4.151.225a.772.772,0,0,1,1.089,0L5.7.686a.763.763,0,0,1,.225.545.741.741,0,0,1-.225.534L3.859,3.6H7.532a.8.8,0,0,1,.782.791v.653A.783.783,0,0,1,7.521,5.8Z" fill="#e57607"/>
+      </g>
+    </g>
+  </g>
+</svg>

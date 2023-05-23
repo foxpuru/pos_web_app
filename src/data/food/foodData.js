@@ -82,6 +82,38 @@ export const FoodData = [
         image: FoodFishImg,
         name: "Sweet and sour & garlic vegetables",
       },
+      {
+        foodType: "veg",
+        image: FoodFishImg,
+        name: "Crispy veg. in schezwan sauce",
+      },
+      {
+        isCutomizable: true,
+        foodType: "non-veg",
+        image: FoodFishImg,
+        name: "veg. in manchurian sauce",
+      },
+      {
+        foodType: "non-veg",
+        image: FoodFishImg,
+        name: "Sweet and sour & garlic vegetables",
+      },
+      {
+        foodType: "veg",
+        image: FoodFishImg,
+        name: "Crispy veg. in schezwan sauce",
+      },
+      {
+        isCutomizable: true,
+        foodType: "non-veg",
+        image: FoodFishImg,
+        name: "veg. in manchurian sauce",
+      },
+      {
+        foodType: "non-veg",
+        image: FoodFishImg,
+        name: "Sweet and sour & garlic vegetables",
+      },
     ],
   },
   {

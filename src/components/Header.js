@@ -88,18 +88,18 @@ export default function Header() {
       >
         <Toolbar
           sx={{
+            display: { lg: undefined, xs: "flex" },
             minHeight: { lg: "64px", xs: "60px" },
             p: "0 !important",
             boxShadow: "0px !important",
+            width: { lg: undefined, xs: "100%" },
+            justifyContent: "space-between",
           }}
-          width={{ lg: undefined, xs: "100%" }}
-          display={{ lg: undefined, xs: "flex" }}
-          justifyContent="space-between"
         >
           <Box
             // py={{ lg: "10px", xs: "7px" }}
             px={{ lg: "22px", xs: "12px" }}
-            width={{ lg: "calc(100% - 388px)", xs: "60%" }}
+            width={{ lg: "calc(100% - 370px)", xs: "60%" }}
             sx={{
               display: "flex",
               alignItems: "center",
@@ -185,10 +185,10 @@ export default function Header() {
           </Box>
           <Box
             // width={{ lg: "30%", xs: "40%" }}
-            minWidth={{ lg: "388px", xs: "40%" }}
+            width={{ lg: "370px", xs: "40%" }}
             display="flex"
-            alignItems="center"
             justifyContent="space-between"
+            alignItems="center"
             px={{ lg: "22px", xs: "0px" }}
             pr={{ lg: "22px", xs: "10px" }}
           >

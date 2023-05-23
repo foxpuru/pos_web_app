@@ -20,6 +20,7 @@ export default function FoodCard({ foods }) {
       sx={{
         minWidth: { lg: "160px", xs: "119px" },
         width: { lg: "160px", xs: "119px" },
+        height: { lg: "160px", xs: "119px" },
         position: "relative",
       }}
     >
@@ -92,7 +93,7 @@ export default function FoodCard({ foods }) {
                 ? "3px solid #000000"
                 : "3px solid #FF4141",
             zIndex: -1,
-            bottom: "-2px",
+            bottom: "0px",
           }}
         />
       )}
