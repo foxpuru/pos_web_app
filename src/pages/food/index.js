@@ -16,7 +16,6 @@ import { PrintIcon, SaveCheckRedIcon } from "@/components/icons"
 
 function ChineseFood() {
   const style = {
-    paddingTop: { lg: "40px", xs: "20px" },
     bgcolor: "background.paper",
   }
 
@@ -28,7 +27,10 @@ function ChineseFood() {
   return (
     <Box display="flex" width="100%" alignItems="start">
       <Box
-        height={{ lg: "calc(100vh - 64px - 68px)" }}
+        height={{
+          lg: "calc(100vh - 64px - 60px)",
+          xs: "calc(100vh - 64px - 38px)",
+        }}
         overflow="auto"
         width="100%"
         display="flex"
@@ -37,17 +39,28 @@ function ChineseFood() {
         gap={{ lg: "12px", xs: "8px" }}
         p={{ lg: "22px", xs: "12px" }}
       >
-        {foodItems?.foods.map((food) => (
-          <FoodCard foods={food} />
+        {foodItems?.foods.map((food, index) => (
+          <FoodCard foods={food} index={index} />
         ))}
       </Box>
       <Box
+        maxWidth={{ lg: "370px", xs: "230px" }}
         minWidth={{ lg: "370px", xs: "230px" }}
-        height={{ lg: "calc(100vh - 64px)" }}
+        height={{ lg: "calc(100vh - 64px)", xs: "calc(100vh - 60px)" }}
         overflow="auto"
         bgcolor="#FFFFFF"
       >
-        <Box height={{ lg: "calc(100vh - 64px - 327px)" }} overflow="auto">
+        <Box
+          height={{
+            lg: "calc(100vh - 60px - 288px)",
+            xs: "calc(100vh - 250px)",
+          }}
+          overflow="auto"
+        >
+          <FoodBillingCard />
+          <FoodBillingCard />
+          <FoodBillingCard />
+          <FoodBillingCard />
           <FoodBillingCard />
           <FoodBillingCard />
           <FoodBillingCard />
@@ -57,7 +70,7 @@ function ChineseFood() {
           <FoodBillingCard />
           <FoodBillingCard />
         </Box>
-        <Box pt={{ lg: "40px" }}>
+        <Box pt={{ lg: "44px", xs: "22px" }}>
           <List sx={style} component="nav" aria-label="mailbox folders">
             <Divider light />
             <Box
@@ -168,68 +181,6 @@ function ChineseFood() {
               </Typography>
             </Box>
             <Divider light />
-            {/* <Box
-              p={{ lg: "8px 10px 8px 10px", xs: "4px 6px 4px 6px" }}
-              display="flex"
-              flexDirection="row"
-              width="100%"
-            >
-              <Button
-                // flexDirection="column"
-
-                alignItems="center"
-                textAlign="center"
-                gap={{ lg: "20px", xs: "12px" }}
-                // justifyContent="center"
-
-                sx={{
-                  // width: { lg: "780px", xs: "550px" },
-                  margin: "auto",
-                  py: { lg: "6px", xs: "4px" },
-                  width: "100%",
-                  backgroundColor: "#A5ACAE",
-                  color: "#FFFFFF !important",
-                  fontSize: { lg: "20px", xs: "15px" },
-                  fontWeight: "400",
-                  letterSpacing: "0.6px",
-                  boxShadow: "3px 3px 12px #00000038",
-                  borderRadius: "10px",
-
-                  "&:hover": {
-                    backgroundColor: "#A5ACAE",
-                  },
-                }}
-              >
-                SUBMIT
-              </Button>
-              <Button
-                // flexDirection="column"
-                alignItems="center"
-                textAlign="center"
-                // gap={{ lg: "0px", xs: "12px" }}
-                // justifyContent="center"
-
-                sx={{
-                  // width: { lg: "780px", xs: "550px" },
-                  margin: "auto",
-                  width: "100%",
-                  py: { lg: "6px", xs: "4px" },
-                  backgroundColor: "#A5ACAE",
-                  color: "#FFFFFF !important",
-                  fontSize: { lg: "20px", xs: "15px" },
-                  fontWeight: "400",
-                  letterSpacing: "0.6px",
-                  boxShadow: "3px 3px 12px #00000038",
-                  borderRadius: "10px",
-
-                  "&:hover": {
-                    backgroundColor: "#A5ACAE",
-                  },
-                }}
-              >
-                SUBMIT
-              </Button>
-            </Box> */}
 
             <Stack
               direction="row"
@@ -250,6 +201,11 @@ function ChineseFood() {
                   textTransform: "uppercase",
                   backgroundColor: "#EEF5F6",
                   borderRadius: "10px",
+
+                  "& svg": {
+                    width: { lg: "32px", xs: "24px" },
+                    height: { lg: "32px", xs: "24px" },
+                  },
                 }}
                 fullWidth
                 startIcon={<PrintIcon />}
@@ -266,6 +222,11 @@ function ChineseFood() {
                   textTransform: "uppercase",
                   backgroundColor: "#EEF5F6",
                   borderRadius: "10px",
+
+                  "& svg": {
+                    width: { lg: "32px", xs: "24px" },
+                    height: { lg: "32px", xs: "24px" },
+                  },
                 }}
                 fullWidth
                 startIcon={<SaveCheckRedIcon />}
@@ -273,6 +234,38 @@ function ChineseFood() {
                 Send
               </Button>
             </Stack>
+
+            <Box>
+              <Button
+                sx={{
+                  height: { lg: "60px", xs: "38px" },
+                  color: "#FFFFFF",
+                  justifyContent: "space-between",
+
+                  fontWeight: "300",
+                  letterSpacing: "0.8px",
+                  backgroundColor: "#00B153",
+                  borderRadius: "0px",
+                  textTransform: "capitalize",
+
+                  "&:hover": {
+                    backgroundColor: "#00B153",
+                  },
+                }}
+                fullWidth
+              >
+                <Typography sx={{ fontSize: { lg: "20px", xs: "12px" } }}>
+                  Charge
+                </Typography>
+                <Typography
+                  sx={{
+                    fontSize: { lg: "28px", xs: "18px", fontWeight: "600" },
+                  }}
+                >
+                  ₹0.00
+                </Typography>
+              </Button>
+            </Box>
           </List>
         </Box>
       </Box>

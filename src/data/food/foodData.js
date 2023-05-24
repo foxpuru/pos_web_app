@@ -2,7 +2,7 @@ import FoodFishImg from "../../assets/images/food_fish.jpg"
 
 export const FoodData = [
   {
-    category: "CHINESE",
+    category: "chinese",
     foods: [
       {
         foodType: "non-veg",
@@ -118,6 +118,37 @@ export const FoodData = [
   },
   {
     category: "Gujrati",
+    foods: [
+      {
+        foodType: "egg",
+        image: FoodFishImg,
+        name: "American chopsuey",
+      },
+    ],
+  },
+  {
+    category: "RICE & NOODLES",
+    foods: [
+      {
+        foodType: "egg",
+        image: FoodFishImg,
+        name: "American chopsuey",
+      },
+    ],
+  },
+  {
+    category: "DESSERTS",
+    foods: [
+      {
+        foodType: "egg",
+        image: FoodFishImg,
+        name: "American chopsuey",
+      },
+    ],
+  },
+
+  {
+    category: "BEVERAGES",
     foods: [
       {
         foodType: "egg",

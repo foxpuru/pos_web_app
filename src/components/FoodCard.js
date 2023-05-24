@@ -12,7 +12,7 @@ import SkipNextIcon from "@mui/icons-material/SkipNext"
 
 import FoodFishImg from "../assets/images/food_fish.jpg"
 
-export default function FoodCard({ foods }) {
+export default function FoodCard({ foods, index }) {
   const theme = useTheme()
 
   return (
@@ -47,7 +47,7 @@ export default function FoodCard({ foods }) {
             // sx={{ borderRadius: "10px" }}
             component="img"
             // sx={{ width: 131 }}
-            image={FoodFishImg.src}
+            image={`https://source.unsplash.com/featured/?category=${foods.foodType}`}
             alt="Live from space album cover"
           />
           <Box
@@ -93,7 +93,7 @@ export default function FoodCard({ foods }) {
                 ? "3px solid #000000"
                 : "3px solid #FF4141",
             zIndex: -1,
-            bottom: "0px",
+            bottom: "-2px",
           }}
         />
       )}
