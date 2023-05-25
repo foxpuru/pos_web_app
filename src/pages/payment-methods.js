@@ -22,6 +22,7 @@ import {
 
 import PaymentMethodArrowImg from "../assets/images/ic_payment_method_arrow.png"
 import { Image } from "@/components/styled-components/tableDetails"
+import MainLayout from "@/layouts/MainLayout"
 
 function PaymentMethods() {
   const style = {
@@ -398,4 +399,7 @@ function PaymentMethods() {
   )
 }
 
+PaymentMethods.getLayout = (page) => (
+  <MainLayout isPaymentMethod>{page}</MainLayout>
+)
 export default PaymentMethods

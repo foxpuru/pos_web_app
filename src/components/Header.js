@@ -28,6 +28,7 @@ import RightMenuImg from "../assets/images/btn_right_menu.png"
 import CheckNameModal from "./ChecksNamePopup"
 
 import MenuModal from "./Menu"
+import { useRouter } from "next/router"
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -83,6 +84,9 @@ export default function Header() {
 
   const { anchorElMenu, openMenu, handleClickMenu, handleCloseMenu } =
     useModalState(false)
+
+  const router = useRouter()
+
   return (
     <Box sx={{ flexGrow: 0 }}>
       <AppBar
@@ -189,6 +193,7 @@ export default function Header() {
               />
             </Box>
           </Box>
+          
           <Box
             // width={{ lg: "30%", xs: "40%" }}
             width={{ lg: "370px", xs: "40%" }}

@@ -5,41 +5,50 @@ import MenuItem from "@mui/material/MenuItem"
 import MoreVertIcon from "@mui/icons-material/MoreVert"
 import { ListItemIcon, ListItemText } from "@mui/material"
 import { ContentCut } from "@mui/icons-material"
-import { AddCustomerProductsIcon, AddDiscountBlackIcon, AddNoteToChekcBlackIcon, OpenedChecksBlackIcon } from "./icons"
+import {
+  AddCustomerProductsIcon,
+  AddDiscountBlackIcon,
+  AddGiftCardIcon,
+  AddNoteToChekcBlackIcon,
+  AddServiceChargeBlackIcon,
+  DiscardCheckBlackIcon,
+  OpenedChecksBlackIcon,
+  PrintCheckBlackIcon,
+} from "./icons"
 // import { OpenedChecksBlackIcon } from "./icons"
 
 const options = [
   {
     label: "Save Checks",
+    icon: <OpenedChecksBlackIcon />,
+  },
+  {
+    label: "Add Custom Products",
     icon: <AddCustomerProductsIcon />,
   },
   {
-    label: "Add Custom Products",
-    icon: <OpenedChecksBlackIcon />,
-  },
-  {
-    label: "Add Custom Products",
+    label: "Add Note to Check",
     icon: <AddNoteToChekcBlackIcon />,
   },
   {
-    label: "Add Custom Products",
+    label: "Add Discount",
     icon: <AddDiscountBlackIcon />,
   },
   {
-    label: "Add Custom Products",
-    icon: <OpenedChecksBlackIcon />,
+    label: "Add Extra Charge",
+    icon: <AddServiceChargeBlackIcon />,
   },
   {
-    label: "Add Custom Products",
-    icon: <OpenedChecksBlackIcon />,
+    label: "Add Gift Card",
+    icon: <AddGiftCardIcon />,
   },
   {
-    label: "Add Custom Products",
-    icon: <OpenedChecksBlackIcon />,
+    label: "Print Check",
+    icon: <PrintCheckBlackIcon />,
   },
   {
-    label: "Add Custom Products",
-    icon: <OpenedChecksBlackIcon />,
+    label: "Discard Check",
+    icon: <DiscardCheckBlackIcon />,
   },
 ]
 
@@ -60,6 +69,7 @@ export default function MenuModal({
       anchorEl={anchorEl}
       open={open}
       onClose={handleClose}
+      // sx={{ width: { lg: "30ch !important", xs: "30ch" } }}
       PaperProps={{
         style: {
           // maxHeight: ITEM_HEIGHT * 4.5,
@@ -82,7 +92,18 @@ export default function MenuModal({
           >
             {option.icon}
           </ListItemIcon>
-          <ListItemText sx={{ ml: { lg: "8px", xs: "6px" } }}>
+          <ListItemText
+            sx={{
+              "& span": {
+                ml: { lg: "8px", xs: "6px" },
+                color: "#000000",
+                fontFamily: "Work Sans",
+                fontSize: { lg: "16px", xs: "12px" },
+                fontWeight: "500",
+                letterSpacing: "0.55px",
+              },
+            }}
+          >
             {option.label}
           </ListItemText>
         </MenuItem>
