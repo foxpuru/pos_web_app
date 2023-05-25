@@ -25,6 +25,9 @@ import MuseposLogo from "../assets/images/musepos_logo_colored_nav.png"
 import MuseLogo from "../assets/images/m_musepos logo.png"
 import LogoutLogo from "../assets/images/btn_logout.png"
 import RightMenuImg from "../assets/images/btn_right_menu.png"
+import CheckNameModal from "./ChecksNamePopup"
+
+import MenuModal from "./Menu"
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -77,6 +80,9 @@ export default function Header() {
   const imageMatches = useMediaQuery((theme) => theme.breakpoints.up("lg"))
 
   const { isOpen, handleToggle, handleOpen, handleClose } = useModalState(false)
+
+  const { anchorElMenu, openMenu, handleClickMenu, handleCloseMenu } =
+    useModalState(false)
   return (
     <Box sx={{ flexGrow: 0 }}>
       <AppBar
@@ -242,6 +248,7 @@ export default function Header() {
                 textTransform: "uppercase",
                 letterSpacing: "0.4px",
               }}
+              onClick={handleOpen}
             >
               GUEST-68
             </Button>
@@ -264,11 +271,24 @@ export default function Header() {
               SAVE
             </Button>
             <Image
+              onClick={handleClickMenu}
               src={RightMenuImg.src}
               alt="btn left"
               sx={{ width: { lg: "28px", xs: "22px" } }}
             />
           </Box>
+          <CheckNameModal
+            isOpen={isOpen}
+            handleToggle={handleToggle}
+            handleOpen={handleOpen}
+            handleClose={handleClose}
+          />
+          <MenuModal
+            open={openMenu}
+            handleClick={handleClickMenu}
+            anchorEl={anchorElMenu}
+            handleClose={handleCloseMenu}
+          />
         </Toolbar>
         {/* <SideBarDrawer /> */}
       </AppBar>

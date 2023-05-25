@@ -657,3 +657,443 @@ export const SaveCheckRedIcon = () => {
     </svg>
   )
 }
+
+export const CardCashIcon = () => {
+  return (
+    <svg
+      id="ic_cash_payment_method"
+      xmlns="http://www.w3.org/2000/svg"
+      width="68"
+      height="63"
+      viewBox="0 0 68 63"
+    >
+      <rect
+        id="Rectangle_244"
+        data-name="Rectangle 244"
+        width="68"
+        height="63"
+        fill="#fff"
+        opacity="0"
+      />
+      <g id="money" transform="translate(7.831 14.064)">
+        <path
+          id="Path_30"
+          data-name="Path 30"
+          d="M192.182,165a7.6,7.6,0,0,0-5.944,2.964,10.8,10.8,0,0,0,0,13.162,7.441,7.441,0,0,0,11.887,0,10.8,10.8,0,0,0,0-13.162A7.6,7.6,0,0,0,192.182,165Zm0,15.944c-2.587,0-4.773-2.93-4.773-6.4s2.186-6.4,4.773-6.4,4.773,2.93,4.773,6.4S194.769,180.944,192.182,180.944Z"
+          transform="translate(-164.186 -156.781)"
+          fill="#fff"
+        />
+        <path
+          id="Path_31"
+          data-name="Path 31"
+          d="M50.355,105.438H4.483A4.488,4.488,0,0,0,0,109.921v25.693A4.488,4.488,0,0,0,4.483,140.1H50.355a4.488,4.488,0,0,0,4.483-4.483V109.921A4.488,4.488,0,0,0,50.355,105.438Zm1.03,4.483v5.747a8.7,8.7,0,0,1-6.776-6.776h5.746A1.031,1.031,0,0,1,51.385,109.921Zm-46.9-1.03h5.746a8.7,8.7,0,0,1-6.776,6.776v-5.747A1.031,1.031,0,0,1,4.483,108.891Zm-1.03,26.722v-5.747a8.7,8.7,0,0,1,6.776,6.776H4.483A1.031,1.031,0,0,1,3.453,135.613Zm10.28,1.03a12.158,12.158,0,0,0-10.28-10.28v-7.193a12.158,12.158,0,0,0,10.28-10.28H41.105a12.158,12.158,0,0,0,10.28,10.28v7.193a12.158,12.158,0,0,0-10.28,10.28H13.733Zm36.622,0H44.609a8.7,8.7,0,0,1,6.776-6.776v5.747A1.031,1.031,0,0,1,50.355,136.643Z"
+          transform="translate(0 -105.438)"
+          fill="#fff"
+        />
+      </g>
+    </svg>
+  )
+}
+
+export const CardCardsIcon = () => {
+  return (
+    <svg
+      id="ic_card_payment_method"
+      xmlns="http://www.w3.org/2000/svg"
+      width="68"
+      height="63"
+      viewBox="0 0 68 63"
+    >
+      <rect
+        id="Rectangle_245"
+        data-name="Rectangle 245"
+        width="68"
+        height="63"
+        fill="#fff"
+        opacity="0"
+      />
+      <g id="credit-card" transform="translate(8.419 15.131)">
+        <g id="Group_94" data-name="Group 94" transform="translate(0 0)">
+          <g id="Group_93" data-name="Group 93">
+            <path
+              id="Path_32"
+              data-name="Path 32"
+              d="M45.292,85.333H5.266A5.274,5.274,0,0,0,0,90.6v23.173a5.274,5.274,0,0,0,5.266,5.267H45.292a5.274,5.274,0,0,0,5.266-5.267V90.6A5.274,5.274,0,0,0,45.292,85.333Zm3.16,28.439a3.164,3.164,0,0,1-3.16,3.16H5.266a3.164,3.164,0,0,1-3.16-3.16V90.6a3.164,3.164,0,0,1,3.16-3.16H45.292a3.164,3.164,0,0,1,3.16,3.16v23.173Z"
+              transform="translate(0 -85.333)"
+              fill="#fff"
+              stroke="#fff"
+              stroke-width="1"
+            />
+          </g>
+        </g>
+        <g id="Group_96" data-name="Group 96" transform="translate(0 6.32)">
+          <g id="Group_95" data-name="Group 95">
+            <path
+              id="Path_33"
+              data-name="Path 33"
+              d="M49.505,149.333H1.053A1.054,1.054,0,0,0,0,150.386v6.32a1.054,1.054,0,0,0,1.053,1.053H49.505a1.054,1.054,0,0,0,1.053-1.053v-6.32A1.054,1.054,0,0,0,49.505,149.333Zm-1.053,6.32H2.107V151.44H48.452v4.213Z"
+              transform="translate(0 -149.333)"
+              fill="#fff"
+              stroke="#fff"
+              stroke-width="1"
+            />
+          </g>
+        </g>
+        <g
+          id="Group_98"
+          data-name="Group 98"
+          transform="translate(6.32 21.066)"
+        >
+          <g id="Group_97" data-name="Group 97" transform="translate(0 0)">
+            <path
+              id="Path_34"
+              data-name="Path 34"
+              d="M77.693,298.667H65.053a1.053,1.053,0,1,0,0,2.107h12.64a1.053,1.053,0,1,0,0-2.107Z"
+              transform="translate(-64 -298.667)"
+              fill="#fff"
+              stroke="#fff"
+              stroke-width="1"
+            />
+          </g>
+        </g>
+        <g
+          id="Group_100"
+          data-name="Group 100"
+          transform="translate(6.32 25.279)"
+        >
+          <g id="Group_99" data-name="Group 99">
+            <path
+              id="Path_35"
+              data-name="Path 35"
+              d="M77.693,341.333H65.053a1.053,1.053,0,1,0,0,2.107h12.64a1.053,1.053,0,0,0,0-2.107Z"
+              transform="translate(-64 -341.333)"
+              fill="#fff"
+              stroke="#fff"
+              stroke-width="1"
+            />
+          </g>
+        </g>
+        <g
+          id="Group_102"
+          data-name="Group 102"
+          transform="translate(35.812 18.96)"
+        >
+          <g id="Group_101" data-name="Group 101">
+            <path
+              id="Path_36"
+              data-name="Path 36"
+              d="M367.933,277.333h-2.107a3.164,3.164,0,0,0-3.16,3.16V282.6a3.164,3.164,0,0,0,3.16,3.16h2.107a3.164,3.164,0,0,0,3.16-3.16v-2.107A3.164,3.164,0,0,0,367.933,277.333Zm1.053,5.267a1.054,1.054,0,0,1-1.053,1.053h-2.107a1.054,1.054,0,0,1-1.053-1.053v-2.107a1.054,1.054,0,0,1,1.053-1.053h2.107a1.054,1.054,0,0,1,1.053,1.053Z"
+              transform="translate(-362.667 -277.333)"
+              fill="#fff"
+              stroke="#fff"
+              stroke-width="1"
+            />
+          </g>
+        </g>
+      </g>
+    </svg>
+  )
+}
+
+export const CardGiftIcon = () => {
+  return (
+    <svg
+      id="ic_gift_card_method"
+      xmlns="http://www.w3.org/2000/svg"
+      width="68"
+      height="63"
+      viewBox="0 0 68 63"
+    >
+      <rect
+        id="Rectangle_244"
+        data-name="Rectangle 244"
+        width="68"
+        height="63"
+        fill="#fff"
+        opacity="0"
+      />
+      <g
+        id="Group_5288"
+        data-name="Group 5288"
+        transform="translate(7.091 14.055)"
+      >
+        <path
+          id="Path_12711"
+          data-name="Path 12711"
+          d="M-408.7,223.776V246.4a1.314,1.314,0,0,0-.072.22,6.78,6.78,0,0,1-6.624,5.844c-9.172.02-31.98.018-41.152,0a6.785,6.785,0,0,1-6.457-5.024c-.092-.344-.161-.694-.241-1.041V223.776a1.909,1.909,0,0,0,.075-.261,6.8,6.8,0,0,1,6.622-5.8c9.172-.018,31.98-.016,41.153,0a6.779,6.779,0,0,1,6.455,5.025C-408.854,223.08-408.784,223.43-408.7,223.776Zm-3.443,9.8c-.091-.011-.142-.022-.194-.022-3.341,0-17.592,0-20.933-.008-.24,0-.316.117-.395.3a4.638,4.638,0,0,1-2.2,2.438,19.631,19.631,0,0,1-2.238.8c.019.032.079.146.148.255.613.966,1.225,1.932,1.843,2.894a1.7,1.7,0,0,1,.239,1.448,1.606,1.606,0,0,1-1.385,1.215,1.6,1.6,0,0,1-1.679-.759c-.848-1.305-1.675-2.624-2.512-3.936-.074-.116-.158-.226-.277-.4v11.234c.114.007.193.015.272.015,4.979,0,20.867,0,25.845,0a3.73,3.73,0,0,0,.754-.063,3.341,3.341,0,0,0,2.732-3.324c.022-3.035.007-8.8.007-11.833C-412.122,233.76-412.137,233.682-412.148,233.574Zm-29.6-5.5c.272-.166.5-.314.741-.451a5.061,5.061,0,0,1,2.616-.877,4.983,4.983,0,0,1,4.678,3.034.546.546,0,0,0,.586.381c3.209-.012,17.328-.007,20.537-.007h.434c.014-.129.03-.207.03-.284,0-1.332,0-4.027,0-5.359a3.269,3.269,0,0,0-.056-.635,3.391,3.391,0,0,0-3.513-2.755c-4.914,0-20.736,0-25.65,0-.129,0-.257.013-.4.021Zm-3.474,20.967V237.767l-.37.579c-.808,1.268-1.6,2.544-2.427,3.8a1.677,1.677,0,0,1-2.349.511,1.693,1.693,0,0,1-.51-2.35c.429-.7.881-1.394,1.323-2.09l.763-1.2c-.038-.031-.046-.043-.056-.045-.052-.01-.1-.02-.157-.026a5.143,5.143,0,0,1-4.328-3.155.506.506,0,0,0-.378-.232c-1.038-.019-4.8-.011-5.842-.009a1.831,1.831,0,0,0-.268.04c-.008.116-.019.208-.019.3,0,2.982,0,8.691,0,11.673a3.782,3.782,0,0,0,.062.754,3.348,3.348,0,0,0,3.323,2.734c2.755.022,8.238.007,10.994.007C-445.376,249.06-445.3,249.048-445.218,249.042Zm.018-27.922h-.363c-2.662,0-8.052-.006-10.714,0a3.381,3.381,0,0,0-3.556,3.562c-.006,1.225,0,3.813,0,5.037,0,.13.011.259.018.414.157.007.288.017.418.018.958,0,4.644-.009,5.6.007a.49.49,0,0,0,.533-.339,4.963,4.963,0,0,1,4.728-3.071,5.481,5.481,0,0,1,2.885,1.054c.141.086.28.177.45.284Zm-.645,10.725c-.8-.549-1.49-1.038-2.2-1.5a1.28,1.28,0,0,0-1.463.069,1.7,1.7,0,0,0-.545,2.31,1.5,1.5,0,0,0,2.19.526C-447.209,232.849-446.6,232.376-445.845,231.845Zm4.836-.1.032.19c.629.443,1.255.891,1.888,1.329a1.591,1.591,0,0,0,2.433-1.346c.05-1.1-1.12-2.11-2.018-1.659A25.556,25.556,0,0,0-441.009,231.745Z"
+          transform="translate(463.25 -217.699)"
+          fill="#fff"
+          fill-rule="evenodd"
+        />
+      </g>
+    </svg>
+  )
+}
+
+export const AddCustomerProductsIcon = () => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="44"
+      height="43"
+      viewBox="0 0 44 43"
+    >
+      <g
+        id="ic_add_customer_products_black"
+        transform="translate(-0.055 0.428)"
+      >
+        <rect
+          id="Rectangle_227"
+          data-name="Rectangle 227"
+          width="44"
+          height="43"
+          transform="translate(0.055 -0.428)"
+          fill="#fff"
+          opacity="0"
+        />
+        <g
+          id="Group_84"
+          data-name="Group 84"
+          transform="translate(7.886 6.914)"
+        >
+          <g
+            id="Rectangle_36"
+            data-name="Rectangle 36"
+            transform="translate(1.169 7.658)"
+            fill="rgba(255,255,255,0)"
+            stroke="#000"
+            stroke-width="2"
+          >
+            <path
+              d="M0,0H26a0,0,0,0,1,0,0V18a4,4,0,0,1-4,4H4a4,4,0,0,1-4-4V0A0,0,0,0,1,0,0Z"
+              stroke="none"
+            />
+            <path
+              d="M2,1H24a1,1,0,0,1,1,1V18a3,3,0,0,1-3,3H4a3,3,0,0,1-3-3V2A1,1,0,0,1,2,1Z"
+              fill="none"
+            />
+          </g>
+          <g
+            id="Rectangle_37"
+            data-name="Rectangle 37"
+            transform="translate(-0.831 -0.342)"
+            fill="rgba(255,255,255,0)"
+            stroke="#000"
+            stroke-width="2"
+          >
+            <rect width="30" height="10" rx="4" stroke="none" />
+            <rect x="1" y="1" width="28" height="8" rx="3" fill="none" />
+          </g>
+          <path
+            id="Union_4"
+            data-name="Union 4"
+            d="M4.551,10a1,1,0,0,1-1-1V6.5h-2.5a1,1,0,0,1-1-1v-1a1,1,0,0,1,1-1h2.5V1a1,1,0,0,1,1-1h1a1,1,0,0,1,1,1V3.5h2.5a1,1,0,0,1,1,1v1a1,1,0,0,1-1,1h-2.5V9a1,1,0,0,1-1,1Z"
+            transform="translate(9.117 13.658)"
+          />
+        </g>
+      </g>
+    </svg>
+  )
+}
+
+export const OpenedChecksBlackIcon = () => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="44"
+      height="43"
+      viewBox="0 0 44 43"
+    >
+      <g id="ic_opened_checks_black" transform="translate(-0.055 -0.314)">
+        <rect
+          id="Rectangle_226"
+          data-name="Rectangle 226"
+          width="44"
+          height="43"
+          transform="translate(0.055 0.314)"
+          fill="#fff"
+          opacity="0"
+        />
+        <g
+          id="Group_56"
+          data-name="Group 56"
+          transform="translate(6.886 6.886)"
+        >
+          <g
+            id="Rectangle_36"
+            data-name="Rectangle 36"
+            transform="translate(5.169 20.429)"
+            fill="rgba(255,255,255,0)"
+            stroke="#000"
+            stroke-width="2"
+          >
+            <path
+              d="M0,0H20a0,0,0,0,1,0,0V6a4,4,0,0,1-4,4H4A4,4,0,0,1,0,6V0A0,0,0,0,1,0,0Z"
+              stroke="none"
+            />
+            <path
+              d="M2,1H18a1,1,0,0,1,1,1V6a3,3,0,0,1-3,3H4A3,3,0,0,1,1,6V2A1,1,0,0,1,2,1Z"
+              fill="none"
+            />
+          </g>
+          <g
+            id="Rectangle_37"
+            data-name="Rectangle 37"
+            transform="translate(0.169 0.429)"
+            fill="rgba(255,255,255,0)"
+            stroke="#000"
+            stroke-width="2"
+          >
+            <rect width="30" height="22" rx="4" stroke="none" />
+            <rect x="1" y="1" width="28" height="20" rx="3" fill="none" />
+          </g>
+          <g id="left-arrow" transform="translate(21.17 6.429) rotate(90)">
+            <g id="Group_83" data-name="Group 83" transform="translate(0 0)">
+              <path
+                id="Path_26"
+                data-name="Path 26"
+                d="M9.047,4.588l.026.006H4.683L6.858,2.276a1.018,1.018,0,0,0,.27-.7,1.015,1.015,0,0,0-.27-.7L6.3.288a.89.89,0,0,0-1.31,0L.27,5.3a1.037,1.037,0,0,0,0,1.4l4.723,5.015a.891.891,0,0,0,1.31,0l.555-.59a1.007,1.007,0,0,0,.27-.7.976.976,0,0,0-.27-.683L4.642,7.405H9.06A.993.993,0,0,0,10,6.4V5.562A.97.97,0,0,0,9.047,4.588Z"
+                transform="translate(0 0)"
+              />
+            </g>
+          </g>
+        </g>
+      </g>
+    </svg>
+  )
+}
+
+export const AddNoteToChekcBlackIcon = () => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="44"
+      height="44"
+      viewBox="0 0 44 44"
+    >
+      <g id="ic_add_note_to_check_black" transform="translate(-0.055 0.199)">
+        <rect
+          id="Rectangle_228"
+          data-name="Rectangle 228"
+          width="44"
+          height="44"
+          transform="translate(0.055 -0.199)"
+          fill="#fff"
+          opacity="0"
+        />
+        <g
+          id="Rectangle_37"
+          data-name="Rectangle 37"
+          transform="translate(7.055 6.801)"
+          fill="none"
+          stroke="#000"
+          stroke-width="2"
+        >
+          <rect width="30" height="30" rx="4" stroke="none" />
+          <rect x="1" y="1" width="28" height="28" rx="3" fill="none" />
+        </g>
+        <path
+          id="Union_5"
+          data-name="Union 5"
+          d="M4.5,10a1,1,0,0,1-1-1V6.5H1a1,1,0,0,1-1-1v-1a1,1,0,0,1,1-1H3.5V1a1,1,0,0,1,1-1h1a1,1,0,0,1,1,1V3.5H9a1,1,0,0,1,1,1v1a1,1,0,0,1-1,1H6.5V9a1,1,0,0,1-1,1Z"
+          transform="translate(22.055 21.801)"
+        />
+        <rect
+          id="Rectangle_73"
+          data-name="Rectangle 73"
+          width="18"
+          height="3"
+          rx="1"
+          transform="translate(12.055 11.801)"
+        />
+        <rect
+          id="Rectangle_74"
+          data-name="Rectangle 74"
+          width="10"
+          height="3"
+          rx="1"
+          transform="translate(12.055 16.801)"
+        />
+        <rect
+          id="Rectangle_75"
+          data-name="Rectangle 75"
+          width="5"
+          height="3"
+          rx="1"
+          transform="translate(12.055 25.301)"
+        />
+      </g>
+    </svg>
+  )
+}
+
+export const AddDiscountBlackIcon = () => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="44"
+      height="43"
+      viewBox="0 0 44 43"
+    >
+      <g id="ic_add_discount_black" transform="translate(-0.055 -0.044)">
+        <rect
+          id="Rectangle_229"
+          data-name="Rectangle 229"
+          width="44"
+          height="43"
+          transform="translate(0.055 0.044)"
+          fill="#fff"
+          opacity="0"
+        />
+        <g
+          id="Group_56"
+          data-name="Group 56"
+          transform="translate(12.302 8.231)"
+        >
+          <g
+            id="Rectangle_37"
+            data-name="Rectangle 37"
+            transform="translate(0 2.814)"
+            fill="none"
+            stroke="#000"
+            stroke-width="2"
+          >
+            <rect width="8.616" height="8.616" rx="4.308" stroke="none" />
+            <rect
+              x="1"
+              y="1"
+              width="6.616"
+              height="6.616"
+              rx="3.308"
+              fill="none"
+            />
+          </g>
+          <g
+            id="Rectangle_77"
+            data-name="Rectangle 77"
+            transform="translate(11.384 16.814)"
+            fill="none"
+            stroke="#000"
+            stroke-width="2"
+          >
+            <rect width="8.616" height="8.616" rx="4.308" stroke="none" />
+            <rect
+              x="1"
+              y="1"
+              width="6.616"
+              height="6.616"
+              rx="3.308"
+              fill="none"
+            />
+          </g>
+          <path
+            id="Path_32315"
+            data-name="Path 32315"
+            d="M1.417-.017A1.38,1.38,0,0,1,2.823,1.374L2.554,29.465a1.445,1.445,0,0,1-1.434,1.418A1.38,1.38,0,0,1-.286,29.492L-.017,1.4A1.445,1.445,0,0,1,1.417-.017Z"
+            transform="translate(16.618 -0.029) rotate(30)"
+          />
+        </g>
+      </g>
+    </svg>
+  )
+}

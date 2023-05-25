@@ -33,13 +33,16 @@ const Demo = styled("div")(({ theme }) => ({
   backgroundColor: theme.palette.background.paper,
 }))
 
-export default function FoodBillingCard() {
+export default function FoodBillingCard({
+  counterButton = true,
+  discount = true,
+}) {
   const [dense, setDense] = React.useState(false)
   const [secondary, setSecondary] = React.useState(false)
 
   return (
     <Box
-      p={{ lg: "10px", xs: "6px" }}
+      p={{ lg: "10px", xs: "10px" }}
       sx={{
         borderBottom: "2px solid #e5ebec",
         position: "relative",
@@ -47,32 +50,35 @@ export default function FoodBillingCard() {
       }}
       width="100%"
     >
-      <Box
+     <Box 
         mr={{ lg: "10px", xs: "6px" }}
         sx={{
           display: "grid",
           // flexDirection: "column",
-          alignItems: "center",
+          alignItems: "start",
           justifyItems: "center",
         }}
       >
-        <Avatar
-          sx={{
-            backgroundColor: "#00b15325",
-            borderRadius: "6px",
-            width: { lg: "22px", xs: "18px" },
-            height: { lg: "28px", xs: "22px" },
-          }}
-        >
-          <AddFoodToCartIcon />
-        </Avatar>
+        {counterButton && (
+          <Avatar
+            sx={{
+              backgroundColor: "#00b15325",
+              borderRadius: "6px",
+              width: { lg: "22px", xs: "18px" },
+              height: { lg: "28px", xs: "22px" },
+            }}
+          >
+            <AddFoodToCartIcon />
+          </Avatar>
+        )}
         <Box
           sx={{
-            border: "2px solid #5C6568",
+            border: counterButton && "2px solid #5C6568",
+            backgroundColor: !counterButton && "#D7DBDC",
             opactiy: "1",
-            borderRadius: "6px",
-            width: { lg: "32px", xs: "22px" },
-            height: { lg: "32px", xs: "22px" },
+            borderRadius: { lg: "6px", xs: "4px" },
+            width: { lg: "28px", xs: "20px" },
+            height: { lg: "28px", xs: "20px" },
             justifyContent: "center",
             alignItems: "center",
             display: "flex",
@@ -88,16 +94,18 @@ export default function FoodBillingCard() {
             1
           </Typography>
         </Box>
-        <Avatar
-          sx={{
-            backgroundColor: "#D7DBDC",
-            borderRadius: "6px",
-            width: { lg: "22px", xs: "18px" },
-            height: { lg: "28px", xs: "22px" },
-          }}
-        >
-          <RemoveFoodToCartIcon />
-        </Avatar>
+        {counterButton && (
+          <Avatar
+            sx={{
+              backgroundColor: "#D7DBDC",
+              borderRadius: "6px",
+              width: { lg: "22px", xs: "18px" },
+              height: { lg: "28px", xs: "22px" },
+            }}
+          >
+            <RemoveFoodToCartIcon />
+          </Avatar>
+        )}
       </Box>
       <Box width="100%" display="grid" alignItems="center">
         <Box
@@ -105,7 +113,7 @@ export default function FoodBillingCard() {
           alignItems="start"
           justifyContent="space-between"
           width="100%"
-          gap={{ lg: "20px", xs: "10px" }}
+          gap={{ lg: "24px", xs: "12px" }}
         >
           <Typography
             sx={{
@@ -139,20 +147,22 @@ export default function FoodBillingCard() {
           </Typography>
         </Box>
       </Box>
-      <Avatar
-        sx={{
-          position: "absolute",
-          // top: "40px",
-          right: "16px",
-          bottom: "8px",
-          backgroundColor: "#D7DBDC",
-          borderRadius: "6px",
-          width: { lg: "28px", xs: "18px" },
-          height: { lg: "28px", xs: "22px" },
-        }}
-      >
-        <OfferOnFoodIcon />
-      </Avatar>
+      {discount && (
+        <Avatar
+          sx={{
+            position: "absolute",
+            // top: "40px",
+            right: "16px",
+            bottom: "8px",
+            backgroundColor: "#D7DBDC",
+            borderRadius: "6px",
+            width: { lg: "28px", xs: "18px" },
+            height: { lg: "28px", xs: "22px" },
+          }}
+        >
+          <OfferOnFoodIcon />
+        </Avatar>
+      )}
     </Box>
   )
 }
