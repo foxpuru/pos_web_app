@@ -5,7 +5,7 @@ function MainLayout({ children, isPaymentMethod }) {
   console.log("iss", isPaymentMethod)
   return (
     <>
-      <Header />
+      <Header isPaymentMethod={isPaymentMethod} />
       {children}
     </>
   )

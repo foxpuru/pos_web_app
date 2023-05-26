@@ -12,7 +12,7 @@ import SkipNextIcon from "@mui/icons-material/SkipNext"
 
 import FoodFishImg from "../assets/images/food_fish.jpg"
 
-export default function FoodCard({ foods, index }) {
+export default function FoodCard({ foods }) {
   const theme = useTheme()
 
   return (

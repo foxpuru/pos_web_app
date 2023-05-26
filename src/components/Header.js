@@ -72,7 +72,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }))
 
-export default function Header() {
+export default function Header({ isPaymentMethod }) {
   const [age, setAge] = React.useState(10)
 
   const handleChange = (event) => {
@@ -109,7 +109,10 @@ export default function Header() {
           <Box
             // py={{ lg: "10px", xs: "7px" }}
             px={{ lg: "22px", xs: "12px" }}
-            width={{ lg: "calc(100% - 370px)", xs: "60%" }}
+            width={{
+              lg: isPaymentMethod ? "100%" : "calc(100% - 370px)",
+              xs: isPaymentMethod ? "100%" : "60%",
+            }}
             sx={{
               display: "flex",
               alignItems: "center",
@@ -193,95 +196,97 @@ export default function Header() {
               />
             </Box>
           </Box>
-          
-          <Box
-            // width={{ lg: "30%", xs: "40%" }}
-            width={{ lg: "370px", xs: "40%" }}
-            display="flex"
-            justifyContent="space-between"
-            alignItems="center"
-            px={{ lg: "22px", xs: "0px" }}
-            pr={{ lg: "22px", xs: "10px" }}
-          >
-            <Box>
-              <FormControl sx={{ m: 0, minWidth: 120 }}>
-                <Select
-                  value={age}
-                  onChange={handleChange}
-                  // defaultOpen
-                  // displayEmpty
-                  inputProps={{ "aria-label": "Without label" }}
-                  sx={{
-                    padding: "0 !important",
-                    margin: "0 !important",
-                    borderRadius: "10px",
-                    color: "#E57607",
-                    fontSize: { lg: "14px", xs: "12px" },
-                    fontWeight: "400",
-                    letterSpacing: "0.45px",
+          {!isPaymentMethod && (
+            <Box
+              // width={{ lg: "30%", xs: "40%" }}
+              width={{ lg: "370px", xs: "40%" }}
+              display="flex"
+              justifyContent="space-between"
+              alignItems="center"
+              px={{ lg: "22px", xs: "0px" }}
+              pr={{ lg: "22px", xs: "10px" }}
+            >
+              <Box>
+                <FormControl sx={{ m: 0, minWidth: 120 }}>
+                  <Select
+                    value={age}
+                    onChange={handleChange}
+                    // defaultOpen
+                    // displayEmpty
+                    inputProps={{ "aria-label": "Without label" }}
+                    sx={{
+                      padding: "0 !important",
+                      margin: "0 !important",
+                      borderRadius: "10px",
+                      color: "#E57607",
+                      fontSize: { lg: "14px", xs: "12px" },
+                      fontWeight: "400",
+                      letterSpacing: "0.45px",
 
-                    ".MuiSelect-select": {
-                      padding: { lg: "6px", xs: "4px" },
-                      px: { lg: "18px", xs: "14px" },
-                    },
+                      ".MuiSelect-select": {
+                        padding: { lg: "6px", xs: "4px" },
+                        px: { lg: "18px", xs: "14px" },
+                      },
 
-                    fieldset: {
-                      border: "1px solid #F3F3F3",
-                    },
-                  }}
-                >
-                  <MenuItem value={10}>Take Away</MenuItem>
-                  <MenuItem value={20}>Dine-In</MenuItem>
-                </Select>
-              </FormControl>
+                      fieldset: {
+                        border: "1px solid #F3F3F3",
+                      },
+                    }}
+                  >
+                    <MenuItem value={10}>Take Away</MenuItem>
+                    <MenuItem value={20}>Dine-In</MenuItem>
+                  </Select>
+                </FormControl>
+              </Box>
+              <Button
+                sx={{
+                  height: { lg: "32.13px", xs: "25.25px" },
+                  minWidth: { lg: "100px", xs: "80px" },
+                  justifyContent: "left",
+                  p: 0,
+                  px: { lg: "8px", xs: "4px" },
+                  textAlign: "left",
+                  // pr: { lg: "20px", xs: "4px" },
+                  border: "1px solid #F3F3F3",
+                  // backgroundColor: "#EEF5F6",
+                  borderRadius: "10px",
+                  color: "#000000",
+                  fontSize: { lg: "12px", xs: "9px" },
+                  fontWeight: "500",
+                  textTransform: "uppercase",
+                  letterSpacing: "0.4px",
+                }}
+                onClick={handleOpen}
+              >
+                GUEST-68
+              </Button>
+              <Button
+                sx={{
+                  height: { lg: "32.13px", xs: "25.25px" },
+                  p: 0,
+                  minWidth: { lg: "50px", xs: "40px" },
+                  // px: { lg: "8px", xs: "4px" },
+                  border: "1px solid #F3F3F3",
+                  backgroundColor: "#00B153",
+                  borderRadius: "10px",
+                  color: "#FFFFFF",
+                  fontSize: { lg: "12px", xs: "9px" },
+                  fontWeight: "500",
+                  textTransform: "uppercase",
+                  letterSpacing: "0.4px",
+                }}
+              >
+                SAVE
+              </Button>
+              <Image
+                onClick={handleClickMenu}
+                src={RightMenuImg.src}
+                alt="btn left"
+                sx={{ width: { lg: "28px", xs: "22px" } }}
+              />
             </Box>
-            <Button
-              sx={{
-                height: { lg: "32.13px", xs: "25.25px" },
-                minWidth: { lg: "100px", xs: "80px" },
-                justifyContent: "left",
-                p: 0,
-                px: { lg: "8px", xs: "4px" },
-                textAlign: "left",
-                // pr: { lg: "20px", xs: "4px" },
-                border: "1px solid #F3F3F3",
-                // backgroundColor: "#EEF5F6",
-                borderRadius: "10px",
-                color: "#000000",
-                fontSize: { lg: "12px", xs: "9px" },
-                fontWeight: "500",
-                textTransform: "uppercase",
-                letterSpacing: "0.4px",
-              }}
-              onClick={handleOpen}
-            >
-              GUEST-68
-            </Button>
-            <Button
-              sx={{
-                height: { lg: "32.13px", xs: "25.25px" },
-                p: 0,
-                minWidth: { lg: "50px", xs: "40px" },
-                // px: { lg: "8px", xs: "4px" },
-                border: "1px solid #F3F3F3",
-                backgroundColor: "#00B153",
-                borderRadius: "10px",
-                color: "#FFFFFF",
-                fontSize: { lg: "12px", xs: "9px" },
-                fontWeight: "500",
-                textTransform: "uppercase",
-                letterSpacing: "0.4px",
-              }}
-            >
-              SAVE
-            </Button>
-            <Image
-              onClick={handleClickMenu}
-              src={RightMenuImg.src}
-              alt="btn left"
-              sx={{ width: { lg: "28px", xs: "22px" } }}
-            />
-          </Box>
+          )}
+
           <CheckNameModal
             isOpen={isOpen}
             handleToggle={handleToggle}

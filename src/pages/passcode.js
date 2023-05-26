@@ -107,7 +107,7 @@ function Passcode() {
                 }}
               />
             </Box>
-            
+            <Button
               width="100%"
               // flexDirection="column"
               alignItems="center"
@@ -131,7 +131,7 @@ function Passcode() {
               disabled={otp.length < 4}
             >
               SUBMIT
-            </Button><Button
+            </Button>
           </Box>
         </Form>
       </Formik>

@@ -40,7 +40,7 @@ function ChineseFood() {
         p={{ lg: "22px", xs: "12px" }}
       >
         {foodItems?.foods.map((food, index) => (
-          <FoodCard foods={food} index={index} />
+          <FoodCard foods={food} key={index} />
         ))}
       </Box>
       <Box

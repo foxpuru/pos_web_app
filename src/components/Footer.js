@@ -59,7 +59,7 @@ export default function Footer() {
         }}
       >
         {FoodData.map((food) => (
-          <FooterFoodCategory title={food.category}/>
+          <FooterFoodCategory key={food.category} title={food.category} />
         ))}
       </Box>
 
