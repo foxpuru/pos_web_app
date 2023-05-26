@@ -46,6 +46,7 @@
 
 .device-code-form-control {
   // width: 100%;
+
   // padding-left: 50px;
   // padding-right: 50px;
   background-color: #ffffff;
@@ -56,6 +57,7 @@
   border-radius: 10px;
   // justify-content: space-between;
   input {
+    cursor: pointer;
     min-width: 60px !important;
     width: unset !important;
     height: 60px !important;

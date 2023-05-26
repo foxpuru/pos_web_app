@@ -29,7 +29,7 @@ const GridItem = () => {
 function DeviceCode() {
   const [otp, setOtp] = useState("")
 
-  const Router = useRouter()
+  const router = useRouter()
 
   return (
     <Box>
@@ -102,7 +102,11 @@ function DeviceCode() {
           <Form>
             <Grid
               py={4}
-              sx={{ width: { lg: "1200px", xs: "650px" }, margin: "auto" }}
+              sx={{
+                width: { lg: "1200px", xs: "650px" },
+                margin: "auto",
+              }}
+              onClick={() => router.push("/plan-renewal")}
             >
               <OTPInput
                 containerStyle="device-code-form-control"
@@ -179,7 +183,7 @@ function DeviceCode() {
                 }}
                 disabled={otp.length == 12 ? false : true}
                 onClick={() =>
-                  otp.length == 12 ? Router.push("/") : undefined
+                  otp.length == 12 ? router.push("/plan-renewal") : undefined
                 }
               >
                 SUBMIT
@@ -192,5 +196,4 @@ function DeviceCode() {
   )
 }
 
-DeviceCode.getLayout = (page) => <BlankLayout>{page}</BlankLayout>
 export default DeviceCode

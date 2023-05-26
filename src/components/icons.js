@@ -1408,3 +1408,31 @@ export const DiscardCheckBlackIcon = () => {
     </svg>
   )
 }
+
+export const SearchGreyIcon = () => {
+  return (
+    <svg
+      id="ic_search_grey"
+      xmlns="http://www.w3.org/2000/svg"
+      width="52"
+      height="52"
+      viewBox="0 0 52 52"
+    >
+      <rect
+        id="Rectangle_237"
+        data-name="Rectangle 237"
+        width="52"
+        height="52"
+        fill="#fff"
+        opacity="0"
+      />
+      <path
+        id="Path_6"
+        data-name="Path 6"
+        d="M41.818,39.984l-7.5-7.5a13.138,13.138,0,1,0-1.84,1.84l7.5,7.494a1.3,1.3,0,0,0,1.84-1.834Zm-17.669-5.3A10.535,10.535,0,1,1,34.687,24.149,10.545,10.545,0,0,1,24.149,34.68Z"
+        transform="translate(-0.6 -0.6)"
+        fill="#a5acae"
+      />
+    </svg>
+  )
+}

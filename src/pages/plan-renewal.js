@@ -6,8 +6,10 @@ import React from "react"
 import navLogoImg from "../assets/images/musepos_logo_colored_nav.png"
 
 import PlanRenewalImg from "../assets/images/ic_plan_renewal_payment_problem.png"
+import { useRouter } from "next/router"
 
 function PlanRenewal() {
+  const router = useRouter()
   return (
     <Box>
       <Box
@@ -39,6 +41,7 @@ function PlanRenewal() {
               },
             }}
             // disabled={otp.length < 4}
+            onClick={() => router.push("/passcode")}
           >
             Continue
           </Button>

@@ -8,10 +8,11 @@ import LogoImg from "../assets/images/musepos_logo_colored_white.png"
 import ClockImg from "../assets/images/ic_clock_in.png"
 import { Form, Formik } from "formik"
 import BlankLayout from "@/layouts/BlankLayout"
+import { useRouter } from "next/router"
 
 function Passcode() {
   const [otp, setOtp] = useState("")
-
+const router = useRouter()
   return (
     <Box
       sx={{
@@ -129,6 +130,7 @@ function Passcode() {
                 },
               }}
               disabled={otp.length < 4}
+              onClick={() => router.push("/food?category=chinese")}
             >
               SUBMIT
             </Button>

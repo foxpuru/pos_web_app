@@ -13,7 +13,7 @@ export const SideBarItems = [
   {
     label: "New Check",
     icon: <NewCheckIcon />,
-    path: "/",
+    path: "/food?category=chinese",
   },
   {
     label: "Opened Checks",

@@ -20,37 +20,23 @@ import { Typography } from "@mui/material"
 
 import sideBarLogoBottom from "../assets/images/musepos_logo_colored_sidemenu.png"
 
-export default function SideBarDrawer() {
-  const [state, setState] = React.useState({
-    left: false,
-  })
-
-  const toggleDrawer = (anchor, open) => (event) => {
-    if (
-      event.type === "keydown" &&
-      (event.key === "Tab" || event.key === "Shift")
-    ) {
-      return
-    }
-
-    setState({ ...state, [anchor]: open })
-  }
-
+export default function SideBarDrawer({
+  isOpen,
+  handleToggle,
+  handleClose,
+  handleOpen,
+}) {
   const router = useRouter()
-
-  const list = (anchor) => (
+  console.log("routtttt", router)
+  const list = () => (
     <Box
       height="100%"
       py={{ sm: "20px", xs: "12px" }}
       sx={{
-        width:
-          anchor === "top" || anchor === "bottom"
-            ? "auto"
-            : { sm: 350, xs: 150 },
+        width: { lg: 350, xs: 280 },
       }}
       role="presentation"
-      onClick={toggleDrawer(anchor, false)}
-      onKeyDown={toggleDrawer(anchor, false)}
+      onClick={handleToggle}
     >
       <Box height="calc(100% - 70px)">
         <Box display="flex" justifyContent="center">
@@ -83,7 +69,9 @@ export default function SideBarDrawer() {
               onClick={() => router.push(item.path)}
             >
               <ListItemIcon
-                className={router.pathname === item.path ? "active" : undefined}
+                className={
+                  item.path.startsWith(router.pathname) ? "active" : undefined
+                }
                 sx={{
                   minWidth: { sm: "50px", xs: "30px" },
 
@@ -103,7 +91,9 @@ export default function SideBarDrawer() {
                 {item.icon}
               </ListItemIcon>
               <ListItemText
-                className={router.pathname === item.path ? "active" : undefined}
+                className={
+                  item.path.startsWith(router.pathname) ? "active" : undefined
+                }
                 sx={{
                   m: { sm: "4px 0px 4px 0px", xs: "3px 0px 0px 0px" },
                   span: {
@@ -155,19 +145,15 @@ export default function SideBarDrawer() {
   )
 
   return (
-    <div>
-      {["left"].map((anchor) => (
-        <React.Fragment key={anchor}>
-          <Button onClick={toggleDrawer(anchor, true)}>{anchor}</Button>
-          <Drawer
-            anchor={anchor}
-            open={state[anchor]}
-            onClose={toggleDrawer(anchor, false)}
-          >
-            {list(anchor)}
-          </Drawer>
-        </React.Fragment>
-      ))}
-    </div>
+    <>
+      <Drawer
+        anchor={"left"}
+        open={isOpen}
+        onClose={handleClose}
+        sx={{ "& .MuiPaper-root": { borderRadius: "0" } }}
+      >
+        {list()}
+      </Drawer>
+    </>
   )
 }

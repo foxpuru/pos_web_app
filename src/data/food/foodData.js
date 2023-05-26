@@ -3,6 +3,7 @@ import FoodFishImg from "../../assets/images/food_fish.jpg"
 export const FoodData = [
   {
     category: "chinese",
+    path: "chinese",
     foods: [
       {
         foodType: "non-veg",
@@ -118,6 +119,7 @@ export const FoodData = [
   },
   {
     category: "Gujrati",
+    path: "gujrati",
     foods: [
       {
         foodType: "egg",

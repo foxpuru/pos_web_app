@@ -12,6 +12,7 @@ import { Image } from "./styled-components/tableDetails"
 import { Grid, Typography } from "@mui/material"
 import FooterFoodCategory from "./FooterFoodCategory"
 import { FoodData } from "@/data/food/foodData"
+import Link from "next/link"
 
 export default function Footer() {
   const [value, setValue] = React.useState(0)
@@ -53,13 +54,21 @@ export default function Footer() {
           alignItems: "center",
           // justifyContent: "center",
           display: "flex",
+          // height: "60px",
           overflow: "auto",
           // gap: { lg: "40px", xs: "22px" },
           px: { lg: "20px", xs: "20px" },
+          "& a:hover": { textDecoration: "none" },
         }}
       >
         {FoodData.map((food) => (
-          <FooterFoodCategory key={food.category} title={food.category} />
+          <Link href={`/food?category=${food.path}`} key={food.category}>
+            <FooterFoodCategory
+              key={food.category}
+              path={food.path}
+              title={food.category}
+            />
+          </Link>
         ))}
       </Box>
 

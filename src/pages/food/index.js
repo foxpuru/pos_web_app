@@ -63,12 +63,6 @@ function ChineseFood() {
           <FoodBillingCard />
           <FoodBillingCard />
           <FoodBillingCard />
-          <FoodBillingCard />
-          <FoodBillingCard />
-          <FoodBillingCard />
-          <FoodBillingCard />
-          <FoodBillingCard />
-          <FoodBillingCard />
         </Box>
         <Box pt={{ lg: "44px", xs: "22px" }}>
           <List sx={style} component="nav" aria-label="mailbox folders">
@@ -237,6 +231,7 @@ function ChineseFood() {
 
             <Box>
               <Button
+                onClick={() => router.push("/payment-methods")}
                 sx={{
                   height: { lg: "60px", xs: "38px" },
                   color: "#FFFFFF",
