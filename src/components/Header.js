@@ -30,6 +30,7 @@ import BtnBackArrow from "../assets/images/btn_back_arrow.png"
 
 import MenuModal from "./Menu"
 import { useRouter } from "next/router"
+import ExtraCharges from "./ExtraCharges"
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -88,6 +89,13 @@ export default function Header({ isPaymentMethod }) {
     handleToggle: handleToggleSidebar,
     handleOpen: handleOpenSidebar,
     handleClose: handleCloseSidebar,
+  } = useModalState(false)
+
+  const {
+    isOpen: isOpenExtraCharges,
+    handleToggle: handleToggleExtraCharges,
+    handleOpen: handleOpenExtraCharges,
+    handleClose: handleCloseExtraCharges,
   } = useModalState(false)
 
   const { anchorElMenu, openMenu, handleClickMenu, handleCloseMenu } =
@@ -249,7 +257,10 @@ export default function Header({ isPaymentMethod }) {
                   <Image
                     src={LogoutLogo.src}
                     alt="logout logo"
-                    sx={{ width: { lg: "38px", xs: "28px" } }}
+                    sx={{
+                      width: { lg: "38px", xs: "28px", cursor: "pointer" },
+                    }}
+                    onClick={handleOpenExtraCharges}
                   />
                 </Box>
               </Box>
@@ -366,6 +377,12 @@ export default function Header({ isPaymentMethod }) {
         handleToggle={handleToggleSidebar}
         handleOpen={handleOpenSidebar}
         handleClose={handleCloseSidebar}
+      />
+      <ExtraCharges
+        isOpen={isOpenExtraCharges}
+        handleToggle={handleToggleExtraCharges}
+        handleOpen={handleOpenExtraCharges}
+        handleClose={handleCloseExtraCharges}
       />
     </>
   )

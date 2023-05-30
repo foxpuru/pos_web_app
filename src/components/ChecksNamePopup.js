@@ -61,7 +61,7 @@ export default function CheckNameModal({
             onClick={handleToggle}
             src={ClocePopup.src}
             alt="close popup"
-            sx={{ width: { lg: "30px", xs: "20px" }, cursor: "pointer" }}
+            sx={{ width: { lg: "30px", xs: "26px" }, cursor: "pointer" }}
           />
         </Box>
 
@@ -107,7 +107,7 @@ export default function CheckNameModal({
                 <Image
                   src={AddCustomerImg.src}
                   alt="close popup"
-                  sx={{ width: { lg: "30px", xs: "20px" } }}
+                  sx={{ width: { lg: "30px", xs: "26px" }, cursor: "pointer" }}
                 />
               </Box>
               <Box

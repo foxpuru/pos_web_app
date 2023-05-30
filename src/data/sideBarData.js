@@ -18,7 +18,7 @@ export const SideBarItems = [
   {
     label: "Opened Checks",
     icon: <OpenedChecksIcon />,
-    path: "/opend-checks",
+    path: "/checks",
   },
   {
     label: "Transactions",
