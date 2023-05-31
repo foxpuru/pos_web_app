@@ -1,165 +1,25 @@
-<Box
-        borderTop="2px solid #e5ebec"
+ {/* <Box
         maxWidth={{ lg: "370px", xs: "230px" }}
         minWidth={{ lg: "370px", xs: "230px" }}
         height={{ lg: "calc(100vh - 64px)", xs: "calc(100vh - 60px)" }}
         overflow="auto"
         bgcolor="#FFFFFF"
       >
-        <Box
-          height={{
-            lg:
-              paymentMethod !== "cash"
-                ? "calc(100vh - 60px - 174px)"
-                : undefined,
-            xs: paymentMethod !== "cash" ? "calc(100vh - 166px)" : undefined,
-          }}
-          overflow="auto"
-        >
-          {paymentMethod === "cash" && (
-            <Box
-              bgcolor="#FED9AD"
-              height={{ lg: "63px", xs: "55px" }}
-              display="flex"
-              justifyContent="center"
-              alignItems="center"
-            >
-              <Typography
-                fontWeight="500"
-                leterSpacing="0.6px"
-                fontSize={{ lg: "16px", xs: "13px" }}
-              >
-                Top Items for Payment
-              </Typography>
-            </Box>
-          )}
-
-          <FoodBillingCard discount={false} counterButton={false} />
-          <FoodBillingCard discount={false} counterButton={false} />
-          <FoodBillingCard discount={false} counterButton={false} />
-          <FoodBillingCard discount={false} counterButton={false} />
-          <FoodBillingCard discount={false} counterButton={false} />
-          <FoodBillingCard discount={false} counterButton={false} />
-          <FoodBillingCard discount={false} counterButton={false} />
-          <FoodBillingCard discount={false} counterButton={false} />
-          <FoodBillingCard discount={false} counterButton={false} />
-          <FoodBillingCard discount={false} counterButton={false} />
-          <FoodBillingCard discount={false} counterButton={false} />
-          <FoodBillingCard discount={false} counterButton={false} />
-        </Box>
-        {paymentMethod !== "cash" && (
-          <Box pt={{ lg: "44px", xs: "22px" }}>
-            <List sx={style} component="nav" aria-label="mailbox folders">
-              <Divider light />
-              <Box
-                p={{ lg: "8px 10px 8px 10px", xs: "4px 10px 4px 10px" }}
-                sx={{
-                  display: "flex",
-                  justifyContent: "space-between",
-                  alignItems: "center",
-                }}
-              >
-                <Typography
-                  sx={{
-                    fontSize: {
-                      lg: "16px",
-                      xs: "12px",
-                      color: "#FF4141",
-                      fontWeight: "500",
-                      letterSpacing: "0.5px",
-                    },
-                  }}
-                >
-                  Discount
-                </Typography>
-                <Typography
-                  sx={{
-                    fontSize: {
-                      lg: "16px",
-                      xs: "12px",
-                      color: "#FF4141",
-                      fontWeight: "500",
-                      letterSpacing: "0.5px",
-                    },
-                  }}
-                >
-                  ₹0.00
-                </Typography>
-              </Box>
-              <Divider light />
-              <Box
-                p={{ lg: "8px 10px 8px 10px", xs: "4px 10px 4px 10px" }}
-                sx={{
-                  display: "flex",
-                  justifyContent: "space-between",
-                  alignItems: "center",
-                }}
-              >
-                <Typography
-                  sx={{
-                    fontSize: {
-                      lg: "16px",
-                      xs: "12px",
-                      color: "#A5ACAE",
-                      fontWeight: "500",
-                      letterSpacing: "0.5px",
-                    },
-                  }}
-                >
-                  Subtotal
-                </Typography>
-                <Typography
-                  sx={{
-                    fontSize: {
-                      lg: "16px",
-                      xs: "12px",
-                      color: "#000000",
-                      fontWeight: "500",
-                      letterSpacing: "0.5px",
-                    },
-                  }}
-                >
-                  ₹1562.62
-                </Typography>
-              </Box>
-              <Divider light />
-              <Box
-                p={{ lg: "8px 10px 8px 10px", xs: "4px 10px 4px 10px" }}
-                sx={{
-                  display: "flex",
-                  justifyContent: "space-between",
-                  alignItems: "center",
-                }}
-              >
-                <Typography
-                  sx={{
-                    fontSize: {
-                      lg: "16px",
-                      xs: "12px",
-                      color: "#A5ACAE",
-                      fontWeight: "500",
-                      letterSpacing: "0.5px",
-                    },
-                  }}
-                >
-                  Tax
-                </Typography>
-                <Typography
-                  sx={{
-                    fontSize: {
-                      lg: "16px",
-                      xs: "12px",
-                      color: "#000000",
-                      fontWeight: "500",
-                      letterSpacing: "0.5px",
-                    },
-                  }}
-                >
-                  ₹281.28
-                </Typography>
-              </Box>
-              <Divider light />
-            </List>
+        <Box overflow="auto">
+          <Box bgcolor="#D7DBDC" p={{ lg: "12px", xs: "8px" }}>
+            <Search>
+              <SearchIconWrapper>
+                <SearchGreyIcon />
+              </SearchIconWrapper>
+              <StyledInputBase
+                placeholder="Search"
+                inputProps={{ "aria-label": "search" }}
+              />
+            </Search>
           </Box>
-        )}
-      </Box>
+          <TransactionDateCard />
+          <TransactionDateCard />
+          <TransactionDateCard />
+          <TransactionDateCard />
+        </Box>
+      </Box> */}

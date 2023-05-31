@@ -2,7 +2,7 @@ import FoodBillingCard from "@/components/FoodBillingCard"
 import FoodCard from "@/components/FoodCard"
 import { FoodData } from "@/data/food/foodData"
 import FoodLayout from "@/layouts/FoodLayout"
-import { Box, Button, Stack, Typography } from "@mui/material"
+import { Box, Button, Grid, Stack, Typography } from "@mui/material"
 import { useRouter } from "next/router"
 import React, { useEffect, useState } from "react"
 import List from "@mui/material/List"
@@ -119,149 +119,158 @@ function PaymentMethods() {
 
             </Box> */}
 
-        <Stack
-          direction="row"
-          justifyContent="space-between"
-          spacing={{ lg: 3, xs: 1 }}
-          py={{ lg: "42px", xs: "22px" }}
-          px={{ lg: "22px", xs: "12px" }}
-          // display="flex"
-          // flexDirection="row"
-          // width="100%"
-        >
-          <Button
-            sx={{
-              height: { lg: "60px", xs: "40px" },
-              color: "#FFFFFF",
-              fontSize: { lg: "18px", xs: "14px" },
-              fontWeight: "400",
-              letterSpacing: "0.6px",
-              textTransform: "uppercase",
-              background: "linear-gradient(to right,#26B692,#38CC79)",
-              borderRadius: "10px",
-
-              "& svg": {
-                width: { lg: "32px", xs: "24px" },
-                height: { lg: "32px", xs: "24px" },
-              },
-            }}
-            fullWidth
-            startIcon={<CardCashIcon />}
-            onClick={() => router.push("/cash")}
+        <Grid container>
+          <Grid
+            container
+            item
+            spacing={{ lg: 3, xs: 1 }}
+            py={{ lg: "42px", xs: "22px" }}
+            px={{ lg: "22px", xs: "12px" }}
           >
-            cash
-          </Button>
-          <Button
-            sx={{
-              height: { lg: "60px", xs: "40px" },
-              color: "#FFFFFF",
-              fontSize: { lg: "18px", xs: "14px" },
-              fontWeight: "400",
-              letterSpacing: "0.6px",
-              textTransform: "uppercase",
-              background: "linear-gradient(to right,#808080,#808080)",
-              borderRadius: "10px",
+            <Grid item xs={4}>
+              <Button
+                sx={{
+                  height: { lg: "60px", xs: "40px" },
+                  color: "#FFFFFF",
+                  fontSize: { lg: "18px", xs: "14px" },
+                  fontWeight: "400",
+                  letterSpacing: "0.6px",
+                  textTransform: "uppercase",
+                  background: "linear-gradient(to right,#26B692,#38CC79)",
+                  borderRadius: "10px",
 
-              "& svg": {
-                width: { lg: "32px", xs: "24px" },
-                height: { lg: "32px", xs: "24px" },
-              },
-            }}
-            fullWidth
-            startIcon={<CardCardsIcon />}
-            onClick={handleOpenOther}
-          >
-            other
-          </Button>
-          <Button
-            sx={{
-              height: { lg: "60px", xs: "40px" },
-              color: "#FFFFFF",
-              fontSize: { lg: "18px", xs: "14px" },
-              fontWeight: "400",
-              letterSpacing: "0.6px",
-              textTransform: "uppercase",
-              background: "linear-gradient(to right,#A61831,#DE4E67)",
-              borderRadius: "10px",
+                  "& svg": {
+                    width: { lg: "32px", xs: "24px" },
+                    height: { lg: "32px", xs: "24px" },
+                  },
+                }}
+                fullWidth
+                startIcon={<CardCashIcon />}
+                onClick={() => router.push("/cash")}
+              >
+                cash
+              </Button>
+            </Grid>
+            <Grid item xs={4}>
+              <Button
+                sx={{
+                  height: { lg: "60px", xs: "40px" },
+                  color: "#FFFFFF",
+                  fontSize: { lg: "18px", xs: "14px" },
+                  fontWeight: "400",
+                  letterSpacing: "0.6px",
+                  textTransform: "uppercase",
+                  background: "linear-gradient(to right,#808080,#808080)",
+                  borderRadius: "10px",
 
-              "& svg": {
-                width: { lg: "32px", xs: "24px" },
-                height: { lg: "32px", xs: "24px" },
-              },
-            }}
-            fullWidth
-            startIcon={<CardGiftIcon />}
-            onClick={handleOpen}
-          >
-            GIFT CARD
-          </Button>
-        </Stack>
+                  "& svg": {
+                    width: { lg: "32px", xs: "24px" },
+                    height: { lg: "32px", xs: "24px" },
+                  },
+                }}
+                fullWidth
+                startIcon={<CardCardsIcon />}
+                onClick={handleOpenOther}
+              >
+                other
+              </Button>
+            </Grid>
+            <Grid item xs={4}>
+              <Button
+                sx={{
+                  height: { lg: "60px", xs: "40px" },
+                  color: "#FFFFFF",
+                  fontSize: { lg: "18px", xs: "14px" },
+                  fontWeight: "400",
+                  letterSpacing: "0.6px",
+                  textTransform: "uppercase",
+                  background: "linear-gradient(to right,#A61831,#DE4E67)",
+                  borderRadius: "10px",
+
+                  "& svg": {
+                    width: { lg: "32px", xs: "24px" },
+                    height: { lg: "32px", xs: "24px" },
+                  },
+                }}
+                fullWidth
+                startIcon={<CardGiftIcon />}
+                onClick={handleOpen}
+              >
+                GIFT CARD
+              </Button>
+            </Grid>
+          </Grid>
+        </Grid>
       </Box>
 
-      <Box height="50%" display="flex" alignItems="end" justifyContent="end">
-        <Stack
-          direction="row"
-          justifyContent="space-between"
+      <Grid container height="50%">
+        <Grid
+          container
+          item
           spacing={{ lg: 3, xs: 1 }}
-          py={{ lg: "42px", xs: "22px" }}
+          height="100%"
+          alignItems="end"
+          py={{ lg: "22px", xs: "22px" }}
           px={{ lg: "22px", xs: "12px" }}
-          // display="flex"
-          // flexDirection="row"
-          // width="100%"
         >
-          <Button
-            sx={{
-              width: { lg: "310px", xs: "156.33px" },
-              height: { lg: "60px", xs: "40px" },
-              color: "#FFFFFF",
-              fontSize: { lg: "18px", xs: "14px" },
-              fontWeight: "400",
-              letterSpacing: "0.6px",
-              textTransform: "uppercase",
-              backgroundColor: "#E57607",
-              borderRadius: "10px",
-
-              "&:hover": {
+          <Grid item xs={4}></Grid>
+          <Grid item xs={4}>
+            <Button
+              sx={{
+                width: "100%",
+                height: { lg: "60px", xs: "40px" },
+                color: "#FFFFFF",
+                fontSize: { lg: "18px", xs: "14px" },
+                fontWeight: "400",
+                letterSpacing: "0.6px",
+                textTransform: "uppercase",
                 backgroundColor: "#E57607",
-              },
+                borderRadius: "10px",
 
-              "& svg": {
-                width: { lg: "32px", xs: "24px" },
-                height: { lg: "32px", xs: "24px" },
-              },
-            }}
-            fullWidth
-          >
-            SPLIT CHECK
-          </Button>
-          <Button
-            sx={{
-              width: { lg: "310px", xs: "156.33px" },
+                "&:hover": {
+                  backgroundColor: "#E57607",
+                },
 
-              height: { lg: "60px", xs: "40px" },
-              color: "#FFFFFF",
-              fontSize: { lg: "19px", xs: "14px" },
-              fontWeight: "400",
-              letterSpacing: "0.6px",
-              textTransform: "uppercase",
-              backgroundColor: "#E57607",
-              borderRadius: "10px",
+                "& svg": {
+                  width: { lg: "32px", xs: "24px" },
+                  height: { lg: "32px", xs: "24px" },
+                },
+              }}
+              fullWidth
+            >
+              SPLIT CHECK
+            </Button>
+          </Grid>
+          <Grid item xs={4}>
+            <Button
+              sx={{
+                width: "100%",
 
-              "&:hover": {
+                height: { lg: "60px", xs: "40px" },
+                color: "#FFFFFF",
+                fontSize: { lg: "19px", xs: "14px" },
+                fontWeight: "400",
+                letterSpacing: "0.6px",
+                textTransform: "uppercase",
                 backgroundColor: "#E57607",
-              },
+                borderRadius: "10px",
 
-              "& svg": {
-                width: { lg: "32px", xs: "24px" },
-                height: { lg: "32px", xs: "24px" },
-              },
-            }}
-            fullWidth
-          >
-            ADDITIONAL TIP
-          </Button>
-        </Stack>
-      </Box>
+                "&:hover": {
+                  backgroundColor: "#E57607",
+                },
+
+                "& svg": {
+                  width: { lg: "32px", xs: "24px" },
+                  height: { lg: "32px", xs: "24px" },
+                },
+              }}
+              fullWidth
+            >
+              ADDITIONAL TIP
+            </Button>
+          </Grid>
+        </Grid>
+      </Grid>
       <GiftCard
         isOpen={isOpen}
         handleToggle={handleToggle}
