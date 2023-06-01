@@ -106,7 +106,6 @@ function DeviceCode() {
                 width: { lg: "1200px", xs: "650px" },
                 margin: "auto",
               }}
-              onClick={() => router.push("/plan-renewal")}
             >
               <OTPInput
                 containerStyle="device-code-form-control"
@@ -182,9 +181,7 @@ function DeviceCode() {
                   },
                 }}
                 disabled={otp.length == 12 ? false : true}
-                onClick={() =>
-                  otp.length == 12 ? router.push("/plan-renewal") : undefined
-                }
+                onClick={() => router.push("/plan-renewal")}
               >
                 SUBMIT
               </Button>

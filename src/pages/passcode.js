@@ -12,7 +12,7 @@ import { useRouter } from "next/router"
 
 function Passcode() {
   const [otp, setOtp] = useState("")
-const router = useRouter()
+  const router = useRouter()
   return (
     <Box
       sx={{
@@ -96,6 +96,7 @@ const router = useRouter()
               <OtpInput
                 containerStyle="otp-form-control"
                 value={otp}
+                inputType={"number"}
                 onChange={setOtp}
                 numInputs={4}
                 renderInput={(props) => {
@@ -130,6 +131,7 @@ const router = useRouter()
                 },
               }}
               disabled={otp.length < 4}
+              type="submit"
               onClick={() => router.push("/food?category=chinese")}
             >
               SUBMIT

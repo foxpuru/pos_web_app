@@ -8,46 +8,37 @@ import { TransactionData } from "@/data/transactionData"
 
 import { Box, Typography } from "@mui/material"
 import TransactionDateCard from "./TransactionDateCard"
+import GuestDetailsCard from "./GuestDetailsCard"
+import { GuestDetailsContext } from "@/context/guestDetailsContext"
 
-export default function TransactionSideBar() {
+export default function TransactionSideBar({ data, card }) {
+  const { setOrderItems } = React.useContext(GuestDetailsContext)
+  React.useEffect(() => {
+    setOrderItems({
+      order: TransactionData[0]?.orders[0]?.order,
+      orderNumber: TransactionData[0]?.orders[0]?.orderNumber,
+    })
+  }, [TransactionData])
+
   return (
     <List
       sx={{
         width: "100%",
-        bgcolor: 'background.paper',
+        bgcolor: "#FFFFFF",
         position: "relative",
         overflow: "auto",
+        borderRadius: "0 !important",
         height: {
-          lg: "calc(100vh - 64px - 63px)",
-          xs: "calc(100vh - 60px - 40px)",
+          lg: "calc(100vh - 64px - 83px)",
+          xs: "calc(100%  - 69px)",
         },
+
         "& ul": { padding: 0 },
       }}
       subheader={<li />}
     >
       {TransactionData.map((section) => (
-        <li pt={{ lg: "12px", xs: "12px" }}>
-          <ul>
-            <ListSubheader
-              bgcolor="#E57607 !important"
-              px={{ lg: "12px", xs: "8px" }}
-              py={{ lg: "8px", xs: "6px" }}
-            >
-              <Typography
-                textAlign="left"
-                color="#FFFFFF"
-                fontSize={{ lg: "16px", xs: "12px" }}
-                fontWeight="400"
-                letterSpacing="0.6px"
-              >
-                {section.date}
-              </Typography>
-            </ListSubheader>
-            {section.orders.map((item) => (
-              <TransactionDateCard key={item.orderNumber} item={item} />
-            ))}
-          </ul>
-        </li>
+        <GuestDetailsCard card={card} section={section} />
       ))}
     </List>
   )

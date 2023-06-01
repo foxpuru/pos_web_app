@@ -1,19 +1,19 @@
 ::-webkit-scrollbar {
-  width: 5px;
+  width: 4px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #e4e5eb;
+  background: transparent;
   border-radius: 8px;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #e57607;
+  background: #d7dbdc;
   border-radius: 8px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #e57607;
+  background: #b7bbbd;
 }
 
 .otp-form-control {

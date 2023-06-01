@@ -22,7 +22,7 @@ import GiftCard from "@/components/GiftCard"
 import useModalState from "@/hooks/useModalState"
 import OtherPaymentOptions from "@/components/OtherPaymentOptions"
 
-function PaymentMethods() {
+function SplitPayment() {
   const router = useRouter()
   const { isOpen, handleToggle, handleOpen, handleClose } = useModalState(false)
   const {
@@ -75,23 +75,7 @@ function PaymentMethods() {
           >
             Select Payment Method
           </Typography>
-          <Typography
-            color="#000000"
-            fontWeight="400"
-            fontSize={{ lg: "40px", xs: "28px" }}
-            letterSpacing="0.7px"
-          >
-            ₹1843.90
-          </Typography>
-          <Typography
-            color="#A1A1A1"
-            fontWeight="400"
-            fontSize={{ lg: "16px", xs: "12px" }}
-            letterSpacing="0.53px"
-            mb={{ lg: "12px", xs: "10px" }}
-          >
-            Amount Paid
-          </Typography>
+
           <Divider
             sx={{
               borderBottomWidth: "2px",
@@ -118,89 +102,6 @@ function PaymentMethods() {
             >
 
             </Box> */}
-
-        <Grid container>
-          <Grid
-            container
-            item
-            spacing={{ lg: 3, xs: 1 }}
-            py={{ lg: "42px", xs: "22px" }}
-            px={{ lg: "22px", xs: "12px" }}
-          >
-            <Grid item xs={4}>
-              <Button
-                sx={{
-                  height: { lg: "60px", xs: "40px" },
-                  color: "#FFFFFF",
-                  fontSize: { lg: "18px", xs: "14px" },
-                  fontWeight: "400",
-                  letterSpacing: "0.6px",
-                  textTransform: "uppercase",
-                  background: "linear-gradient(to right,#26B692,#38CC79)",
-                  borderRadius: "10px",
-
-                  "& svg": {
-                    width: { lg: "32px", xs: "24px" },
-                    height: { lg: "32px", xs: "24px" },
-                  },
-                }}
-                fullWidth
-                startIcon={<CardCashIcon />}
-                onClick={() => router.push("/cash")}
-              >
-                cash
-              </Button>
-            </Grid>
-            <Grid item xs={4}>
-              <Button
-                sx={{
-                  height: { lg: "60px", xs: "40px" },
-                  color: "#FFFFFF",
-                  fontSize: { lg: "18px", xs: "14px" },
-                  fontWeight: "400",
-                  letterSpacing: "0.6px",
-                  textTransform: "uppercase",
-                  background: "linear-gradient(to right,#808080,#808080)",
-                  borderRadius: "10px",
-
-                  "& svg": {
-                    width: { lg: "32px", xs: "24px" },
-                    height: { lg: "32px", xs: "24px" },
-                  },
-                }}
-                fullWidth
-                startIcon={<CardCardsIcon />}
-                onClick={handleOpenOther}
-              >
-                other
-              </Button>
-            </Grid>
-            <Grid item xs={4}>
-              <Button
-                sx={{
-                  height: { lg: "60px", xs: "40px" },
-                  color: "#FFFFFF",
-                  fontSize: { lg: "18px", xs: "14px" },
-                  fontWeight: "400",
-                  letterSpacing: "0.6px",
-                  textTransform: "uppercase",
-                  background: "linear-gradient(to right,#A61831,#DE4E67)",
-                  borderRadius: "10px",
-
-                  "& svg": {
-                    width: { lg: "32px", xs: "24px" },
-                    height: { lg: "32px", xs: "24px" },
-                  },
-                }}
-                fullWidth
-                startIcon={<CardGiftIcon />}
-                onClick={handleOpen}
-              >
-                GIFT CARD
-              </Button>
-            </Grid>
-          </Grid>
-        </Grid>
       </Box>
 
       <Grid container height="50%">
@@ -210,10 +111,10 @@ function PaymentMethods() {
           spacing={{ lg: 3, xs: 1 }}
           height="100%"
           alignItems="end"
+          justifyContent="center"
           py={{ lg: "22px", xs: "22px" }}
           px={{ lg: "22px", xs: "12px" }}
         >
-          <Grid item xs={4}></Grid>
           <Grid item xs={4}>
             <Button
               sx={{
@@ -237,9 +138,9 @@ function PaymentMethods() {
                 },
               }}
               fullWidth
-              onClick={() => router.push("/split-payment")}
+              onClick={() => router.push("/split-by-value")}
             >
-              SPLIT CHECK
+              SPLIT BY VALUE
             </Button>
           </Grid>
           <Grid item xs={4}>
@@ -266,8 +167,9 @@ function PaymentMethods() {
                 },
               }}
               fullWidth
+              onClick={() => router.push("/split-by-item")}
             >
-              ADDITIONAL TIP
+              SPLIT BY ITEM
             </Button>
           </Grid>
         </Grid>
@@ -288,7 +190,7 @@ function PaymentMethods() {
   )
 }
 
-PaymentMethods.getLayout = (page) => (
+SplitPayment.getLayout = (page) => (
   <PaymentLayout isPaymentMethod>{page}</PaymentLayout>
 )
-export default PaymentMethods
+export default SplitPayment
