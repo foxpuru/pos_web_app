@@ -28,7 +28,7 @@ export const SideBarItems = [
   {
     label: "Reports",
     icon: <ReportsIcon />,
-    path: "/reports",
+    path: "/close-day-report",
   },
   {
     label: "Cash Management",

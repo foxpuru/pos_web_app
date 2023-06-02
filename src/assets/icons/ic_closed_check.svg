@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="108" height="108" viewBox="0 0 108 108">
+  <g id="ic_closed_check" transform="translate(-719 -158)">
+    <rect id="Rectangle_1333" data-name="Rectangle 1333" width="108" height="108" rx="6" transform="translate(719 158)" fill="#eef5f6"/>
+    <g id="Group_5452" data-name="Group 5452" transform="translate(740.6 179.6)">
+      <rect id="Rectangle_1334" data-name="Rectangle 1334" width="28" height="28" rx="4" transform="translate(0.4 0.4)" fill="#ff4141"/>
+      <rect id="Rectangle_1337" data-name="Rectangle 1337" width="28" height="28" rx="4" transform="translate(0.4 36.4)" fill="#e57607"/>
+      <rect id="Rectangle_1335" data-name="Rectangle 1335" width="28" height="28" rx="4" transform="translate(36.4 0.4)" fill="#e57607"/>
+      <rect id="Rectangle_1336" data-name="Rectangle 1336" width="28" height="28" rx="4" transform="translate(36.4 36.4)" fill="#ff4141"/>
+      <path id="Union_35" data-name="Union 35" d="M1.814,29.2.077,27.466a2,2,0,0,1,0-2.829l10-10-10-10a2,2,0,0,1,0-2.829L1.814.076a2,2,0,0,1,2.828,0l10,10,10-10a2,2,0,0,1,2.829,0L29.2,1.814a2,2,0,0,1,0,2.828l-10,10,10,10a2,2,0,0,1,0,2.829L27.465,29.2a2,2,0,0,1-2.828,0l-10-10-10,10a2,2,0,0,1-2.829,0Z" transform="translate(35.52 35.52)" fill="#eef5f6"/>
+      <path id="Union_36" data-name="Union 36" d="M1.814,29.2.077,27.466a2,2,0,0,1,0-2.829l10-10-10-10a2,2,0,0,1,0-2.829L1.814.076a2,2,0,0,1,2.828,0l10,10,10-10a2,2,0,0,1,2.829,0L29.2,1.814a2,2,0,0,1,0,2.828l-10,10,10,10a2,2,0,0,1,0,2.829L27.465,29.2a2,2,0,0,1-2.828,0l-10-10-10,10a2,2,0,0,1-2.829,0Z" transform="translate(0.129 0.13)" fill="#eef5f6"/>
+    </g>
+  </g>
+</svg>

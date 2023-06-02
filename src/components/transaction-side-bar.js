@@ -37,8 +37,8 @@ export default function TransactionSideBar({ data, card }) {
       }}
       subheader={<li />}
     >
-      {TransactionData.map((section) => (
-        <GuestDetailsCard card={card} section={section} />
+      {TransactionData.map((section, index) => (
+        <GuestDetailsCard key={index} card={card} section={section} />
       ))}
     </List>
   )
