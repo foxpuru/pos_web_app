@@ -29,6 +29,7 @@ import ReportCard from "@/components/reportsCard"
 import { CloseDayReportData } from "@/data/closeDayReportData"
 import DatePicker from "@/components/DatePicker"
 import { SalesReportBalanceSectionData } from "@/data/salesReportBalanceSectionData"
+import DataTable from "@/components/DataTable"
 
 function SalesReport() {
   return (
@@ -181,7 +182,7 @@ function SalesReport() {
             </Grid>
           ))}
         </Grid>
-        <Box px={{ lg: "22px", xs: "12px" }} pb={{ lg: undefined, xs: "22px" }}>
+        <Box p={{ lg: "22px", xs: "12px" }}>
           <Box border="1px solid #D7DBDC" borderRadius="8px">
             {SalesReportBalanceSectionData.map((item, index) => (
               <Box key={index}>
@@ -224,6 +225,7 @@ function SalesReport() {
             ))}
           </Box>
         </Box>
+        <DataTable />
       </Box>
     </Box>
   )
