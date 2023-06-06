@@ -30,8 +30,11 @@ import { CloseDayReportData } from "@/data/closeDayReportData"
 import DatePicker from "@/components/DatePicker"
 import { SalesReportBalanceSectionData } from "@/data/salesReportBalanceSectionData"
 import DataTable from "@/components/DataTable"
+import DateTimePicker from "@/components/modals/DatePicker"
+import useModalState from "@/hooks/useModalState"
 
 function SalesReport() {
+  const { isOpen, handleToggle, handleOpen, handleClose } = useModalState(false)
   return (
     <Box display="flex" flexDirection="column" gap="22px">
       <Box bgcolor="white" borderRadius="10px">
@@ -60,9 +63,14 @@ function SalesReport() {
             >
               Start Date
             </Typography>
-            <DatePicker />
+            <DateTimePicker
+              isOpen={isOpen}
+              handleToggle={handleToggle}
+              handleOpen={handleOpen}
+              handleClose={handleClose}
+            />
           </Grid>
-          <Grid
+          {/* <Grid
             item
             xs={5}
             display="flex"
@@ -78,8 +86,13 @@ function SalesReport() {
             >
               End Date
             </Typography>
-            <DatePicker />
-          </Grid>
+            <DateTimePicker
+              isOpen={isOpen}
+              handleToggle={handleToggle}
+              handleOpen={handleOpen}
+              handleClose={handleClose}
+            />
+          </Grid> */}
           <Grid
             item
             xs={2}
