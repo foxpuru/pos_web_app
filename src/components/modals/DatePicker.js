@@ -8,6 +8,7 @@ import "react-datepicker/dist/react-datepicker.css"
 import CloseModalImg from "../../assets/images/ic_close_popup.png"
 import { Image } from "../styled-components/tableDetails"
 import DatePicker from "react-datepicker"
+import TimePicker from "../TimePicker"
 
 const style = {
   position: "absolute",
@@ -26,6 +27,7 @@ export default function DateTimePicker({
   handleToggle,
   handleOpen,
   handleClose,
+  
 }) {
   const [startDate, setStartDate] = React.useState(new Date())
   return (
@@ -100,16 +102,18 @@ export default function DateTimePicker({
                 Set
               </Button>
               <Image
+                onClick={handleClose}
                 src={CloseModalImg.src}
                 alt="close modal image"
                 sx={{
                   width: { lg: "40px", xs: "32px" },
                   height: { lg: "40px", xs: "32px" },
+                  cursor: "pointer",
                 }}
               />
             </Box>
           </Box>
-          <Box>
+          <Box display="flex">
             <Box
               width="65%"
               id="modal-modal-description"
@@ -129,13 +133,11 @@ export default function DateTimePicker({
                   transform: "unset !important",
                   padding: "0 !important",
                 },
-
                 "& .react-datepicker": {
                   width: "100%",
                   background: "unset !important",
                   p: { lg: 2, xs: 1 },
                   border: 0,
-
                   "& .react-datepicker__month-container": {
                     width: "100%",
 
@@ -156,10 +158,15 @@ export default function DateTimePicker({
                       backgroundColor: "#E57607",
                       borderRadius: "50%",
                     },
+                    "& .react-datepicker__day:hover": {
+                      borderRadius: "50%",
+                    },
                     "& .react-datepicker__day-names": {
                       display: "flex",
                       justifyContent: "space-between",
+                      py: { lg: "10px", xs: "8px" },
                     },
+
                     "& .react-datepicker__week": {
                       display: "flex",
                       justifyContent: "space-between",
@@ -187,11 +194,12 @@ export default function DateTimePicker({
                       margin: "0 !important",
                     },
                   },
-
                   "& .react-datepicker__navigation": {
                     top: { lg: "27px", xs: "13px" },
                   },
-
+                  "& .react-datepicker__day--outside-month": {
+                    color: "#D7DBDC !important",
+                  },
                   "& .react-datepicker__day": {
                     // width: "unset !important",
                     // height: "unset !important",
@@ -199,13 +207,35 @@ export default function DateTimePicker({
                 },
               }}
             >
-              <DatePicker
-                // className="react-date-picker"
-                // selected={startDate}
-
-                open
-                onChange={(date) => setStartDate(date)}
-              />
+              <DatePicker open onChange={(date) => setStartDate(date)} />
+            </Box>
+            <Box
+              width="35%"
+              display="grid"
+              alignItems="center"
+              justifyContent="center"
+              bgcolor="#EEF5F6"
+              p={{ lg: "20px", xs: "16px" }}
+            >
+              <Box display="flex" alignItems="center">
+                <Typography
+                  color="#000000"
+                  fontSize={{ lg: "16px", xs: "14px" }}
+                  fontWeight="500"
+                  letterSpacing="0.65px"
+                >
+                  Time-
+                </Typography>
+                <Typography
+                  color="#E57607"
+                  fontSize={{ lg: "16px", xs: "14px" }}
+                  fontWeight="500"
+                  letterSpacing="0.65px"
+                >
+                  [5:53 PM]
+                </Typography>
+              </Box>
+              {/* <TimePicker /> */}
             </Box>
           </Box>
         </Box>

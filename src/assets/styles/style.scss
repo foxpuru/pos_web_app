@@ -62,8 +62,6 @@
     width: unset !important;
     height: 60px !important;
     border: 0;
-    // gap: 30px;
-    // border-radius: 10px;
     color: #a5acae;
     text-transform: uppercase;
     font-size: 32px;
@@ -148,6 +146,71 @@
       width: unset !important;
       height: 40px !important;
       font-size: 24px;
+    }
+  }
+}
+
+.time-picker-calender {
+  @mixin hideScrollbars {
+    -ms-overflow-style: none; // IE 10+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+  $blue: darken(cornflowerblue, 10);
+  $cool-gray: #eff1f1;
+  $factory-yellow: #f3e033;
+
+  .picker-window {
+    position: absolute;
+    // z-index: -1;
+    opacity: 1;
+    border-radius: 6px;
+    height: 32px;
+    background-color: #ffffff;
+    left: 0;
+    top: 50%;
+    transform: translateY(-65%);
+    width: 100%;
+    pointer-events: none;
+  }
+
+  .picker {
+    display: inline-grid;
+    position: relative;
+    background: transparent;
+    grid-template-columns: repeat(4, fit-content(500px));
+    font-size: calc(0.5rem + 1.4vw);
+    position: relative;
+    font-feature-settings: "tnum";
+    font-weight: 400;
+
+    ul {
+      @include hideScrollbars();
+      max-height: 4em;
+      overflow-y: scroll;
+      margin-right: 0.6rem;
+      margin-left: 0.6rem;
+      scroll-snap-type: y mandatory;
+      padding-bottom: 3em;
+      z-index: 1;
+      padding-top: 3em;
+    }
+    li {
+      scroll-snap-align: center;
+      height: 2em;
+      text-align: center;
+      color: #e57607;
+      font-weight: 500;
+      font-size: 18px;
+      padding-top: 7px;
+    }
+  }
+
+  .picker-day {
+    padding-right: 0.5em;
+    span {
+      padding-left: 0.56em;
     }
   }
 }

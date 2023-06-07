@@ -32,6 +32,59 @@ import { SalesReportBalanceSectionData } from "@/data/salesReportBalanceSectionD
 import DataTable from "@/components/DataTable"
 import DateTimePicker from "@/components/modals/DatePicker"
 import useModalState from "@/hooks/useModalState"
+import Table from "@/components/Table"
+
+const coloums = [
+  {
+    name: "ITEM NAME",
+    selector: (row) => row.name,
+  },
+  {
+    name: "SALE COUNT",
+    selector: (row) => row.count,
+  },
+  {
+    name: "TOTAL COST",
+    selector: (row) => row.cost,
+  },
+]
+const data = [
+  {
+    name: 1,
+    count: "24th – 29th October 2022",
+    cost: "100",
+  },
+  {
+    name: 2,
+    count: "24th – 29th November 2022",
+    cost: "170",
+  },
+  {
+    name: 3,
+    count: "24th – 29th October 2022",
+    cost: "100",
+  },
+  {
+    name: 4,
+    count: "24th – 29th October 2022",
+    cost: "100",
+  },
+  {
+    name: 5,
+    count: "24th – 29th November 2022",
+    cost: "170",
+  },
+  {
+    name: 6,
+    count: "24th – 29th October 2022",
+    cost: "100",
+  },
+  {
+    name: 7,
+    count: "24th – 29th October 2022",
+    cost: "100",
+  },
+]
 
 function SalesReport() {
   const { isOpen, handleToggle, handleOpen, handleClose } = useModalState(false)
@@ -238,7 +291,10 @@ function SalesReport() {
             ))}
           </Box>
         </Box>
-        <DataTable />
+        {/* <DataTable /> */}
+        <Box p={{ lg: "22px", xs: "12px" }}>
+          <Table columns={coloums} data={data} />
+        </Box>
       </Box>
     </Box>
   )
