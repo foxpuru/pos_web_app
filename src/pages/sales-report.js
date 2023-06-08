@@ -42,47 +42,104 @@ const coloums = [
   {
     name: "SALE COUNT",
     selector: (row) => row.count,
+    center: true,
   },
   {
     name: "TOTAL COST",
     selector: (row) => row.cost,
+    right: true,
   },
 ]
 const data = [
   {
-    name: 1,
-    count: "24th – 29th October 2022",
+    name: "Coca-Cola",
+    count: 2,
     cost: "100",
   },
   {
-    name: 2,
-    count: "24th – 29th November 2022",
+    name: "Bufala Basilico",
+    count: 10,
     cost: "170",
   },
   {
-    name: 3,
-    count: "24th – 29th October 2022",
+    name: "Coca-Cola",
+    count: 2,
     cost: "100",
   },
   {
-    name: 4,
-    count: "24th – 29th October 2022",
-    cost: "100",
-  },
-  {
-    name: 5,
-    count: "24th – 29th November 2022",
+    name: "Bufala Basilico",
+    count: 10,
     cost: "170",
   },
   {
-    name: 6,
-    count: "24th – 29th October 2022",
+    name: "Coca-Cola",
+    count: 2,
     cost: "100",
   },
   {
-    name: 7,
-    count: "24th – 29th October 2022",
+    name: "Bufala Basilico",
+    count: 10,
+    cost: "170",
+  },
+  {
+    name: "Coca-Cola",
+    count: 2,
     cost: "100",
+  },
+  {
+    name: "Bufala Basilico",
+    count: 10,
+    cost: "170",
+  },
+  {
+    name: "Coca-Cola",
+    count: 2,
+    cost: "100",
+  },
+  {
+    name: "Bufala Basilico",
+    count: 10,
+    cost: "170",
+  },
+  {
+    name: "Coca-Cola",
+    count: 2,
+    cost: "100",
+  },
+  {
+    name: "Bufala Basilico",
+    count: 10,
+    cost: "170",
+  },
+  {
+    name: "Coca-Cola",
+    count: 2,
+    cost: "100",
+  },
+  {
+    name: "Bufala Basilico",
+    count: 10,
+    cost: "170",
+  },
+  {
+    name: "Coca-Cola",
+    count: 2,
+    cost: "100",
+  },
+  {
+    name: "Bufala Basilico",
+    count: 10,
+    cost: "170",
+  },
+  {
+    name: "Coca-Cola",
+    count: 2,
+    cost: "100",
+  },
+  {
+    name: "Bufala Basilico",
+    count: 10,
+    cost: "170",
   },
 ]
 
@@ -181,7 +238,10 @@ function SalesReport() {
         </Grid>
       </Box>
       <Box
-        height="calc(100vh - 64px - 146px - 22px)"
+        height={{
+          lg: "calc(100vh - 64px - 146px - 22px)",
+          xs: "calc(100vh - 64px - 114px - 22px)",
+        }}
         overflow="auto"
         // display="grid"
         bgcolor="#FFFFFF"
