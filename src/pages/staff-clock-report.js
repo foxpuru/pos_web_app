@@ -25,77 +25,45 @@ import {
   GuestDetailsProvider,
 } from "@/context/guestDetailsContext"
 import PaymentLayout from "@/layouts/PaymentLayout"
+import Table from "@/components/Table"
+
+const data = [
+  {
+    staff: "Joe Pizza",
+    clockedIn: ["May 15 2023 | 08:38 AM", "May 15 2023 | 08:38 AM"],
+    clockedOut: "May 15 2023 | 08:38 AM",
+    hours: "00:00:20: hr",
+  },
+]
 
 function Reports() {
-  const [items, setItems] = useState([
+  const coloums = [
     {
-      count: "1",
-      foodName: "Veg. triple schezwan",
-      foodDescription: "Veg. triple schezwan",
-      price: "₹1843.90",
-      finalPrice: "₹1622.20",
+      name: "Staff",
+      selector: (row) => row.staff,
     },
     {
-      count: "3",
-      foodName: "Veg. triple schezwan",
-      foodDescription: "Veg. triple schezwan",
-      price: "₹1843.90",
-      finalPrice: "₹1622.20",
+      name: "Clocked In",
+      center: true,
+      cell: (row) => (
+        <div>
+          {row.clockedIn.map((item) => (
+            <p style={{ margin: "0" }}>{item}</p>
+          ))}
+        </div>
+      ),
     },
-  ])
-
-  // const [orderItems, setOrderItems] = useState([])
-
-  // console.log("order items", orderItems)
-
-  const Search = styled("div")(({ theme }) => ({
-    position: "relative",
-    borderRadius: "8px",
-    backgroundColor: "#FFFFFF",
-    "&:hover": {
-      backgroundColor: "#FFFFFF",
+    {
+      name: "Clocked Out",
+      selector: (row) => row.clockedOut,
+      right: true,
     },
-    // marginRight: theme.spacing(2),
-    marginLeft: 0,
-    width: "100%",
-  }))
-
-  const SearchIconWrapper = styled("div")(({ theme }) => ({
-    padding: theme.spacing(0, 1),
-    height: "100%",
-    position: "absolute",
-    pointerEvents: "none",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-
-    "& svg": {
-      width: "32px",
-      height: "32px",
+    {
+      name: "Work Hours",
+      selector: (row) => row.hours,
+      right: true,
     },
-  }))
-
-  const StyledInputBase = styled(InputBase)(({ theme }) => ({
-    color: "#B1B6B9",
-    fontWeight: "400",
-    leterSpacing: "0.6px",
-    fontSize: { lg: "16px", xs: "12px" },
-    "& .MuiInputBase-input": {
-      color: "#B1B6B9",
-      fontWeight: "400",
-      leterSpacing: "0.6px",
-      fontSize: { lg: "16px", xs: "12px" },
-      padding: theme.spacing(1, 1, 1, 0),
-      // vertical padding + font size from searchIcon
-      paddingLeft: `calc(1em + ${theme.spacing(4)})`,
-      width: "100%",
-    },
-  }))
-
-  const style = {
-    bgcolor: "background.paper",
-  }
-
+  ]
   return (
     <Box
       height="100%"
@@ -161,80 +129,9 @@ function Reports() {
         />
       </Box>
 
-      <Grid
-        container
-        height={
-          {
-            // lg: "calc(100% - 144px - 247px)",
-            // xs: "calc(100% - 120px - 195px)",
-          }
-        }
-      >
-        <Grid
-          container
-          item
-          spacing={{ lg: 3, xs: 1 }}
-          height="100%"
-          alignItems="end"
-          py={{ lg: "22px", xs: "22px" }}
-          px={{ lg: "22px", xs: "12px" }}
-        >
-          <Grid item xs={4}></Grid>
-          <Grid item xs={4}>
-            <Button
-              sx={{
-                height: { lg: "60px", xs: "40px" },
-                color: "#FFFFFF",
-                fontSize: { lg: "18px", xs: "14px" },
-                fontWeight: "400",
-                letterSpacing: "0.6px",
-                textTransform: "uppercase",
-                backgroundColor: "#E57607",
-                borderRadius: "10px",
-
-                "&:hover": {
-                  backgroundColor: "#E57607",
-                },
-
-                "& svg": {
-                  width: { lg: "32px", xs: "24px" },
-                  height: { lg: "32px", xs: "24px" },
-                },
-              }}
-              fullWidth
-              startIcon={<PrintIconWhite />}
-            >
-              RECEIPT
-            </Button>
-          </Grid>
-          <Grid item xs={4}>
-            <Button
-              sx={{
-                height: { lg: "60px", xs: "40px" },
-                color: "#FFFFFF",
-                fontSize: { lg: "19px", xs: "14px" },
-                fontWeight: "400",
-                letterSpacing: "0.6px",
-                textTransform: "uppercase",
-                backgroundColor: "#E57607",
-                borderRadius: "10px",
-
-                "&:hover": {
-                  backgroundColor: "#E57607",
-                },
-
-                "& svg": {
-                  width: { lg: "32px", xs: "24px" },
-                  height: { lg: "32px", xs: "24px" },
-                },
-              }}
-              fullWidth
-            >
-              REFUND CHECK
-            </Button>
-          </Grid>
-        </Grid>
-      </Grid>
+      <Box p={{ lg: "22px", xs: "12px" }}>
+        <Table columns={coloums} data={data} />
+      </Box>
     </Box>
   )
 }
