@@ -63,6 +63,9 @@ function ChineseFood() {
           <FoodBillingCard />
           <FoodBillingCard />
           <FoodBillingCard />
+          <FoodBillingCard />
+          <FoodBillingCard />
+          <FoodBillingCard />
         </Box>
         <Box pt={{ lg: "44px", xs: "22px" }}>
           <List sx={style} component="nav" aria-label="mailbox folders">

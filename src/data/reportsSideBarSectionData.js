@@ -1,14 +1,14 @@
 export const ReportsSideBarData = [
   {
     section: "Close of Day Report",
-    path: "/close-day-report",
+    path: "/reports/close-day-report",
   },
   {
     section: "Sales Report",
-    path: "/sales-report",
+    path: "/reports/sales-report",
   },
   {
     section: "Staff Clock in / Clock Out Report",
-    path: "/staff-clock-report",
+    path: "/reports/staff-clock-report",
   },
 ]

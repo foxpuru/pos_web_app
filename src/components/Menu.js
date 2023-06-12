@@ -15,60 +15,72 @@ import {
   OpenedChecksBlackIcon,
   PrintCheckBlackIcon,
 } from "./icons"
+import CheckNotePopup from "./CheckNotePopup"
+import ExtraCharges from "./ExtraCharges"
+import useModalState from "@/hooks/useModalState"
 // import { OpenedChecksBlackIcon } from "./icons"
-
-const options = [
-  {
-    label: "Save Checks",
-    icon: <OpenedChecksBlackIcon />,
-  },
-  {
-    label: "Add Custom Products",
-    icon: <AddCustomerProductsIcon />,
-  },
-  {
-    label: "Add Note to Check",
-    icon: <AddNoteToChekcBlackIcon />,
-  },
-  {
-    label: "Add Discount",
-    icon: <AddDiscountBlackIcon />,
-  },
-  {
-    label: "Add Extra Charge",
-    icon: <AddServiceChargeBlackIcon />,
-  },
-  {
-    label: "Add Gift Card",
-    icon: <AddGiftCardIcon />,
-  },
-  {
-    label: "Print Check",
-    icon: <PrintCheckBlackIcon />,
-  },
-  {
-    label: "Discard Check",
-    icon: <DiscardCheckBlackIcon />,
-  },
-]
 
 const ITEM_HEIGHT = 58
 
-export default function MenuModal({
-  open,
-  handleClick,
-  anchorEl,
-  handleClose,
-}) {
+export default function MenuModal({ open, anchorEl, handleClose }) {
+  const {
+    isOpen: isOpenCheckNote,
+    handleToggle: handleToggleCheckNote,
+    handleOpen: handleOpenCheckNote,
+    handleClose: handleCloseCheckNote,
+  } = useModalState(false)
+  const {
+    isOpen: isOpenExtraCharges,
+    handleToggle: handleToggleExtraCharges,
+    handleOpen: handleOpenExtraCharges,
+    handleClose: handleCloseExtraCharges,
+  } = useModalState(false)
+  const options = [
+    {
+      label: "Save Checks",
+      icon: <OpenedChecksBlackIcon />,
+    },
+    {
+      label: "Add Custom Products",
+      icon: <AddCustomerProductsIcon />,
+    },
+    {
+      label: "Add Note to Check",
+      icon: <AddNoteToChekcBlackIcon />,
+      onClick: handleOpenCheckNote,
+    },
+    {
+      label: "Add Discount",
+      icon: <AddDiscountBlackIcon />,
+    },
+    {
+      label: "Add Extra Charge",
+      icon: <AddServiceChargeBlackIcon />,
+      onClick: handleOpenExtraCharges,
+    },
+    {
+      label: "Add Gift Card",
+      icon: <AddGiftCardIcon />,
+    },
+    {
+      label: "Print Check",
+      icon: <PrintCheckBlackIcon />,
+    },
+    {
+      label: "Discard Check",
+      icon: <DiscardCheckBlackIcon />,
+    },
+  ]
   return (
     <Menu
       id="long-menu"
+      onClose={handleClose}
       MenuListProps={{
         "aria-labelledby": "long-button",
       }}
       anchorEl={anchorEl}
       open={open}
-      onClose={handleClose}
+      // onClose={handleClose}
       // sx={{ width: { lg: "30ch !important", xs: "30ch" } }}
       PaperProps={{
         style: {
@@ -81,7 +93,7 @@ export default function MenuModal({
         <MenuItem
           key={option.label}
           // selected={option === "Pyxis"}
-          onClick={handleClose}
+          onClick={option.onClick}
           sx={{ borderBottom: "2px solid #D7DBDC" }}
         >
           <ListItemIcon
@@ -108,6 +120,18 @@ export default function MenuModal({
           </ListItemText>
         </MenuItem>
       ))}
+      <CheckNotePopup
+        isOpen={isOpenCheckNote}
+        handleToggle={handleToggleCheckNote}
+        handleOpen={handleOpenCheckNote}
+        handleClose={handleCloseCheckNote}
+      />
+      <ExtraCharges
+        isOpen={isOpenExtraCharges}
+        handleToggle={handleToggleExtraCharges}
+        handleOpen={handleOpenExtraCharges}
+        handleClose={handleCloseExtraCharges}
+      />
     </Menu>
   )
 }

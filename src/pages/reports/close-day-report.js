@@ -13,7 +13,7 @@ import {
   SearchGreyIcon,
 } from "@/components/icons"
 
-import PaymentMethodArrowImg from "../assets/images/ic_payment_method_arrow.png"
+import PaymentMethodArrowImg from "@/assets/images/ic_payment_method_arrow.png"
 import { Image } from "@/components/styled-components/tableDetails"
 import MainLayout from "@/layouts/MainLayout"
 import TransactionDateCard from "@/components/TransactionDateCard"

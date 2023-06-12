@@ -18,6 +18,7 @@ function useModalState(initialValue) {
 
   function handleClose() {
     setIsOpen(false)
+    console.log("hanldecloseeeeee")
   }
 
   function handleToggle() {

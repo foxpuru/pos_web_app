@@ -13,7 +13,7 @@ import {
   SearchGreyIcon,
 } from "@/components/icons"
 
-import PaymentMethodArrowImg from "../assets/images/ic_payment_method_arrow.png"
+import PaymentMethodArrowImg from "@/assets/images/ic_payment_method_arrow.png"
 import { Image } from "@/components/styled-components/tableDetails"
 import MainLayout from "@/layouts/MainLayout"
 import TransactionDateCard from "@/components/TransactionDateCard"
@@ -46,11 +46,16 @@ function Reports() {
       name: "Clocked In",
       center: true,
       cell: (row) => (
-        <div>
+        <Box
+          my={{ lg: "8px", xs: "6px" }}
+          display="flex"
+          flexDirection="column"
+          gap={{ lg: "2px", xs: "2px" }}
+        >
           {row.clockedIn.map((item) => (
-            <p style={{ margin: "0" }}>{item}</p>
+            <p style={{ margin: 0 }}>{item}</p>
           ))}
-        </div>
+        </Box>
       ),
     },
     {

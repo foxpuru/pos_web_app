@@ -25,21 +25,18 @@ export const SideBarItems = [
     icon: <TranscationsIcon />,
     path: "/transactions",
   },
-  {
-    label: "Reports",
-    icon: <ReportsIcon />,
-    path: "/close-day-report",
-  },
+
   {
     label: "Cash Management",
     icon: <CashIcon />,
     path: "/cash-management",
   },
   {
-    label: "Add Items",
-    icon: <AddItemsIcon />,
-    path: "/add-items",
+    label: "Reports",
+    icon: <ReportsIcon />,
+    path: "/reports/close-day-report",
   },
+
   {
     label: "Settings",
     icon: <SettingsIcon />,

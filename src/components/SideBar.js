@@ -27,7 +27,8 @@ export default function SideBarDrawer({
   handleOpen,
 }) {
   const router = useRouter()
-  console.log("routtttt", router)
+  console.log("routtttt", router.pathname.startsWith("/reports"))
+
   const list = () => (
     <Box
       height="100%"
@@ -60,7 +61,10 @@ export default function SideBarDrawer({
                 py: { sm: "12px", xs: "8px" },
                 alignItems: { sm: "center", xs: "flex-start" },
                 backgroundColor:
-                  router.pathname === item.path ? "#EEF5F6" : undefined,
+                  router.pathname === item.path ||
+                  item.path.startsWith(`/${router.pathname.split("/")[1]}`)
+                    ? "#EEF5F6"
+                    : undefined,
                 cursor: "pointer",
                 "&:hover": {
                   // backgroundColor: "#EEF5F6",
@@ -70,7 +74,10 @@ export default function SideBarDrawer({
             >
               <ListItemIcon
                 className={
-                  item.path.startsWith(router.pathname) ? "active" : undefined
+                  item.path.startsWith(router.pathname) ||
+                  item.path.startsWith(`/${router.pathname.split("/")[1]}`)
+                    ? "active"
+                    : undefined
                 }
                 sx={{
                   minWidth: { sm: "50px", xs: "30px" },
@@ -92,7 +99,10 @@ export default function SideBarDrawer({
               </ListItemIcon>
               <ListItemText
                 className={
-                  item.path.startsWith(router.pathname) ? "active" : undefined
+                  item.path.startsWith(router.pathname) ||
+                  item.path.startsWith(`/${router.pathname.split("/")[1]}`)
+                    ? "active"
+                    : undefined
                 }
                 sx={{
                   m: { sm: "4px 0px 4px 0px", xs: "3px 0px 0px 0px" },

@@ -19,6 +19,8 @@ export const InputContainer = styled("div")({
   borderRadius: "10px",
 })
 
+export const TextArea = styled("textarea")({})
+
 export const Input = styled("input")({
   width: "100%",
   border: "0",
