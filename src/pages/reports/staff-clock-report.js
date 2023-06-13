@@ -52,8 +52,8 @@ function Reports() {
           flexDirection="column"
           gap={{ lg: "2px", xs: "2px" }}
         >
-          {row.clockedIn.map((item) => (
-            <p style={{ margin: 0 }}>{item}</p>
+          {row.clockedIn.map((item, index) => (
+            <p style={{ margin: 0 }} key={index}>{item}</p>
           ))}
         </Box>
       ),

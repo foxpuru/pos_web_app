@@ -1,5 +1,7 @@
+import ChangeLayout from "@/components/ChangeLayout"
 import { Image } from "@/components/styled-components/tableDetails"
-import { SettingsData } from "@/data/settingsData"
+
+import useModalState from "@/hooks/useModalState"
 import MainLayout from "@/layouts/MainLayout"
 import SettingsLayout from "@/layouts/settingLayout"
 import {
@@ -66,212 +68,318 @@ const IOSSwitch = styled((props) => (
 }))
 
 function Settings() {
+  const {
+    isOpen: isOpenChangeLayout,
+    handleOpen: handleOpenChangeLayout,
+    handleClose: handleCloseChangeLayout,
+    handleToggle: handleToggleChangeLayout,
+  } = useModalState(false)
+
+  const SettingsData = [
+    {
+      section: "GENERAL STATION",
+      options: [
+        {
+          label: "GENERAL STATION",
+          rightText: "Version - 1.0 (103)",
+        },
+        {
+          label: "Connected Network",
+          rightText: "<unknown ssid>",
+        },
+
+        {
+          label: "Enable Auto Printing after Payment",
+          switch: true,
+          isSwitched: true,
+        },
+        {
+          label: "Enable Cash Management",
+          switch: true,
+          isSwitched: false,
+        },
+        {
+          label: "Enable Table Management",
+          switch: true,
+          isSwitched: false,
+        },
+        {
+          label: "Sync BackOffice",
+          button: "Sync BackOffice",
+        },
+        {
+          label: "Choose Customer Display",
+          button: "Add Customer Display",
+          borderBottom: true,
+        },
+      ],
+    },
+    {
+      section: "LAYOUT GRID",
+      options: [
+        {
+          gridRow: { label: "Pizzeria", description: "Selected Layout" },
+          borderBottom: true,
+          button: "Change Layout",
+          onClick: handleOpenChangeLayout,
+        },
+      ],
+    },
+    {
+      section: "PRINTER STATION",
+      options: [
+        {
+          gridRowSection: {
+            Mainlabel: "RECEIPT PRINTER",
+
+            description: "No Printer Found",
+            button: "Discover Printer",
+          },
+        },
+        {
+          gridRowSection: {
+            Mainlabel: "Kitchen Printer",
+
+            description: "No Printer Found",
+            button: "Discover Printer",
+          },
+        },
+        {
+          gridRowSection: {
+            Mainlabel: "Kitchen First Floor",
+
+            description: "No Printer Found",
+            button: "Discover Printer",
+          },
+        },
+        {
+          label: "GENERAL STATION",
+          switch: true,
+          isSwitched: true,
+          borderBottom: true,
+        },
+      ],
+    },
+  ]
+
   return (
-    <Box p={{ lg: "22px", xs: "16px" }} bgcolor="#EEF5F6">
-      <Box
-        border="1px solid #D7DBDC"
-        borderRadius="10px 10px 10px 10px"
-        bgcolor="#FFFFFF"
-      >
-        {SettingsData.map((item) => (
-          <Box key={item.section}>
-            <Box
-              borderRadius="10px 10px 0px 0px"
-              bgcolor="#E57607"
-              p={{ lg: "7px 22px 7px 22px", xs: "5px 16px 5px 16px" }}
-            >
-              <Typography
-                color="white"
-                fontWeight="500"
-                letterSpacing="0.65px"
-                textTransform="uppercase"
-                textSize={{ lg: "16px", xs: "14px" }}
+    <>
+      <Box p={{ lg: "22px", xs: "16px" }} bgcolor="#EEF5F6">
+        <Box
+          border="1px solid #D7DBDC"
+          borderRadius="10px 10px 10px 10px"
+          bgcolor="#FFFFFF"
+        >
+          {SettingsData.map((item) => (
+            <Box key={item.section}>
+              <Box
+                borderRadius="10px 10px 0px 0px"
+                bgcolor="#E57607"
+                p={{ lg: "7px 22px 7px 22px", xs: "5px 16px 5px 16px" }}
               >
-                {item.section}
-              </Typography>
-            </Box>
-            <Box
-              px={{ lg: "22px", xs: "16px" }}
-              pb={{ lg: "22px", xs: "16px" }}
-            >
-              {item.options.map((option) => (
-                <>
-                  {option.borderTop && (
-                    <Box
-                      pt={{ lg: "22px", xs: "16px" }}
-                      borderBottom={option.borderTop && "1px solid #ffffff"}
-                    ></Box>
-                  )}
-                  <Box
-                    py={{ lg: "8px", xs: "6px" }}
-                    minHeight={{ lg: "52px", xs: "40px" }}
-                    display="flex"
-                    justifyContent="space-between"
-                    alignItems="center"
-                    borderBottom="1px solid #D7DBDC"
-                    borderTop={option.borderTop && "1px solid #D7DBDC"}
-                  >
-                    {option.label && (
-                      <Typography
-                        color="Black"
-                        fontWeight="400"
-                        letterSpacing="0.6px"
-                        textSize={{ lg: "14px", xs: "12px" }}
-                      >
-                        {option.label}
-                      </Typography>
-                    )}
-                    {option.gridRow && (
+                <Typography
+                  color="white"
+                  fontWeight="500"
+                  letterSpacing="0.65px"
+                  textTransform="uppercase"
+                  textSize={{ lg: "16px", xs: "14px" }}
+                >
+                  {item.section}
+                </Typography>
+              </Box>
+              <Box
+                px={{ lg: "22px", xs: "16px" }}
+                // pb={{ lg: "22px", xs: "16px" }}
+              >
+                {item.options.map((option) => (
+                  <>
+                    {option.borderTop && (
                       <Box
-                        display="flex"
-                        alignItems="center"
-                        py={{ lg: "12px", xs: "10px" }}
-                      >
-                        <Image
-                          src={LayoutGridImg.src}
-                          alt="layout grid"
-                          sx={{
-                            width: { lg: "38px", xs: "30px" },
-                            height: { lg: "38px", xs: "30px" },
-                          }}
-                        />
-                        <Box
-                          display="flex"
-                          flexDirection="column"
-                          textAlign="left"
-                          ml={{ lg: "22px", xs: "16px" }}
-                        >
-                          <Typography
-                            color="Black"
-                            fontWeight="400"
-                            letterSpacing="0.6px"
-                            textSize={{ lg: "14px", xs: "12px" }}
-                          >
-                            {option.gridRow.label}
-                          </Typography>
-                          <Typography
-                            color="#A5ACAE"
-                            fontWeight="400"
-                            letterSpacing="0.5px"
-                            textSize={{ lg: "12px", xs: "10px" }}
-                          >
-                            {option.gridRow.description}
-                          </Typography>
-                        </Box>
-                      </Box>
+                        pt={{ lg: "22px", xs: "16px" }}
+                        borderBottom={option.borderTop && "1px solid #ffffff"}
+                      ></Box>
                     )}
-                    {option.gridRowSection && (
-                      <Box display="grid" width="100%">
+                    <Box
+                      py={{ lg: "8px", xs: "6px" }}
+                      minHeight={{ lg: "52px", xs: "40px" }}
+                      display="flex"
+                      justifyContent="space-between"
+                      alignItems="center"
+                      borderBottom={
+                        !option.borderBottom ? "1px solid #D7DBDC" : undefined
+                      }
+                      borderTop={option.borderTop && "1px solid #D7DBDC"}
+                    >
+                      {option.label && (
                         <Typography
                           color="Black"
                           fontWeight="400"
                           letterSpacing="0.6px"
                           textSize={{ lg: "14px", xs: "12px" }}
                         >
-                          {option.gridRowSection.Mainlabel}
+                          {option.label}
                         </Typography>
+                      )}
+                      {option.gridRow && (
                         <Box
                           display="flex"
                           alignItems="center"
-                          justifyContent="space-between"
                           py={{ lg: "12px", xs: "10px" }}
                         >
-                          <Box display="flex" alignItems="center">
-                            <Image
-                              src={PrintReceiptGreenImg.src}
-                              alt="layout grid"
-                              sx={{
-                                width: { lg: "38px", xs: "30px" },
-                                height: { lg: "38px", xs: "30px" },
-                              }}
-                            />
-                            <Box
-                              display="flex"
-                              flexDirection="column"
-                              textAlign="left"
-                              ml={{ lg: "22px", xs: "16px" }}
-                            >
-                              <Typography
-                                color="#A5ACAE"
-                                fontWeight="400"
-                                letterSpacing="0.5px"
-                                textSize={{ lg: "12px", xs: "10px" }}
-                              >
-                                {option.gridRowSection.description}
-                              </Typography>
-                            </Box>
-                          </Box>
-                          <Button
+                          <Image
+                            src={LayoutGridImg.src}
+                            alt="layout grid"
                             sx={{
-                              height: { lg: "34px", xs: "28px" },
-                              p: 0,
-
-                              width: { lg: "180px", xs: "130px" },
-                              color: "#FFFFFF",
-                              fontSize: { lg: "16px", xs: "12px" },
-                              fontWeight: "400",
-                              textTransform: "capitalize",
-                              backgroundColor: "#E57607",
-                              borderRadius: "10px",
+                              width: { lg: "48px", xs: "34px" },
+                              height: { lg: "48px", xs: "34px" },
                             }}
-                          >
-                            {option.gridRowSection.button}
-                          </Button>
-                        </Box>
-                      </Box>
-                    )}
-                    {option.rightText && (
-                      <Typography
-                        color="Black"
-                        fontWeight="400"
-                        letterSpacing="0.6px"
-                        textSize={{ lg: "14px", xs: "12px" }}
-                      >
-                        {option.rightText}
-                      </Typography>
-                    )}
-                    {option.switch && (
-                      <FormControlLabel
-                        sx={{
-                          margin: 0,
-                          "& span": {
-                            margin: 0,
-                          },
-                        }}
-                        control={
-                          <IOSSwitch
-                            sx={{ m: 1 }}
-                            defaultChecked={option.isSwitched ? true : false}
                           />
-                        }
-                      />
-                    )}
-                    {option.button && (
-                      <Button
-                        sx={{
-                          height: { lg: "34px", xs: "28px" },
-                          p: 0,
+                          <Box
+                            display="flex"
+                            flexDirection="column"
+                            textAlign="left"
+                            ml={{ lg: "22px", xs: "16px" }}
+                          >
+                            <Typography
+                              color="Black"
+                              fontWeight="400"
+                              letterSpacing="0.6px"
+                              textSize={{ lg: "14px", xs: "12px" }}
+                            >
+                              {option.gridRow.label}
+                            </Typography>
+                            <Typography
+                              color="#A5ACAE"
+                              fontWeight="400"
+                              letterSpacing="0.5px"
+                              textSize={{ lg: "12px", xs: "10px" }}
+                            >
+                              {option.gridRow.description}
+                            </Typography>
+                          </Box>
+                        </Box>
+                      )}
+                      {option.gridRowSection && (
+                        <Box display="grid" width="100%">
+                          <Typography
+                            color="Black"
+                            fontWeight="400"
+                            letterSpacing="0.6px"
+                            textSize={{ lg: "14px", xs: "12px" }}
+                          >
+                            {option.gridRowSection.Mainlabel}
+                          </Typography>
+                          <Box
+                            display="flex"
+                            alignItems="center"
+                            justifyContent="space-between"
+                            pb={{ lg: "12px", xs: "10px" }}
+                          >
+                            <Box display="flex" alignItems="center">
+                              <Image
+                                src={PrintReceiptGreenImg.src}
+                                alt="layout grid"
+                                sx={{
+                                  width: { lg: "48px", xs: "34px" },
+                                  height: { lg: "48px", xs: "34px" },
+                                }}
+                              />
+                              <Box
+                                display="flex"
+                                flexDirection="column"
+                                textAlign="left"
+                                ml={{ lg: "22px", xs: "16px" }}
+                              >
+                                <Typography
+                                  color="#A5ACAE"
+                                  fontWeight="400"
+                                  letterSpacing="0.5px"
+                                  textSize={{ lg: "12px", xs: "10px" }}
+                                >
+                                  {option.gridRowSection.description}
+                                </Typography>
+                              </Box>
+                            </Box>
+                            <Button
+                              sx={{
+                                height: { lg: "44px", xs: "34px" },
+                                p: 0,
 
-                          width: { lg: "180px", xs: "130px" },
-                          color: "#FFFFFF",
-                          fontSize: { lg: "16px", xs: "12px" },
-                          fontWeight: "400",
-                          textTransform: "capitalize",
-                          backgroundColor: "#E57607",
-                          borderRadius: "10px",
-                        }}
-                      >
-                        {option.button}
-                      </Button>
-                    )}
-                  </Box>
-                </>
-              ))}
+                                width: { lg: "220px", xs: "150px" },
+                                color: "#FFFFFF",
+                                fontSize: { lg: "16px", xs: "12px" },
+                                fontWeight: "400",
+                                textTransform: "capitalize",
+                                backgroundColor: "#E57607",
+                                borderRadius: "10px",
+                              }}
+                            >
+                              {option.gridRowSection.button}
+                            </Button>
+                          </Box>
+                        </Box>
+                      )}
+                      {option.rightText && (
+                        <Typography
+                          color="Black"
+                          fontWeight="400"
+                          letterSpacing="0.6px"
+                          textSize={{ lg: "14px", xs: "12px" }}
+                        >
+                          {option.rightText}
+                        </Typography>
+                      )}
+                      {option.switch && (
+                        <FormControlLabel
+                          sx={{
+                            margin: 0,
+                            "& span": {
+                              margin: 0,
+                            },
+                          }}
+                          control={
+                            <IOSSwitch
+                              sx={{ m: 1 }}
+                              defaultChecked={option.isSwitched ? true : false}
+                            />
+                          }
+                        />
+                      )}
+                      {option.button && (
+                        <Button
+                          sx={{
+                            height: { lg: "44px", xs: "34px" },
+                            p: 0,
+
+                            width: { lg: "220px", xs: "150px" },
+
+                            color: "#FFFFFF",
+                            fontSize: { lg: "16px", xs: "12px" },
+                            fontWeight: "400",
+                            textTransform: "capitalize",
+                            backgroundColor: "#E57607",
+                            borderRadius: "10px",
+                          }}
+                          onClick={option.onClick}
+                        >
+                          {option.button}
+                        </Button>
+                      )}
+                    </Box>
+                  </>
+                ))}
+              </Box>
             </Box>
-          </Box>
-        ))}
+          ))}
+        </Box>
       </Box>
-    </Box>
+      <ChangeLayout
+        isOpen={isOpenChangeLayout}
+        handleOpen={handleOpenChangeLayout}
+        handleClose={handleCloseChangeLayout}
+        handleToggle={handleToggleChangeLayout}
+      />
+    </>
   )
 }
 

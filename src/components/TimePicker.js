@@ -10,7 +10,7 @@ function TimePicker() {
         <div class="picker-window"></div>
         <ul class="picker-hour">
           {Array.from({ length: 12 }).map((_, index) => (
-            <li>{index + 1}</li>
+            <li key={index}>{index + 1}</li>
           ))}
         </ul>
         <ul class="picker-hour" style={{ overflow: "none" }}>
@@ -18,12 +18,12 @@ function TimePicker() {
         </ul>
         <ul class="picker-hour">
           {Array.from({ length: 60 }).map((_, index) => (
-            <li>{index}</li>
+            <li key={index}>{index}</li>
           ))}
         </ul>
         <ul class="picker-hour">
-          {["AM", "PM"].map((item) => (
-            <li>{item}</li>
+          {["AM", "PM"].map((item, index) => (
+            <li key={index}>{item}</li>
           ))}
         </ul>
       </div>
