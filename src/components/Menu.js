@@ -19,6 +19,7 @@ import CheckNotePopup from "./CheckNotePopup"
 import ExtraCharges from "./ExtraCharges"
 import useModalState from "@/hooks/useModalState"
 import AddCustomProduct from "./modals/AddCustomProduct"
+import AddDiscount from "./modals/AddDiscount"
 // import { OpenedChecksBlackIcon } from "./icons"
 
 const ITEM_HEIGHT = 58
@@ -44,6 +45,13 @@ export default function MenuModal({ open, anchorEl, handleClose }) {
     handleClose: handleCloseAddCustomProduct,
   } = useModalState(false)
 
+  const {
+    isOpen: isOpenAddDiscount,
+    handleToggle: handleToggleAddDiscount,
+    handleOpen: handleOpenAddDiscount,
+    handleClose: handleCloseAddDiscount,
+  } = useModalState(true)
+
   const options = [
     {
       label: "Save Checks",
@@ -62,6 +70,7 @@ export default function MenuModal({ open, anchorEl, handleClose }) {
     {
       label: "Add Discount",
       icon: <AddDiscountBlackIcon />,
+      onClick: handleOpenAddDiscount,
     },
     {
       label: "Add Extra Charge",
@@ -81,6 +90,7 @@ export default function MenuModal({ open, anchorEl, handleClose }) {
       icon: <DiscardCheckBlackIcon />,
     },
   ]
+
   return (
     <Menu
       id="long-menu"
@@ -147,6 +157,12 @@ export default function MenuModal({ open, anchorEl, handleClose }) {
         handleToggle={handleToggleAddCustomProduct}
         handleOpen={handleOpenAddCustomProduct}
         handleClose={handleCloseAddCustomProduct}
+      />
+      <AddDiscount
+        isOpen={isOpenAddDiscount}
+        handleToggle={handleToggleAddDiscount}
+        handleOpen={handleOpenAddDiscount}
+        handleClose={handleCloseAddDiscount}
       />
     </Menu>
   )

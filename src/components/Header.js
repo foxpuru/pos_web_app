@@ -99,7 +99,7 @@ export default function Header({ isPaymentMethod }) {
   } = useModalState(false)
 
   const { anchorElMenu, openMenu, handleClickMenu, handleCloseMenu } =
-    useModalState(false)
+    useModalState(true)
 
   const router = useRouter()
 

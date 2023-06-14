@@ -25,12 +25,6 @@ export const Input = styled("input")({
   width: "100%",
   border: "0",
   outline: "0",
-  // backgroundColor: "transparent",
-  // fontFamily: "Poppins",
-  // fontSize: "22px",
-  // fontWeight: "400",
-  // letterSpacing: "0.9px",
-  // color: "#000000",
 })
 
 export const TableDetailImage = styled("img")({
