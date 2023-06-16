@@ -2,7 +2,7 @@ import { Box, Button, Divider, Grid, Stack, Typography } from "@mui/material"
 import { styled } from "@mui/material/styles"
 import Paper from "@mui/material/Paper"
 
-import React from "react"
+import React, { useState } from "react"
 
 import CustomModal from "../Modal"
 import ClocePopup from "@/assets/images/ic_close_popup.png"
@@ -17,14 +17,8 @@ import {
   Buttonss,
 } from "../mobile-dailer/components/Dialer/atoms"
 import { CustomButton } from "../custom-components"
-
-const Item = styled(Paper)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
-  ...theme.typography.body2,
-  padding: theme.spacing(1),
-  textAlign: "center",
-  color: theme.palette.text.secondary,
-}))
+import { CalculatorButtonsKey } from "@/data/calculatorKey"
+import ReactNumberFormat from "../ReactNumberFormat"
 
 const NumberItem = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
@@ -44,14 +38,13 @@ const NumberItem = styled(Paper)(({ theme }) => ({
 }))
 
 function AddDiscount({ isOpen, handleToggle, handleOpen, handleClose }) {
+  const [layout, setLayout] = useState("%")
+
   const [amount, setAmount] = React.useState("")
+  const [amountFieldBy, setAmountFieldBy] = React.useState()
 
   const onClear = () => {
     setAmount("")
-  }
-
-  const onChange = (e) => {
-    setAmount(e.target.value)
   }
 
   const FormRow = ({ buttons }) => {
@@ -61,7 +54,15 @@ function AddDiscount({ isOpen, handleToggle, handleOpen, handleClose }) {
           item
           xs={4}
           sx={{ cursor: "pointer" }}
-          onClick={() => setAmount(amount + buttons[0].value)}
+          // onClick={() => setAmount(amount + buttons[0].value)}
+          onClick={() => {
+            if (amountFieldBy) {
+              setAmount(buttons[0].value)
+              setAmountFieldBy(false)
+              return true
+            }
+            setAmount(amount + buttons[0].value)
+          }}
         >
           <NumberItem>{buttons[0].value}</NumberItem>
         </Grid>
@@ -69,7 +70,15 @@ function AddDiscount({ isOpen, handleToggle, handleOpen, handleClose }) {
           item
           xs={4}
           sx={{ cursor: "pointer" }}
-          onClick={() => setAmount(amount + buttons[1].value)}
+          // onClick={() => setAmount(amount + buttons[1].value)}
+          onClick={() => {
+            if (amountFieldBy) {
+              setAmount(buttons[1].value)
+              setAmountFieldBy(false)
+              return true
+            }
+            setAmount(amount + buttons[1].value)
+          }}
         >
           <NumberItem>{buttons[1].value}</NumberItem>
         </Grid>
@@ -77,11 +86,22 @@ function AddDiscount({ isOpen, handleToggle, handleOpen, handleClose }) {
           item
           xs={4}
           sx={{ cursor: "pointer" }}
-          onClick={() =>
-            buttons[2].remove
-              ? setAmount(amount.substring(0, amount.length - 1))
-              : setAmount(amount + buttons[2].value)
-          }
+          // onClick={() =>
+          //   buttons[2].remove
+          //     ? setAmount(amount.substring(0, amount.length - 1))
+          //     : setAmount(amount + buttons[2].value)
+          // }
+          onClick={() => {
+            if(buttons[2].remove) {
+              setAmount(amount.substring(0, amount.length - 1))
+            }
+            else if(amountFieldBy) {
+              setAmount(buttons[2].value)
+              setAmountFieldBy(false)
+              return true
+            }
+            setAmount(amount + buttons[2].value)
+          }}
         >
           <NumberItem sx={{ borderRight: "0" }}>{buttons[2].value}</NumberItem>
         </Grid>
@@ -96,9 +116,9 @@ function AddDiscount({ isOpen, handleToggle, handleOpen, handleClose }) {
       handleOpen={handleOpen}
       handleClose={handleClose}
       defaultHeader={false}
-      style={{ height: "auto", width: { lg: "350px", xs: "300px" } }}
+      style={{ height: "auto", width: { lg: "350px", xs: "350px" } }}
     >
-      <Box px={{ lg: "20px", xs: "16px" }} py={{ lg: "10px", xs: "12px" }}>
+      <Box p="22px">
         <Box
           sx={{
             display: "flex",
@@ -113,20 +133,22 @@ function AddDiscount({ isOpen, handleToggle, handleOpen, handleClose }) {
           />
         </Box>
         <Box
-          py={{ lg: "10px", xs: "12px" }}
+          pb={{ lg: "12px", xs: "8px" }}
           display="flex"
           justifyContent="center"
         >
           <Typography
             sx={{
-              color: "#000000",
+              color: layout === "$" ? "#E57607" : "#000000",
               fontSize: {
                 lg: "17px",
                 xs: "15px",
               },
 
               fontWeight: "600",
+              cursor: "pointer",
             }}
+            onClick={() => setLayout("$")}
           >
             $ Cash
           </Typography>
@@ -137,14 +159,16 @@ function AddDiscount({ isOpen, handleToggle, handleOpen, handleClose }) {
           />
           <Typography
             sx={{
-              color: "#E57607",
+              color: layout === "%" ? "#E57607" : "#000000",
               fontSize: {
                 lg: "17px",
                 xs: "15px",
               },
 
               fontWeight: "600",
+              cursor: "pointer",
             }}
+            onClick={() => setLayout("%")}
           >
             % Percent
           </Typography>
@@ -159,9 +183,11 @@ function AddDiscount({ isOpen, handleToggle, handleOpen, handleClose }) {
             flexDirection="column"
             alignItems="center"
           >
-            <Input
+            <ReactNumberFormat amount={amount} handleChange={(e) => setAmount(e.target.value)} layout={layout}/>
+            {/* <Input
               type="text"
               name="amount"
+              placeholder={layout === "%" ? "0%" : "$0.00"}
               value={amount}
               onChange={(e) => setAmount(e.target.value)}
               mb={{ lg: "4px", xs: "2px" }}
@@ -171,13 +197,22 @@ function AddDiscount({ isOpen, handleToggle, handleOpen, handleClose }) {
                   lg: "23px",
                   xs: "19px",
                 },
+
                 width: "100%",
                 textAlign: "center",
 
                 fontWeight: "500",
                 textTransform: "capitalize",
+                "&::placeholder": {
+                  color: "#000000",
+                  fontSize: {
+                    lg: "23px",
+                    xs: "19px",
+                  },
+                },
               }}
-            />
+            /> */}
+            
             <Typography
               sx={{
                 color: "#A5ACAE",
@@ -190,37 +225,36 @@ function AddDiscount({ isOpen, handleToggle, handleOpen, handleClose }) {
                 textTransform: "capitalize",
               }}
             >
-              Percent Amount
+              {layout === "%" ? "Percent" : "Cash"} Amount
             </Typography>
           </Box>
-          <Button
-            sx={{
+          <CustomButton
+            styles={{
               position: "absolute",
               height: { lg: "28px", xs: "22px" },
-              width: { lg: "50px", xs: "40px" },
+              width: { lg: "60px", xs: "50px" },
+              minWidth: { lg: "50px", xs: "50px" },
               backgroundColor: "transparent",
-              color: "#000000",
+              color: "#000 !important",
               fontSize: { lg: "12px", xs: "10px" },
               fontWeight: "400",
               textTransform: "capitalize",
               borderRadius: "8px",
-              border: "1px solid #A5ACAE",
 
               "&:hover": {
                 backgroundColor: "transparent !important",
               },
               top: "50%",
-              right: "0",
               transform: "translate(-50%, -50%)",
+              right: { lg: "-19px", xs: "-15px" },
             }}
             // disabled={otp.length == 12 ? false : true}
             // onClick={() =>
             //   otp.length == 12 ? Router.push("/") : undefined
             // }
             onClick={onClear}
-          >
-            Clear
-          </Button>
+            label={"Clear"}
+          />
         </Box>
         <Box
           py={{ lg: "12px", xs: "8px" }}
@@ -228,19 +262,19 @@ function AddDiscount({ isOpen, handleToggle, handleOpen, handleClose }) {
           display="flex"
           alignItems="center"
           justifyContent="center"
-          gap={{ lg: "22px", xs: "12px" }}
+          gap={{ lg: "12px", xs: "8px" }}
         >
           <Typography
-            color="#A5ACAE"
-            fontSize={{ lg: "42px", xs: "8px" }}
+            color={layout === "$" ? "#000000" : "#A5ACAE"}
+            fontSize={{ lg: "42px", xs: "34px" }}
             fontWeight="600"
             lineHeight="0 !important"
           >
             .
           </Typography>
           <Typography
-            color="black"
-            fontSize={{ lg: "42px", xs: "8px" }}
+            color={layout === "%" ? "#000000" : "#A5ACAE"}
+            fontSize={{ lg: "42px", xs: "34px" }}
             fontWeight="600"
             lineHeight="0 !important"
           >
@@ -281,49 +315,34 @@ function AddDiscount({ isOpen, handleToggle, handleOpen, handleClose }) {
           </Grid>
         </Box>
         <Box py={{ lg: "22px", xs: "16px" }}>
-          <Box
-            display="flex"
-            border="1px solid #A5ACAE"
-            borderRadius="10px"
-            width="100%"
-          >
-            <CustomButton
-              sx={{
-                borderRight: "1px solid #A5ACAE",
-                borderRadius: 0,
-                width: "25%",
-              }}
-              label="5%"
-              onClick={onClear}
-            />
-            <CustomButton
-              sx={{
-                borderRight: "1px solid #A5ACAE",
-                borderRadius: 0,
-                width: "25%",
-              }}
-              label="5%"
-              onClick={onClear}
-            />{" "}
-            <CustomButton
-              sx={{
-                borderRight: "1px solid #A5ACAE",
-                borderRadius: 0,
-                width: "25%",
-              }}
-              label="5%"
-              onClick={onClear}
-            />{" "}
-            <CustomButton
-              sx={{
-                borderRadius: 0,
-                width: "25%",
-              }}
-              label="5%"
-              onClick={onClear}
-            />
+          <Box display="flex" width="100%">
+            {CalculatorButtonsKey({ layout }).map((item) => (
+              <CustomButton
+                styles={...item.styles}
+                label={item.label}
+                onClick={() => {
+                  if (layout === "%") {
+                    setAmount(item.label)
+                    setAmountFieldBy(true)
+                  } else if (layout === "$") {
+                    setAmount(item.label)
+                    setAmountFieldBy(true)
+                  }
+                }}
+              />
+            ))}
           </Box>
         </Box>
+
+        <CustomButton
+          styles={{
+            color: "white",
+            backgroundColor: "#E57607",
+            "&:hover": { backgroundColor: "#E57607 !important" },
+          }}
+          label="Add Discount"
+        />
+
         {/* <Boxss>
           <ButtonsContainerss>
             {dailpadButtons.map((char) => (

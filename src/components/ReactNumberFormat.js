@@ -8,61 +8,89 @@ import InputLabel from "@mui/material/InputLabel"
 import TextField from "@mui/material/TextField"
 import FormControl from "@mui/material/FormControl"
 
-const NumericFormatCustom = React.forwardRef(function NumericFormatCustom(
-  props,
-  ref
-) {
-  const { onChange, ...other } = props
+export default function ReactNumberFormat({ amount, handleChange, layout }) {
+  const NumericFormatCustom = React.forwardRef(function NumericFormatCustom(
+    props,
+    ref
+  ) {
+    const { onChange, ...other } = props
 
-  return (
-    <NumericFormat
-      {...other}
-      getInputRef={ref}
-      onValueChange={(values) => {
-        onChange({
-          target: {
-            name: props.name,
-            value: values.value,
-          },
-        })
-      }}
-      thousandSeparator
-      valueIsNumericString
-      prefix="₹"
-    />
-  )
-})
+    const newSuffix = layout === "%" && "%"
+    const newPrefix = layout === "$" && "$"
 
-NumericFormatCustom.propTypes = {
-  name: PropTypes.string.isRequired,
-  onChange: PropTypes.func.isRequired,
-}
-
-export default function ReactNumberFormat() {
-  const [values, setValues] = React.useState({
-    textmask: "(100) 000-0000",
-    numberformat: "1320",
+    return (
+      <NumericFormat
+        {...other}
+        getInputRef={ref}
+        onValueChange={(values) => {
+          onChange({
+            target: {
+              name: props.name,
+              value: values.value,
+            },
+          })
+        }}
+        thousandSeparator
+        valueIsNumericString
+        prefix={"$"}
+        suffix={"%"}
+        // style={{ "&" }}
+        // suffix={layout === "%" && "%"}
+      />
+    )
   })
 
-  const handleChange = (event) => {
-    setValues({
-      ...values,
-      [event.target.name]: event.target.value,
-    })
+  NumericFormatCustom.propTypes = {
+    name: PropTypes.string.isRequired,
+    onChange: PropTypes.func.isRequired,
   }
+  // const [values, setValues] = React.useState({
+  //   textmask: "(100) 000-0000",
+  //   numberformat: "1320",
+  // })
+
+  // const handleChange = (event) => {
+  //   setValues({
+  //     ...values,
+  //     [event.target.name]: event.target.value,
+  //   })
+
+  // }
 
   return (
     <Box
       sx={{
-        "& > :not(style)": {
-          m: 1,
+        "& .MuiInputBase-root::before, .MuiInputBase-root::after": {
+          display: "none",
+        },
+        "& input": {
+          color: "#000000",
+          fontSize: {
+            lg: "23px",
+            xs: "19px",
+          },
+
+          width: "40%",
+          textAlign: "center",
+          margin: "auto",
+
+          fontWeight: "500",
+          textTransform: "capitalize",
+          textDecoration: "none",
+          "&::placeholder": {
+            color: "#000000",
+            fontSize: {
+              lg: "23px",
+              xs: "19px",
+            },
+          },
         },
       }}
     >
       <TextField
-        value={values.numberformat}
+        value={amount}
         onChange={handleChange}
-        name="numberformat"
+        name="amount"
         id="formatted-numberformat-input"
         InputProps={{
           inputComponent: NumericFormatCustom,
