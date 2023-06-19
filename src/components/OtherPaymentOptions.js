@@ -22,6 +22,7 @@ import {
   RemoveFoodToCartIcon,
   UncheckedBoxIcon,
 } from "./icons"
+import CustomizeRadioGroup from "./RadioGroup"
 
 const style = {
   position: "absolute",
@@ -40,6 +41,14 @@ export default function OtherPaymentOptions({
   handleOpen,
   handleClose,
 }) {
+  const [layout, setLayout] = React.useState("mobileWallet")
+
+  const options = [
+    { label: "Bank Transfer", value: "bankTransfer", image: BankImg.src },
+    { label: "Mobile Wallet", value: "mobileWallet", image: MobileImg.src },
+    { label: "Direct Debit", value: "directDebit", image: DebitImg.src },
+    { label: "UPI payments", value: "upiPayments", image: UpiImg.src },
+  ]
   return (
     <Modal open={isOpen} onClose={handleClose}>
       <Box sx={style}>
@@ -110,164 +119,12 @@ export default function OtherPaymentOptions({
             />
           </Box>
         </Box>
-
-        <Box p={{ lg: "12px", xs: "8px" }}>
-          <Box
-            display="flex"
-            justifyContent="space-between"
-            alignItems="center"
-          >
-            <Image
-              src={BankImg.src}
-              alt="bank"
-              sx={{ width: { lg: "36px", xs: "24px" } }}
-            />
-            <Box
-              pl={{ lg: "16px", xs: "12px" }}
-              display="flex"
-              width="100%"
-              alignItems="center"
-              justifyContent="space-between"
-            >
-              <Typography
-                sx={{
-                  color: "#000000",
-                  fontSize: {
-                    lg: "14px",
-                    xs: "12px",
-                    letterSpacing: "0.5px",
-                    fontWeight: "400",
-                  },
-                }}
-              >
-                Bank Transfer
-                {/* <Typography component={"span"}>.</Typography> */}
-              </Typography>
-              <Checkbox
-                icon={<UncheckedBoxIcon />}
-                checkedIcon={<CheckedBoxIcon />}
-                sx={{ width: "42px" }}
-              />
-            </Box>
-          </Box>
-          <Divider sx={{ borderBottomWidth: "2px", borderColor: "#EEF5F6" }} />
-          <Box
-            display="flex"
-            justifyContent="space-between"
-            alignItems="center"
-          >
-            <Image
-              src={MobileImg.src}
-              alt="bank"
-              sx={{ width: { lg: "36px", xs: "24px" } }}
-            />
-            <Box
-              pl={{ lg: "16px", xs: "12px" }}
-              display="flex"
-              width="100%"
-              alignItems="center"
-              justifyContent="space-between"
-            >
-              <Typography
-                sx={{
-                  color: "#000000",
-                  fontSize: {
-                    lg: "14px",
-                    xs: "12px",
-                    letterSpacing: "0.5px",
-                    fontWeight: "400",
-                  },
-                }}
-              >
-                Mobile Wallet
-                {/* <Typography component={"span"}>.</Typography> */}
-              </Typography>
-              <Checkbox
-                icon={<UncheckedBoxIcon />}
-                checkedIcon={<CheckedBoxIcon />}
-                sx={{ width: "42px" }}
-              />
-            </Box>
-          </Box>
-          <Divider sx={{ borderBottomWidth: "2px", borderColor: "#EEF5F6" }} />
-          <Box
-            display="flex"
-            justifyContent="space-between"
-            alignItems="center"
-          >
-            <Image
-              src={DebitImg.src}
-              alt="bank"
-              sx={{ width: { lg: "36px", xs: "24px" } }}
-            />
-            <Box
-              pl={{ lg: "16px", xs: "12px" }}
-              display="flex"
-              width="100%"
-              alignItems="center"
-              justifyContent="space-between"
-            >
-              <Typography
-                sx={{
-                  color: "#000000",
-                  fontSize: {
-                    lg: "14px",
-                    xs: "12px",
-                    letterSpacing: "0.5px",
-                    fontWeight: "400",
-                  },
-                }}
-              >
-                Direct Debit
-                {/* <Typography component={"span"}>.</Typography> */}
-              </Typography>
-              <Checkbox
-                icon={<UncheckedBoxIcon />}
-                checkedIcon={<CheckedBoxIcon />}
-                sx={{ width: "42px" }}
-              />
-            </Box>
-          </Box>
-          <Divider sx={{ borderBottomWidth: "2px", borderColor: "#EEF5F6" }} />
-          <Box
-            display="flex"
-            justifyContent="space-between"
-            alignItems="center"
-          >
-            <Image
-              src={UpiImg.src}
-              alt="bank"
-              sx={{ width: { lg: "36px", xs: "24px" } }}
-            />
-            <Box
-              pl={{ lg: "16px", xs: "12px" }}
-              display="flex"
-              width="100%"
-              alignItems="center"
-              justifyContent="space-between"
-            >
-              <Typography
-                sx={{
-                  color: "#000000",
-                  fontSize: {
-                    lg: "14px",
-                    xs: "12px",
-                    letterSpacing: "0.5px",
-                    fontWeight: "400",
-                  },
-                }}
-              >
-                UPI payments
-                {/* <Typography component={"span"}>.</Typography> */}
-              </Typography>
-              <Checkbox
-                icon={<UncheckedBoxIcon />}
-                checkedIcon={<CheckedBoxIcon />}
-                sx={{ width: "42px" }}
-              />
-            </Box>
-          </Box>
-        </Box>
+        <CustomizeRadioGroup
+          layout={layout}
+          onChange={(e) => setLayout(e.target.value)}
+          options={options}
+          showIcons
+        />
       </Box>
     </Modal>
   )

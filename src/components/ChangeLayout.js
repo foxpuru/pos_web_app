@@ -44,11 +44,18 @@ export default function ChangeLayout({
   handleClose,
 }) {
   const [layout, setLayout] = React.useState("Pizzeria")
+
+  const options = [
+    { label: "Sunday Menu", value: "Sunday Menu" },
+    { label: "Pizzeria", value: "Pizzeria" },
+    { label: "Christmas", value: "Christmas" },
+    { label: "Restaurant", value: "Restaurant" },
+  ]
   return (
     <Modal open={isOpen} onClose={handleClose}>
       <Box sx={style}>
         <Box
-          px={{ lg: "20px", xs: "16px" }}
+          px={{ lg: "22px", xs: "12px" }}
           py={{ lg: "10px", xs: "12px" }}
           sx={{
             boxShadow: "0px 0px 50px #00000029",
@@ -279,6 +286,7 @@ export default function ChangeLayout({
           <CustomizeRadioGroup
             layout={layout}
             onChange={(e) => setLayout(e.target.value)}
+            options={options}
           />
         </Box>
       </Box>

@@ -65,18 +65,30 @@ export const CalculatorKeys = [
 export const CalculatorButtonsKey = (layout) => [
   {
     label: layout === "%" ? "5%" : "$5.00",
-    styles: { width: "25%", borderRadius: "10px 0px 0px 10px" },
+    value: layout === "%" ? "5" : "5.00",
+    styles: {
+      width: "25%",
+      borderRadius: "10px 0px 0px 10px",
+      // backgroundColor: layout === "5%" || "$5.00" ? "#000" : undefined,
+      // "&:hover": {
+      //   backgroundColor:
+      //     layout === "5%" || "$5.00" ? "#000 !important" : undefined,
+      // },
+    },
   },
   {
     label: layout === "%" ? "10%" : "$10.00",
+    value: layout === "%" ? "10" : "10.00",
     styles: { width: "25%", borderRadius: "0", borderLeft: 0, borderRight: 0 },
   },
   {
     label: layout === "%" ? "20%" : "$20.00",
+    value: layout === "%" ? "20" : "20.00",
     styles: { width: "25%", borderRight: 0, borderRadius: 0 },
   },
   {
     label: layout === "%" ? "100%" : "$100.00",
+    value: layout === "%" ? "100" : "100.00",
     styles: {
       width: "25%",
       border: "1px solid #A5ACAE",

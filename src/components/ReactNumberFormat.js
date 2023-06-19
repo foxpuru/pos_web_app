@@ -3,21 +3,23 @@ import PropTypes from "prop-types"
 
 import { NumericFormat } from "react-number-format"
 import Box from "@mui/material/Box"
-import Input from "@mui/material/Input"
-import InputLabel from "@mui/material/InputLabel"
-import TextField from "@mui/material/TextField"
-import FormControl from "@mui/material/FormControl"
 
-export default function ReactNumberFormat({ amount, handleChange, layout }) {
+import TextField from "@mui/material/TextField"
+
+export default function ReactNumberFormat({
+  value,
+  onChange,
+  name,
+  placeholder,
+  suffix,
+  prefix,
+}) {
   const NumericFormatCustom = React.forwardRef(function NumericFormatCustom(
     props,
     ref
   ) {
     const { onChange, ...other } = props
-
-    const newSuffix = layout === "%" && "%"
-    const newPrefix = layout === "$" && "$"
-
+    
     return (
       <NumericFormat
         {...other}
@@ -26,16 +28,15 @@ export default function ReactNumberFormat({ amount, handleChange, layout }) {
           onChange({
             target: {
               name: props.name,
-              value: values.value,
+              value: "$" + values.value,
             },
           })
         }}
         thousandSeparator
         valueIsNumericString
-        prefix={"$"}
-        suffix={"%"}
-        // style={{ "&" }}
-        // suffix={layout === "%" && "%"}
+        placeholder={placeholder}
+        suffix={suffix}
+        prefix={prefix}
       />
     )
   })
@@ -49,7 +50,7 @@ export default function ReactNumberFormat({ amount, handleChange, layout }) {
   //   numberformat: "1320",
   // })
 
-  // const handleChange = (event) => {
+  // const handleChangeCash = (event) => {
   //   setValues({
   //     ...values,
   //     [event.target.name]: event.target.value,
@@ -88,9 +89,9 @@ export default function ReactNumberFormat({ amount, handleChange, layout }) {
       }}
     >
       <TextField
-        value={amount}
-        onChange={handleChange}
-        name="amount"
+        value={value}
+        onChange={onChange}
+        name={name}
         id="formatted-numberformat-input"
         InputProps={{
           inputComponent: NumericFormatCustom,

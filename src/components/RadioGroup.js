@@ -8,6 +8,12 @@ import FormLabel from "@mui/material/FormLabel"
 import { CheckedBoxIcon, UncheckedBoxIcon } from "./icons"
 import { Box, Divider, Typography } from "@mui/material"
 
+import BankImg from "../assets/images/ic_bank_transfer.png"
+import MobileImg from "../assets/images/ic_mobile_wallet.png"
+import DebitImg from "../assets/images/ic_direct_debit.png"
+import UpiImg from "../assets/images/ic_upi_payments.png"
+import { Image } from "./styled-components/tableDetails"
+
 const BpIcon = styled("span")(({ theme }) => ({
   borderRadius: "50%",
   width: 16,
@@ -66,14 +72,12 @@ function BpRadio(props) {
   )
 }
 
-export default function CustomizeRadioGroup({ layout, onChange }) {
-  const options = [
-    { label: "Sunday Menu", value: "Sunday Menu" },
-    { label: "Pizzeria", value: "Pizzeria" },
-    { label: "Christmas", value: "Christmas" },
-    { label: "Restaurant", value: "Restaurant" },
-  ]
-
+export default function CustomizeRadioGroup({
+  layout,
+  onChange,
+  options,
+  showIcons = false,
+}) {
   return (
     <FormControl sx={{ width: "100%" }}>
       <RadioGroup
@@ -85,30 +89,40 @@ export default function CustomizeRadioGroup({ layout, onChange }) {
       >
         {/* <FormControlLabel value="male" control={<BpRadio />} label="Male" />
         <FormControlLabel value="other" control={<BpRadio />} label="Other" /> */}
-        <Box px={{ lg: "22px", xs: "12px" }} width="100%">
+        <Box pl={{ lg: "22px", xs: "12px" }} width="100%">
           {options.map((item, index) => (
             <Box
               key={index}
-              py={{ lg: "12px", xs: "8px" }}
+              py={{ lg: "8px", xs: "4px" }}
               width="100%"
               display="flex"
               justifyContent="space-between"
               alignItems="center"
               borderBottom="2px solid #EEF5F6"
             >
-              <Typography
-                sx={{
-                  color: "#000000",
-                  fontSize: {
-                    lg: "17px",
-                    xs: "14px",
-                    fontWeight: "400",
-                    letterSpacing: "0.68px",
-                  },
-                }}
-              >
-                {item.label}
-              </Typography>
+              <Box display="flex" alignItems="center">
+                {showIcons && (
+                  <Image
+                    src={item.image}
+                    alt="bank"
+                    sx={{ width: { lg: "36px", xs: "24px" } }}
+                  />
+                )}
+                <Typography
+                  ml={{ lg: showIcons && "22px", xs: showIcons && "11px" }}
+                  sx={{
+                    color: "#000000",
+                    fontSize: {
+                      lg: "16px",
+                      xs: "12px",
+                      fontWeight: "400",
+                      letterSpacing: "0.5px",
+                    },
+                  }}
+                >
+                  {item.label}
+                </Typography>
+              </Box>
               <FormControlLabel value={item.value} control={<BpRadio />} />
             </Box>
           ))}

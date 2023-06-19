@@ -27,6 +27,8 @@ import {
 import PaymentLayout from "@/layouts/PaymentLayout"
 import Table from "@/components/Table"
 
+import NextImg from "@/assets/images/ic_next.png"
+import PrevImg from "@/assets/images/ic_previous.png"
 const data = [
   {
     staff: "Joe Pizza",
@@ -53,7 +55,9 @@ function Reports() {
           gap={{ lg: "2px", xs: "2px" }}
         >
           {row.clockedIn.map((item, index) => (
-            <p style={{ margin: 0 }} key={index}>{item}</p>
+            <p style={{ margin: 0 }} key={index}>
+              {item}
+            </p>
           ))}
         </Box>
       ),
@@ -69,6 +73,18 @@ function Reports() {
       right: true,
     },
   ]
+  const dates = [
+    "May 12 2023",
+    "May 13 2023",
+    "May 14 2023",
+    "May 15 2023",
+    "May 16 2023",
+    "May 17 2023",
+    "May 18 2023",
+    "May 19 2023",
+    "May 20 2023",
+  ]
+  const [selectedDate, setSelectedDate] = useState(6)
   return (
     <Box
       height="100%"
@@ -79,40 +95,61 @@ function Reports() {
       sx={{ opacity: 1 }}
       textAlign="center"
     >
-      <Box
+      {/* <Box
         py={{ lg: "12px", xs: "12px" }}
         display="flex"
-        flexDirection="column"
+        alignItems="center"
+        justifyContent="center"
         gap={{ lg: "6px", xs: "6px" }}
+      > */}
+      <Grid
+        container
+        p={{ lg: "12px", xs: "12px" }}
+        py={{ lg: "22px", xs: "18px" }}
+        alignItems="center"
       >
-        <Typography
-          color="#000000"
-          fontWeight="400"
-          fontSize={{ lg: "40px", xs: "28px" }}
-          letterSpacing="0.7px"
-        >
-          ₹2175.8
-        </Typography>
-        <Typography
-          color="#A1A1A1"
-          fontWeight="400"
-          fontSize={{ lg: "16px", xs: "12px" }}
-          letterSpacing="0.53px"
-        >
-          Total Amount Paid (Cash)
-        </Typography>
-        <Typography
-          color="#A1A1A1"
-          fontWeight="400"
-          fontSize={{ lg: "16px", xs: "12px" }}
-          letterSpacing="0.53px"
-        >
-          <Typography component={"span"} color="#00B153">
-            Successful{" "}
+        <Grid item xs={4} display="flex" justifyContent="start">
+          {selectedDate > 0 && (
+            <Image
+              src={PrevImg.src}
+              alt="previous arrow"
+              onClick={() => {
+                if (selectedDate > 0) {
+                  setSelectedDate(selectedDate - 1)
+                }
+              }}
+              sx={{ width: { lg: "40px", xs: "30px" } }}
+            />
+          )}
+        </Grid>
+        <Grid item xs={4} display="flex" justifyContent="center">
+          <Typography
+            color="#000000"
+            fontWeight="500"
+            fontSize={{ lg: "22px", xs: "18px" }}
+            letterSpacing="0.8px"
+          >
+            {/* May 15 2023 */}
+            {dates[selectedDate]}
           </Typography>
-          Mar 13 2023 - 04:25 PM - The Muse
-        </Typography>
-      </Box>
+        </Grid>
+        <Grid item xs={4} display="flex" justifyContent="end">
+          {selectedDate < dates.length - 1 && (
+            <Image
+              src={NextImg.src}
+              alt="next arrow"
+              onClick={() => {
+                if (selectedDate < dates.length - 1) {
+                  setSelectedDate(selectedDate + 1)
+                }
+              }}
+              sx={{ width: { lg: "40px", xs: "30px" } }}
+            />
+          )}
+        </Grid>
+      </Grid>
+
+      {/* </Box> */}
 
       <Box position="relative">
         <ListDivider

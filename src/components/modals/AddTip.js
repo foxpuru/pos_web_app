@@ -1,21 +1,13 @@
+import React, { useState } from "react"
 import { Box, Button, Divider, Grid, Stack, Typography } from "@mui/material"
 import { styled } from "@mui/material/styles"
 import Paper from "@mui/material/Paper"
 
-import React, { useState } from "react"
 
 import CustomModal from "../Modal"
 import ClocePopup from "@/assets/images/ic_close_popup.png"
 import { Image, Input } from "../styled-components/tableDetails"
-import MobileNumberKeypad from "../MobileNumberKeypad"
-import { Formik } from "formik"
-import { FormikInput } from "../inputs"
-import { TeravozDialer } from "../mobile-dailer"
-import {
-  Boxss,
-  ButtonsContainerss,
-  Buttonss,
-} from "../mobile-dailer/components/Dialer/atoms"
+
 import { CustomButton } from "../custom-components"
 import { CalculatorButtonsKey } from "@/data/calculatorKey"
 import ReactNumberFormat from "../ReactNumberFormat"
@@ -37,11 +29,9 @@ const NumberItem = styled(Paper)(({ theme }) => ({
   borderRight: "1px solid #A5ACAE",
 }))
 
-function AddDiscount({ isOpen, handleToggle, handleOpen, handleClose }) {
-  const [layout, setLayout] = useState("%")
-  const [cash, setCash] = React.useState("")
-  const [percentage,setPercentage] = React.useState("")
-  const [discountFieldBy, setDiscountFieldBy] = React.useState()
+function AddTip({ isOpen, handleToggle, handleOpen, handleClose, tip,onChange }) {
+  
+  const [tipFieldBy, setTipFieldBy] = React.useState()
 
   const FormRow = ({ buttons }) => {
     return (
@@ -50,14 +40,14 @@ function AddDiscount({ isOpen, handleToggle, handleOpen, handleClose }) {
           item
           xs={4}
           sx={{ cursor: "pointer" }}
-          // onClick={() => setCash(cash + buttons[0].value)}
+          // onClick={() => onChange(tip + buttons[0].value)}
           onClick={() => {
-            if (discountFieldBy) {
-              layout === "%" ? setPercentage(buttons[0].value) :setCash(buttons[0].value)
-              setDiscountFieldBy(false)
+            if (tipFieldBy) {
+              onChange(buttons[0].value)
+              setTipFieldBy(false)
               return true
             }
-            layout === "%" ? setPercentage(percentage + buttons[0].value) : setCash(cash + buttons[0].value)
+         onChange(tip + buttons[0].value)
           }}
         >
           <NumberItem>{buttons[0].value}</NumberItem>
@@ -66,14 +56,14 @@ function AddDiscount({ isOpen, handleToggle, handleOpen, handleClose }) {
           item
           xs={4}
           sx={{ cursor: "pointer" }}
-          // onClick={() => setCash(cash + buttons[1].value)}
+          // onClick={() => onChange(tip + buttons[1].value)}
           onClick={() => {
-            if (discountFieldBy) {
-              layout === "%" ? setPercentage(buttons[1].value) : setCash(buttons[1].value)
-              setDiscountFieldBy(false)
+            if (tipFieldBy) {
+              onChange(buttons[1].value)
+              setTipFieldBy(false)
               return true
             }
-            layout === "%" ? setPercentage(percentage + buttons[1].value) : setCash(cash + buttons[1].value)
+            onChange(tip + buttons[1].value)
           }}
         >
           <NumberItem>{buttons[1].value}</NumberItem>
@@ -84,24 +74,23 @@ function AddDiscount({ isOpen, handleToggle, handleOpen, handleClose }) {
           sx={{ cursor: "pointer" }}
           // onClick={() =>
           //   buttons[2].remove
-          //     ? setCash(cash.substring(0, cash.length - 1))
-          //     : setCash(cash + buttons[2].value)
+          //     ? onChange(tip.substring(0, tip.length - 1))
+          //     : onChange(tip + buttons[2].value)
           // }
           onClick={() => {
-            if(buttons[2].remove) {
-              layout === "%" ? setPercentage(percentage.substring(0, percentage.length - 1)) 
-              : 
-              setCash(cash.substring(0, cash.length - 1))
-              
-              console.log("remove", cash.substring())
-              return false 
+            if (buttons[2].remove) {
+             
+                onChange(tip.substring(0, tip.length - 1))
+
+              console.log("remove", tip.substring())
+              return false
             }
-            else if(discountFieldBy) {
-              layout === "%" ? setPercentage(buttons[2].value) : setCash(buttons[2].value)
-              setDiscountFieldBy(false)
+            else if (tipFieldBy) {
+             onChange(buttons[2].value)
+              setTipFieldBy(false)
               return true
             }
-            layout === "%" ? setPercentage(percentage + buttons[2].value) : setCash(cash + buttons[2].value)
+            onChange(tip + buttons[2].value)
           }}
         >
           <NumberItem sx={{ borderRight: "0" }}>{buttons[2].value}</NumberItem>
@@ -109,6 +98,37 @@ function AddDiscount({ isOpen, handleToggle, handleOpen, handleClose }) {
       </React.Fragment>
     )
   }
+
+  const TipCalculatorKeys = [
+    {
+      label: "₹10",
+      value: "10",
+      styles: {
+        width: "33%",
+        borderRadius: "10px 0px 0px 10px",
+        borderRight: 0
+      }
+    },
+    {
+
+      label: "₹15",
+      value: "15",
+      styles: {
+        width: "34%",
+        borderRadius: "0px",
+      },
+    },
+    {
+      label: "₹20",
+      value: "20",
+      styles: {
+        width: "33%",
+        borderLeft: 0,
+        borderRadius: "0px 10px 10px 0px",
+      },
+    },
+
+  ]
 
   return (
     <CustomModal
@@ -140,7 +160,7 @@ function AddDiscount({ isOpen, handleToggle, handleOpen, handleClose }) {
         >
           <Typography
             sx={{
-              color: layout === "$" ? "#E57607" : "#000000",
+              color: "#E57607",
               fontSize: {
                 lg: "17px",
                 xs: "15px",
@@ -149,29 +169,8 @@ function AddDiscount({ isOpen, handleToggle, handleOpen, handleClose }) {
               fontWeight: "600",
               cursor: "pointer",
             }}
-            onClick={() => setLayout("$")}
           >
-            $ Cash
-          </Typography>
-          <Divider
-            sx={{ mx: { lg: "30px", xs: "20px" } }}
-            orientation="vertical"
-            flexItem
-          />
-          <Typography
-            sx={{
-              color: layout === "%" ? "#E57607" : "#000000",
-              fontSize: {
-                lg: "17px",
-                xs: "15px",
-              },
-
-              fontWeight: "600",
-              cursor: "pointer",
-            }}
-            onClick={() => setLayout("%")}
-          >
-            % Percent
+            ₹ ADD TIP
           </Typography>
         </Box>
 
@@ -184,51 +183,17 @@ function AddDiscount({ isOpen, handleToggle, handleOpen, handleClose }) {
             flexDirection="column"
             alignItems="center"
           >
-            <ReactNumberFormat 
-            value={ layout === "%" ?  percentage: cash}
-            onChange={ (e) => {
-              if(layout === "%") {
-                setPercentage(e.target.value)
+            <ReactNumberFormat
+              value={tip}
+              onChange={(e) => 
+                  onChange(e.target.value)
               }
-              else {
-                setCash(e.target.value)
-              }
-            } }
-            placeholder={layout === "%" ? "0%" : "$0"}
-            suffix={layout === "%" ? "%" : undefined}
-            prefix={layout === "$" ? "$" : undefined}
-            name={layout === "%" ? "percentage" : "cash"}
+              placeholder={"₹0.00"}
+              prefix={"₹"}
+              name={"tip"}
             />
-            
-            {/* <Input
-              type="text"
-              name="cash"
-              placeholder={layout === "%" ? "0%" : "$0.00"}
-              value={cash}
-              onChange={(e) => setCash(e.target.value)}
-              mb={{ lg: "4px", xs: "2px" }}
-              sx={{
-                color: "#000000",
-                fontSize: {
-                  lg: "23px",
-                  xs: "19px",
-                },
 
-                width: "100%",
-                textAlign: "center",
 
-                fontWeight: "500",
-                textTransform: "capitalize",
-                "&::placeholder": {
-                  color: "#000000",
-                  fontSize: {
-                    lg: "23px",
-                    xs: "19px",
-                  },
-                },
-              }}
-            /> */}
-            
             <Typography
               sx={{
                 color: "#A5ACAE",
@@ -241,7 +206,7 @@ function AddDiscount({ isOpen, handleToggle, handleOpen, handleClose }) {
                 textTransform: "capitalize",
               }}
             >
-              {layout === "%" ? "Percent" : "Cash"} Amount
+              Cash Amount
             </Typography>
           </Box>
           <CustomButton
@@ -268,44 +233,12 @@ function AddDiscount({ isOpen, handleToggle, handleOpen, handleClose }) {
             // onClick={() =>
             //   otp.length == 12 ? Router.push("/") : undefined
             // }
-            onClick={() => {
-              if(layout === "%") {
-                setPercentage("")
-              }
-              else {
-                setCash("")
-              }
-            }
-            }
+            onClick={() => onChange("")}
             label={"Clear"}
           />
         </Box>
-        <Box
-          py={{ lg: "12px", xs: "8px" }}
-          pb={{ lg: "26px", xs: "18px" }}
-          display="flex"
-          alignItems="center"
-          justifyContent="center"
-          gap={{ lg: "12px", xs: "8px" }}
-        >
-          <Typography
-            color={layout === "$" ? "#000000" : "#A5ACAE"}
-            fontSize={{ lg: "42px", xs: "34px" }}
-            fontWeight="600"
-            lineHeight="0 !important"
-          >
-            .
-          </Typography>
-          <Typography
-            color={layout === "%" ? "#000000" : "#A5ACAE"}
-            fontSize={{ lg: "42px", xs: "34px" }}
-            fontWeight="600"
-            lineHeight="0 !important"
-          >
-            .
-          </Typography>
-        </Box>
-        <Box>
+
+        <Box py={{ lg: "32px", xs: "22px" }}>
           <Grid
             container
             border="1px solid #A5ACAE"
@@ -338,20 +271,16 @@ function AddDiscount({ isOpen, handleToggle, handleOpen, handleClose }) {
             </Grid>
           </Grid>
         </Box>
-        <Box py={{ lg: "22px", xs: "16px" }}>
+        <Box pb={{ lg: "22px", xs: "16px" }}>
           <Box display="flex" width="100%">
-            {CalculatorButtonsKey( layout ).map((item) => (
+            {TipCalculatorKeys.map((item) => (
               <CustomButton
                 styles={...item.styles}
                 label={item.label}
-                onClick={() => {
-                  if (layout === "%") {
-                    setPercentage(item.value)
-                    setDiscountFieldBy(true)
-                  } else if (layout === "$") {
-                    setCash(item.value)
-                    setDiscountFieldBy(true)
-                  }
+                onClick={() => { 
+                    onChange(item.value)
+                    setTipFieldBy(true)
+                  
                 }}
               />
             ))}
@@ -364,14 +293,14 @@ function AddDiscount({ isOpen, handleToggle, handleOpen, handleClose }) {
             backgroundColor: "#E57607",
             "&:hover": { backgroundColor: "#E57607 !important" },
           }}
-          label="Add Discount"
+          label="Add Tip"
           onClick={handleClose}
         />
 
         {/* <Boxss>
           <ButtonsContainerss>
             {dailpadButtons.map((char) => (
-              <Buttonss key={char} onClick={() => setCash(cash + char)}>
+              <Buttonss key={char} onClick={() => onChange(tip + char)}>
                 {char}
               </Buttonss>
             ))}
@@ -383,4 +312,4 @@ function AddDiscount({ isOpen, handleToggle, handleOpen, handleClose }) {
   )
 }
 
-export default AddDiscount
+export default AddTip
