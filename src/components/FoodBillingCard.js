@@ -22,6 +22,8 @@ import {
 } from "./icons"
 import CompitemPopup from "./CompItemPopup"
 import useModalState from "@/hooks/useModalState"
+import { useDispatch } from "react-redux"
+import { handleAddToCart, handleRemoveFromCart } from "@/redux/slices/cartSlice"
 
 function generate(element) {
   return [0, 1, 2].map((value) =>
@@ -38,6 +40,11 @@ const Demo = styled("div")(({ theme }) => ({
 export default function FoodBillingCard({
   counterButton = true,
   discount = true,
+  name,
+  description,
+  price,
+  quantity,
+  id,
 }) {
   const [dense, setDense] = React.useState(false)
   const [secondary, setSecondary] = React.useState(false)
@@ -47,16 +54,15 @@ export default function FoodBillingCard({
     handleOpen: handleOpenItemPopup,
     handleClose: handleCloseItemPopup,
   } = useModalState(false)
+  const dispatch = useDispatch()
   return (
     <>
       <Box
-        onClick={handleOpenItemPopup}
         p={{ lg: "10px", xs: "10px" }}
         sx={{
           borderBottom: "2px solid #e5ebec",
           position: "relative",
           display: "flex",
-          cursor: "pointer",
         }}
         width="100%"
       >
@@ -70,16 +76,23 @@ export default function FoodBillingCard({
           }}
         >
           {counterButton && (
-            <Avatar
-              sx={{
-                backgroundColor: "#00b15325",
-                borderRadius: "6px",
-                width: { lg: "22px", xs: "18px" },
-                height: { lg: "28px", xs: "22px" },
-              }}
+            <Box
+              sx={{ cursor: "pointer" }}
+              onClick={() =>
+                dispatch(handleAddToCart({ id, name, description, price }))
+              }
             >
-              <AddFoodToCartIcon />
-            </Avatar>
+              <Avatar
+                sx={{
+                  backgroundColor: "#00b15325",
+                  borderRadius: "6px",
+                  width: { lg: "22px", xs: "18px" },
+                  height: { lg: "28px", xs: "22px" },
+                }}
+              >
+                <AddFoodToCartIcon />
+              </Avatar>
+            </Box>
           )}
           <Box
             sx={{
@@ -101,20 +114,25 @@ export default function FoodBillingCard({
                 opacity: 1,
               }}
             >
-              1
+              {quantity}
             </Typography>
           </Box>
           {counterButton && (
-            <Avatar
-              sx={{
-                backgroundColor: "#D7DBDC",
-                borderRadius: "6px",
-                width: { lg: "22px", xs: "18px" },
-                height: { lg: "28px", xs: "22px" },
-              }}
+            <Box
+              sx={{ cursor: "pointer" }}
+              onClick={() => dispatch(handleRemoveFromCart({ id }))}
             >
-              <RemoveFoodToCartIcon />
-            </Avatar>
+              <Avatar
+                sx={{
+                  backgroundColor: "#D7DBDC",
+                  borderRadius: "6px",
+                  width: { lg: "22px", xs: "18px" },
+                  height: { lg: "28px", xs: "22px" },
+                }}
+              >
+                <RemoveFoodToCartIcon />
+              </Avatar>
+            </Box>
           )}
         </Box>
         <Box width="100%" display="grid" alignItems="center">
@@ -132,7 +150,7 @@ export default function FoodBillingCard({
                 fontSize: { lg: "16px", xs: "12px" },
               }}
             >
-              veg. balls in hot garlic sauce
+              {name}
             </Typography>
             <Typography
               sx={{
@@ -141,7 +159,7 @@ export default function FoodBillingCard({
                 fontSize: { lg: "15px", xs: "11px" },
               }}
             >
-              ₹236.44
+              {price}
             </Typography>
           </Box>
           <Box>
@@ -153,7 +171,7 @@ export default function FoodBillingCard({
                 maxWidth: { lg: "270px", xs: "160px" },
               }}
             >
-              veg. balls in hot garlic sauce
+              {description}
             </Typography>
           </Box>
         </Box>
@@ -161,6 +179,7 @@ export default function FoodBillingCard({
           <Avatar
             sx={{
               position: "absolute",
+              cursor: "pointer",
               // top: "40px",
               right: "16px",
               bottom: "8px",
@@ -169,6 +188,7 @@ export default function FoodBillingCard({
               width: { lg: "28px", xs: "18px" },
               height: { lg: "28px", xs: "22px" },
             }}
+            onClick={handleOpenItemPopup}
           >
             <OfferOnFoodIcon />
           </Avatar>

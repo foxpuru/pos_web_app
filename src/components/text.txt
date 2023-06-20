@@ -1,0 +1,25 @@
+{CustomizeLayoutFields.map((item) => (
+          <Box display="flex" flexDirection="column" justifyContent="start">
+            <Typography
+              sx={{
+                fontSize: { lg: "14px", xs: "12px" },
+                fontWeight: "500",
+                textTransform: "uppercase",
+                color: "#000000",
+              }}
+            >
+              {item.category}
+            </Typography>
+            <Box
+              py={{ lg: "12px", xs: "12px" }}
+              display="flex"
+              flexWrap="wrap"
+              justifyContent=""
+              gap={{ lg: "22px", xs: "12px" }}
+            >
+              {item.section.map((section) => (
+                <CustomFoodCard field={section} />
+              ))}
+            </Box>
+          </Box>
+        ))}

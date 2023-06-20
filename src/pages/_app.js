@@ -1,6 +1,9 @@
 import MainLayout from "@/layouts/MainLayout"
+import { store } from "@/redux/store"
+
 import "@/styles/globals.css"
 import { createTheme, ThemeProvider } from "@mui/material"
+import { Provider } from "react-redux"
 // import "../assets/styles/index.css"
 import "../assets/styles/style.scss"
 
@@ -15,8 +18,10 @@ export default function App({ Component, pageProps }) {
     Component.getLayout ?? ((page) => <MainLayout> {page} </MainLayout>)
 
   return (
-    <ThemeProvider theme={theme}>
-      {getLayout(<Component {...pageProps} />)}
-    </ThemeProvider>
+    <Provider store={store}>
+      <ThemeProvider theme={theme}>
+        {getLayout(<Component {...pageProps} />)}
+      </ThemeProvider>
+    </Provider>
   )
 }

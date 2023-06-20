@@ -13,6 +13,10 @@ import Divider from "@mui/material/Divider"
 import DeleteIcon from "@mui/icons-material/Delete"
 import SendIcon from "@mui/icons-material/Send"
 import { PrintIcon, SaveCheckRedIcon } from "@/components/icons"
+import { useSelector } from "react-redux"
+import CustomFoodCard from "../custom"
+import { CustomizeLayoutFields } from "@/data/food/customizeLayoutFields"
+import CustomCards from "../custom"
 
 function ChineseFood() {
   const style = {
@@ -21,9 +25,12 @@ function ChineseFood() {
 
   const router = useRouter()
   const foodItems = FoodData.find(
-    (food) => food.category?.toLowerCase() === router.query?.category
+    (food) => food.path?.toLowerCase() === router.query?.category
   )
-  console.log(foodItems)
+  console.log("router query", router.query.category)
+
+  const cardData = useSelector((state) => state.cart.items)
+  console.log("cardData", cardData)
   return (
     <Box display="flex" width="100%" alignItems="start">
       <Box
@@ -40,9 +47,10 @@ function ChineseFood() {
         p={{ lg: "22px", xs: "12px" }}
       >
         {foodItems?.foods.map((food, index) => (
-          <FoodCard foods={food} key={index} />
+          <FoodCard food={food} key={index} />
         ))}
       </Box>
+      {/* <CustomCards /> */}
       <Box
         maxWidth={{ lg: "370px", xs: "230px" }}
         minWidth={{ lg: "370px", xs: "230px" }}
@@ -57,15 +65,17 @@ function ChineseFood() {
           }}
           overflow="auto"
         >
+          {cardData.map((item) => (
+            <FoodBillingCard {...item} key={item.id} />
+          ))}
+          {/* <FoodBillingCard />
           <FoodBillingCard />
           <FoodBillingCard />
           <FoodBillingCard />
           <FoodBillingCard />
           <FoodBillingCard />
           <FoodBillingCard />
-          <FoodBillingCard />
-          <FoodBillingCard />
-          <FoodBillingCard />
+          <FoodBillingCard /> */}
         </Box>
         <Box pt={{ lg: "44px", xs: "22px" }}>
           <List sx={style} component="nav" aria-label="mailbox folders">
