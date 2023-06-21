@@ -3,8 +3,9 @@ import * as React from "react"
 import Box from "@mui/material/Box"
 import Card from "@mui/material/Card"
 import Typography from "@mui/material/Typography"
+import FoodLayout from "@/layouts/FoodLayout"
 
-export default function CustomFoodCard({ field }) {
+function CustomFoodCard({ field }) {
   return (
     <Card
       sx={{
@@ -60,3 +61,6 @@ export default function CustomFoodCard({ field }) {
     </Card>
   )
 }
+
+CustomFoodCard.getLayout = (page) => <FoodLayout isCustom>{page}</FoodLayout>
+export default CustomFoodCard

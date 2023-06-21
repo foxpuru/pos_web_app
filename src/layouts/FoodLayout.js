@@ -2,12 +2,15 @@ import Footer from "@/components/Footer"
 import Header from "@/components/Header"
 import React from "react"
 
-function FoodLayout({ children }) {
+function FoodLayout({ children, isCustom }) {
+  if (isCustom) {
+    // alert("bfmhgmsdghjkh")
+  }
   return (
     <>
       <Header />
       {children}
-      <Footer />
+      {isCustom ? "sdsd" : <Footer />}
     </>
   )
 }

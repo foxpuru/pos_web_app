@@ -4,19 +4,13 @@ import { FoodData } from "@/data/food/foodData"
 import FoodLayout from "@/layouts/FoodLayout"
 import { Box, Button, Stack, Typography } from "@mui/material"
 import { useRouter } from "next/router"
-import React, { useEffect } from "react"
+import React, { useEffect, useState } from "react"
 import List from "@mui/material/List"
-import ListItem from "@mui/material/ListItem"
-import ListItemText from "@mui/material/ListItemText"
 import Divider from "@mui/material/Divider"
 
-import DeleteIcon from "@mui/icons-material/Delete"
-import SendIcon from "@mui/icons-material/Send"
 import { PrintIcon, SaveCheckRedIcon } from "@/components/icons"
 import { useSelector } from "react-redux"
-import CustomFoodCard from "../custom"
-import { CustomizeLayoutFields } from "@/data/food/customizeLayoutFields"
-import CustomCards from "../custom"
+import CustomCards from "@/components/Food/customFood"
 
 function ChineseFood() {
   const style = {
@@ -31,26 +25,39 @@ function ChineseFood() {
 
   const cardData = useSelector((state) => state.cart.items)
   console.log("cardData", cardData)
+
+  // const [showCustom, setShowCustom] = useState(false)
+  const [customizeFoodItem, setCustomizeFoodItem] = useState(null)
+
+  
+
   return (
     <Box display="flex" width="100%" alignItems="start">
-      <Box
-        height={{
-          lg: "calc(100vh - 64px - 60px)",
-          xs: "calc(100vh - 64px - 38px)",
-        }}
-        overflow="auto"
-        width="100%"
-        display="flex"
-        flexWrap="wrap"
-        justifyContent="space-between"
-        gap={{ lg: "12px", xs: "8px" }}
-        p={{ lg: "22px", xs: "12px" }}
-      >
-        {foodItems?.foods.map((food, index) => (
-          <FoodCard food={food} key={index} />
-        ))}
-      </Box>
-      {/* <CustomCards /> */}
+      {customizeFoodItem ? (
+        <CustomCards />
+      ) : (
+        <Box
+          height={{
+            lg: "calc(100vh - 64px - 60px)",
+            xs: "calc(100vh - 64px - 38px)",
+          }}
+          overflow="auto"
+          width="100%"
+          display="flex"
+          flexWrap="wrap"
+          justifyContent="space-between"
+          gap={{ lg: "12px", xs: "8px" }}
+          p={{ lg: "22px", xs: "12px" }}
+        >
+          {foodItems?.foods.map((food, index) => (
+            <FoodCard
+              setCustomizeFoodItem={(e) => setCustomizeFoodItem(e)}
+              food={food}
+              key={index}
+            />
+          ))}
+        </Box>
+      )}
       <Box
         maxWidth={{ lg: "370px", xs: "230px" }}
         minWidth={{ lg: "370px", xs: "230px" }}

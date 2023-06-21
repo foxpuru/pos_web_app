@@ -1,5 +1,6 @@
 import CustomFoodCard from "@/components/CustomFoodCard"
 import { CustomizeLayoutFields } from "@/data/food/customizeLayoutFields"
+import FoodLayout from "@/layouts/FoodLayout"
 import { Box, Typography } from "@mui/material"
 import React from "react"
 

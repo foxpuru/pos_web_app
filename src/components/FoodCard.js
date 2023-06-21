@@ -14,7 +14,7 @@ import FoodFishImg from "../assets/images/food_fish.jpg"
 import { useDispatch, useSelector } from "react-redux"
 import { handleAddToCart, handleUpdateCart } from "@/redux/slices/cartSlice"
 
-export default function FoodCard({ food }) {
+export default function FoodCard({ food, setCustomizeFoodItem }) {
   const theme = useTheme()
   const dispatch = useDispatch()
 
@@ -22,7 +22,7 @@ export default function FoodCard({ food }) {
 
   const addToCart = (food) => {
     if (food.isCutomizable) {
-      alert("isCustomizable")
+      setCustomizeFoodItem(food)
     } else {
       // const foundItem = cartData.find((item) => item.id === food.id)
       // if (foundItem) {
