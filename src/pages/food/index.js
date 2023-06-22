@@ -21,20 +21,19 @@ function ChineseFood() {
   const foodItems = FoodData.find(
     (food) => food.path?.toLowerCase() === router.query?.category
   )
-  console.log("router query", router.query.category)
+  console.log("router query", router.query?.foodType)
 
   const cardData = useSelector((state) => state.cart.items)
   console.log("cardData", cardData)
 
   // const [showCustom, setShowCustom] = useState(false)
   const [customizeFoodItem, setCustomizeFoodItem] = useState(null)
-
-  
-
+  console.log("sdsd", customizeFoodItem)
   return (
     <Box display="flex" width="100%" alignItems="start">
-      {customizeFoodItem ? (
-        <CustomCards />
+      {router.query?.foodType === "custom" ? (
+        // {customizeFoodItem ? (
+        <CustomCards foodItems={customizeFoodItem} />
       ) : (
         <Box
           height={{

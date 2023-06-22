@@ -13,16 +13,20 @@ import SkipNextIcon from "@mui/icons-material/SkipNext"
 import FoodFishImg from "../assets/images/food_fish.jpg"
 import { useDispatch, useSelector } from "react-redux"
 import { handleAddToCart, handleUpdateCart } from "@/redux/slices/cartSlice"
+import { useRouter } from "next/router"
 
 export default function FoodCard({ food, setCustomizeFoodItem }) {
   const theme = useTheme()
   const dispatch = useDispatch()
+  const router = useRouter()
 
   const cartData = useSelector((state) => state.cart.items)
 
   const addToCart = (food) => {
     if (food.isCutomizable) {
-      setCustomizeFoodItem(food)
+      setCustomizeFoodItem({ food })
+      router.query.foodType = "custom"
+      router.push(router)
     } else {
       // const foundItem = cartData.find((item) => item.id === food.id)
       // if (foundItem) {

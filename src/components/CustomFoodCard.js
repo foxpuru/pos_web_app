@@ -4,10 +4,33 @@ import Box from "@mui/material/Box"
 import Card from "@mui/material/Card"
 import Typography from "@mui/material/Typography"
 import FoodLayout from "@/layouts/FoodLayout"
+import { useDispatch } from "react-redux"
+import { handleAddCustomizableFoodItem } from "@/redux/slices/cartSlice"
 
-function CustomFoodCard({ field }) {
+function CustomFoodCard({ section, food, type }) {
+  const dispatch = useDispatch()
+
+  const addCustomFoodToCart = (food) => {
+    const customFoodOption = {
+      type,
+      label: section.label,
+      price: section.price,
+      id: section.id,
+    }
+    dispatch(
+      handleAddCustomizableFoodItem({
+        id: food.id,
+        name: food.name,
+        description: food.description,
+        price: food.price,
+        customFoodOption,
+      })
+    )
+  }
+
   return (
     <Card
+      onClick={() => addCustomFoodToCart(food)}
       sx={{
         height: { lg: "160px", xs: "120px" },
         width: { lg: "160px", xs: "120px" },
@@ -34,7 +57,7 @@ function CustomFoodCard({ field }) {
             color: "#000000",
           }}
         >
-          {field.label}
+          {section.label}
         </Typography>
       </Box>
       <Box
@@ -55,12 +78,12 @@ function CustomFoodCard({ field }) {
             color: "#000000",
           }}
         >
-          {field.price}
+          {section.price}
         </Typography>
       </Box>
     </Card>
   )
 }
 
-CustomFoodCard.getLayout = (page) => <FoodLayout isCustom>{page}</FoodLayout>
+CustomFoodCard.getLayout = (page) => <FoodLayout>{page}</FoodLayout>
 export default CustomFoodCard

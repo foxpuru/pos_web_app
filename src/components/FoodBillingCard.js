@@ -45,6 +45,7 @@ export default function FoodBillingCard({
   price,
   quantity,
   id,
+  customs,
 }) {
   const [dense, setDense] = React.useState(false)
   const [secondary, setSecondary] = React.useState(false)
@@ -55,6 +56,7 @@ export default function FoodBillingCard({
     handleClose: handleCloseItemPopup,
   } = useModalState(false)
   const dispatch = useDispatch()
+  console.log("customs", customs)
   return (
     <>
       <Box
@@ -171,7 +173,7 @@ export default function FoodBillingCard({
                 maxWidth: { lg: "270px", xs: "160px" },
               }}
             >
-              {description}
+              {customs}
             </Typography>
           </Box>
         </Box>

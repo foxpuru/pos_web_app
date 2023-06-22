@@ -30,6 +30,7 @@ import {
   UncheckedBoxIcon,
 } from "./icons"
 import CustomSelect from "./CustomSelect"
+import { TaxOptions } from "@/data/AddCustomProdcutSelect"
 
 const style = {
   position: "absolute",
@@ -50,6 +51,21 @@ export default function ExtraCharges({
   handleOpen,
   handleClose,
 }) {
+  const [customProducts, setCustomProducts] = React.useState({
+    itemCategory: "",
+    tax: TaxOptions[0],
+  })
+
+  const onChange = (event) => {
+    const {
+      target: { value, name },
+    } = event
+    setCustomProducts((prevState) => ({
+      ...prevState,
+      [name]: typeof value === "string" ? value.split(",") : value,
+    }))
+    console.log("name", name)
+  }
   return (
     <Modal open={isOpen} onClose={handleClose}>
       <Box sx={style}>
@@ -157,87 +173,55 @@ export default function ExtraCharges({
                   display="flex"
                   width="60%"
                   alignItems="center"
-                  justifyContent="space-between"
                   gap={{ lg: "12px", xs: "8px" }}
                 >
-                  {/* <Box
-                width="40%"
-                p={{ lg: "12px", xs: "8px" }}
-                alignItems="center"
-                justifyContent="start"
-                display="flex"
-                bgcolor="#EEF5F6"
-                borderRadius="8px"
-                height={{ lg: "40px", xs: "28px" }}
-              >
-                <Typography
-                  sx={{
-                    color: "#A5ACAE",
-                    fontSize: {
-                      lg: "16px",
-                      xs: "14px",
-                      fontWeight: "400",
-                      textAlign: "left",
-                    },
-                  }}
-                >
-                  ₹50.00
-                </Typography>
-              </Box> */}
-
-                  <FormikInput
-                    name="name"
-                    type="text"
-                    styles={{
-                      "&::placeholder": {
-                        color: "#A5ACAE",
-                        letterSpacing: 0,
-                        fontWeight: "400",
+                  <Box sx={{ width: "40%" }}>
+                    <FormikInput
+                      name="name"
+                      type="text"
+                      styles={{
+                        "&::placeholder": {
+                          color: "#A5ACAE",
+                          letterSpacing: 0,
+                          fontWeight: "400",
+                        },
+                        p: { lg: "12px", xs: "8px" },
+                        alignItems: "center",
+                        justifyContent: "start",
+                        display: "flex",
+                        bgcolor: "#EEF5F6",
+                        borderRadius: "8px",
+                        height: { lg: "40px", xs: "28px" },
+                      }}
+                      placeholder="₹50.00"
+                    />
+                  </Box>
+                  <Box
+                    width="60%"
+                    height={{ lg: "40px", xs: "28px" }}
+                    sx={{
+                      "& p": {
+                        m: 0,
                       },
-                      width: "40%",
-                      p: { lg: "12px", xs: "8px" },
-                      alignItems: "center",
-                      justifyContent: "start",
-                      display: "flex",
-                      bgcolor: "#EEF5F6",
-                      borderRadius: "8px",
-                      height: { lg: "40px", xs: "28px" },
                     }}
-                    placeholder="₹50.00"
-                  />
-                  <Grid item xs={6}>
+                  >
                     <CustomSelect
-                      label="Tax"
-                      // onChange={onChange}
-                      // value={customProducts.tax}
-                      // options={TaxOptions}
+                      styles={{
+                        // alignItems: "center",
+                        // justifyContent: "start",
+                        // display: "flex",
+                        bgcolor: "#EEF5F6",
+                        borderRadius: "8px",
+                        // width: "100% !important",
+                        minWidth: "100%",
+                        height: { lg: "40px", xs: "28px" },
+                      }}
+                      onChange={onChange}
+                      value={customProducts.tax}
+                      options={TaxOptions}
                       name="tax"
                       displayEmpty
                     />
-                  </Grid>
-                  <Box
-                    width="60%"
-                    p={{ lg: "12px", xs: "8px" }}
-                    alignItems="center"
-                    justifyContent="start"
-                    display="flex"
-                    bgcolor="#EEF5F6"
-                    borderRadius="8px"
-                    height={{ lg: "40px", xs: "28px" }}
-                  >
-                    <Typography
-                      sx={{
-                        color: "#A5ACAE",
-                        fontSize: {
-                          lg: "16px",
-                          xs: "14px",
-                          fontWeight: "400",
-                          textAlign: "left",
-                        },
-                      }}
-                    >
-                      Select tax
-                    </Typography>
                   </Box>
                 </Box>
               </Box>
@@ -273,78 +257,61 @@ export default function ExtraCharges({
                   display="flex"
                   width="60%"
                   alignItems="center"
-                  justifyContent="space-between"
                   gap={{ lg: "12px", xs: "8px" }}
                 >
-                  <Box
-                    width="40%"
-                    p={{ lg: "12px", xs: "8px" }}
-                    alignItems="center"
-                    justifyContent="start"
-                    display="flex"
-                    bgcolor="#EEF5F6"
-                    borderRadius="8px"
-                    height={{ lg: "40px", xs: "28px" }}
-                  >
-                    <Typography
-                      sx={{
-                        color: "#A5ACAE",
-                        fontSize: {
-                          lg: "16px",
-                          xs: "14px",
+                  <Box sx={{ width: "40%" }}>
+                    <FormikInput
+                      name="name"
+                      type="text"
+                      styles={{
+                        "&::placeholder": {
+                          color: "#A5ACAE",
+                          letterSpacing: 0,
                           fontWeight: "400",
-                          textAlign: "left",
                         },
+                        p: { lg: "12px", xs: "8px" },
+                        alignItems: "center",
+                        justifyContent: "start",
+                        display: "flex",
+                        bgcolor: "#EEF5F6",
+                        borderRadius: "8px",
+                        height: { lg: "40px", xs: "28px" },
                       }}
-                    >
-                      ₹70.00
-                    </Typography>
+                      placeholder="₹70.00"
+                    />
                   </Box>
                   <Box
                     width="60%"
-                    p={{ lg: "12px", xs: "8px" }}
-                    alignItems="center"
-                    justifyContent="start"
-                    display="flex"
-                    bgcolor="#EEF5F6"
-                    borderRadius="8px"
                     height={{ lg: "40px", xs: "28px" }}
+                    sx={{
+                      "& p": {
+                        m: 0,
+                      },
+                    }}
                   >
-                    <Typography
-                      sx={{
-                        color: "#A5ACAE",
-                        fontSize: {
-                          lg: "16px",
-                          xs: "14px",
-                          fontWeight: "400",
-                          textAlign: "left",
-                        },
+                    <CustomSelect
+                      styles={{
+                        // alignItems: "center",
+                        // justifyContent: "start",
+                        // display: "flex",
+                        bgcolor: "#EEF5F6",
+                        borderRadius: "8px",
+                        // width: "100% !important",
+                        minWidth: "100%",
+                        height: { lg: "40px", xs: "28px" },
                       }}
-                    >
-                      Select tax
-                    </Typography>
+                      onChange={onChange}
+                      value={customProducts.tax}
+                      options={TaxOptions}
+                      name="tax"
+                      displayEmpty
+                    />
                   </Box>
                 </Box>
               </Box>
               <Divider
                 sx={{ borderBottomWidth: "2px", borderColor: "#EEF5F6" }}
               />
-              {/* <FormGroup>
-            <FormControlLabel
-              control={<Checkbox defaultChecked />}
-              label="Label"
-            />
-            <FormControlLabel
-              required
-              control={<Checkbox />}
-              label="Required"
-            />
-            <FormControlLabel
-              disabled
-              control={<Checkbox />}
-              label="Disabled"
-            />
-          </FormGroup> */}
             </Box>
           </Form>
         </Formik>

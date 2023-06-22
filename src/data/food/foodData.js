@@ -30,6 +30,87 @@ export const FoodData = [
         image: FoodFishImg,
         isCutomizable: true,
         name: "crispy veg. in hot garlic sauce",
+        customizeFoodOptions: [
+          {
+            category: "COSTOMIZE",
+            section: [
+              {
+                id: "sdsdsdsds",
+                label: "Dahi",
+                price: "₹15.00",
+              },
+              {
+                id: "sdsdsdsdsdsdsds",
+                label: "Chhachh",
+                price: "₹12.00",
+              },
+              {
+                id: "sdsdsdsd3434s",
+                label: "Lassi",
+                price: "₹25.00",
+              },
+            ],
+          },
+          {
+            category: "RAITA",
+            section: [
+              {
+                label: "Boondi Raita",
+                price: "₹28.20",
+              },
+              {
+                label: "Fried Raita",
+                price: "₹35.00",
+              },
+            ],
+          },
+          {
+            category: "SPECIAL",
+            section: [
+              {
+                label: "Dragon Potato",
+                price: "₹28.20",
+              },
+            ],
+          },
+          {
+            category: "ACHAR",
+            section: [
+              {
+                label: "Nimbu Achar",
+                price: "₹10.20",
+              },
+              {
+                label: "Keri Achar",
+                price: "₹35.00",
+              },
+              {
+                label: "Nimbu Achar",
+                price: "₹10.20",
+              },
+              {
+                label: "Keri Achar",
+                price: "₹35.00",
+              },
+              {
+                label: "Nimbu Achar",
+                price: "₹10.20",
+              },
+              {
+                label: "Keri Achar",
+                price: "₹35.00",
+              },
+              {
+                label: "Nimbu Achar",
+                price: "₹10.20",
+              },
+              {
+                label: "Keri Achar",
+                price: "₹35.00",
+              },
+            ],
+          },
+        ],
       },
       {
         id: "d1sdsdsd",

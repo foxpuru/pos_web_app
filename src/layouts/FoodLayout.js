@@ -1,16 +1,17 @@
 import Footer from "@/components/Footer"
 import Header from "@/components/Header"
+import { useRouter } from "next/router"
 import React from "react"
 
-function FoodLayout({ children, isCustom }) {
-  if (isCustom) {
-    // alert("bfmhgmsdghjkh")
-  }
+function FoodLayout({ children }) {
+  const router = useRouter()
+
+  console.log("router", router.query.foodType)
   return (
     <>
-      <Header />
+      {router.query.foodType === "custom" ? <Header /> : <Header />}
       {children}
-      {isCustom ? "sdsd" : <Footer />}
+      <Footer />
     </>
   )
 }

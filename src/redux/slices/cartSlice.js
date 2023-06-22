@@ -3,9 +3,12 @@ import { createSlice } from "@reduxjs/toolkit"
 const CartSlice = createSlice({
   name: "cart",
   initialState: {
+    customizableFoodItem: null,
     items: [],
   },
+
   reducers: {
+    // handle cart actions
     handleAddToCart(state, action) {
       const existingItem = state.items.find(
         (item) => item.id === action.payload.id
@@ -40,7 +43,6 @@ const CartSlice = createSlice({
     handleUpdateCart(state, action) {
       state.items = action.payload
     },
-
     handleRemoveFromCart(state, action) {
       const existingItem = state.items.find(
         (item) => item.id === action.payload.id
@@ -56,10 +58,61 @@ const CartSlice = createSlice({
         existingItem.quantity -= 1
       }
     },
+
+    // handle custom food
+    handleAddCustomizableFoodItem(state, action) {
+      console.log("action", action.payload)
+
+      const existingItem = state.items.find(
+        (item) => item.id === action.payload.id
+      )
+
+      if (existingItem) {
+        // existingItem.quantity += 1
+
+        const existingItemIndex = state.items.findIndex(
+          (item) => item.id === action.payload.id
+        )
+
+        const existingCustomFoodItem = existingItem?.customFoodOptions?.find(item => item.id === action?.payload?.customFoodOption?.id)
+
+        // existingItem.customFoodOptions
+
+        console.log("state.items[existingItemIndex]", existingItem)
+        return
+
+        state.items = [...state.items]
+        state.items[existingItemIndex] = existingItem
+
+        // state.items = [
+        //   ...state.items,
+        //   {
+        //     ...action.payload,
+        //     // customs: [...action.payload.customs.label],
+        //   },
+        // ]
+      } else {
+        const customFood = { ...action.payload.customFoodOption }
+        delete action.payload.customFoodOption
+
+        state.items = [
+          ...state.items,
+          {
+            ...action.payload,
+            quantity: 1,
+            customFoodOptions: [customFood],
+          },
+        ]
+      }
+    },
   },
 })
 
-export const { handleAddToCart, handleRemoveFromCart, handleUpdateCart } =
-  CartSlice.actions
+export const {
+  handleAddToCart,
+  handleRemoveFromCart,
+  handleUpdateCart,
+  handleAddCustomizableFoodItem,
+} = CartSlice.actions
 
 export default CartSlice.reducer

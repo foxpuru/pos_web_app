@@ -1,10 +1,19 @@
 import CustomFoodCard from "@/components/CustomFoodCard"
-import { CustomizeLayoutFields } from "@/data/food/customizeLayoutFields"
-import FoodLayout from "@/layouts/FoodLayout"
 import { Box, Typography } from "@mui/material"
-import React from "react"
+import { useRouter } from "next/router"
+import React, { useEffect } from "react"
 
-function CustomCards() {
+function CustomCards({ foodItems }) {
+  const router = useRouter()
+  useEffect(() => {
+    if (!foodItems) {
+      // alert("lord rohit jangid")
+      delete router.query.foodType
+      router.push(router)
+    }
+  }, [foodItems])
+
+  console.log("FOODS", foodItems)
   return (
     <Box
       height={{
@@ -16,8 +25,13 @@ function CustomCards() {
       gap={{ lg: "22px", xs: "12px" }}
       p={{ lg: "22px", xs: "12px" }}
     >
-      {CustomizeLayoutFields.map((item) => (
-        <Box display="flex" flexDirection="column" justifyContent="start">
+      {foodItems?.food?.customizeFoodOptions?.map((item, index) => (
+        <Box
+          display="flex"
+          flexDirection="column"
+          key={index}
+          justifyContent="start"
+        >
           <Typography
             sx={{
               fontSize: { lg: "14px", xs: "12px" },
@@ -35,8 +49,13 @@ function CustomCards() {
             justifyContent=""
             gap={{ lg: "22px", xs: "12px" }}
           >
-            {item.section.map((section) => (
-              <CustomFoodCard field={section} />
+            {item.section.map((section, index) => (
+              <CustomFoodCard
+                key={index}
+                section={section}
+                type={item.category}
+                food={foodItems.food}
+              />
             ))}
           </Box>
         </Box>
