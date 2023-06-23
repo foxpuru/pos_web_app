@@ -12,7 +12,11 @@ import SkipNextIcon from "@mui/icons-material/SkipNext"
 
 import FoodFishImg from "../assets/images/food_fish.jpg"
 import { useDispatch, useSelector } from "react-redux"
-import { handleAddToCart, handleUpdateCart } from "@/redux/slices/cartSlice"
+import {
+  handleAddCustomizableFoodItem,
+  handleAddToCart,
+  handleUpdateCart,
+} from "@/redux/slices/cartSlice"
 import { useRouter } from "next/router"
 
 export default function FoodCard({ food, setCustomizeFoodItem }) {
@@ -27,6 +31,20 @@ export default function FoodCard({ food, setCustomizeFoodItem }) {
       setCustomizeFoodItem({ food })
       router.query.foodType = "custom"
       router.push(router)
+
+      const defaultVarient = food?.customizeFoodOptions?.find(
+        (item) => item?.category?.toLowerCase() === "varient"
+      )?.section[0]
+      dispatch(
+        handleAddCustomizableFoodItem({
+          id: food.id,
+          name: food.name,
+          description: food.description,
+          price: food.price,
+          customFoodOption: defaultVarient,
+          // customFoodOption: food,
+        })
+      )
     } else {
       // const foundItem = cartData.find((item) => item.id === food.id)
       // if (foundItem) {
@@ -63,7 +81,7 @@ export default function FoodCard({ food, setCustomizeFoodItem }) {
     >
       <Card
         sx={{
-          height: food.isCutomizable
+          height: food.slides
             ? { lg: "153px", xs: "116px" }
             : { lg: "160px", xs: "120px" },
           padding: { lg: "3px", xs: "2px" },
@@ -114,7 +132,7 @@ export default function FoodCard({ food, setCustomizeFoodItem }) {
           </Box>
         </Box>
       </Card>
-      {food.isCutomizable && (
+      {food.slides && (
         <Box
           position="absolute"
           sx={{

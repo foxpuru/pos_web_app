@@ -11,7 +11,7 @@ function FoodLayout({ children }) {
     <>
       {router.query.foodType === "custom" ? <Header /> : <Header />}
       {children}
-      <Footer />
+      {router.query.foodType === "custom" ? <Footer custom /> : <Footer />}
     </>
   )
 }

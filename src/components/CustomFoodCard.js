@@ -28,6 +28,8 @@ function CustomFoodCard({ section, food, type }) {
     )
   }
 
+  // React.useEffect(() => () => addCustomFoodToCart(food), [])
+
   return (
     <Card
       onClick={() => addCustomFoodToCart(food)}

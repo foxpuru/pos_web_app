@@ -45,7 +45,7 @@ export default function FoodBillingCard({
   price,
   quantity,
   id,
-  customs,
+  customFoodOptions,
 }) {
   const [dense, setDense] = React.useState(false)
   const [secondary, setSecondary] = React.useState(false)
@@ -56,7 +56,7 @@ export default function FoodBillingCard({
     handleClose: handleCloseItemPopup,
   } = useModalState(false)
   const dispatch = useDispatch()
-  console.log("customs", customs)
+  // console.log("customFoodOptions", customFoodOptions.length)
   return (
     <>
       <Box
@@ -71,10 +71,9 @@ export default function FoodBillingCard({
         <Box
           mr={{ lg: "10px", xs: "6px" }}
           sx={{
-            display: "grid",
-            // flexDirection: "column",
-            alignItems: "start",
-            justifyItems: "center",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
           }}
         >
           {counterButton && (
@@ -137,13 +136,14 @@ export default function FoodBillingCard({
             </Box>
           )}
         </Box>
-        <Box width="100%" display="grid" alignItems="center">
+        <Box width="100%" display="flex" justifyContent="space-between">
           <Box
-            display="flex"
-            alignItems="start"
-            justifyContent="space-between"
             width="100%"
-            gap={{ lg: "24px", xs: "12px" }}
+            display="flex"
+            flexDirection="column"
+            alignItems="start"
+            justifyContent="start"
+            // pr={{ lg: "18px", xs: "14px" }}
           >
             <Typography
               sx={{
@@ -154,48 +154,73 @@ export default function FoodBillingCard({
             >
               {name}
             </Typography>
+            <Box display="flex" flexWrap="wrap" alignContent="flex-start">
+              {!customFoodOptions ? (
+                <Typography
+                  sx={{
+                    fontWeight: "400 !important",
+                    color: "#A5ACAE",
+                    fontSize: { lg: "14px", xs: "10px" },
+                  }}
+                >
+                  {name}
+                </Typography>
+              ) : (
+                customFoodOptions.map((item) => (
+                  <Typography
+                    sx={{
+                      fontWeight: "400 !important",
+                      color: "#A5ACAE",
+                      fontSize: { lg: "14px", xs: "10px" },
+                      mr: { lg: "8px", xs: "6px" },
+                    }}
+                  >
+                    {item.label}
+                    {/* {customFoodOptions.length > 1 && " "} */}
+                  </Typography>
+                ))
+              )}
+            </Box>
+          </Box>
+
+          <Box
+            display="flex"
+            flexDirection="column"
+            alignItems="end"
+            // width="80px"
+          >
             <Typography
               sx={{
                 fontWeight: "500",
                 color: "#000000",
                 fontSize: { lg: "15px", xs: "11px" },
+                mb: { lg: "8px", xs: "6px" },
               }}
             >
               {price}
             </Typography>
-          </Box>
-          <Box>
-            <Typography
-              sx={{
-                fontWeight: "400 !important",
-                color: "#A5ACAE",
-                fontSize: { lg: "14px", xs: "10px" },
-                maxWidth: { lg: "270px", xs: "160px" },
-              }}
-            >
-              {customs}
-            </Typography>
+            {discount && (
+              <Avatar
+                sx={{
+                  // position: "absolute",
+                  // cursor: "pointer",
+                  // top: "40px",
+                  // right: "16px",
+                  // bottom: "8px",
+                  backgroundColor: "#D7DBDC",
+                  borderRadius: "6px",
+                  width: { lg: "28px", xs: "18px" },
+                  height: { lg: "28px", xs: "22px" },
+                }}
+                onClick={handleOpenItemPopup}
+              >
+                <OfferOnFoodIcon />
+              </Avatar>
+            )}
           </Box>
         </Box>
-        {discount && (
-          <Avatar
-            sx={{
-              position: "absolute",
-              cursor: "pointer",
-              // top: "40px",
-              right: "16px",
-              bottom: "8px",
-              backgroundColor: "#D7DBDC",
-              borderRadius: "6px",
-              width: { lg: "28px", xs: "18px" },
-              height: { lg: "28px", xs: "22px" },
-            }}
-            onClick={handleOpenItemPopup}
-          >
-            <OfferOnFoodIcon />
-          </Avatar>
-        )}
       </Box>
+
       <CompitemPopup
         isOpen={isOpenItemPopup}
         handleToggle={handleToggleItemPopup}

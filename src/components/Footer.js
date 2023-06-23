@@ -13,10 +13,12 @@ import { Grid, Typography } from "@mui/material"
 import FooterFoodCategory from "./FooterFoodCategory"
 import { FoodData } from "@/data/food/foodData"
 import Link from "next/link"
+import { CustomButton } from "./custom-components"
+import { useRouter } from "next/router"
 
-export default function Footer() {
+export default function Footer({ custom }) {
   const [value, setValue] = React.useState(0)
-
+  const router = useRouter()
   return (
     <Grid
       display="flex"
@@ -31,60 +33,88 @@ export default function Footer() {
         left: 0,
       }}
     >
-      <Box
-        // height="100%"
-        display="flex"
-        alignItems="center"
-        p={{ lg: "10px 16px 10px 16px", xs: "6px" }}
-        sx={{ backgroundColor: "#D7DBDC" }}
-      >
-        <Image
-          src={SearchBigImg.src}
-          alt="search"
-          sx={{ width: { lg: "40px", xs: "26px" } }}
-        />
-      </Box>
+      {custom ? (
+        <Box sx={{ width: "100%", height: { lg: "60px", xs: "32px" } }}>
+          <CustomButton
+            styles={{
+              backgroundColor: "#E57607",
+              color: "#FFFFFF ",
 
-      <Box
-        sx={{
-          width: {
-            lg: "calc(100% - 72px - 72px)",
-            xs: "calc(100% - 38px - 38px)",
-          },
-          alignItems: "center",
-          // justifyContent: "center",
-          display: "flex",
-          // height: "60px",
-          overflow: "auto",
-          // gap: { lg: "40px", xs: "22px" },
-          px: { lg: "20px", xs: "20px" },
-          "& a:hover": { textDecoration: "none" },
-        }}
-      >
-        {FoodData.map((food) => (
-          <Link href={`/food?category=${food.path}`} key={food.category}>
-            <FooterFoodCategory
-              key={food.category}
-              path={food.path}
-              title={food.category}
+              height: "100%",
+              fontSize: { lg: "20px", xs: "12px" },
+              fontWeight: "400",
+              textTransform: "capitalize",
+              borderRadius: "0px",
+
+              "&:hover": {
+                backgroundColor: "#E57607 !important",
+              },
+            }}
+            label={"Done"}
+            onClick={() => {
+              delete router.query.foodType
+              router.push(router)
+            }}
+          />
+        </Box>
+      ) : (
+        <>
+          <Box
+            // height="100%"
+            display="flex"
+            alignItems="center"
+            p={{ lg: "10px 16px 10px 16px", xs: "6px" }}
+            sx={{ backgroundColor: "#D7DBDC" }}
+          >
+            <Image
+              src={SearchBigImg.src}
+              alt="search"
+              sx={{ width: { lg: "40px", xs: "26px" } }}
             />
-          </Link>
-        ))}
-      </Box>
+          </Box>
 
-      <Box
-        // height="100%"
-        display="flex"
-        alignItems="center"
-        p={{ lg: "10px 16px 10px 16px", xs: "6px" }}
-        sx={{ backgroundColor: "#D7DBDC" }}
-      >
-        <Image
-          src={TableBigImg.src}
-          alt="search"
-          sx={{ width: { lg: "40px", xs: "26px" } }}
-        />
-      </Box>
+          <Box
+            sx={{
+              width: {
+                lg: "calc(100% - 72px - 72px)",
+                xs: "calc(100% - 38px - 38px)",
+              },
+              alignItems: "center",
+              // justifyContent: "center",
+              display: "flex",
+              // height: "60px",
+              overflow: "auto",
+              // gap: { lg: "40px", xs: "22px" },
+              px: { lg: "20px", xs: "20px" },
+              "& a:hover": { textDecoration: "none" },
+            }}
+          >
+            {FoodData.map((food) => (
+              <Link href={`/food?category=${food.path}`} key={food.category}>
+                <FooterFoodCategory
+                  key={food.category}
+                  path={food.path}
+                  title={food.category}
+                />
+              </Link>
+            ))}
+          </Box>
+          {/* 
+        <Box
+          // height="100%"
+          display="flex"
+          alignItems="center"
+          p={{ lg: "10px 16px 10px 16px", xs: "6px" }}
+          sx={{ backgroundColor: "#D7DBDC" }}
+        >
+          <Image
+            src={TableBigImg.src}
+            alt="search"
+            sx={{ width: { lg: "40px", xs: "26px" } }}
+          />
+        </Box> */}
+        </>
+      )}
     </Grid>
   )
 }

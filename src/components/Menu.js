@@ -50,7 +50,7 @@ export default function MenuModal({ open, anchorEl, handleClose }) {
     handleToggle: handleToggleAddDiscount,
     handleOpen: handleOpenAddDiscount,
     handleClose: handleCloseAddDiscount,
-  } = useModalState(true)
+  } = useModalState(false)
 
   const options = [
     {

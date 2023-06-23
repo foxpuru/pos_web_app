@@ -61,7 +61,7 @@ const CartSlice = createSlice({
 
     // handle custom food
     handleAddCustomizableFoodItem(state, action) {
-      console.log("action", action.payload)
+      console.log("action", action.payload.varient)
 
       const existingItem = state.items.find(
         (item) => item.id === action.payload.id
@@ -74,23 +74,47 @@ const CartSlice = createSlice({
           (item) => item.id === action.payload.id
         )
 
-        const existingCustomFoodItem = existingItem?.customFoodOptions?.find(item => item.id === action?.payload?.customFoodOption?.id)
+        const existingCustomFoodItem = existingItem?.customFoodOptions?.find(
+          (item) => item.id === action?.payload?.customFoodOption?.id
+        )
+        if (existingCustomFoodItem) {
+          const existingCustomFilteredItems = state.items[
+            existingItemIndex
+          ].customFoodOptions.filter(
+            (item) => item.id !== action?.payload?.customFoodOption?.id
+          )
+          // state.items = [...state.items]
+          state.items[existingItemIndex].customFoodOptions =
+            existingCustomFilteredItems
+        } else {
+          if (action.payload.customFoodOption.type === "varient") {
+            state.items = [...state.items]
+            state.items[existingItemIndex].customFoodOptions = [
+              action.payload.customFoodOption,
+            ]
+          } else {
+            state.items = [...state.items]
+            state.items[existingItemIndex].customFoodOptions = [
+              ...state.items[existingItemIndex].customFoodOptions,
+              action.payload.customFoodOption,
+            ]
+          }
+        }
+        // // existingItem.customFoodOptions
 
-        // existingItem.customFoodOptions
+        // console.log("state.items[existingItemIndex]", existingItem)
+        // return
 
-        console.log("state.items[existingItemIndex]", existingItem)
-        return
+        // state.items = [...state.items]
+        // state.items[existingItemIndex] = existingItem
 
-        state.items = [...state.items]
-        state.items[existingItemIndex] = existingItem
-
-        // state.items = [
-        //   ...state.items,
-        //   {
-        //     ...action.payload,
-        //     // customs: [...action.payload.customs.label],
-        //   },
-        // ]
+        // // state.items = [
+        // //   ...state.items,
+        // //   {
+        // //     ...action.payload,
+        // //     // customs: [...action.payload.customs.label],
+        // //   },
+        // // ]
       } else {
         const customFood = { ...action.payload.customFoodOption }
         delete action.payload.customFoodOption
