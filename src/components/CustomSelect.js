@@ -67,9 +67,7 @@ function CustomSelect({
             }}
             // selected
             disabled
-          >
-            ""
-          </MenuItem>
+          ></MenuItem>
           {options.map((name) => (
             <MenuItem
               key={name}

@@ -273,9 +273,10 @@ function AddTip({ isOpen, handleToggle, handleOpen, handleClose, tip,onChange })
         </Box>
         <Box pb={{ lg: "22px", xs: "16px" }}>
           <Box display="flex" width="100%">
-            {TipCalculatorKeys.map((item) => (
+            {TipCalculatorKeys.map((item, index) => (
               <CustomButton
-                styles={...item.styles}
+              key={index}
+                styles={item.styles}
                 label={item.label}
                 onClick={() => { 
                     onChange(item.value)

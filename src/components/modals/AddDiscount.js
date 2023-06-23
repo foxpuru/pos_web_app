@@ -7,15 +7,7 @@ import React, { useState } from "react"
 import CustomModal from "../Modal"
 import ClocePopup from "@/assets/images/ic_close_popup.png"
 import { Image, Input } from "../styled-components/tableDetails"
-import MobileNumberKeypad from "../MobileNumberKeypad"
-import { Formik } from "formik"
-import { FormikInput } from "../inputs"
-import { TeravozDialer } from "../mobile-dailer"
-import {
-  Boxss,
-  ButtonsContainerss,
-  Buttonss,
-} from "../mobile-dailer/components/Dialer/atoms"
+
 import { CustomButton } from "../custom-components"
 import { CalculatorButtonsKey } from "@/data/calculatorKey"
 import ReactNumberFormat from "../ReactNumberFormat"
@@ -40,7 +32,7 @@ const NumberItem = styled(Paper)(({ theme }) => ({
 function AddDiscount({ isOpen, handleToggle, handleOpen, handleClose }) {
   const [layout, setLayout] = useState("%")
   const [cash, setCash] = React.useState("")
-  const [percentage,setPercentage] = React.useState("")
+  const [percentage, setPercentage] = React.useState("")
   const [discountFieldBy, setDiscountFieldBy] = React.useState()
 
   const FormRow = ({ buttons }) => {
@@ -53,11 +45,15 @@ function AddDiscount({ isOpen, handleToggle, handleOpen, handleClose }) {
           // onClick={() => setCash(cash + buttons[0].value)}
           onClick={() => {
             if (discountFieldBy) {
-              layout === "%" ? setPercentage(buttons[0].value) :setCash(buttons[0].value)
+              layout === "%"
+                ? setPercentage(buttons[0].value)
+                : setCash(buttons[0].value)
               setDiscountFieldBy(false)
               return true
             }
-            layout === "%" ? setPercentage(percentage + buttons[0].value) : setCash(cash + buttons[0].value)
+            layout === "%"
+              ? setPercentage(percentage + buttons[0].value)
+              : setCash(cash + buttons[0].value)
           }}
         >
           <NumberItem>{buttons[0].value}</NumberItem>
@@ -69,11 +65,15 @@ function AddDiscount({ isOpen, handleToggle, handleOpen, handleClose }) {
           // onClick={() => setCash(cash + buttons[1].value)}
           onClick={() => {
             if (discountFieldBy) {
-              layout === "%" ? setPercentage(buttons[1].value) : setCash(buttons[1].value)
+              layout === "%"
+                ? setPercentage(buttons[1].value)
+                : setCash(buttons[1].value)
               setDiscountFieldBy(false)
               return true
             }
-            layout === "%" ? setPercentage(percentage + buttons[1].value) : setCash(cash + buttons[1].value)
+            layout === "%"
+              ? setPercentage(percentage + buttons[1].value)
+              : setCash(cash + buttons[1].value)
           }}
         >
           <NumberItem>{buttons[1].value}</NumberItem>
@@ -88,20 +88,23 @@ function AddDiscount({ isOpen, handleToggle, handleOpen, handleClose }) {
           //     : setCash(cash + buttons[2].value)
           // }
           onClick={() => {
-            if(buttons[2].remove) {
-              layout === "%" ? setPercentage(percentage.substring(0, percentage.length - 1)) 
-              : 
-              setCash(cash.substring(0, cash.length - 1))
-              
+            if (buttons[2].remove) {
+              layout === "%"
+                ? setPercentage(percentage.substring(0, percentage.length - 1))
+                : setCash(cash.substring(0, cash.length - 1))
+
               console.log("remove", cash.substring())
-              return false 
-            }
-            else if(discountFieldBy) {
-              layout === "%" ? setPercentage(buttons[2].value) : setCash(buttons[2].value)
+              return false
+            } else if (discountFieldBy) {
+              layout === "%"
+                ? setPercentage(buttons[2].value)
+                : setCash(buttons[2].value)
               setDiscountFieldBy(false)
               return true
             }
-            layout === "%" ? setPercentage(percentage + buttons[2].value) : setCash(cash + buttons[2].value)
+            layout === "%"
+              ? setPercentage(percentage + buttons[2].value)
+              : setCash(cash + buttons[2].value)
           }}
         >
           <NumberItem sx={{ borderRight: "0" }}>{buttons[2].value}</NumberItem>
@@ -184,22 +187,21 @@ function AddDiscount({ isOpen, handleToggle, handleOpen, handleClose }) {
             flexDirection="column"
             alignItems="center"
           >
-            <ReactNumberFormat 
-            value={ layout === "%" ?  percentage: cash}
-            onChange={ (e) => {
-              if(layout === "%") {
-                setPercentage(e.target.value)
-              }
-              else {
-                setCash(e.target.value)
-              }
-            } }
-            placeholder={layout === "%" ? "0%" : "$0"}
-            suffix={layout === "%" ? "%" : undefined}
-            prefix={layout === "$" ? "$" : undefined}
-            name={layout === "%" ? "percentage" : "cash"}
+            <ReactNumberFormat
+              value={layout === "%" ? percentage : cash}
+              onChange={(e) => {
+                if (layout === "%") {
+                  setPercentage(e.target.value)
+                } else {
+                  setCash(e.target.value)
+                }
+              }}
+              placeholder={layout === "%" ? "0%" : "$0"}
+              suffix={layout === "%" ? "%" : undefined}
+              prefix={layout === "$" ? "$" : undefined}
+              name={layout === "%" ? "percentage" : "cash"}
             />
-            
+
             {/* <Input
               type="text"
               name="cash"
@@ -228,7 +230,7 @@ function AddDiscount({ isOpen, handleToggle, handleOpen, handleClose }) {
                 },
               }}
             /> */}
-            
+
             <Typography
               sx={{
                 color: "#A5ACAE",
@@ -269,14 +271,12 @@ function AddDiscount({ isOpen, handleToggle, handleOpen, handleClose }) {
             //   otp.length == 12 ? Router.push("/") : undefined
             // }
             onClick={() => {
-              if(layout === "%") {
+              if (layout === "%") {
                 setPercentage("")
-              }
-              else {
+              } else {
                 setCash("")
               }
-            }
-            }
+            }}
             label={"Clear"}
           />
         </Box>
@@ -340,10 +340,11 @@ function AddDiscount({ isOpen, handleToggle, handleOpen, handleClose }) {
         </Box>
         <Box py={{ lg: "22px", xs: "16px" }}>
           <Box display="flex" width="100%">
-            {CalculatorButtonsKey( layout ).map((item) => (
+            {CalculatorButtonsKey(layout).map((item, index) => (
               <CustomButton
-                styles={...item.styles}
+                key={index}
                 label={item.label}
+                styles={item.styles}
                 onClick={() => {
                   if (layout === "%") {
                     setPercentage(item.value)

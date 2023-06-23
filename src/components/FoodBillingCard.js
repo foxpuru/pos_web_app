@@ -166,8 +166,8 @@ export default function FoodBillingCard({
                   {name}
                 </Typography>
               ) : (
-                customFoodOptions.map((item) => (
-                  <Typography
+                customFoodOptions.map((item, index) => (
+                  <Typography key={index}
                     sx={{
                       fontWeight: "400 !important",
                       color: "#A5ACAE",
