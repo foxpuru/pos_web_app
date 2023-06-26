@@ -19,7 +19,7 @@ export default function ReactNumberFormat({
     ref
   ) {
     const { onChange, ...other } = props
-    
+
     return (
       <NumericFormat
         {...other}

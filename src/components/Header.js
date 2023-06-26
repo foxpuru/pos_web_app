@@ -233,14 +233,24 @@ export default function Header({ isPaymentMethod }) {
                   }}
                 />
               )}
-              <Image
-                src={imageMatches ? MuseposLogo.src : MuseLogo.src}
-                // src={}
-                alt="musepos logo"
-                sx={{ height: { lg: "28px", xs: "20px" }, cursor: "pointer" }}
-                onClick={() => router.push("/food?category=chinese")}
-              />
-              <Box display="flex" alignItems="center">
+              <Box
+                width={isPaymentMethod && "100%"}
+                display="flex"
+                justifyContent="center"
+              >
+                <Image
+                  src={imageMatches ? MuseposLogo.src : MuseLogo.src}
+                  // src={}
+                  alt="musepos logo"
+                  sx={{ height: { lg: "28px", xs: "20px" }, cursor: "pointer" }}
+                  onClick={() => router.push("/food?category=chinese")}
+                />
+              </Box>
+
+              <Box
+                display={isPaymentMethod ? "none" : "flex"}
+                alignItems="center"
+              >
                 <Typography
                   mr={{ ls: "22px", xs: "12px" }}
                   sx={{

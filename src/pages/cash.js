@@ -51,11 +51,36 @@ function Cash() {
 
   const [tip, setTip] = React.useState("")
 
-  const {
-    isOpen: isOpenAddTip,
-    handleOpen: handleOpenAddTip,
-    handleClose: handleCloseAddTip,
-  } = useModalState(true)
+  const NumericFormatCustom = React.forwardRef(function NumericFormatCustom(
+    props,
+    ref
+  ) {
+    const { onChange, ...other } = props
+
+    return (
+      <NumericFormat
+        {...other}
+        getInputRef={ref}
+        onValueChange={(values) => {
+          onChange({
+            target: {
+              name: props.name,
+              value: "₹" + values.value,
+            },
+          })
+        }}
+        thousandSeparator
+        valueIsNumericString
+        placeholder={"₹0.0"}
+        prefix={"₹"}
+      />
+    )
+  })
+
+  NumericFormatCustom.propTypes = {
+    name: PropTypes.string.isRequired,
+    onChange: PropTypes.func.isRequired,
+  }
 
   return (
     <>
@@ -113,12 +138,50 @@ function Cash() {
                 fontSize: { lg: "40px", xs: "28px" },
                 letterSpacing: "0.7px",
               }}
-              onClick={handleOpenAddTip}
               value={"₹" + tip}
               placeholder="₹0.00"
             /> */}
 
-            <Typography
+            <Box
+              sx={{
+                "& .MuiInputBase-root::before, .MuiInputBase-root::after": {
+                  display: "none",
+                },
+                "& input": {
+                  color: "#000000",
+                  fontWeight: "400",
+                  fontSize: { lg: "40px", xs: "28px" },
+                  letterSpacing: "0.7px",
+
+                  width: "40%",
+                  textAlign: "center",
+                  margin: "auto",
+
+                  // fontWeight: "500",
+                  textTransform: "capitalize",
+                  textDecoration: "none",
+                },
+                "& input::placeholder": {
+                  color: "#000000 !important",
+                  fontWeight: "400",
+                  fontSize: { lg: "40px", xs: "28px" },
+                  letterSpacing: "0.7px",
+                },
+              }}
+            >
+              <TextField
+                value={tip}
+                onChange={(e) => setTip(e.target.value)}
+                name={tip}
+                id="formatted-numberformat-input"
+                InputProps={{
+                  inputComponent: NumericFormatCustom,
+                }}
+                variant="standard"
+              />
+            </Box>
+
+            {/* <Typography
               sx={{
                 textAlign: "center",
                 color: "#000000",
@@ -129,7 +192,7 @@ function Cash() {
               onClick={handleOpenAddTip}
             >
               {tip ? `₹${tip}` : "₹0.00"}
-            </Typography>
+            </Typography> */}
 
             <Typography
               color="#A1A1A1"
@@ -199,13 +262,13 @@ function Cash() {
           </Stack>
         </Box>
       </Box>
-      <AddTip
+      {/* <AddTip
         isOpen={isOpenAddTip}
         tip={tip}
         onChange={(value) => setTip(value)}
         handleOpen={handleOpenAddTip}
         handleClose={handleCloseAddTip}
-      />
+      /> */}
     </>
   )
 }
