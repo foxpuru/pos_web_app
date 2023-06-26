@@ -27,7 +27,7 @@ export default function SideBarDrawer({
   handleOpen,
 }) {
   const router = useRouter()
-  console.log("routtttt", router.pathname.startsWith("/reports"))
+  // console.log("routtttt", router.pathname.startsWith("/reports"))
 
   const list = () => (
     <Box

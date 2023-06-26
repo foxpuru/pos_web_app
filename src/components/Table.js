@@ -36,7 +36,7 @@ function Table({ minHeight, columns, data, height }) {
 
   const handlePageClick = (e, page) => {
     setCurrentPage(page)
-    console.log("page", page)
+    // console.log("page", page)
   }
 
   return (

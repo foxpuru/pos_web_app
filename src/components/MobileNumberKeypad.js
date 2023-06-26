@@ -19,7 +19,7 @@ const Item = styled(Paper)(({ theme }) => ({
 function MobileNumberKeypad() {
   const [amount, setAmount] = React.useState("")
 
-  console.log("amount", amount)
+  // console.log("amount", amount)
 
   const FormRow = ({ buttons }) => {
     return (

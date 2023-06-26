@@ -25,6 +25,7 @@ import {
   GuestDetailsProvider,
 } from "@/context/guestDetailsContext"
 import ChecksDataCard from "@/components/ChecksDataCard"
+import CustomHeaderLayout from "@/layouts/CustomHeaderLayout"
 
 function Checks() {
   // const [orderItems, setOrderItems] = useState([])
@@ -492,5 +493,5 @@ function Checks() {
   )
 }
 
-Checks.getLayout = (page) => <MainLayout>{page}</MainLayout>
+Checks.getLayout = (page) => <CustomHeaderLayout>{page}</CustomHeaderLayout>
 export default Checks

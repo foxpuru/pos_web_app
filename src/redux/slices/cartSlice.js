@@ -47,7 +47,7 @@ const CartSlice = createSlice({
       const existingItem = state.items.find(
         (item) => item.id === action.payload.id
       )
-      console.log("existing item", existingItem)
+      // console.log("existing item", existingItem)
 
       if (existingItem.quantity == 1) {
         const existingItemIndex = state.items.findIndex(
@@ -61,7 +61,7 @@ const CartSlice = createSlice({
 
     // handle custom food
     handleAddCustomizableFoodItem(state, action) {
-      console.log("action", action.payload.varient)
+      // console.log("action", action.payload.varient)
 
       const existingItem = state.items.find(
         (item) => item.id === action.payload.id
@@ -88,8 +88,20 @@ const CartSlice = createSlice({
             existingCustomFilteredItems
         } else {
           if (action.payload.customFoodOption.type === "varient") {
+            const existingVarientilteredItems = state.items[
+              existingItemIndex
+            ].customFoodOptions.filter(
+              (item) => item.type !== action?.payload?.customFoodOption?.type
+            )
+
+            console.log(
+              "existingVarientilteredItems",
+              existingVarientilteredItems
+            )
             state.items = [...state.items]
             state.items[existingItemIndex].customFoodOptions = [
+              // ...state.items[existingItemIndex].customFoodOptions,
+              ...existingVarientilteredItems,
               action.payload.customFoodOption,
             ]
           } else {

@@ -93,7 +93,7 @@ function AddDiscount({ isOpen, handleToggle, handleOpen, handleClose }) {
                 ? setPercentage(percentage.substring(0, percentage.length - 1))
                 : setCash(cash.substring(0, cash.length - 1))
 
-              console.log("remove", cash.substring())
+              // console.log("remove", cash.substring())
               return false
             } else if (discountFieldBy) {
               layout === "%"

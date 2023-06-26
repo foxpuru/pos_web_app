@@ -28,7 +28,7 @@ export default function AddCustomProduct({
       ...prevState,
       [name]: typeof value === "string" ? value.split(",") : value,
     }))
-    console.log("name", name)
+    // console.log("name", name)
   }
 
   return (

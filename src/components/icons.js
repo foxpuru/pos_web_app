@@ -725,7 +725,7 @@ export const SaveCheckRedIcon = () => {
           transform="translate(4 16)"
           fill="rgba(255,255,255,0)"
           stroke="#00B153"
-          stroke-width="2"
+          strokeWidth="2"
         >
           <path
             d="M0,0H16a0,0,0,0,1,0,0V3a4,4,0,0,1-4,4H4A4,4,0,0,1,0,3V0A0,0,0,0,1,0,0Z"
@@ -741,7 +741,7 @@ export const SaveCheckRedIcon = () => {
           data-name="Rectangle 37"
           fill="rgba(255,255,255,0)"
           stroke="#00B153"
-          stroke-width="2"
+          strokeWidth="2"
         >
           <rect width="24" height="19" rx="4" stroke="none" />
           <rect x="1" y="1" width="22" height="17" rx="3" fill="none" />
@@ -825,7 +825,7 @@ export const CardCardsIcon = () => {
               transform="translate(0 -85.333)"
               fill="#fff"
               stroke="#fff"
-              stroke-width="1"
+              strokeWidth="1"
             />
           </g>
         </g>
@@ -838,7 +838,7 @@ export const CardCardsIcon = () => {
               transform="translate(0 -149.333)"
               fill="#fff"
               stroke="#fff"
-              stroke-width="1"
+              strokeWidth="1"
             />
           </g>
         </g>
@@ -855,7 +855,7 @@ export const CardCardsIcon = () => {
               transform="translate(-64 -298.667)"
               fill="#fff"
               stroke="#fff"
-              stroke-width="1"
+              strokeWidth="1"
             />
           </g>
         </g>
@@ -872,7 +872,7 @@ export const CardCardsIcon = () => {
               transform="translate(-64 -341.333)"
               fill="#fff"
               stroke="#fff"
-              stroke-width="1"
+              strokeWidth="1"
             />
           </g>
         </g>
@@ -889,7 +889,7 @@ export const CardCardsIcon = () => {
               transform="translate(-362.667 -277.333)"
               fill="#fff"
               stroke="#fff"
-              stroke-width="1"
+              strokeWidth="1"
             />
           </g>
         </g>
@@ -965,7 +965,7 @@ export const AddCustomerProductsIcon = () => {
             transform="translate(1.169 7.658)"
             fill="rgba(255,255,255,0)"
             stroke="#000"
-            stroke-width="2"
+            strokeWidth="2"
           >
             <path
               d="M0,0H26a0,0,0,0,1,0,0V18a4,4,0,0,1-4,4H4a4,4,0,0,1-4-4V0A0,0,0,0,1,0,0Z"
@@ -982,7 +982,7 @@ export const AddCustomerProductsIcon = () => {
             transform="translate(-0.831 -0.342)"
             fill="rgba(255,255,255,0)"
             stroke="#000"
-            stroke-width="2"
+            strokeWidth="2"
           >
             <rect width="30" height="10" rx="4" stroke="none" />
             <rect x="1" y="1" width="28" height="8" rx="3" fill="none" />
@@ -1028,7 +1028,7 @@ export const OpenedChecksBlackIcon = () => {
             transform="translate(5.169 20.429)"
             fill="rgba(255,255,255,0)"
             stroke="#000"
-            stroke-width="2"
+            strokeWidth="2"
           >
             <path
               d="M0,0H20a0,0,0,0,1,0,0V6a4,4,0,0,1-4,4H4A4,4,0,0,1,0,6V0A0,0,0,0,1,0,0Z"
@@ -1045,7 +1045,7 @@ export const OpenedChecksBlackIcon = () => {
             transform="translate(0.169 0.429)"
             fill="rgba(255,255,255,0)"
             stroke="#000"
-            stroke-width="2"
+            strokeWidth="2"
           >
             <rect width="30" height="22" rx="4" stroke="none" />
             <rect x="1" y="1" width="28" height="20" rx="3" fill="none" />
@@ -1090,7 +1090,7 @@ export const AddNoteToChekcBlackIcon = () => {
           transform="translate(7.055 6.801)"
           fill="none"
           stroke="#000"
-          stroke-width="2"
+          strokeWidth="2"
         >
           <rect width="30" height="30" rx="4" stroke="none" />
           <rect x="1" y="1" width="28" height="28" rx="3" fill="none" />
@@ -1159,7 +1159,7 @@ export const AddDiscountBlackIcon = () => {
             transform="translate(0 2.814)"
             fill="none"
             stroke="#000"
-            stroke-width="2"
+            strokeWidth="2"
           >
             <rect width="8.616" height="8.616" rx="4.308" stroke="none" />
             <rect
@@ -1177,7 +1177,7 @@ export const AddDiscountBlackIcon = () => {
             transform="translate(11.384 16.814)"
             fill="none"
             stroke="#000"
-            stroke-width="2"
+            strokeWidth="2"
           >
             <rect width="8.616" height="8.616" rx="4.308" stroke="none" />
             <rect
@@ -1242,7 +1242,7 @@ export const AddServiceChargeBlackIcon = () => {
             transform="translate(21.169 7.657)"
             fill="none"
             stroke="#000"
-            stroke-width="2"
+            strokeWidth="2"
           >
             <circle cx="4.5" cy="4.5" r="4.5" stroke="none" />
             <circle cx="4.5" cy="4.5" r="3.5" fill="none" />
@@ -1253,7 +1253,7 @@ export const AddServiceChargeBlackIcon = () => {
             transform="translate(21.169 21)"
             fill="none"
             stroke="#000"
-            stroke-width="2"
+            strokeWidth="2"
           >
             <circle cx="4.5" cy="4.5" r="4.5" stroke="none" />
             <circle cx="4.5" cy="4.5" r="3.5" fill="none" />
@@ -1264,7 +1264,7 @@ export const AddServiceChargeBlackIcon = () => {
             transform="translate(0.169 21)"
             fill="none"
             stroke="#000"
-            stroke-width="2"
+            strokeWidth="2"
           >
             <circle cx="4.5" cy="4.5" r="4.5" stroke="none" />
             <circle cx="4.5" cy="4.5" r="3.5" fill="none" />
@@ -1320,7 +1320,7 @@ export const AddGiftCardIcon = () => {
             transform="translate(0.169 -0.341)"
             fill="rgba(255,255,255,0)"
             stroke="#000"
-            stroke-width="2"
+            strokeWidth="2"
           >
             <rect width="28" height="9" rx="4" stroke="none" />
             <rect x="1" y="1" width="26" height="7" rx="3" fill="none" />
@@ -1433,7 +1433,7 @@ export const PrintCheckBlackIcon = () => {
             transform="translate(1 -0.466)"
             fill="none"
             stroke="#000"
-            stroke-width="1"
+            strokeWidth="1"
           />
         </g>
       </g>
@@ -1470,7 +1470,7 @@ export const DiscardCheckBlackIcon = () => {
             transform="translate(2.169 5.917)"
             fill="rgba(255,255,255,0)"
             stroke="#000"
-            stroke-width="2"
+            strokeWidth="2"
           >
             <path
               d="M0,0H22a0,0,0,0,1,0,0V18a4,4,0,0,1-4,4H4a4,4,0,0,1-4-4V0A0,0,0,0,1,0,0Z"
@@ -1487,7 +1487,7 @@ export const DiscardCheckBlackIcon = () => {
             transform="translate(-0.831 0.917)"
             fill="rgba(255,255,255,0)"
             stroke="#000"
-            stroke-width="2"
+            strokeWidth="2"
           >
             <rect width="28" height="7" rx="3.5" stroke="none" />
             <rect x="1" y="1" width="26" height="5" rx="2.5" fill="none" />

@@ -13,7 +13,7 @@ function CustomCards({ foodItems }) {
     }
   }, [foodItems])
 
-  console.log("FOODS", foodItems)
+  console.log("foodItems", foodItems)
   return (
     <Box
       height={{

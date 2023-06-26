@@ -21,14 +21,14 @@ function ChineseFood() {
   const foodItems = FoodData.find(
     (food) => food.path?.toLowerCase() === router.query?.category
   )
-  console.log("router query", router.query?.foodType)
+  // console.log("router query", router.query?.foodType)
 
   const cardData = useSelector((state) => state.cart.items)
-  console.log("cardData", cardData)
+  // console.log("cardData", cardData)
 
   // const [showCustom, setShowCustom] = useState(false)
   const [customizeFoodItem, setCustomizeFoodItem] = useState(null)
-  console.log("sdsd", customizeFoodItem)
+  // console.log("customizeFoodItem", customizeFoodItem)
   return (
     <Box display="flex" width="100%" alignItems="start">
       {router.query?.foodType === "custom" ? (
@@ -44,7 +44,6 @@ function ChineseFood() {
           width="100%"
           display="flex"
           flexWrap="wrap"
-          justifyContent="space-between"
           gap={{ lg: "12px", xs: "8px" }}
           p={{ lg: "22px", xs: "12px" }}
         >
@@ -58,6 +57,7 @@ function ChineseFood() {
         </Box>
       )}
       <Box
+        borderTop="2px solid #e5ebec"
         maxWidth={{ lg: "370px", xs: "230px" }}
         minWidth={{ lg: "370px", xs: "230px" }}
         height={{ lg: "calc(100vh - 64px)", xs: "calc(100vh - 60px)" }}
@@ -66,8 +66,8 @@ function ChineseFood() {
       >
         <Box
           height={{
-            lg: "calc(100vh - 60px - 288px)",
-            xs: "calc(100vh - 250px)",
+            lg: "calc(100vh - 60px - 290px)",
+            xs: "calc(100vh - 252px)",
           }}
           overflow="auto"
         >

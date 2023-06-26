@@ -3,10 +3,54 @@ import FoodBillingCard from "@/components/FoodBillingCard"
 import { Box, Divider, List, Typography } from "@mui/material"
 import { ReportsSideBarData } from "@/data/reportsSideBarSectionData"
 import { useRouter } from "next/router"
+import { useSelector } from "react-redux"
 
 function BillingItemList({ reports }) {
+  const cardData = useSelector((state) => state.cart.items)
+  console.log("payment page card data", cardData)
   const router = useRouter()
-  return reports == false ? (
+  return reports == true ? (
+    <Box
+      maxWidth={{ lg: "370px", xs: "230px" }}
+      minWidth={{ lg: "370px", xs: "230px" }}
+      height={{ lg: "calc(100vh - 64px)", xs: "calc(100vh - 60px)" }}
+      overflow="auto"
+      bgcolor="#FFFFFF"
+    >
+      {ReportsSideBarData.map((item) => (
+        <Box
+          key={item.path}
+          onClick={() => router.push(item.path)}
+          bgcolor={router.pathname === item.path ? "#EEF5F6" : undefined}
+          sx={{ cursor: "pointer" }}
+        >
+          <Box
+            p={{ lg: "22px", xs: "12px" }}
+            sx={{
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+            }}
+          >
+            <Typography
+              sx={{
+                fontSize: {
+                  lg: "16px",
+                  xs: "12px",
+                  color: router.pathname === item.path ? "#E57607" : "#B1B6B9",
+                  fontWeight: router.pathname === item.path ? "500" : "400",
+                  letterSpacing: "0.6px",
+                },
+              }}
+            >
+              {item.section}
+            </Typography>
+          </Box>
+          <Divider light />
+        </Box>
+      ))}
+    </Box>
+  ) : (
     <Box
       borderTop="2px solid #e5ebec"
       maxWidth={{ lg: "370px", xs: "230px" }}
@@ -22,18 +66,14 @@ function BillingItemList({ reports }) {
         }}
         overflow="auto"
       >
-        <FoodBillingCard discount={false} counterButton={false} />
-        <FoodBillingCard discount={false} counterButton={false} />
-        <FoodBillingCard discount={false} counterButton={false} />
-        <FoodBillingCard discount={false} counterButton={false} />
-        <FoodBillingCard discount={false} counterButton={false} />
-        <FoodBillingCard discount={false} counterButton={false} />
-        <FoodBillingCard discount={false} counterButton={false} />
-        <FoodBillingCard discount={false} counterButton={false} />
-        <FoodBillingCard discount={false} counterButton={false} />
-        <FoodBillingCard discount={false} counterButton={false} />
-        <FoodBillingCard discount={false} counterButton={false} />
-        <FoodBillingCard discount={false} counterButton={false} />
+        {cardData.map((item) => (
+          <FoodBillingCard
+            {...item}
+            key={item.id}
+            discount={false}
+            counterButton={false}
+          />
+        ))}
       </Box>
 
       <Box pt={{ lg: "44px", xs: "22px" }}>
@@ -149,47 +189,6 @@ function BillingItemList({ reports }) {
           <Divider light />
         </List>
       </Box>
-    </Box>
-  ) : (
-    <Box
-      maxWidth={{ lg: "370px", xs: "230px" }}
-      minWidth={{ lg: "370px", xs: "230px" }}
-      height={{ lg: "calc(100vh - 64px)", xs: "calc(100vh - 60px)" }}
-      overflow="auto"
-      bgcolor="#FFFFFF"
-    >
-      {ReportsSideBarData.map((item) => (
-        <Box
-          key={item.path}
-          onClick={() => router.push(item.path)}
-          bgcolor={router.pathname === item.path ? "#EEF5F6" : undefined}
-          sx={{ cursor: "pointer" }}
-        >
-          <Box
-            p={{ lg: "22px", xs: "12px" }}
-            sx={{
-              display: "flex",
-              justifyContent: "space-between",
-              alignItems: "center",
-            }}
-          >
-            <Typography
-              sx={{
-                fontSize: {
-                  lg: "16px",
-                  xs: "12px",
-                  color: router.pathname === item.path ? "#E57607" : "#B1B6B9",
-                  fontWeight: router.pathname === item.path ? "500" : "400",
-                  letterSpacing: "0.6px",
-                },
-              }}
-            >
-              {item.section}
-            </Typography>
-          </Box>
-          <Divider light />
-        </Box>
-      ))}
     </Box>
   )
 }

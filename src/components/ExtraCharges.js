@@ -64,7 +64,6 @@ export default function ExtraCharges({
       ...prevState,
       [name]: typeof value === "string" ? value.split(",") : value,
     }))
-    console.log("name", name)
   }
   return (
     <Modal open={isOpen} onClose={handleClose}>

@@ -34,7 +34,7 @@ export default function Footer({ custom }) {
       }}
     >
       {custom ? (
-        <Box sx={{ width: "100%", height: { lg: "60px", xs: "32px" } }}>
+        <Box sx={{ width: "100%", height: { lg: "60px", xs: "38px" } }}>
           <CustomButton
             styles={{
               backgroundColor: "#E57607",

@@ -82,7 +82,7 @@ function AddTip({ isOpen, handleToggle, handleOpen, handleClose, tip,onChange })
              
                 onChange(tip.substring(0, tip.length - 1))
 
-              console.log("remove", tip.substring())
+              // console.log("remove", tip.substring())
               return false
             }
             else if (tipFieldBy) {

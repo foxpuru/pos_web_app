@@ -136,7 +136,12 @@ export default function FoodBillingCard({
             </Box>
           )}
         </Box>
-        <Box width="100%" display="flex" justifyContent="space-between">
+        <Box
+          width="100%"
+          display="flex"
+          justifyContent="space-between"
+          gap={{ lg: "12px", xs: "10px" }}
+        >
           <Box
             width="100%"
             display="flex"
@@ -167,7 +172,8 @@ export default function FoodBillingCard({
                 </Typography>
               ) : (
                 customFoodOptions.map((item, index) => (
-                  <Typography key={index}
+                  <Typography
+                    key={index}
                     sx={{
                       fontWeight: "400 !important",
                       color: "#A5ACAE",

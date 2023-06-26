@@ -4,13 +4,12 @@ import React from "react"
 
 function FooterFoodCategory({ title, path }) {
   const router = useRouter()
-  console.log("rrrrrrr", router.query.category)
   return (
     <Box
       key={title}
       sx={{
         minWidth: { lg: "120px", xs: "80px" },
-        
+
         width: { lg: "120px", xs: "80px" },
         position: "relative",
         display: "flex",
