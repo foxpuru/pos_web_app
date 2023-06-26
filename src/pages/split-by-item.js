@@ -24,7 +24,7 @@ import OtherPaymentOptions from "@/components/OtherPaymentOptions"
 
 function SplitByItem() {
   const router = useRouter()
-  const { isOpen, handleToggle, handleOpen, handleClose } = useModalState(false)
+  
   const {
     isOpen: isOpenOther,
     handleToggle: handleToggleOther,
@@ -88,9 +88,7 @@ function SplitByItem() {
                 Payment #1
               </Typography>
             </Grid>
-            <Grid item xs={2}>
-              
-            </Grid>
+            <Grid item xs={2}></Grid>
             <Grid item xs={3}>
               <Box
                 pl={{ lg: "10px", xS: "8px" }}
@@ -227,18 +225,14 @@ function SplitByItem() {
                 },
               }}
               fullWidth
+              onClick={() => router.push("/food?category=chinese")}
             >
               SAVE CHECK
             </Button>
           </Grid>
         </Grid>
       </Grid>
-      <GiftCard
-        isOpen={isOpen}
-        handleToggle={handleToggle}
-        handleOpen={handleOpen}
-        handleClose={handleClose}
-      />
+      
       <OtherPaymentOptions
         isOpen={isOpenOther}
         handleToggle={handleToggleOther}

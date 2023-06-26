@@ -20,6 +20,7 @@ import ExtraCharges from "./ExtraCharges"
 import useModalState from "@/hooks/useModalState"
 import AddCustomProduct from "./modals/AddCustomProduct"
 import AddDiscount from "./modals/AddDiscount"
+import GiftCard from "./GiftCard"
 // import { OpenedChecksBlackIcon } from "./icons"
 
 const ITEM_HEIGHT = 58
@@ -52,6 +53,13 @@ export default function MenuModal({ open, anchorEl, handleClose }) {
     handleClose: handleCloseAddDiscount,
   } = useModalState(false)
 
+  const {
+    isOpen: isOpenGiftCard,
+    handleToggle: handleToggleGiftCard,
+    handleOpen: handleOpenGiftCard,
+    handleClose: handleCloseGiftCard,
+  } = useModalState(false)
+
   const options = [
     {
       label: "Save Checks",
@@ -80,6 +88,7 @@ export default function MenuModal({ open, anchorEl, handleClose }) {
     {
       label: "Add Gift Card",
       icon: <AddGiftCardIcon />,
+      onClick: handleOpenGiftCard,
     },
     {
       label: "Print Check",
@@ -92,54 +101,56 @@ export default function MenuModal({ open, anchorEl, handleClose }) {
   ]
 
   return (
-    <Menu
-      id="long-menu"
-      onClose={handleClose}
-      MenuListProps={{
-        "aria-labelledby": "long-button",
-      }}
-      anchorEl={anchorEl}
-      open={open}
-      // onClose={handleClose}
-      // sx={{ width: { lg: "30ch !important", xs: "30ch" } }}
-      PaperProps={{
-        style: {
-          // maxHeight: ITEM_HEIGHT * 4.5,
-          width: "30ch",
-        },
-      }}
-    >
-      {options.map((option) => (
-        <MenuItem
-          key={option.label}
-          // selected={option === "Pyxis"}
-          onClick={option.onClick}
-          sx={{ borderBottom: "2px solid #D7DBDC" }}
-        >
-          <ListItemIcon
-            sx={{
-              minWidth: { lg: "30px !important", xs: "18px !important" },
-              width: { lg: "30px !important", xs: "18px !important" },
-            }}
+    <>
+      <Menu
+        id="long-menu"
+        onClose={handleClose}
+        MenuListProps={{
+          "aria-labelledby": "long-button",
+        }}
+        anchorEl={anchorEl}
+        open={open}
+        // onClose={handleClose}
+        // sx={{ width: { lg: "30ch !important", xs: "30ch" } }}
+        PaperProps={{
+          style: {
+            // maxHeight: ITEM_HEIGHT * 4.5,
+            width: "30ch",
+          },
+        }}
+      >
+        {options.map((option) => (
+          <MenuItem
+            key={option.label}
+            // selected={option === "Pyxis"}
+            onClick={option.onClick}
+            sx={{ borderBottom: "2px solid #D7DBDC" }}
           >
-            {option.icon}
-          </ListItemIcon>
-          <ListItemText
-            sx={{
-              "& span": {
-                ml: { lg: "8px", xs: "6px" },
-                color: "#000000",
-                fontFamily: "Work Sans",
-                fontSize: { lg: "16px", xs: "12px" },
-                fontWeight: "500",
-                letterSpacing: "0.55px",
-              },
-            }}
-          >
-            {option.label}
-          </ListItemText>
-        </MenuItem>
-      ))}
+            <ListItemIcon
+              sx={{
+                minWidth: { lg: "30px !important", xs: "18px !important" },
+                width: { lg: "30px !important", xs: "18px !important" },
+              }}
+            >
+              {option.icon}
+            </ListItemIcon>
+            <ListItemText
+              sx={{
+                "& span": {
+                  ml: { lg: "8px", xs: "6px" },
+                  color: "#000000",
+                  fontFamily: "Work Sans",
+                  fontSize: { lg: "16px", xs: "12px" },
+                  fontWeight: "500",
+                  letterSpacing: "0.55px",
+                },
+              }}
+            >
+              {option.label}
+            </ListItemText>
+          </MenuItem>
+        ))}
+      </Menu>
       <CheckNotePopup
         isOpen={isOpenCheckNote}
         handleToggle={handleToggleCheckNote}
@@ -164,6 +175,12 @@ export default function MenuModal({ open, anchorEl, handleClose }) {
         handleOpen={handleOpenAddDiscount}
         handleClose={handleCloseAddDiscount}
       />
-    </Menu>
+      <GiftCard
+        isOpen={isOpenGiftCard}
+        handleToggle={handleToggleGiftCard}
+        handleOpen={handleOpenGiftCard}
+        handleClose={handleCloseGiftCard}
+      />
+    </>
   )
 }

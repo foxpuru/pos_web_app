@@ -24,7 +24,7 @@ import OtherPaymentOptions from "@/components/OtherPaymentOptions"
 
 function SplitPayment() {
   const router = useRouter()
-  const { isOpen, handleToggle, handleOpen, handleClose } = useModalState(false)
+
   const {
     isOpen: isOpenOther,
     handleToggle: handleToggleOther,
@@ -174,12 +174,7 @@ function SplitPayment() {
           </Grid>
         </Grid>
       </Grid>
-      <GiftCard
-        isOpen={isOpen}
-        handleToggle={handleToggle}
-        handleOpen={handleOpen}
-        handleClose={handleClose}
-      />
+
       <OtherPaymentOptions
         isOpen={isOpenOther}
         handleToggle={handleToggleOther}

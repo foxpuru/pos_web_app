@@ -24,7 +24,7 @@ import OtherPaymentOptions from "@/components/OtherPaymentOptions"
 
 function SplitByValue() {
   const router = useRouter()
-  const { isOpen, handleToggle, handleOpen, handleClose } = useModalState(false)
+
   const {
     isOpen: isOpenOther,
     handleToggle: handleToggleOther,
@@ -267,18 +267,14 @@ function SplitByValue() {
                 },
               }}
               fullWidth
+              onClick={() => router.push("/food?category=chinese")}
             >
               SAVE CHECK
             </Button>
           </Grid>
         </Grid>
       </Grid>
-      <GiftCard
-        isOpen={isOpen}
-        handleToggle={handleToggle}
-        handleOpen={handleOpen}
-        handleClose={handleClose}
-      />
+
       <OtherPaymentOptions
         isOpen={isOpenOther}
         handleToggle={handleToggleOther}

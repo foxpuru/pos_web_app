@@ -24,6 +24,7 @@ import {
   GuestDetailsConsumer,
   GuestDetailsProvider,
 } from "@/context/guestDetailsContext"
+import CustomHeaderLayout from "@/layouts/CustomHeaderLayout"
 
 function Transactions() {
   const [items, setItems] = useState([
@@ -42,7 +43,7 @@ function Transactions() {
       finalPrice: "₹1622.20",
     },
   ])
-
+  const router = useRouter()
   // const [orderItems, setOrderItems] = useState([])
 
   // console.log("order items", orderItems)
@@ -601,6 +602,7 @@ function Transactions() {
                             },
                           }}
                           fullWidth
+                          onClick={() => router.push("food?category=chinese")}
                         >
                           REFUND CHECK
                         </Button>
@@ -617,5 +619,7 @@ function Transactions() {
   )
 }
 
-Transactions.getLayout = (page) => <MainLayout>{page}</MainLayout>
+Transactions.getLayout = (page) => (
+  <CustomHeaderLayout>{page}</CustomHeaderLayout>
+)
 export default Transactions

@@ -333,6 +333,9 @@ export default function Header({ isPaymentMethod }) {
                   fontWeight: "500",
                   textTransform: "uppercase",
                   letterSpacing: "0.4px",
+                  "&:hover": {
+                    backgroundColor: "transparent !important",
+                  },
                 }}
                 onClick={handleOpen}
               >
@@ -352,6 +355,9 @@ export default function Header({ isPaymentMethod }) {
                   fontWeight: "500",
                   textTransform: "uppercase",
                   letterSpacing: "0.4px",
+                  "&:hover": {
+                    backgroundColor: "#00B153 !important",
+                  },
                 }}
               >
                 SAVE

@@ -256,19 +256,14 @@ function Cash() {
                 },
               }}
               type="submit"
+              onClick={() => router.push("/payment-completed")}
             >
               CHARGE
             </Button>
           </Stack>
         </Box>
       </Box>
-      {/* <AddTip
-        isOpen={isOpenAddTip}
-        tip={tip}
-        onChange={(value) => setTip(value)}
-        handleOpen={handleOpenAddTip}
-        handleClose={handleCloseAddTip}
-      /> */}
+     
     </>
   )
 }

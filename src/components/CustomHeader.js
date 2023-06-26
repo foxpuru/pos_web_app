@@ -26,7 +26,7 @@ export default function CustomHeader() {
   } = useModalState(false)
 
   const router = useRouter()
-
+  console.log("transactions router path", router.pathname)
   return (
     <>
       <AppBar
@@ -77,7 +77,9 @@ export default function CustomHeader() {
                   letterSpacing: "0.75px",
                 }}
               >
-                CHECK TOTAL
+                {router.pathname === "/transactions"
+                  ? "Transactions"
+                  : "CHECK TOTAL"}
               </Typography>
             </Box>
 
