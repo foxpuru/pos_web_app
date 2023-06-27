@@ -90,11 +90,12 @@ export default function CustomizeRadioGroup({
       >
         {/* <FormControlLabel value="male" control={<BpRadio />} label="Male" />
         <FormControlLabel value="other" control={<BpRadio />} label="Other" /> */}
-        <Box pl={{ lg: "22px", xs: "12px" }} width="100%">
+        <Box width="100%" pb={1}>
           {options.map((item, index) => (
             <Box
               key={index}
-              py={{ lg: "8px", xs: "4px" }}
+              px={{ lg: "22px", xs: "18px" }}
+              py={{ lg: "12px", xs: "8px" }}
               width="100%"
               display="flex"
               justifyContent="space-between"
@@ -106,16 +107,16 @@ export default function CustomizeRadioGroup({
                   <Image
                     src={item.image}
                     alt="bank"
-                    sx={{ width: { lg: "36px", xs: "24px" } }}
+                    sx={{ width: { lg: "36px", xs: "30px" } }}
                   />
                 )}
                 <Typography
-                  ml={{ lg: showIcons && "22px", xs: showIcons && "11px" }}
+                  ml={{ lg: showIcons && "22px", xs: showIcons && "18px" }}
                   sx={{
                     color: "#000000",
                     fontSize: {
                       lg: "16px",
-                      xs: "12px",
+                      xs: "14px",
                       fontWeight: "400",
                       letterSpacing: "0.5px",
                     },
@@ -124,7 +125,20 @@ export default function CustomizeRadioGroup({
                   {item.label}
                 </Typography>
               </Box>
-              <FormControlLabel value={item.value} control={<BpRadio />} />
+              <FormControlLabel
+                sx={{
+                  margin: 0,
+                  "& span": {
+                    p: 0,
+                  },
+                  "& svg": {
+                    width: { lg: "36px", xs: "30px" },
+                    height: { lg: "36px", xs: "30px" },
+                  },
+                }}
+                value={item.value}
+                control={<BpRadio />}
+              />
             </Box>
           ))}
         </Box>

@@ -26,11 +26,11 @@ export const SideBarItems = [
     path: "/transactions",
   },
 
-  {
-    label: "Cash Management",
-    icon: <CashIcon />,
-    path: "/cash-management",
-  },
+  // {
+  //   label: "Cash Management",
+  //   icon: <CashIcon />,
+  //   path: "/cash-management",
+  // },
   {
     label: "Reports",
     icon: <ReportsIcon />,
@@ -42,9 +42,9 @@ export const SideBarItems = [
     icon: <SettingsIcon />,
     path: "/settings",
   },
-  {
-    label: "Logout",
-    icon: <LogoutIcon />,
-    path: "/logout",
-  },
+  // {
+  //   label: "Logout",
+  //   icon: <LogoutIcon />,
+  //   path: "/logout",
+  // },
 ]

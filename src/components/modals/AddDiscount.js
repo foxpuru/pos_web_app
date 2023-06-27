@@ -29,7 +29,13 @@ const NumberItem = styled(Paper)(({ theme }) => ({
   borderRight: "1px solid #A5ACAE",
 }))
 
-function AddDiscount({ isOpen, handleToggle, handleOpen, handleClose }) {
+function AddDiscount({
+  isOpen,
+  handleToggle,
+  handleOpen,
+  handleClose,
+  setDiscountValue,
+}) {
   const [layout, setLayout] = useState("%")
   const [cash, setCash] = React.useState("")
   const [percentage, setPercentage] = React.useState("")

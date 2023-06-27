@@ -10,7 +10,7 @@ import ListItemIcon from "@mui/material/ListItemIcon"
 import ListItemText from "@mui/material/ListItemText"
 import InboxIcon from "@mui/icons-material/MoveToInbox"
 import MailIcon from "@mui/icons-material/Mail"
-import { NewCheckIcon, OpenedChecksIcon } from "./icons"
+import { LogoutIcon, NewCheckIcon, OpenedChecksIcon } from "./icons"
 import { SideBarItems } from "@/data/sideBarData"
 import { useRouter } from "next/router"
 
@@ -32,9 +32,9 @@ export default function SideBarDrawer({
   const list = () => (
     <Box
       height="100%"
-      py={{ sm: "20px", xs: "12px" }}
+      py={{ sm: "22px", xs: "18px" }}
       sx={{
-        width: { lg: 350, xs: 280 },
+        width: { lg: 400, xs: 300 },
       }}
       role="presentation"
       onClick={handleToggle}
@@ -122,6 +122,68 @@ export default function SideBarDrawer({
               />
             </ListItem>
           ))}
+          <ListItem
+            sx={{
+              p: { sm: "12px", xs: "4px" },
+              py: { sm: "12px", xs: "8px" },
+              alignItems: { sm: "center", xs: "flex-start" },
+
+              cursor: "pointer",
+              "&:hover": {
+                // backgroundColor: "#EEF5F6",
+              },
+            }}
+            // onClick={() => router.push(item.path)}
+          >
+            <ListItemIcon
+              // className={
+              //   item.path.startsWith(router.pathname) ||
+              //   item.path.startsWith(`/${router.pathname.split("/")[1]}`)
+              //     ? "active"
+              //     : undefined
+              // }
+              sx={{
+                minWidth: { sm: "50px", xs: "30px" },
+
+                svg: {
+                  width: { sm: "38px", xs: "26px" },
+                  height: { sm: "38px", xs: "26px" },
+                },
+
+                "&.active": {
+                  color: "#E57607!important",
+                  svg: {
+                    fill: "#E57607!important",
+                  },
+                },
+              }}
+            >
+              <LogoutIcon />
+            </ListItemIcon>
+            <ListItemText
+              // className={
+              //   item.path.startsWith(router.pathname) ||
+              //   item.path.startsWith(`/${router.pathname.split("/")[1]}`)
+              //     ? "active"
+              //     : undefined
+              // }
+              sx={{
+                m: { sm: "4px 0px 4px 0px", xs: "3px 0px 0px 0px" },
+                span: {
+                  fontSize: { sm: "18px", xs: "14px" },
+                  fontWeight: "400",
+                  letterSpacing: "0.45px",
+                },
+                "&.active": {
+                  color: "#E57607!important",
+                  svg: {
+                    fill: "#E57607!important",
+                  },
+                },
+              }}
+              primary="Logout"
+            />
+          </ListItem>
         </List>
       </Box>
       <Box

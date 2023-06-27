@@ -23,13 +23,14 @@ import {
   UncheckedBoxIcon,
 } from "./icons"
 import CustomizeRadioGroup from "./RadioGroup"
+import { CustomButton } from "./custom-components"
 
 const style = {
   position: "absolute",
   top: "50%",
   left: "50%",
   transform: "translate(-50%, -50%)",
-  width: { lg: 450, xs: 350 },
+  width: { lg: 450, xs: 400 },
   bgcolor: "#FFFFFF",
   borderRadius: "10px",
   boxShadow: 24,
@@ -78,18 +79,13 @@ export default function OtherPaymentOptions({
           </Typography>
           <Box
             display="flex"
-            gap={{ lg: "20px", xs: "14px" }}
-            alignItem="center"
+            gap={{ lg: "22px", xs: "18px" }}
+            alignItems="center"
           >
-            <Button
-              // flexDirection="column"
-
-              // gap={{ sm: "0px", xs: "12px" }}
-              // justifyContent="center"
-
-              sx={{
-                height: { lg: "30px", xs: "24px" },
-                width: { lg: "100px", xs: "76px" },
+            <CustomButton
+              styles={{
+                height: { lg: "34px", xs: "30px" },
+                width: { lg: "90px", xs: "75px" },
                 py: { lg: "6px", xs: "4px" },
                 backgroundColor: "#E57607",
                 color: "#FFFFFF",
@@ -103,19 +99,19 @@ export default function OtherPaymentOptions({
                   backgroundColor: "#E57607",
                 },
               }}
-              // disabled={otp.length == 12 ? false : true}
-              // onClick={() =>
-              //   otp.length == 12 ? Router.push("/") : undefined
-              // }
               onClick={handleClose}
-            >
-              Done
-            </Button>
+              label="DONE"
+            />
+
             <Image
               onClick={handleClose}
               src={ClocePopup.src}
               alt="close popup"
-              sx={{ width: { lg: "30px", xs: "26px" }, cursor: "pointer" }}
+              sx={{
+                width: { lg: "34px", xs: "30px" },
+                height: { lg: "34px", xs: "30px" },
+                cursor: "pointer",
+              }}
             />
           </Box>
         </Box>

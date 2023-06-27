@@ -22,6 +22,24 @@ import GiftCard from "@/components/GiftCard"
 import useModalState from "@/hooks/useModalState"
 import OtherPaymentOptions from "@/components/OtherPaymentOptions"
 import AddTip from "@/components/modals/AddTip"
+import { CustomButton } from "@/components/custom-components"
+
+const btnStyle = {
+  height: { lg: "60px", xs: "50px" },
+  color: "#FFFFFF",
+  fontSize: { lg: "18px", xs: "16px" },
+  fontWeight: "400",
+  letterSpacing: "0.6px",
+  border: 0,
+  textTransform: "uppercase",
+  backgroundColor: "#E57607",
+  borderRadius: "10px",
+
+  "& svg": {
+    width: { lg: "32px", xs: "24px" },
+    height: { lg: "32px", xs: "24px" },
+  },
+}
 
 function PaymentMethods() {
   const router = useRouter()
@@ -136,81 +154,45 @@ function PaymentMethods() {
             <Grid
               container
               item
-              spacing={{ lg: 3, xs: 1 }}
+              spacing={{ lg: 4, xs: 2 }}
               py={{ lg: "42px", xs: "22px" }}
               px={{ lg: "22px", xs: "12px" }}
             >
-              <Grid item xs={4}>
-                <Button
-                  sx={{
-                    height: { lg: "60px", xs: "40px" },
-                    color: "#FFFFFF",
-                    fontSize: { lg: "18px", xs: "14px" },
-                    fontWeight: "400",
-                    letterSpacing: "0.6px",
-                    textTransform: "uppercase",
+              <Grid item lg={4} xs={6}>
+                <CustomButton
+                  styles={{
+                    ...btnStyle,
                     background: "linear-gradient(to right,#26B692,#38CC79)",
-                    borderRadius: "10px",
-
-                    "& svg": {
-                      width: { lg: "32px", xs: "24px" },
-                      height: { lg: "32px", xs: "24px" },
-                    },
                   }}
                   fullWidth
                   startIcon={<CardCashIcon />}
                   onClick={() => router.push("/cash")}
-                >
-                  cash
-                </Button>
+                  label="cash"
+                />
               </Grid>
-              <Grid item xs={4}>
-                <Button
-                  sx={{
-                    height: { lg: "60px", xs: "40px" },
-                    color: "#FFFFFF",
-                    fontSize: { lg: "18px", xs: "14px" },
-                    fontWeight: "400",
-                    letterSpacing: "0.6px",
-                    textTransform: "uppercase",
+              <Grid item lg={4} xs={6}>
+                <CustomButton
+                  styles={{
+                    ...btnStyle,
                     background: "linear-gradient(to right,#808080,#808080)",
-                    borderRadius: "10px",
-
-                    "& svg": {
-                      width: { lg: "32px", xs: "24px" },
-                      height: { lg: "32px", xs: "24px" },
-                    },
                   }}
                   fullWidth
                   startIcon={<CardCardsIcon />}
                   onClick={handleOpenOther}
-                >
-                  other
-                </Button>
+                  label="Other"
+                />
               </Grid>
-              <Grid item xs={4}>
-                <Button
-                  sx={{
-                    height: { lg: "60px", xs: "40px" },
-                    color: "#FFFFFF",
-                    fontSize: { lg: "18px", xs: "14px" },
-                    fontWeight: "400",
-                    letterSpacing: "0.6px",
-                    textTransform: "uppercase",
+              <Grid item lg={4} xs={12}>
+                <CustomButton
+                  styles={{
+                    ...btnStyle,
                     background: "linear-gradient(to right,#A61831,#DE4E67)",
-                    borderRadius: "10px",
-
-                    "& svg": {
-                      width: { lg: "32px", xs: "24px" },
-                      height: { lg: "32px", xs: "24px" },
-                    },
                   }}
                   fullWidth
                   startIcon={<CardGiftIcon />}
                   onClick={handleOpen}
-                >
-                  GIFT CARD
-                </Button>
+                  label="GIFT CARD"
+                />
               </Grid>
             </Grid>
           </Grid>
@@ -220,69 +202,32 @@ function PaymentMethods() {
           <Grid
             container
             item
-            spacing={{ lg: 3, xs: 1 }}
+            spacing={{ lg: 4, xs: 2 }}
             height="100%"
             alignItems="end"
             py={{ lg: "22px", xs: "22px" }}
             px={{ lg: "22px", xs: "12px" }}
           >
-            <Grid item xs={4}></Grid>
-            <Grid item xs={4}>
-              <Button
-                sx={{
-                  width: "100%",
-                  height: { lg: "60px", xs: "40px" },
-                  color: "#FFFFFF",
-                  fontSize: { lg: "18px", xs: "14px" },
-                  fontWeight: "400",
-                  letterSpacing: "0.6px",
-                  textTransform: "uppercase",
-                  backgroundColor: "#E57607",
-                  borderRadius: "10px",
-
-                  "&:hover": {
-                    backgroundColor: "#E57607",
-                  },
-
-                  "& svg": {
-                    width: { lg: "32px", xs: "24px" },
-                    height: { lg: "32px", xs: "24px" },
-                  },
+            <Grid item display={{ lg: "flex", xs: "none" }} lg={4}></Grid>
+            <Grid item lg={4} xs={6}>
+              <CustomButton
+                styles={{
+                  ...btnStyle,
                 }}
                 fullWidth
                 onClick={() => router.push("/split-payment")}
-              >
-                SPLIT CHECK
-              </Button>
+                label="SPLIT CHECK"
+              />
             </Grid>
-            <Grid item xs={4}>
-              <Button
-                sx={{
-                  width: "100%",
-
-                  height: { lg: "60px", xs: "40px" },
-                  color: "#FFFFFF",
-                  fontSize: { lg: "19px", xs: "14px" },
-                  fontWeight: "400",
-                  letterSpacing: "0.6px",
-                  textTransform: "uppercase",
-                  backgroundColor: "#E57607",
-                  borderRadius: "10px",
-
-                  "&:hover": {
-                    backgroundColor: "#E57607",
-                  },
-
-                  "& svg": {
-                    width: { lg: "32px", xs: "24px" },
-                    height: { lg: "32px", xs: "24px" },
-                  },
+            <Grid item lg={4} xs={6}>
+              <CustomButton
+                styles={{
+                  ...btnStyle,
                 }}
                 fullWidth
                 onClick={handleOpenAddTip}
-              >
-                ADDITIONAL TIP
-              </Button>
+                label="ADDITIONAL TIP"
+              />
             </Grid>
           </Grid>
         </Grid>

@@ -28,7 +28,7 @@ export default function ReactNumberFormat({
           onChange({
             target: {
               name: props.name,
-              value: "$" + values.value,
+              value: "₹" + values.value,
             },
           })
         }}
