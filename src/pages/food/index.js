@@ -16,6 +16,7 @@ import useModalState from "@/hooks/useModalState"
 import ReactNumberFormat from "@/components/ReactNumberFormat"
 import PrinterErrorPopup from "@/components/PrinterErrorPopup"
 import { CustomButton } from "@/components/custom-components"
+import FoodSlicesCard from "@/components/Food/FoodSlidesCards"
 
 function ChineseFood() {
   const style = {
@@ -33,6 +34,7 @@ function ChineseFood() {
 
   // const [showCustom, setShowCustom] = useState(false)
   const [customizeFoodItem, setCustomizeFoodItem] = useState(null)
+  const [slidesItem, setSlidesItem] = useState(null)
   // console.log("customizeFoodItem", customizeFoodItem)
 
   const [discountValue, setDiscountValue] = useState()
@@ -55,6 +57,8 @@ function ChineseFood() {
         {router.query?.foodType === "custom" ? (
           // {customizeFoodItem ? (
           <CustomCards foodItems={customizeFoodItem} />
+        ) : router.query?.foodType === "slides" ? (
+          <FoodSlicesCard foodItems={slidesItem} />
         ) : (
           <Box
             height={{
@@ -71,6 +75,7 @@ function ChineseFood() {
             {foodItems?.foods.map((food, index) => (
               <FoodCard
                 setCustomizeFoodItem={(e) => setCustomizeFoodItem(e)}
+                setSlidesItem={(e) => setSlidesItem(e)}
                 food={food}
                 key={index}
               />
@@ -311,7 +316,7 @@ function ChineseFood() {
                     textTransform: "capitalize",
 
                     "&:hover": {
-                      backgroundColor: "#00B153",
+                      backgroundColor: "#00B153 !important",
                     },
                   }}
                   fullWidth

@@ -56,6 +56,10 @@ export default function SettingsLayout({ children }) {
               color: "#FFFFFF",
               fontSize: { lg: "18px", xs: "16px" },
               fontWeight: "400",
+
+              "&:hover": {
+                backgroundColor: "#00B153 !important",
+              },
             }}
           >
             SAVE

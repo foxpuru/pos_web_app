@@ -6,7 +6,7 @@ import React from "react"
 export default function PaymentLayout({ children, isPaymentMethod, reports }) {
   return (
     <>
-      <Header isPaymentMethod={isPaymentMethod} />
+      <Header isPaymentMethod={isPaymentMethod} reports={reports} />
       <Box display="flex" width="100%" alignItems="start">
         <BillingItemList reports={reports} />
         <Box

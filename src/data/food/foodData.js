@@ -18,7 +18,48 @@ export const FoodData = [
         description: "lorem dolor sit amet",
         price: "₹210.00",
         foodType: "non-veg",
-        slides: true,
+        slides: [
+          {
+            id: "4343wded",
+            name: "Slides",
+            image: FoodFishImg,
+          },
+          {
+            id: "4343wded5434",
+            name: "Slides2",
+            image: FoodFishImg,
+          },
+          {
+            id: "4343wded43",
+            name: "Slides",
+            image: FoodFishImg,
+          },
+          {
+            id: "4343wded5433434",
+            name: "Slides2",
+            image: FoodFishImg,
+          },
+          {
+            id: "4343wded54t4f",
+            name: "Slides",
+            image: FoodFishImg,
+          },
+          {
+            id: "4343wded5434referf",
+            name: "Slides2",
+            image: FoodFishImg,
+          },
+          {
+            id: "4343wdedfrer4f",
+            name: "Slides",
+            image: FoodFishImg,
+          },
+          {
+            id: "4343wded543434r3",
+            name: "Slides2",
+            image: FoodFishImg,
+          },
+        ],
         image: FoodFishImg,
         name: "Chilli Paneer",
       },

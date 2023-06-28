@@ -319,6 +319,8 @@ function CloseDayReport() {
 }
 
 CloseDayReport.getLayout = (page) => (
-  <PaymentLayout reports={true}>{page}</PaymentLayout>
+  <PaymentLayout isPaymentMethod={true} reports={true}>
+    {page}
+  </PaymentLayout>
 )
 export default CloseDayReport

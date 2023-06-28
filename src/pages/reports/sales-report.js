@@ -361,6 +361,6 @@ function SalesReport() {
 }
 
 SalesReport.getLayout = (page) => (
-  <PaymentLayout reports={true}>{page}</PaymentLayout>
+  <PaymentLayout isPaymentMethod={true} reports={true}>{page}</PaymentLayout>
 )
 export default SalesReport

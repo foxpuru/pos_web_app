@@ -179,6 +179,8 @@ function Reports() {
 }
 
 Reports.getLayout = (page) => (
-  <PaymentLayout reports={true}>{page}</PaymentLayout>
+  <PaymentLayout isPaymentMethod={true} reports={true}>
+    {page}
+  </PaymentLayout>
 )
 export default Reports

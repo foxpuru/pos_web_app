@@ -46,7 +46,7 @@ export default function DateTimePicker({
           borderRadius: "10px",
 
           "&:hover": {
-            backgroundColor: "#EEF5F6",
+            backgroundColor: "#EEF5F6 !important",
           },
         }}
         fullWidth

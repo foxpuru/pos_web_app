@@ -19,12 +19,23 @@ import {
 } from "@/redux/slices/cartSlice"
 import { useRouter } from "next/router"
 
-export default function FoodCard({ food, setCustomizeFoodItem }) {
+export default function FoodCard({
+  food,
+  setCustomizeFoodItem,
+  setSlidesItem,
+}) {
   const theme = useTheme()
   const dispatch = useDispatch()
   const router = useRouter()
 
   const cartData = useSelector((state) => state.cart.items)
+
+  // const existId = cartData.filter((item) => item.id === food.id)
+
+  console.log(
+    "card data",
+    cartData.map((item) => item.id)
+  )
 
   const addToCart = (food) => {
     if (food.isCutomizable) {
@@ -45,19 +56,11 @@ export default function FoodCard({ food, setCustomizeFoodItem }) {
           // customFoodOption: food,
         })
       )
+    } else if (food.slides) {
+      setSlidesItem({ food })
+      router.query.foodType = "slides"
+      router.push(router)
     } else {
-      // const foundItem = cartData.find((item) => item.id === food.id)
-      // if (foundItem) {
-      //   return dispatch(
-      //     handleUpdateCart(
-      //       cartData.map((item) =>
-      //         item.id === food.id
-      //           ? { ...item, quantity: item.quantity + 1 }
-      //           : item
-      //       )
-      //     )
-      //   )
-      // }
       dispatch(
         handleAddToCart({
           name: food.name,
@@ -79,6 +82,7 @@ export default function FoodCard({ food, setCustomizeFoodItem }) {
       }}
       onClick={() => addToCart(food)}
     >
+      {/* {JSON.stringify(cartData?.some((item) => item.id === food.id))} */}
       <Card
         sx={{
           height: food.slides
@@ -87,13 +91,7 @@ export default function FoodCard({ food, setCustomizeFoodItem }) {
           padding: { lg: "3px", xs: "2px" },
           display: "flex",
           position: "relative",
-          border:
-            food.foodType == "veg"
-              ? "2px solid #00B153"
-              : food.foodType == "non-veg"
-              ? "2px solid #000000"
-              : "2px solid #FF4141",
-          // "2px solid #000000",
+          border: "2px solid #000000",
           borderRadius: "10px",
         }}
       >
@@ -102,7 +100,8 @@ export default function FoodCard({ food, setCustomizeFoodItem }) {
             // sx={{ borderRadius: "10px" }}
             component="img"
             // sx={{ width: 131 }}
-            image={`https://source.unsplash.com/featured/?category=${food.foodType}`}
+            // image={`https://source.unsplash.com/featured/?category=food}`}
+            image={food.image.src}
             alt="Live from space album cover"
           />
           <Box
@@ -141,12 +140,7 @@ export default function FoodCard({ food, setCustomizeFoodItem }) {
             transform: "translateX(-50%)",
             borderRadius: "10px",
             width: { lg: "calc(100% - 16px)", xs: "calc(100% - 10px)" },
-            border:
-              food.foodType == "veg"
-                ? "2px solid #00B153"
-                : food.foodType == "non-veg"
-                ? "2px solid #000000"
-                : "2px solid #FF4141",
+            border: "2px solid #000000",
             zIndex: -1,
             bottom: "-2px",
           }}

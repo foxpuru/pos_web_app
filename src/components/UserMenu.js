@@ -24,8 +24,14 @@ export default function UserMenu({ open, anchorEl, handleClose }) {
         "aria-labelledby": "basic-button",
       }}
       sx={{
-        width: "300px !important",
-        borderRadius: "0px !important",
+        "& .MuiMenu-paper": {
+          boxShadow: "0px 0px 40px #00000029",
+          borderRadius: "10px !important",
+          top: { lg: "65px !important" },
+          top: "15% !important",
+          // left: "50% !important",
+          transform: "translate(-50%, -50%) !important",
+        },
       }}
     >
       <MenuItem

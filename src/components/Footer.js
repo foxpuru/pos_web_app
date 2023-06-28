@@ -16,7 +16,7 @@ import Link from "next/link"
 import { CustomButton } from "./custom-components"
 import { useRouter } from "next/router"
 
-export default function Footer({ custom }) {
+export default function Footer() {
   const [value, setValue] = React.useState(0)
   const router = useRouter()
   return (
@@ -33,7 +33,7 @@ export default function Footer({ custom }) {
         left: 0,
       }}
     >
-      {custom ? (
+      {["custom", "slides"].includes(router.query.foodType) ? (
         <Box sx={{ width: "100%", height: { lg: "60px", xs: "38px" } }}>
           <CustomButton
             styles={{
@@ -51,10 +51,11 @@ export default function Footer({ custom }) {
               },
             }}
             label={"Done"}
-            onClick={() => {
-              delete router.query.foodType
-              router.push(router)
-            }}
+            // onClick={() => {
+            //   delete router.query.foodType
+            //   router.push(router)
+            // }}
+            onClick={() => router.back()}
           />
         </Box>
       ) : (

@@ -218,7 +218,7 @@ function PaymentCompleted() {
               borderRadius: "10px",
 
               "&:hover": {
-                backgroundColor: "#00B153",
+                backgroundColor: "#00B153 !important",
               },
 
               "& svg": {

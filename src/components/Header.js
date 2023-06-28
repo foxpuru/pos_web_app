@@ -75,7 +75,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }))
 
-export default function Header({ isPaymentMethod }) {
+export default function Header({ isPaymentMethod, reports }) {
   const [age, setAge] = React.useState(10)
 
   const handleChange = (event) => {
@@ -139,6 +139,75 @@ export default function Header({ isPaymentMethod }) {
           >
             {!isPaymentMethod && (
               <Box display="flex" alignItems="center">
+                {["custom", "slides"].includes(router.query.foodType) ? (
+                  <Image
+                    src={BtnBackArrow.src}
+                    onClick={() => router.back()}
+                    alt="btn left"
+                    sx={{
+                      width: { lg: "38px", xs: "28px", cursor: "pointer" },
+                    }}
+                  />
+                ) : (
+                  <Image
+                    src={BtnLeftMenuImg.src}
+                    onClick={handleOpenSidebar}
+                    alt="btn left"
+                    sx={{
+                      width: { lg: "38px", xs: "28px", cursor: "pointer" },
+                    }}
+                  />
+                )}
+                {!["custom", "slides"].includes(router.query.foodType) && (
+                  <Box
+                    // width="100%"
+                    display="flex"
+                    alignItems="center"
+                    textAlign="center"
+                    ml={{ lg: "22px", xs: "10px" }}
+                    // position="relative"
+                    sx={{
+                      height: { lg: "38px", xs: "28px" },
+                      px: { lg: "8px", xs: "4px" },
+                      backgroundColor: "#EEF5F6",
+
+                      borderRadius: "8px",
+                    }}
+                  >
+                    <Typography
+                      mx={{ lg: "12px", xs: "8px" }}
+                      sx={{
+                        color: "#000000",
+                        fontSize: { lg: "18px", xs: "12px" },
+                        fontWeight: "500",
+                        textTransform: "none",
+                        letterSpacing: "0.55px",
+                      }}
+                    >
+                      Online Orders
+                    </Typography>
+                    <Button
+                      sx={{
+                        px: { lg: "9px", xs: "6px" },
+                        height: { lg: "26px", xs: "20px" },
+                        fontSize: { lg: "18px", xs: "12px" },
+                        minWidth: 0,
+                        fontWeight: "400",
+                        backgroundColor: "#FF4141",
+                        color: "#FFFFFF",
+                        borderRadius: "6px",
+                        letterSpacing: "0px",
+                      }}
+                    >
+                      8
+                    </Button>
+                  </Box>
+                )}
+              </Box>
+            )}
+
+            {reports && (
+              <Box display="flex" alignItems="center">
                 <Image
                   src={BtnLeftMenuImg.src}
                   onClick={handleOpenSidebar}
@@ -147,70 +216,27 @@ export default function Header({ isPaymentMethod }) {
                     width: { lg: "38px", xs: "28px", cursor: "pointer" },
                   }}
                 />
-                <Box
-                  // width="100%"
-                  display="flex"
-                  alignItems="center"
-                  textAlign="center"
-                  ml={{ lg: "22px", xs: "10px" }}
-                  // position="relative"
-                  sx={{
-                    height: { lg: "38px", xs: "28px" },
-                    px: { lg: "8px", xs: "4px" },
-                    backgroundColor: "#EEF5F6",
-
-                    borderRadius: "8px",
-                  }}
-                >
-                  <Typography
-                    mx={{ lg: "12px", xs: "8px" }}
-                    sx={{
-                      color: "#000000",
-                      fontSize: { lg: "18px", xs: "12px" },
-                      fontWeight: "500",
-                      textTransform: "none",
-                      letterSpacing: "0.55px",
-                    }}
-                  >
-                    Online Orders
-                  </Typography>
-                  <Button
-                    sx={{
-                      px: { lg: "9px", xs: "6px" },
-                      height: { lg: "26px", xs: "20px" },
-                      fontSize: { lg: "18px", xs: "12px" },
-                      minWidth: 0,
-                      fontWeight: "400",
-                      backgroundColor: "#FF4141",
-                      color: "#FFFFFF",
-                      borderRadius: "6px",
-                      letterSpacing: "0px",
-                    }}
-                  >
-                    8
-                  </Button>
-                </Box>
               </Box>
             )}
-
             {isPaymentMethod && (
               <Box
                 width={{ lg: "370px", xs: "230px" }}
                 // display="flex"
+
                 alignItems="center"
                 textAlign="center"
               >
                 <Typography
                   // mx={{ lg: "12px", xs: "8px" }}
                   sx={{
-                    color: "#CD751E",
+                    color: reports ? "#000" : "#CD751E",
                     fontSize: { lg: "20px", xs: "14px" },
                     fontWeight: "400",
                     textTransform: "none",
                     letterSpacing: "0.75px",
                   }}
                 >
-                  CHECK TOTAL
+                  {reports ? "Reports" : "CHECK TOTAL"}
                 </Typography>
               </Box>
             )}
@@ -224,13 +250,15 @@ export default function Header({ isPaymentMethod }) {
               {isPaymentMethod && (
                 <Image
                   src={BtnBackArrow.src}
-                  onClick={() => router.push("/food?category=chinese")}
+                  // onClick={() => router.push("/food?category=chinese")}
+                  onClick={() => router.back()}
                   // src={}
 
                   alt="musepos logo"
                   sx={{
                     height: { lg: "34px", xs: "24px" },
                     cursor: "pointer",
+                    display: reports ? "none" : undefined,
                   }}
                 />
               )}
@@ -268,7 +296,11 @@ export default function Header({ isPaymentMethod }) {
                   src={LogoutLogo.src}
                   alt="logout logo"
                   sx={{
-                    width: { lg: "38px", xs: "28px", cursor: "pointer" },
+                    width: {
+                      lg: "38px",
+                      xs: "28px",
+                      cursor: "pointer",
+                    },
                   }}
                   onClick={handleClickUserMenu}
                 />
@@ -301,14 +333,16 @@ export default function Header({ isPaymentMethod }) {
                       fontSize: { lg: "14px", xs: "12px" },
                       fontWeight: "400",
                       letterSpacing: "0.45px",
+                      width: { lg: "130px", xs: "110px" },
 
                       ".MuiSelect-select": {
                         padding: { lg: "6px", xs: "4px" },
-                        px: { lg: "18px", xs: "14px" },
+                        px: { lg: "18px", xs: "8px" },
                       },
 
                       fieldset: {
                         border: "1px solid #F3F3F3",
+                        width: { lg: "130px", xs: "110px" },
                       },
                     }}
                   >

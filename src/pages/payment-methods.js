@@ -35,6 +35,10 @@ const btnStyle = {
   backgroundColor: "#E57607",
   borderRadius: "10px",
 
+  "&:hover": {
+    backgroundColor: "#E57607 !important",
+  },
+
   "& svg": {
     width: { lg: "32px", xs: "24px" },
     height: { lg: "32px", xs: "24px" },
