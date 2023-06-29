@@ -32,6 +32,7 @@ import MenuModal from "./Menu"
 import { useRouter } from "next/router"
 import ExtraCharges from "./ExtraCharges"
 import UserMenu from "./UserMenu"
+import { matches } from "@/hooks/useCustomQuery"
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -315,6 +316,7 @@ export default function Header({ isPaymentMethod, reports }) {
             <Box
               // width={{ lg: "30%", xs: "40%" }}
               width={{ lg: "370px", xs: "40%" }}
+              // width={matches ? "370px" : "40%"}
               display="flex"
               justifyContent="space-between"
               alignItems="center"
