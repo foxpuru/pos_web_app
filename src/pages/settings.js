@@ -5,6 +5,10 @@ import useModalState from "@/hooks/useModalState"
 import MainLayout from "@/layouts/MainLayout"
 import SettingsLayout from "@/layouts/settingLayout"
 import {
+  handleCashManagement,
+  handleTableManagement,
+} from "@/redux/slices/settingsSlice"
+import {
   Box,
   Button,
   FormControlLabel,
@@ -13,6 +17,7 @@ import {
 } from "@mui/material"
 import { styled } from "@mui/material/styles"
 import React from "react"
+import { useDispatch, useSelector } from "react-redux"
 import LayoutGridImg from "../assets/images/ic_layout_grid.png"
 import PrintReceiptGreenImg from "../assets/images/ic_print_receipt_green_big.png"
 
@@ -75,6 +80,8 @@ function Settings() {
     handleToggle: handleToggleChangeLayout,
   } = useModalState(false)
 
+  const settingsOptions = useSelector((state) => state.settings.options)
+
   const SettingsData = [
     {
       section: "GENERAL STATION",
@@ -91,17 +98,20 @@ function Settings() {
         {
           label: "Enable Auto Printing after Payment",
           switch: true,
-          isSwitched: true,
+          isSwitched: settingsOptions.autoPrinting,
         },
         {
           label: "Enable Cash Management",
           switch: true,
-          isSwitched: false,
+          isSwitched: settingsOptions.cashManagement,
+          onSwitch: () => dispatch(handleCashManagement()),
         },
         {
           label: "Enable Table Management",
           switch: true,
           isSwitched: false,
+          isSwitched: settingsOptions.tableManagement,
+          onSwitch: () => dispatch(handleTableManagement()),
         },
         {
           label: "Sync BackOffice",
@@ -155,13 +165,14 @@ function Settings() {
         {
           label: "GENERAL STATION",
           switch: true,
-          isSwitched: true,
+          isSwitched: settingsOptions.generalStation,
           borderBottom: true,
         },
       ],
     },
   ]
 
+  const dispatch = useDispatch()
   return (
     <>
       <Box p={{ lg: "22px", xs: "16px" }} bgcolor="#EEF5F6">
@@ -337,6 +348,7 @@ function Settings() {
                               margin: 0,
                             },
                           }}
+                          onClick={option.onSwitch}
                           control={
                             <IOSSwitch
                               sx={{ m: 1 }}

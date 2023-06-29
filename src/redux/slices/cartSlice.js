@@ -5,6 +5,7 @@ const CartSlice = createSlice({
   initialState: {
     customizableFoodItem: null,
     items: [],
+    savedChecks: [],
   },
 
   reducers: {
@@ -141,6 +142,15 @@ const CartSlice = createSlice({
         ]
       }
     },
+    handleSaveChecks(state) {
+      const cheksData = {
+        id: "qwsq",
+        createdAt: "2323",
+        data: state.items,
+      }
+      state.savedChecks = [...state.savedChecks, cheksData]
+      state.items = []
+    },
   },
 })
 
@@ -149,6 +159,7 @@ export const {
   handleRemoveFromCart,
   handleUpdateCart,
   handleAddCustomizableFoodItem,
+  handleSaveChecks,
 } = CartSlice.actions
 
 export default CartSlice.reducer

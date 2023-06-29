@@ -15,10 +15,12 @@ import { FoodData } from "@/data/food/foodData"
 import Link from "next/link"
 import { CustomButton } from "./custom-components"
 import { useRouter } from "next/router"
+import { useSelector } from "react-redux"
 
 export default function Footer() {
   const [value, setValue] = React.useState(0)
   const router = useRouter()
+  const showTableManagement = useSelector((state) => state.settings.options)
   return (
     <Grid
       display="flex"
@@ -100,20 +102,21 @@ export default function Footer() {
               </Link>
             ))}
           </Box>
-          {/* 
-        <Box
-          // height="100%"
-          display="flex"
-          alignItems="center"
-          p={{ lg: "10px 16px 10px 16px", xs: "6px" }}
-          sx={{ backgroundColor: "#D7DBDC" }}
-        >
-          <Image
-            src={TableBigImg.src}
-            alt="search"
-            sx={{ width: { lg: "40px", xs: "26px" } }}
-          />
-        </Box> */}
+          {showTableManagement.tableManagement && (
+            <Box
+              // height="100%"
+              display="flex"
+              alignItems="center"
+              p={{ lg: "10px 16px 10px 16px", xs: "6px" }}
+              sx={{ backgroundColor: "#D7DBDC" }}
+            >
+              <Image
+                src={TableBigImg.src}
+                alt="search"
+                sx={{ width: { lg: "40px", xs: "26px" } }}
+              />
+            </Box>
+          )}
         </>
       )}
     </Grid>

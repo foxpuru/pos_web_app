@@ -21,6 +21,8 @@ import useModalState from "@/hooks/useModalState"
 import AddCustomProduct from "./modals/AddCustomProduct"
 import AddDiscount from "./modals/AddDiscount"
 import GiftCard from "./GiftCard"
+import { handleSaveChecks } from "@/redux/slices/cartSlice"
+import { useDispatch } from "react-redux"
 // import { OpenedChecksBlackIcon } from "./icons"
 
 const ITEM_HEIGHT = 58
@@ -59,11 +61,12 @@ export default function MenuModal({ open, anchorEl, handleClose }) {
     handleOpen: handleOpenGiftCard,
     handleClose: handleCloseGiftCard,
   } = useModalState(false)
-
+  const dispatch = useDispatch()
   const options = [
     {
       label: "Save Checks",
       icon: <OpenedChecksBlackIcon />,
+      onClick: () => dispatch(handleSaveChecks()),
     },
     {
       label: "Add Custom Products",

@@ -281,34 +281,53 @@ export default function Header({ isPaymentMethod, reports }) {
                 display={isPaymentMethod ? "none" : "flex"}
                 alignItems="center"
               >
-                <Typography
-                  mr={{ ls: "22px", xs: "12px" }}
-                  sx={{
-                    textAlign: "right",
-                    color: "#000000",
-                    fontSize: { lg: "18px", xs: "14px" },
-                    fontWeight: "500",
-                    width: { lg: "180px", xs: "140px" },
-                    letterSpacing: "0.65px",
-                    whiteSpace: "nowrap",
-                    overflow: "hidden",
-                    textOverflow: "ellipsis",
-                  }}
-                >
-                  John Doe Jod h dsdosko
-                </Typography>
-                <Image
-                  src={LogoutLogo.src}
-                  alt="logout logo"
-                  sx={{
-                    width: {
-                      lg: "38px",
-                      xs: "28px",
-                      cursor: "pointer",
-                    },
-                  }}
-                  onClick={handleClickUserMenu}
-                />
+                {!["custom", "slides"].includes(router.query.foodType) ? (
+                  <>
+                    <Typography
+                      mr={{ ls: "22px", xs: "12px" }}
+                      sx={{
+                        textAlign: "right",
+                        color: "#000000",
+                        fontSize: { lg: "18px", xs: "14px" },
+                        fontWeight: "500",
+                        width: { lg: "180px", xs: "140px" },
+                        letterSpacing: "0.65px",
+                        whiteSpace: "nowrap",
+                        overflow: "hidden",
+                        textOverflow: "ellipsis",
+                      }}
+                    >
+                      John Pizza
+                    </Typography>
+                    <Image
+                      src={LogoutLogo.src}
+                      alt="logout logo"
+                      sx={{
+                        width: {
+                          lg: "38px",
+                          xs: "28px",
+                          cursor: "pointer",
+                        },
+                      }}
+                      onClick={handleClickUserMenu}
+                    />
+                  </>
+                ) : (
+                  ["custom"].includes(router.query.foodType) && (
+                    <Image
+                      src={LogoutLogo.src}
+                      alt="logout logo"
+                      sx={{
+                        width: {
+                          lg: "38px",
+                          xs: "28px",
+                          cursor: "pointer",
+                        },
+                      }}
+                      onClick={handleClickUserMenu}
+                    />
+                  )
+                )}
               </Box>
             </Box>
           </Box>
