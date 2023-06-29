@@ -81,7 +81,7 @@ export default function Header({ isPaymentMethod, reports }) {
   const handleChange = (event) => {
     setAge(event.target.value)
   }
-  const imageMatches = useMediaQuery((theme) => theme.breakpoints.up("lg"))
+  const imageMatches = useMediaQuery((theme) => theme.breakpoints.up("960"))
 
   const { isOpen, handleToggle, handleOpen, handleClose } = useModalState(false)
 
@@ -287,10 +287,14 @@ export default function Header({ isPaymentMethod, reports }) {
                     color: "#000000",
                     fontSize: { lg: "18px", xs: "14px" },
                     fontWeight: "500",
+                    width: { lg: "180px", xs: "140px" },
                     letterSpacing: "0.65px",
+                    whiteSpace: "nowrap",
+                    overflow: "hidden",
+                    textOverflow: "ellipsis",
                   }}
                 >
-                  John Doe
+                  John Doe Jod h dsdosko
                 </Typography>
                 <Image
                   src={LogoutLogo.src}

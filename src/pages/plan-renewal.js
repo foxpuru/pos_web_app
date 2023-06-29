@@ -37,7 +37,7 @@ function PlanRenewal() {
               borderRadius: "4px",
 
               "&:hover": {
-                backgroundColor: "transparent",
+                backgroundColor: "transparent !important",
               },
             }}
             // disabled={otp.length < 4}

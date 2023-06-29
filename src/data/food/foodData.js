@@ -211,7 +211,7 @@ export const FoodData = [
         price: "₹210.00",
         foodType: "veg",
         image: FoodFishImg,
-        slides: true,
+
         name: "Crispy veg. in schezwan sauce",
       },
       {
@@ -270,7 +270,7 @@ export const FoodData = [
         description: "lorem dolor sit amet",
         price: "₹210.00",
         foodType: "non-veg",
-        slides: true,
+
         image: FoodFishImg,
         name: "Sweet and sour & garlic vegetables",
       },
@@ -531,7 +531,7 @@ export const FoodData = [
         price: "₹120.00",
         foodType: "veg",
         image: FoodFishImg,
-        slides: true,
+
         name: "tea",
       },
     ],
