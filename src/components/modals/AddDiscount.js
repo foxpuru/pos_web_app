@@ -4,7 +4,7 @@ import Paper from "@mui/material/Paper"
 
 import React, { useState } from "react"
 
-import CustomModal from "../Modal"
+import CustomModal from "./CustomModal"
 import ClocePopup from "@/assets/images/ic_close_popup.png"
 import { Image, Input } from "../styled-components/tableDetails"
 

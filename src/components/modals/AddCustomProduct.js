@@ -6,8 +6,9 @@ import { Form, Formik } from "formik"
 
 import { ItemCategoryOptions, TaxOptions } from "@/data/AddCustomProdcutSelect"
 import { FormikInput } from "../inputs"
-import CustomModal from "../Modal"
+
 import CustomSelect from "../CustomSelect"
+import CustomModal from "./CustomModal"
 
 export default function AddCustomProduct({
   isOpen,

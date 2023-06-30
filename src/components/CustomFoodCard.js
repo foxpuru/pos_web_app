@@ -49,7 +49,7 @@ function CustomFoodCard({ section, food, type }) {
           alignItems: "center",
 
           width: "100%",
-          height: { lg: "calc(100% - 38px)", xs: "calc(100% - 26px)" },
+          height: { lg: "calc(100% - 24px)", xs: "calc(100% - 20px)" },
         }}
       >
         <Typography
@@ -70,7 +70,7 @@ function CustomFoodCard({ section, food, type }) {
           textAlign: "center",
           textAlign: "center",
           width: "100%",
-          height: { lg: "38px", xs: "26px" },
+          height: { lg: "24px", xs: "20px" },
         }}
       >
         <Typography

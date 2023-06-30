@@ -19,6 +19,8 @@ import { Image } from "./styled-components/tableDetails"
 import { Typography } from "@mui/material"
 
 import sideBarLogoBottom from "../assets/images/musepos_logo_colored_sidemenu.png"
+import useModalState from "@/hooks/useModalState"
+import LogoutConfirmation from "./modals/logoutConfirmation"
 
 export default function SideBarDrawer({
   isOpen,
@@ -28,6 +30,15 @@ export default function SideBarDrawer({
 }) {
   const router = useRouter()
   // console.log("routtttt", router.pathname.startsWith("/reports"))
+
+  // console.log("side bar data", SideBarItems.splice(1, 0, "Table Management"))
+
+  const {
+    isOpen: isOpenLogoutConfirmation,
+    handleToggle: handleToggleLogoutConfirmation,
+    handleOpen: handleOpenLogoutConfirmation,
+    handleClose: handleCloseLogoutConfirmation,
+  } = useModalState(true)
 
   const list = () => (
     <Box
@@ -150,6 +161,7 @@ export default function SideBarDrawer({
                   // backgroundColor: "#EEF5F6",
                 },
               }}
+              onClick={handleOpenLogoutConfirmation}
               // onClick={() => router.push(item.path)}
             >
               <ListItemIcon
@@ -244,6 +256,12 @@ export default function SideBarDrawer({
       >
         {list()}
       </Drawer>
+      <LogoutConfirmation
+        isOpen={isOpenLogoutConfirmation}
+        handleToggle={handleToggleLogoutConfirmation}
+        handleOpen={handleOpenLogoutConfirmation}
+        handleClose={handleCloseLogoutConfirmation}
+      />
     </>
   )
 }

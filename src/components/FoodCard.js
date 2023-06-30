@@ -107,13 +107,13 @@ export default function FoodCard({
           <Box
             sx={{
               backgroundColor: "rgba(255,255,255,0.8)",
-              // py: { lg: "6px", xs: "3px" },
+              px: { lg: "6px", xs: "3px" },
               alignItems: "center",
               display: "grid",
               textAlign: "center",
               textAlign: "center",
               width: { lg: "calc(100% - 6px)", xs: "calc(100% - 4px)" },
-              height: { lg: "38px", xs: "26px" },
+              height: { lg: "24px", xs: "20px" },
               position: "absolute",
               overflow: "hidden",
               bottom: { lg: "3px", xs: "2px" },
@@ -124,6 +124,10 @@ export default function FoodCard({
                 fontSize: { lg: "13px", xs: "9px" },
                 fontWeight: "500",
                 color: "#000000",
+                width: "100%",
+                whiteSpace: "nowrap",
+                overflow: "hidden",
+                textOverflow: "ellipsis",
               }}
             >
               {food.name}

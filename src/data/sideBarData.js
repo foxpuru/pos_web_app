@@ -1,3 +1,5 @@
+import { Encrypt } from "@/hooks/useEncryption"
+
 import {
   AddItemsIcon,
   CashIcon,
@@ -13,7 +15,7 @@ export const SideBarItems = [
   {
     label: "New Check",
     icon: <NewCheckIcon />,
-    path: "/food?category=chinese",
+    path: `/food?category=${Encrypt("chinese")}`,
   },
   {
     label: "Opened Checks",
@@ -42,9 +44,4 @@ export const SideBarItems = [
     icon: <SettingsIcon />,
     path: "/settings",
   },
-  // {
-  //   label: "Logout",
-  //   icon: <LogoutIcon />,
-  //   path: "/logout",
-  // },
 ]

@@ -1,9 +1,10 @@
+import { Encrypt } from "@/hooks/useEncryption"
 import FoodFishImg from "../../assets/images/food_fish.jpg"
 
 export const FoodData = [
   {
     category: "chinese",
-    path: "chinese",
+    path: Encrypt("chinese"),
     foods: [
       {
         id: "dsdsdsd",
@@ -469,7 +470,7 @@ export const FoodData = [
   },
   {
     category: "Gujrati",
-    path: "gujrati",
+    path: Encrypt("gujrati"),
     foods: [
       {
         id: "ds354rtsdggdsdsd",
@@ -538,7 +539,7 @@ export const FoodData = [
   },
   {
     category: "RICE & NOODLES",
-    path: "rice-noodles",
+    path: Encrypt("rice-noodles"),
     foods: [
       {
         id: "dsd345r354eeeeerrsdsd",
@@ -552,7 +553,7 @@ export const FoodData = [
   },
   {
     category: "DESSERTS",
-    path: "desserts",
+    path: Encrypt("desserts"),
     foods: [
       {
         id: "ds54543rrerdsdsd",
@@ -566,7 +567,7 @@ export const FoodData = [
   },
   {
     category: "BEVERAGES",
-    path: "beverages",
+    path: Encrypt("beverages"),
     foods: [
       {
         id: "dsddfgh565tthtsdsd",

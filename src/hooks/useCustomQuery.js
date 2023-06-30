@@ -1,4 +1,4 @@
 import { useMediaQuery } from "@mui/material"
 
-export const matches = () =>
+export const Matches = () =>
   useMediaQuery((theme) => theme.breakpoints.up("960"))

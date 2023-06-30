@@ -3,8 +3,7 @@ import { Box, Button, Divider, Grid, Stack, Typography } from "@mui/material"
 import { styled } from "@mui/material/styles"
 import Paper from "@mui/material/Paper"
 
-
-import CustomModal from "../Modal"
+import CustomModal from "./CustomModal"
 import ClocePopup from "@/assets/images/ic_close_popup.png"
 import { Image, Input } from "../styled-components/tableDetails"
 
@@ -29,8 +28,14 @@ const NumberItem = styled(Paper)(({ theme }) => ({
   borderRight: "1px solid #A5ACAE",
 }))
 
-function AddTip({ isOpen, handleToggle, handleOpen, handleClose, tip,onChange }) {
-  
+function AddTip({
+  isOpen,
+  handleToggle,
+  handleOpen,
+  handleClose,
+  tip,
+  onChange,
+}) {
   const [tipFieldBy, setTipFieldBy] = React.useState()
 
   const FormRow = ({ buttons }) => {
@@ -47,7 +52,7 @@ function AddTip({ isOpen, handleToggle, handleOpen, handleClose, tip,onChange })
               setTipFieldBy(false)
               return true
             }
-         onChange(tip + buttons[0].value)
+            onChange(tip + buttons[0].value)
           }}
         >
           <NumberItem>{buttons[0].value}</NumberItem>
@@ -79,14 +84,12 @@ function AddTip({ isOpen, handleToggle, handleOpen, handleClose, tip,onChange })
           // }
           onClick={() => {
             if (buttons[2].remove) {
-             
-                onChange(tip.substring(0, tip.length - 1))
+              onChange(tip.substring(0, tip.length - 1))
 
               // console.log("remove", tip.substring())
               return false
-            }
-            else if (tipFieldBy) {
-             onChange(buttons[2].value)
+            } else if (tipFieldBy) {
+              onChange(buttons[2].value)
               setTipFieldBy(false)
               return true
             }
@@ -106,11 +109,10 @@ function AddTip({ isOpen, handleToggle, handleOpen, handleClose, tip,onChange })
       styles: {
         width: "33%",
         borderRadius: "10px 0px 0px 10px",
-        borderRight: 0
-      }
+        borderRight: 0,
+      },
     },
     {
-
       label: "₹15",
       value: "15",
       styles: {
@@ -127,7 +129,6 @@ function AddTip({ isOpen, handleToggle, handleOpen, handleClose, tip,onChange })
         borderRadius: "0px 10px 10px 0px",
       },
     },
-
   ]
 
   return (
@@ -185,14 +186,11 @@ function AddTip({ isOpen, handleToggle, handleOpen, handleClose, tip,onChange })
           >
             <ReactNumberFormat
               value={tip}
-              onChange={(e) => 
-                  onChange(e.target.value)
-              }
+              onChange={(e) => onChange(e.target.value)}
               placeholder={"₹0.00"}
               prefix={"₹"}
               name={"tip"}
             />
-
 
             <Typography
               sx={{
@@ -275,13 +273,12 @@ function AddTip({ isOpen, handleToggle, handleOpen, handleClose, tip,onChange })
           <Box display="flex" width="100%">
             {TipCalculatorKeys.map((item, index) => (
               <CustomButton
-              key={index}
+                key={index}
                 styles={item.styles}
                 label={item.label}
-                onClick={() => { 
-                    onChange(item.value)
-                    setTipFieldBy(true)
-                  
+                onClick={() => {
+                  onChange(item.value)
+                  setTipFieldBy(true)
                 }}
               />
             ))}
