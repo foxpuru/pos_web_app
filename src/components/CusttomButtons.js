@@ -25,6 +25,7 @@ export const PrimaryButton = ({ label, sx, ...props }) => {
       sx={{
         ...styles,
         ...sx,
+        // height: large && { lg: "60px", xs: "50px" },
       }}
     >
       {label ? label : "DONE"}

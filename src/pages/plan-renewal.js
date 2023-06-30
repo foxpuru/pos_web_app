@@ -7,6 +7,7 @@ import navLogoImg from "../assets/images/musepos_logo_colored_nav.png"
 
 import PlanRenewalImg from "../assets/images/ic_plan_renewal_payment_problem.png"
 import { useRouter } from "next/router"
+import { PrimaryButton } from "@/components/CusttomButtons"
 
 function PlanRenewal() {
   const router = useRouter()
@@ -26,12 +27,13 @@ function PlanRenewal() {
       </Box>
       <Box p={{ lg: "30px", xs: "15px" }}>
         <Box display="flex" justifyContent="right">
-          <Button
+          <PrimaryButton
             sx={{
-              px: { lg: "40px", xs: "20px" },
-              color: "#E57607",
-              fontSize: { sm: "16px", xs: "12px" },
-              fontWeight: "500",
+              px: { lg: "40px", xs: "32px" },
+              width: "auto",
+              color: "#E57607 !important",
+              backgroundColor: "transparent !important",
+              fontSize: { sm: "16px", xs: "14px" },
               textTransform: "capitalize",
               border: "0.5px solid #E57607",
               borderRadius: "4px",
@@ -40,11 +42,9 @@ function PlanRenewal() {
                 backgroundColor: "transparent !important",
               },
             }}
-            // disabled={otp.length < 4}
             onClick={() => router.push("/passcode")}
-          >
-            Continue
-          </Button>
+            label="Continue"
+          />
         </Box>
         <Box
           display="grid"
@@ -129,24 +129,16 @@ function PlanRenewal() {
             display="flex"
             justifyContent="center"
           >
-            <Button
+            <PrimaryButton
               sx={{
-                px: { lg: "40px", xs: "20px" },
-                color: "#ffffff",
-                backgroundColor: "#E57607",
-                fontSize: { sm: "16px", xs: "12px" },
-                fontWeight: "400",
+                width: "auto",
+                px: { lg: "40px", xs: "32px" },
+                fontSize: { lg: "16px", xs: "14px" },
                 textTransform: "capitalize",
                 borderRadius: "4px",
-
-                "&:hover": {
-                  backgroundColor: "#E57607",
-                },
               }}
-              // disabled={otp.length < 4}
-            >
-              Click Here
-            </Button>
+              label="Click Here"
+            />
           </Box>
         </Box>
       </Box>

@@ -12,6 +12,7 @@ import { FormikInput } from "./inputs"
 import { Form, Formik } from "formik"
 import { Avatar, Grid } from "@mui/material"
 import { AddFoodToCartIcon, RemoveFoodToCartIcon } from "./icons"
+import { PrimaryButton } from "./CusttomButtons"
 
 const style = {
   position: "absolute",
@@ -157,36 +158,19 @@ export default function CheckNameModal({
                   <AddFoodToCartIcon />
                 </Box>
               </Box>
-              <Button
-                // flexDirection="column"
-                alignItems="center"
-                textAlign="center"
-                // gap={{ sm: "0px", xs: "12px" }}
-                // justifyContent="center"
-
+              <PrimaryButton
                 sx={{
-                  width: { lg: "100%", xs: "100%" },
-                  margin: "auto",
-                  py: { lg: "6px", xs: "4px" },
                   backgroundColor: "#A5ACAE",
-                  color: "#FFFFFF",
-                  fontSize: { sm: "14px", xs: "12px" },
-                  fontWeight: "400",
-                  letterSpacing: "0.45px",
-
-                  borderRadius: "8px",
-
                   "&:hover": {
-                    backgroundColor: "#A5ACAE",
+                    backgroundColor: "#A5ACAE !important",
                   },
                 }}
                 // disabled={otp.length == 12 ? false : true}
                 // onClick={() =>
                 //   otp.length == 12 ? Router.push("/") : undefined
                 // }
-              >
-                UPDATE
-              </Button>
+                label="update"
+              />
             </Box>
           </Form>
         </Formik>

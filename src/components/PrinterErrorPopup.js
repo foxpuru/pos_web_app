@@ -14,7 +14,7 @@ import { Form, Formik } from "formik"
 import { Avatar, Grid } from "@mui/material"
 import { AddFoodToCartIcon, RemoveFoodToCartIcon } from "./icons"
 import { CustomButton } from "./custom-components"
-import { CancelButton } from "./CusttomButtons"
+import { CancelButton, PrimaryButton } from "./CusttomButtons"
 
 const style = {
   position: "absolute",
@@ -113,15 +113,7 @@ export default function PrinterErrorPopup({
           >
             <CancelButton onClick={handleClose} />
             <CancelButton label="RETRY" onClick={handleClose} />
-            <CustomButton
-              styles={{
-                ...btnStyle,
-                backgroundColor: "#E57607",
-                "&:hover": { backgroundColor: "#E57607" },
-              }}
-              label="DISCOVER"
-              onClick={handleClose}
-            />
+            <PrimaryButton label="DISCOVER" onClick={handleClose} />
           </Box>
         </Box>
       </Box>

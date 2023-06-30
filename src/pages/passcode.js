@@ -9,6 +9,8 @@ import ClockImg from "../assets/images/ic_clock_in.png"
 import { Form, Formik } from "formik"
 import BlankLayout from "@/layouts/BlankLayout"
 import { useRouter } from "next/router"
+import { PrimaryButton } from "@/components/CusttomButtons"
+import { Encrypt } from "@/hooks/useEncryption"
 
 function Passcode() {
   const [otp, setOtp] = useState("")
@@ -109,7 +111,7 @@ function Passcode() {
                 }}
               />
             </Box>
-            <Button
+            <PrimaryButton
               width="100%"
               // flexDirection="column"
               alignItems="center"
@@ -117,25 +119,19 @@ function Passcode() {
               // gap={{ sm: "0px", xs: "12px" }}
               // justifyContent="center"
               sx={{
-                py: { sm: "6px", xs: "4px" },
                 backgroundColor: otp.length == 4 ? "#E57607" : "#A5ACAE",
-                color: "white",
-                fontSize: { sm: "24px", xs: "16px" },
+                fontSize: { sm: "22px", xs: "18px" },
                 fontWeight: "400",
                 letterSpacing: "0.6px",
                 boxShadow: "3px 3px 12px #00000038",
-                borderRadius: "10px",
-
-                "&:hover": {
-                  backgroundColor: "#E57607",
-                },
               }}
               disabled={otp.length < 4}
               type="submit"
-              onClick={() => router.push("/food?category=chinese")}
-            >
-              SUBMIT
-            </Button>
+              onClick={() =>
+                router.push(`/food?category=${Encrypt("chinese")}`)
+              }
+              label="submit"
+            />
           </Box>
         </Form>
       </Formik>

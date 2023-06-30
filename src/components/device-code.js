@@ -9,6 +9,7 @@ import { FormikInput } from "@/components/inputs"
 import OTPInput from "react-otp-input"
 import BlankLayout from "@/layouts/BlankLayout"
 import { useRouter } from "next/router"
+import { PrimaryButton } from "./CusttomButtons"
 
 const GridItem = () => {
   return (
@@ -157,24 +158,12 @@ function DeviceCode() {
               </Typography>
             </Box>
             <Box width="100%" justifyContent="center" display="flex">
-              <Button
-                // flexDirection="column"
-                alignItems="center"
-                textAlign="center"
-                // gap={{ sm: "0px", xs: "12px" }}
-                // justifyContent="center"
-
+              <PrimaryButton
                 sx={{
                   width: { lg: "780px", xs: "550px" },
-                  margin: "auto",
-                  py: { sm: "6px", xs: "4px" },
                   backgroundColor: otp.length == 12 ? "#E57607" : "#A5ACAE",
-                  color: "#FFFFFF !important",
                   fontSize: { sm: "20px", xs: "15px" },
-                  fontWeight: "400",
-                  letterSpacing: "0.6px",
                   boxShadow: "3px 3px 12px #00000038",
-                  borderRadius: "10px",
 
                   "&:hover": {
                     backgroundColor: otp.length == 12 ? "#E57607" : "#A5ACAE",
@@ -182,9 +171,8 @@ function DeviceCode() {
                 }}
                 disabled={otp.length == 12 ? false : true}
                 onClick={() => router.push("/plan-renewal")}
-              >
-                SUBMIT
-              </Button>
+                label="SUBMIT"
+              />
             </Box>
           </Form>
         </Formik>

@@ -17,6 +17,7 @@ import ReactNumberFormat from "@/components/ReactNumberFormat"
 import PrinterErrorPopup from "@/components/PrinterErrorPopup"
 import { CustomButton } from "@/components/custom-components"
 import FoodSlicesCard from "@/components/Food/FoodSlidesCards"
+import { PrimaryButton } from "@/components/CusttomButtons"
 
 const encrypt = (salt) => {
   const textToChars = (text) => text.split("").map((c) => c.charCodeAt(0))
@@ -280,17 +281,15 @@ function ChineseFood() {
                 // flexDirection="row"
                 // width="100%"
               >
-                <CustomButton
-                  styles={{
+                <PrimaryButton
+                  sx={{
                     height: { lg: undefined, xs: "40px" },
                     color: "#E57607",
                     fontSize: { lg: "16px", xs: "12px" },
                     fontWeight: "500",
                     border: 0,
                     letterSpacing: "0.5px",
-                    textTransform: "uppercase",
                     backgroundColor: "#EEF5F6",
-                    borderRadius: "10px",
 
                     "& svg": {
                       width: { lg: "32px", xs: "24px" },
@@ -300,23 +299,19 @@ function ChineseFood() {
                       backgroundColor: "#EEF5F6 !important",
                     },
                   }}
-                  fullWidth
                   startIcon={<PrintIcon />}
                   onClick={handleOpenPrinterError}
                   label="Print"
                 />
 
-                <CustomButton
-                  styles={{
+                <PrimaryButton
+                  sx={{
                     height: { lg: undefined, xs: "40px" },
                     color: "#00B153",
                     fontSize: { lg: "16px", xs: "12px" },
                     fontWeight: "500",
                     letterSpacing: "0.5px",
-                    textTransform: "uppercase",
                     backgroundColor: "#EEF5F6",
-                    borderRadius: "10px",
-                    border: 0,
 
                     "& svg": {
                       width: { lg: "32px", xs: "24px" },

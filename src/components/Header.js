@@ -33,6 +33,7 @@ import { useRouter } from "next/router"
 import ExtraCharges from "./ExtraCharges"
 import UserMenu from "./UserMenu"
 import { Matches } from "@/hooks/useCustomQuery"
+import { PrimaryButton } from "./CusttomButtons"
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -159,7 +160,7 @@ export default function Header({ isPaymentMethod, reports }) {
                     }}
                   />
                 )}
-                {!["custom", "slides"].includes(router.query.foodType) && (
+                {/* {!["custom", "slides"].includes(router.query.foodType) && (
                   <Box
                     // width="100%"
                     display="flex"
@@ -194,7 +195,7 @@ export default function Header({ isPaymentMethod, reports }) {
                         fontSize: { lg: "18px", xs: "12px" },
                         minWidth: 0,
                         fontWeight: "400",
-                        backgroundColor: "#FF4141",
+                        backgroundColor: "#E57607",
                         color: "#FFFFFF",
                         borderRadius: "6px",
                         letterSpacing: "0px",
@@ -203,7 +204,7 @@ export default function Header({ isPaymentMethod, reports }) {
                       8
                     </Button>
                   </Box>
-                )}
+                )} */}
               </Box>
             )}
 
@@ -376,42 +377,35 @@ export default function Header({ isPaymentMethod, reports }) {
                   </Select>
                 </FormControl>
               </Box>
-              <Button
+              <PrimaryButton
                 sx={{
                   height: { lg: "32.13px", xs: "25.25px" },
                   minWidth: { lg: "100px", xs: "80px" },
-                  justifyContent: "left",
-                  p: 0,
-                  px: { lg: "8px", xs: "4px" },
-                  textAlign: "left",
-                  // pr: { lg: "20px", xs: "4px" },
+                  width: { lg: "100px", xs: "80px" },
+
                   border: "1px solid #F3F3F3",
-                  // backgroundColor: "#EEF5F6",
-                  borderRadius: "10px",
+                  backgroundColor: "transparent",
                   color: "#000000",
-                  fontSize: { lg: "12px", xs: "9px" },
-                  fontWeight: "500",
+                  fontWeight: "5500",
                   textTransform: "uppercase",
                   letterSpacing: "0.4px",
+                  whiteSpace: "nowrap",
+                  overflow: "hidden",
+                  textOverflow: "ellipsis",
                   "&:hover": {
                     backgroundColor: "transparent !important",
                   },
                 }}
                 onClick={handleOpen}
-              >
-                GUEST-68
-              </Button>
-              <Button
+                label="Guest-68"
+              />
+              <PrimaryButton
                 sx={{
                   height: { lg: "32.13px", xs: "25.25px" },
-                  p: 0,
                   minWidth: { lg: "50px", xs: "40px" },
-                  // px: { lg: "8px", xs: "4px" },
-                  border: "1px solid #F3F3F3",
+                  width: { lg: "50px", xs: "40px" },
                   backgroundColor: "#00B153",
-                  borderRadius: "10px",
                   color: "#FFFFFF",
-                  fontSize: { lg: "12px", xs: "9px" },
                   fontWeight: "500",
                   textTransform: "uppercase",
                   letterSpacing: "0.4px",
@@ -419,9 +413,8 @@ export default function Header({ isPaymentMethod, reports }) {
                     backgroundColor: "#00B153 !important",
                   },
                 }}
-              >
-                SAVE
-              </Button>
+                label="save"
+              />
               <Image
                 onClick={handleClickMenu}
                 src={RightMenuImg.src}
