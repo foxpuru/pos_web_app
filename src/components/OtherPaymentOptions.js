@@ -23,7 +23,8 @@ import {
   UncheckedBoxIcon,
 } from "./icons"
 import CustomizeRadioGroup from "./RadioGroup"
-import { CustomButton } from "./custom-components"
+
+import { PrimaryButton } from "./CusttomButtons"
 
 const style = {
   position: "absolute",
@@ -82,22 +83,10 @@ export default function OtherPaymentOptions({
             gap={{ lg: "22px", xs: "18px" }}
             alignItems="center"
           >
-            <CustomButton
-              styles={{
+            <PrimaryButton
+              sx={{
                 height: { lg: "34px", xs: "30px" },
                 width: { lg: "90px", xs: "75px" },
-                py: { lg: "6px", xs: "4px" },
-                backgroundColor: "#E57607",
-                color: "#FFFFFF",
-                fontSize: { sm: "12px", xs: "10px" },
-                fontWeight: "400",
-                letterSpacing: "0.45px",
-                textTransform: "capitalize",
-                borderRadius: "8px",
-
-                "&:hover": {
-                  backgroundColor: "#E57607",
-                },
               }}
               onClick={handleClose}
               label="DONE"

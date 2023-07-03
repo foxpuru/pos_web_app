@@ -7,9 +7,10 @@ import CustomModal from "./CustomModal"
 import ClocePopup from "@/assets/images/ic_close_popup.png"
 import { Image, Input } from "../styled-components/tableDetails"
 
-import { CustomButton } from "../custom-components"
+
 import { CalculatorButtonsKey } from "@/data/calculatorKey"
 import ReactNumberFormat from "../ReactNumberFormat"
+import { PrimaryButton } from "../CusttomButtons"
 
 const NumberItem = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
@@ -207,33 +208,7 @@ function AddTip({
               Cash Amount
             </Typography>
           </Box>
-          <CustomButton
-            styles={{
-              position: "absolute",
-              height: { lg: "28px", xs: "22px" },
-              width: { lg: "60px", xs: "50px" },
-              minWidth: { lg: "50px", xs: "50px" },
-              backgroundColor: "transparent",
-              color: "#000 !important",
-              fontSize: { lg: "12px", xs: "10px" },
-              fontWeight: "400",
-              textTransform: "capitalize",
-              borderRadius: "8px",
-
-              "&:hover": {
-                backgroundColor: "transparent !important",
-              },
-              top: "50%",
-              transform: "translate(-50%, -50%)",
-              right: { lg: "-19px", xs: "-15px" },
-            }}
-            // disabled={otp.length == 12 ? false : true}
-            // onClick={() =>
-            //   otp.length == 12 ? Router.push("/") : undefined
-            // }
-            onClick={() => onChange("")}
-            label={"Clear"}
-          />
+          <PrimaryButton clear onClick={() => onChange("")} label={"Clear"} />
         </Box>
 
         <Box py={{ lg: "32px", xs: "22px" }}>
@@ -272,10 +247,20 @@ function AddTip({
         <Box pb={{ lg: "22px", xs: "16px" }}>
           <Box display="flex" width="100%">
             {TipCalculatorKeys.map((item, index) => (
-              <CustomButton
+              <PrimaryButton
                 key={index}
-                styles={item.styles}
                 label={item.label}
+                sx={{
+                  backgroundColor: "transparent",
+                  color: "#000000",
+                  borderRadius: "10px",
+                  border: "1px solid #A5ACAE",
+
+                  "&:hover": {
+                    backgroundColor: "transparent !important",
+                  },
+                  ...item.styles,
+                }}
                 onClick={() => {
                   onChange(item.value)
                   setTipFieldBy(true)
@@ -285,15 +270,7 @@ function AddTip({
           </Box>
         </Box>
 
-        <CustomButton
-          styles={{
-            color: "white",
-            backgroundColor: "#E57607",
-            "&:hover": { backgroundColor: "#E57607 !important" },
-          }}
-          label="Add Tip"
-          onClick={handleClose}
-        />
+        <PrimaryButton label="Add Tip" onClick={handleClose} />
 
         {/* <Boxss>
           <ButtonsContainerss>

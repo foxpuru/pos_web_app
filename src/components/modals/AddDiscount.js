@@ -8,9 +8,10 @@ import CustomModal from "./CustomModal"
 import ClocePopup from "@/assets/images/ic_close_popup.png"
 import { Image, Input } from "../styled-components/tableDetails"
 
-import { CustomButton } from "../custom-components"
+
 import { CalculatorButtonsKey } from "@/data/calculatorKey"
 import ReactNumberFormat from "../ReactNumberFormat"
+import { PrimaryButton } from "../CusttomButtons"
 
 const NumberItem = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
@@ -252,30 +253,8 @@ function AddDiscount({
               {layout === "%" ? "Percent" : "Cash"} Amount
             </Typography>
           </Box>
-          <CustomButton
-            styles={{
-              position: "absolute",
-              height: { lg: "28px", xs: "22px" },
-              width: { lg: "60px", xs: "50px" },
-              minWidth: { lg: "50px", xs: "50px" },
-              backgroundColor: "transparent",
-              color: "#000 !important",
-              fontSize: { lg: "12px", xs: "10px" },
-              fontWeight: "400",
-              textTransform: "capitalize",
-              borderRadius: "8px",
-
-              "&:hover": {
-                backgroundColor: "transparent !important",
-              },
-              top: "50%",
-              transform: "translate(-50%, -50%)",
-              right: { lg: "-19px", xs: "-15px" },
-            }}
-            // disabled={otp.length == 12 ? false : true}
-            // onClick={() =>
-            //   otp.length == 12 ? Router.push("/") : undefined
-            // }
+          <PrimaryButton
+            clear
             onClick={() => {
               if (layout === "%") {
                 setPercentage("")
@@ -283,7 +262,7 @@ function AddDiscount({
                 setCash("")
               }
             }}
-            label={"Clear"}
+            label="Clear"
           />
         </Box>
         <Box
@@ -347,10 +326,20 @@ function AddDiscount({
         <Box py={{ lg: "22px", xs: "16px" }}>
           <Box display="flex" width="100%">
             {CalculatorButtonsKey(layout).map((item, index) => (
-              <CustomButton
+              <PrimaryButton
                 key={index}
                 label={item.label}
-                styles={item.styles}
+                sx={{
+                  backgroundColor: "transparent",
+                  color: "#000000",
+                  borderRadius: "10px",
+                  border: "1px solid #A5ACAE",
+
+                  "&:hover": {
+                    backgroundColor: "transparent !important",
+                  },
+                  ...item.styles,
+                }}
                 onClick={() => {
                   if (layout === "%") {
                     setPercentage(item.value)
@@ -365,15 +354,7 @@ function AddDiscount({
           </Box>
         </Box>
 
-        <CustomButton
-          styles={{
-            color: "white",
-            backgroundColor: "#E57607",
-            "&:hover": { backgroundColor: "#E57607 !important" },
-          }}
-          label="Add Discount"
-          onClick={handleClose}
-        />
+        <PrimaryButton label="Add Discount" onClick={handleClose} />
 
         {/* <Boxss>
           <ButtonsContainerss>

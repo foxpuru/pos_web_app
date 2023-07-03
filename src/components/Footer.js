@@ -13,9 +13,10 @@ import { Grid, Typography } from "@mui/material"
 import FooterFoodCategory from "./FooterFoodCategory"
 import { FoodData } from "@/data/food/foodData"
 import Link from "next/link"
-import { CustomButton } from "./custom-components"
+
 import { useRouter } from "next/router"
 import { useSelector } from "react-redux"
+import { PrimaryButton } from "./CusttomButtons"
 
 export default function Footer() {
   const [value, setValue] = React.useState(0)
@@ -36,30 +37,16 @@ export default function Footer() {
       }}
     >
       {["custom", "slides"].includes(router.query.foodType) ? (
-        <Box sx={{ width: "100%", height: { lg: "60px", xs: "38px" } }}>
-          <CustomButton
-            styles={{
-              backgroundColor: "#E57607",
-              color: "#FFFFFF ",
-
-              height: "100%",
-              fontSize: { lg: "20px", xs: "12px" },
-              fontWeight: "400",
-              textTransform: "capitalize",
-              borderRadius: "0px",
-
-              "&:hover": {
-                backgroundColor: "#E57607 !important",
-              },
-            }}
-            label={"Done"}
-            // onClick={() => {
-            //   delete router.query.foodType
-            //   router.push(router)
-            // }}
-            onClick={() => router.back()}
-          />
-        </Box>
+        <PrimaryButton
+          sx={{
+            fontSize: { lg: "20px", xs: "16px" },
+            textTransform: "capitalize",
+            borderRadius: 0,
+            height: { lg: "60px", xs: "38px" },
+          }}
+          label={"Done"}
+          onClick={() => router.back()}
+        />
       ) : (
         <>
           <Box

@@ -33,6 +33,7 @@ import DataTable from "@/components/DataTable"
 import DateTimePicker from "@/components/modals/DatePicker"
 import useModalState from "@/hooks/useModalState"
 import Table from "@/components/Table"
+import { PrimaryButton } from "@/components/CusttomButtons"
 
 const coloums = [
   {
@@ -210,30 +211,10 @@ function SalesReport() {
             flexDirection={"column"}
             alignItems="start"
           >
-            <Button
-              sx={{
-                height: { lg: "39px", xs: "36.13px" },
-                color: "#FFFFFF",
-                fontSize: { lg: "14px", xs: "14px" },
-                fontWeight: "400",
-                letterSpacing: "0.6px",
-                textTransform: "Capitalize",
-                backgroundColor: "#E57607",
-                borderRadius: "10px",
-
-                "&:hover": {
-                  backgroundColor: "#E57607",
-                },
-
-                "& svg": {
-                  width: { lg: "32px", xs: "24px" },
-                  height: { lg: "32px", xs: "24px" },
-                },
-              }}
-              fullWidth
-            >
-              Search
-            </Button>
+            <PrimaryButton
+              label="Search"
+              sx={{ textTransform: "Capitalize" }}
+            />
           </Grid>
         </Grid>
       </Box>
@@ -361,6 +342,8 @@ function SalesReport() {
 }
 
 SalesReport.getLayout = (page) => (
-  <PaymentLayout isPaymentMethod={true} reports={true}>{page}</PaymentLayout>
+  <PaymentLayout isPaymentMethod={true} reports={true}>
+    {page}
+  </PaymentLayout>
 )
 export default SalesReport

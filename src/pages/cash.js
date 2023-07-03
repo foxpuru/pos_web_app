@@ -3,7 +3,7 @@ import PropTypes from "prop-types"
 import { NumericFormat } from "react-number-format"
 import TextField from "@mui/material/TextField"
 
-import { Box, Button, Stack, Typography } from "@mui/material"
+import { Box, Button, Grid, Stack, Typography } from "@mui/material"
 import Divider from "@mui/material/Divider"
 import { useRouter } from "next/router"
 
@@ -15,6 +15,7 @@ import { FormikInput } from "@/components/inputs"
 import ReactNumberFormat from "@/components/ReactNumberFormat"
 import useModalState from "@/hooks/useModalState"
 import AddTip from "@/components/modals/AddTip"
+import { PrimaryButton } from "@/components/CusttomButtons"
 
 const NumericFormatCustom = React.forwardRef(function NumericFormatCustom(
   props,
@@ -86,13 +87,15 @@ function Cash() {
     <>
       <Box
         height="100%"
-        // display="grid"
+        display="flex"
+        flexDirection="column"
+        justifyContent="space-between"
         bgcolor="#FFFFFF"
         border="1px solid #D7DBDC"
         borderRadius="10px"
         sx={{ opacity: 1 }}
       >
-        <Box height="50%" textAlign="center">
+        <Box textAlign="center">
           <Box
             py={{ lg: "12px", xs: "12px" }}
             display="flex"
@@ -223,47 +226,25 @@ function Cash() {
           </Box>
         </Box>
 
-        <Box height="50%" display="flex" alignItems="end" justifyContent="end">
-          <Stack
-            direction="row"
-            justifyContent="center"
-            spacing={{ lg: 3, xs: 1 }}
-            py={{ lg: "42px", xs: "22px" }}
-            px={{ lg: "22px", xs: "12px" }}
-            // display="flex"
-            // flexDirection="row"
-            width="100%"
-          >
-            <Button
-              sx={{
-                width: { lg: "310px", xs: "156.33px" },
-                height: { lg: "60px", xs: "40px" },
-                color: "#FFFFFF",
-                fontSize: { lg: "18px", xs: "14px" },
-                fontWeight: "400",
-                letterSpacing: "0.6px",
-                textTransform: "uppercase",
-                backgroundColor: "#E57607",
-                borderRadius: "10px",
-
-                "&:hover": {
-                  backgroundColor: "#E57607",
-                },
-
-                "& svg": {
-                  width: { lg: "32px", xs: "24px" },
-                  height: { lg: "32px", xs: "24px" },
-                },
-              }}
-              type="submit"
-              onClick={() => router.push("/payment-completed")}
-            >
-              CHARGE
-            </Button>
-          </Stack>
-        </Box>
+        <Grid
+          lg={4}
+          xs={6}
+          display="flex"
+          justifyContent="center"
+          alignItems="center"
+          py={{ lg: "42px", xs: "22px" }}
+          px={{ lg: "22px", xs: "12px" }}
+        >
+          <PrimaryButton
+            large
+            sx={{
+              width: { lg: "310px", xs: "156.33px" },
+            }}
+            onClick={() => router.push("/payment-completed")}
+            label="CHARGE"
+          />
+        </Grid>
       </Box>
-     
     </>
   )
 }

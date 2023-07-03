@@ -27,6 +27,7 @@ import {
 import PaymentLayout from "@/layouts/PaymentLayout"
 import ReportCard from "@/components/reportsCard"
 import { CloseDayReportData } from "@/data/closeDayReportData"
+import { PrimaryButton } from "@/components/CusttomButtons"
 
 function CloseDayReport() {
   const [items, setItems] = useState([
@@ -273,30 +274,7 @@ function CloseDayReport() {
         pb={{ lg: undefined, xs: "22px" }}
       >
         <Grid item xs={4}>
-          <Button
-            sx={{
-              height: { lg: "60px", xs: "40px" },
-              color: "#FFFFFF",
-              fontSize: { lg: "19px", xs: "14px" },
-              fontWeight: "400",
-              letterSpacing: "0.6px",
-              textTransform: "uppercase",
-              backgroundColor: "#E57607",
-              borderRadius: "10px",
-
-              "&:hover": {
-                backgroundColor: "#E57607",
-              },
-
-              "& svg": {
-                width: { lg: "32px", xs: "24px" },
-                height: { lg: "32px", xs: "24px" },
-              },
-            }}
-            fullWidth
-          >
-            RUN CLOSE OF DAY
-          </Button>
+          <PrimaryButton large label="RUN CLOSE OF DAY" />
         </Grid>
       </Grid>
 

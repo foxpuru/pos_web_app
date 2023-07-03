@@ -13,6 +13,7 @@ import { FormikInput } from "./inputs"
 import { Form, Formik } from "formik"
 import { Avatar, Grid } from "@mui/material"
 import { AddFoodToCartIcon, RemoveFoodToCartIcon } from "./icons"
+import { PrimaryButton } from "./CusttomButtons"
 
 const style = {
   position: "absolute",
@@ -138,32 +139,14 @@ export default function GiftCard({
               >
                 Max characters: 64
               </Typography>
-              <Box
-                // display="flex"
-                // width="100%"'
-                align="end"
-                pt={{ lg: "16px", xs: "12px" }}
-              >
-                <Button
-                  // flexDirection="column"
-
-                  // gap={{ sm: "0px", xs: "12px" }}
-                  // justifyContent="center"
-
+              <Box align="end" pt={{ lg: "16px", xs: "12px" }}>
+                <PrimaryButton
                   sx={{
                     width: { lg: "30%", xs: "30%" },
-                    margin: "auto",
-                    py: { lg: "6px", xs: "4px" },
                     backgroundColor: "#5C6568",
-                    color: "#FFFFFF",
-                    fontSize: { sm: "14px", xs: "12px" },
-                    fontWeight: "400",
-                    letterSpacing: "0.45px",
-
-                    borderRadius: "8px",
 
                     "&:hover": {
-                      backgroundColor: "#5C6568",
+                      backgroundColor: "#5C6568 !important",
                     },
                   }}
                   // disabled={otp.length == 12 ? false : true}
@@ -171,9 +154,8 @@ export default function GiftCard({
                   //   otp.length == 12 ? Router.push("/") : undefined
                   // }
                   onClick={handleClose}
-                >
-                  FIND GIFT CARD
-                </Button>
+                  label="FIND GIFT CARD"
+                />
               </Box>
             </Form>
           </Formik>

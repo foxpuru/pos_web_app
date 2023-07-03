@@ -22,16 +22,13 @@ import GiftCard from "@/components/GiftCard"
 import useModalState from "@/hooks/useModalState"
 import OtherPaymentOptions from "@/components/OtherPaymentOptions"
 import AddTip from "@/components/modals/AddTip"
-import { CustomButton } from "@/components/custom-components"
+
+import { PrimaryButton } from "@/components/CusttomButtons"
 
 const btnStyle = {
-  height: { lg: "60px", xs: "50px" },
+  // height: { lg: "60px", xs: "50px" },
   color: "#FFFFFF",
-  fontSize: { lg: "18px", xs: "16px" },
-  fontWeight: "400",
-  letterSpacing: "0.6px",
-  border: 0,
-  textTransform: "uppercase",
+
   backgroundColor: "#E57607",
   borderRadius: "10px",
 
@@ -163,36 +160,33 @@ function PaymentMethods() {
               px={{ lg: "22px", xs: "12px" }}
             >
               <Grid item lg={4} xs={6}>
-                <CustomButton
-                  styles={{
-                    ...btnStyle,
+                <PrimaryButton
+                  large
+                  sx={{
                     background: "linear-gradient(to right,#26B692,#38CC79)",
                   }}
-                  fullWidth
                   startIcon={<CardCashIcon />}
                   onClick={() => router.push("/cash")}
                   label="cash"
                 />
               </Grid>
               <Grid item lg={4} xs={6}>
-                <CustomButton
-                  styles={{
-                    ...btnStyle,
+                <PrimaryButton
+                  large
+                  sx={{
                     background: "linear-gradient(to right,#808080,#808080)",
                   }}
-                  fullWidth
                   startIcon={<CardCardsIcon />}
                   onClick={handleOpenOther}
                   label="Other"
                 />
               </Grid>
               <Grid item lg={4} xs={12}>
-                <CustomButton
-                  styles={{
-                    ...btnStyle,
+                <PrimaryButton
+                  large
+                  sx={{
                     background: "linear-gradient(to right,#A61831,#DE4E67)",
                   }}
-                  fullWidth
                   startIcon={<CardGiftIcon />}
                   onClick={handleOpen}
                   label="GIFT CARD"
@@ -211,24 +205,19 @@ function PaymentMethods() {
             alignItems="end"
             py={{ lg: "22px", xs: "22px" }}
             px={{ lg: "22px", xs: "12px" }}
+            
           >
             <Grid item display={{ lg: "flex", xs: "none" }} lg={4}></Grid>
             <Grid item lg={4} xs={6}>
-              <CustomButton
-                styles={{
-                  ...btnStyle,
-                }}
-                fullWidth
+              <PrimaryButton
+                large
                 onClick={() => router.push("/split-payment")}
                 label="SPLIT CHECK"
               />
             </Grid>
             <Grid item lg={4} xs={6}>
-              <CustomButton
-                styles={{
-                  ...btnStyle,
-                }}
-                fullWidth
+              <PrimaryButton
+                large
                 onClick={handleOpenAddTip}
                 label="ADDITIONAL TIP"
               />

@@ -26,6 +26,7 @@ import {
 } from "@/context/guestDetailsContext"
 import ChecksDataCard from "@/components/ChecksDataCard"
 import CustomHeaderLayout from "@/layouts/CustomHeaderLayout"
+import { PrimaryButton } from "@/components/CusttomButtons"
 
 function Checks() {
   // const [orderItems, setOrderItems] = useState([])
@@ -429,57 +430,14 @@ function Checks() {
                     >
                       <Grid item xs={4}></Grid>
                       <Grid item xs={4}>
-                        <Button
-                          sx={{
-                            height: { lg: "60px", xs: "40px" },
-                            color: "#FFFFFF",
-                            fontSize: { lg: "18px", xs: "14px" },
-                            fontWeight: "400",
-                            letterSpacing: "0.6px",
-                            textTransform: "uppercase",
-                            backgroundColor: "#E57607",
-                            borderRadius: "10px",
-
-                            "&:hover": {
-                              backgroundColor: "#E57607",
-                            },
-
-                            "& svg": {
-                              width: { lg: "32px", xs: "24px" },
-                              height: { lg: "32px", xs: "24px" },
-                            },
-                          }}
-                          fullWidth
+                        <PrimaryButton
+                          large
                           startIcon={<PrintIconWhite />}
-                        >
-                          RECEIPT
-                        </Button>
+                          label="receipt"
+                        />
                       </Grid>
                       <Grid item xs={4}>
-                        <Button
-                          sx={{
-                            height: { lg: "60px", xs: "40px" },
-                            color: "#FFFFFF",
-                            fontSize: { lg: "19px", xs: "14px" },
-                            fontWeight: "400",
-                            letterSpacing: "0.6px",
-                            textTransform: "uppercase",
-                            backgroundColor: "#E57607",
-                            borderRadius: "10px",
-
-                            "&:hover": {
-                              backgroundColor: "#E57607",
-                            },
-
-                            "& svg": {
-                              width: { lg: "32px", xs: "24px" },
-                              height: { lg: "32px", xs: "24px" },
-                            },
-                          }}
-                          fullWidth
-                        >
-                          REFUND CHECK
-                        </Button>
+                        <PrimaryButton large label="refund check" />
                       </Grid>
                     </Grid>
                   </Grid>

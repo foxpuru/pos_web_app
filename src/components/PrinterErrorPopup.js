@@ -13,7 +13,7 @@ import { FormikInput } from "./inputs"
 import { Form, Formik } from "formik"
 import { Avatar, Grid } from "@mui/material"
 import { AddFoodToCartIcon, RemoveFoodToCartIcon } from "./icons"
-import { CustomButton } from "./custom-components"
+
 import { CancelButton, PrimaryButton } from "./CusttomButtons"
 
 const style = {

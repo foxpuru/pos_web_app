@@ -15,7 +15,7 @@ import AddDiscount from "@/components/modals/AddDiscount"
 import useModalState from "@/hooks/useModalState"
 import ReactNumberFormat from "@/components/ReactNumberFormat"
 import PrinterErrorPopup from "@/components/PrinterErrorPopup"
-import { CustomButton } from "@/components/custom-components"
+
 import FoodSlicesCard from "@/components/Food/FoodSlidesCards"
 import { PrimaryButton } from "@/components/CusttomButtons"
 

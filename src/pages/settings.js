@@ -1,4 +1,6 @@
 import ChangeLayout from "@/components/ChangeLayout"
+
+import { PrimaryButton } from "@/components/CusttomButtons"
 import { Image } from "@/components/styled-components/tableDetails"
 
 import useModalState from "@/hooks/useModalState"
@@ -311,22 +313,13 @@ function Settings() {
                                 </Typography>
                               </Box>
                             </Box>
-                            <Button
+                            <PrimaryButton
                               sx={{
                                 height: { lg: "44px", xs: "34px" },
-                                p: 0,
-
                                 width: { lg: "220px", xs: "150px" },
-                                color: "#FFFFFF",
-                                fontSize: { lg: "16px", xs: "12px" },
-                                fontWeight: "400",
-                                textTransform: "capitalize",
-                                backgroundColor: "#E57607",
-                                borderRadius: "10px",
                               }}
-                            >
-                              {option.gridRowSection.button}
-                            </Button>
+                              label={option.gridRowSection.button}
+                            />
                           </Box>
                         </Box>
                       )}
@@ -358,24 +351,13 @@ function Settings() {
                         />
                       )}
                       {option.button && (
-                        <Button
+                        <PrimaryButton
                           sx={{
                             height: { lg: "44px", xs: "34px" },
-                            p: 0,
-
                             width: { lg: "220px", xs: "150px" },
-
-                            color: "#FFFFFF",
-                            fontSize: { lg: "16px", xs: "12px" },
-                            fontWeight: "400",
-                            textTransform: "capitalize",
-                            backgroundColor: "#E57607",
-                            borderRadius: "10px",
                           }}
-                          onClick={option.onClick}
-                        >
-                          {option.button}
-                        </Button>
+                          label={option.button}
+                        />
                       )}
                     </Box>
                   </>
