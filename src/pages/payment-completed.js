@@ -15,12 +15,13 @@ import {
 
 import PaymentMethodArrowImg from "../assets/images/ic_payment_method_arrow.png"
 import CheckGreenImg from "../assets/images/ic_check_green.png"
-import { Image } from "@/components/styled-components/tableDetails"
+import { Image } from "@/components/styled-components"
 import MainLayout from "@/layouts/MainLayout"
 import PaymentLayout from "@/layouts/PaymentLayout"
-import PrinterErrorPopup from "@/components/PrinterErrorPopup"
+
 import useModalState from "@/hooks/useModalState"
 import { PrimaryButton } from "@/components/CusttomButtons"
+import PrinterError from "@/components/modals/PrinterError"
 
 function PaymentCompleted() {
   const router = useRouter()
@@ -159,7 +160,7 @@ function PaymentCompleted() {
           </Grid>
         </Grid>
       </Box>
-      <PrinterErrorPopup
+      <PrinterError
         isOpen={isOpen}
         handleToggle={handleToggle}
         handleOpen={handleOpen}

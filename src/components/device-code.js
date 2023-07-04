@@ -1,11 +1,11 @@
-import { Image } from "@/components/styled-components/tableDetails"
+import { Image } from "@/components/styled-components"
 import { Box, Button, Grid, Typography } from "@mui/material"
 import React, { useState } from "react"
 
 import navLogoImg from "../assets/images/musepos_logo_colored_nav.png"
 import signWithDeviceLogoImg from "../assets/images/ic_sign_in_with_device_code.png"
 import { Form, Formik } from "formik"
-import { FormikInput } from "@/components/inputs"
+
 import OTPInput from "react-otp-input"
 import BlankLayout from "@/layouts/BlankLayout"
 import { useRouter } from "next/router"

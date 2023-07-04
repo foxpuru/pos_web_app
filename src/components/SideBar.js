@@ -15,7 +15,7 @@ import { SideBarItems } from "@/data/sideBarData"
 import { useRouter } from "next/router"
 
 import DasImg from "../assets/images/das.png"
-import { Image } from "./styled-components/tableDetails"
+import { Image } from "./styled-components"
 import { Typography } from "@mui/material"
 
 import sideBarLogoBottom from "../assets/images/musepos_logo_colored_sidemenu.png"
@@ -38,7 +38,7 @@ export default function SideBarDrawer({
     handleToggle: handleToggleLogoutConfirmation,
     handleOpen: handleOpenLogoutConfirmation,
     handleClose: handleCloseLogoutConfirmation,
-  } = useModalState(true)
+  } = useModalState(false)
 
   const list = () => (
     <Box

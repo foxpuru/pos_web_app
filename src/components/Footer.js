@@ -8,7 +8,7 @@ import LocationOnIcon from "@mui/icons-material/LocationOn"
 
 import SearchBigImg from "../assets/images/btn_search_big.png"
 import TableBigImg from "../assets/images/btn_table_big.png"
-import { Image } from "./styled-components/tableDetails"
+import { Image } from "./styled-components"
 import { Grid, Typography } from "@mui/material"
 import FooterFoodCategory from "./FooterFoodCategory"
 import { FoodData } from "@/data/food/foodData"

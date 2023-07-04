@@ -14,10 +14,10 @@ import CustomCards from "@/components/Food/customFood"
 import AddDiscount from "@/components/modals/AddDiscount"
 import useModalState from "@/hooks/useModalState"
 import ReactNumberFormat from "@/components/ReactNumberFormat"
-import PrinterErrorPopup from "@/components/PrinterErrorPopup"
 
 import FoodSlicesCard from "@/components/Food/FoodSlidesCards"
 import { PrimaryButton } from "@/components/CusttomButtons"
+import PrinterError from "@/components/modals/PrinterError"
 
 const encrypt = (salt) => {
   const textToChars = (text) => text.split("").map((c) => c.charCodeAt(0))
@@ -370,7 +370,7 @@ function ChineseFood() {
         handleOpen={handleOpenAddDiscount}
         handleClose={handleCloseAddDiscount}
       />
-      <PrinterErrorPopup
+      <PrinterError
         isOpen={isOpenPrinterError}
         handleToggle={handleTogglePrinterError}
         handleOpen={handleOpenPrinterError}

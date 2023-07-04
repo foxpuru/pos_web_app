@@ -1,4 +1,4 @@
-import { Image } from "@/components/styled-components/tableDetails"
+import { Image } from "@/components/styled-components"
 import BlankLayout from "@/layouts/BlankLayout"
 import { Box, Button, Typography } from "@mui/material"
 import React from "react"

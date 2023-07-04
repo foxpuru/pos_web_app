@@ -14,11 +14,11 @@ import {
 } from "@/components/icons"
 
 import PaymentMethodArrowImg from "@/assets/images/ic_payment_method_arrow.png"
-import { Image } from "@/components/styled-components/tableDetails"
+import { Image } from "@/components/styled-components"
 import MainLayout from "@/layouts/MainLayout"
 import TransactionDateCard from "@/components/TransactionDateCard"
 import InputBase from "@mui/material/InputBase"
-import { ListDivider } from "@/components/custom-components/ListDivider"
+import { ListDivider } from "@/components/ListDivider"
 import TransactionSideBar from "@/components/transaction-side-bar"
 import {
   GuestDetailsConsumer,

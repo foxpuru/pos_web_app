@@ -20,7 +20,7 @@ import {
   OfferOnFoodIcon,
   RemoveFoodToCartIcon,
 } from "./icons"
-import CompitemPopup from "./CompItemPopup"
+import CompitemPopup from "./modals/CompItemPopup"
 import useModalState from "@/hooks/useModalState"
 import { useDispatch } from "react-redux"
 import { handleAddToCart, handleRemoveFromCart } from "@/redux/slices/cartSlice"

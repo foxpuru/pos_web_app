@@ -5,10 +5,10 @@ import Typography from "@mui/material/Typography"
 import { Form, Formik } from "formik"
 
 import { ItemCategoryOptions, TaxOptions } from "@/data/AddCustomProdcutSelect"
-import { FormikInput } from "../inputs"
 
 import CustomSelect from "../CustomSelect"
 import CustomModal from "./CustomModal"
+import { FormikInput } from "../FormikInput"
 
 export default function AddCustomProduct({
   isOpen,

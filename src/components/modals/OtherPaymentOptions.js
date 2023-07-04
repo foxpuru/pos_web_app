@@ -1,30 +1,21 @@
 import * as React from "react"
 import Box from "@mui/material/Box"
-import Button from "@mui/material/Button"
+
 import Typography from "@mui/material/Typography"
 import Modal from "@mui/material/Modal"
 
-import ClocePopup from "../assets/images/ic_close_popup.png"
-import AddCustomerImg from "../assets/images/ic_add_customer.png"
-import PrintReceiptGreenBigImg from "../assets/images/ic_print_receipt_green_big.png"
-import BankImg from "../assets/images/ic_bank_transfer.png"
-import MobileImg from "../assets/images/ic_mobile_wallet.png"
-import DebitImg from "../assets/images/ic_direct_debit.png"
-import UpiImg from "../assets/images/ic_upi_payments.png"
+import ClocePopup from "../../assets/images/ic_close_popup.png"
 
-import { Image } from "./styled-components/tableDetails"
-import { FormikInput } from "./inputs"
-import { Form, Formik } from "formik"
-import { Avatar, Checkbox, Divider, Grid } from "@mui/material"
-import {
-  AddFoodToCartIcon,
-  CheckedBoxIcon,
-  RemoveFoodToCartIcon,
-  UncheckedBoxIcon,
-} from "./icons"
-import CustomizeRadioGroup from "./RadioGroup"
+import BankImg from "../../assets/images/ic_bank_transfer.png"
+import MobileImg from "../../assets/images/ic_mobile_wallet.png"
+import DebitImg from "../../assets/images/ic_direct_debit.png"
+import UpiImg from "../../assets/images/ic_upi_payments.png"
 
-import { PrimaryButton } from "./CusttomButtons"
+import { Image } from "../styled-components"
+
+import CustomizeRadioGroup from "../RadioGroup"
+
+import { PrimaryButton } from "../CusttomButtons"
 
 const style = {
   position: "absolute",

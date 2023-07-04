@@ -3,17 +3,17 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: transparent;
+  background: #eef5f6;
   border-radius: 8px;
 }
-
+// 407-1022129-2733123
 ::-webkit-scrollbar-thumb {
-  background: #d7dbdc;
+  background: #e57607;
   border-radius: 8px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #b7bbbd;
+  background: #e57607;
 }
 
 button:hover {

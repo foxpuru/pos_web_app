@@ -1,7 +1,7 @@
-import ChangeLayout from "@/components/ChangeLayout"
+import ChangeLayout from "@/components/modals/ChangeLayout"
 
 import { PrimaryButton } from "@/components/CusttomButtons"
-import { Image } from "@/components/styled-components/tableDetails"
+import { Image } from "@/components/styled-components"
 
 import useModalState from "@/hooks/useModalState"
 import MainLayout from "@/layouts/MainLayout"
@@ -352,6 +352,7 @@ function Settings() {
                       )}
                       {option.button && (
                         <PrimaryButton
+                          onClick={option.onClick}
                           sx={{
                             height: { lg: "44px", xs: "34px" },
                             width: { lg: "220px", xs: "150px" },

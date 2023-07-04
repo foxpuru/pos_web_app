@@ -5,7 +5,7 @@ import Typography from "@mui/material/Typography"
 import Modal from "@mui/material/Modal"
 
 import ClocePopup from "@/assets/images/ic_close_popup.png"
-import { Image } from "../styled-components/tableDetails"
+import { Image } from "../styled-components"
 
 function CustomModal({
   isOpen,

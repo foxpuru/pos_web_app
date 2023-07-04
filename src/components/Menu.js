@@ -15,12 +15,13 @@ import {
   OpenedChecksBlackIcon,
   PrintCheckBlackIcon,
 } from "./icons"
-import CheckNotePopup from "./CheckNotePopup"
-import ExtraCharges from "./ExtraCharges"
+import CheckNotePopup from "./modals/EnterCheckNote"
+
 import useModalState from "@/hooks/useModalState"
 import AddCustomProduct from "./modals/AddCustomProduct"
 import AddDiscount from "./modals/AddDiscount"
-import GiftCard from "./GiftCard"
+import AddExtraCharges from "./modals/AddExtraCharges"
+import GiftCard from "./modals/GiftCard"
 import { handleSaveChecks } from "@/redux/slices/cartSlice"
 import { useDispatch } from "react-redux"
 // import { OpenedChecksBlackIcon } from "./icons"
@@ -160,7 +161,7 @@ export default function MenuModal({ open, anchorEl, handleClose }) {
         handleOpen={handleOpenCheckNote}
         handleClose={handleCloseCheckNote}
       />
-      <ExtraCharges
+      <AddExtraCharges
         isOpen={isOpenExtraCharges}
         handleToggle={handleToggleExtraCharges}
         handleOpen={handleOpenExtraCharges}

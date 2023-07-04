@@ -12,7 +12,7 @@ import BankImg from "../assets/images/ic_bank_transfer.png"
 import MobileImg from "../assets/images/ic_mobile_wallet.png"
 import DebitImg from "../assets/images/ic_direct_debit.png"
 import UpiImg from "../assets/images/ic_upi_payments.png"
-import { Image } from "./styled-components/tableDetails"
+import { Image } from "./styled-components"
 
 const BpIcon = styled("span")(({ theme }) => ({
   borderRadius: "50%",

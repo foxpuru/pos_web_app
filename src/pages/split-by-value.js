@@ -15,10 +15,10 @@ import SendIcon from "@mui/icons-material/Send"
 import { CardCardsIcon, CardCashIcon, CardGiftIcon } from "@/components/icons"
 
 import PaymentMethodArrowImg from "../assets/images/ic_payment_method_arrow.png"
-import { Image } from "@/components/styled-components/tableDetails"
+import { Image } from "@/components/styled-components"
 
 import PaymentLayout from "@/layouts/PaymentLayout"
-import GiftCard from "@/components/GiftCard"
+import GiftCard from "@/components/modals/GiftCard"
 import useModalState from "@/hooks/useModalState"
 import OtherPaymentOptions from "@/components/OtherPaymentOptions"
 import { PrimaryButton } from "@/components/CusttomButtons"

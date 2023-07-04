@@ -3,7 +3,7 @@ import Box from "@mui/material/Box"
 
 import CustomModal from "./CustomModal"
 import LogoutImg from "@/assets/images/ic_confirm_logout.png"
-import { Image } from "../styled-components/tableDetails"
+import { Image } from "../styled-components"
 import { Typography } from "@mui/material"
 
 import { CancelButton, PrimaryButton } from "../CusttomButtons"

@@ -6,7 +6,7 @@ import Modal from "@mui/material/Modal"
 import "react-datepicker/dist/react-datepicker.css"
 
 import CloseModalImg from "../../assets/images/ic_close_popup.png"
-import { Image } from "../styled-components/tableDetails"
+import { Image } from "../styled-components"
 import DatePicker from "react-datepicker"
 import TimePicker from "../TimePicker"
 
@@ -27,7 +27,6 @@ export default function DateTimePicker({
   handleToggle,
   handleOpen,
   handleClose,
-  
 }) {
   const [startDate, setStartDate] = React.useState(new Date())
   return (

@@ -15,12 +15,12 @@ import SendIcon from "@mui/icons-material/Send"
 import { CardCardsIcon, CardCashIcon, CardGiftIcon } from "@/components/icons"
 
 import PaymentMethodArrowImg from "../assets/images/ic_payment_method_arrow.png"
-import { Image } from "@/components/styled-components/tableDetails"
+import { Image } from "@/components/styled-components"
 
 import PaymentLayout from "@/layouts/PaymentLayout"
-import GiftCard from "@/components/GiftCard"
+import GiftCard from "@/components/modals/GiftCard"
 import useModalState from "@/hooks/useModalState"
-import OtherPaymentOptions from "@/components/OtherPaymentOptions"
+import OtherPaymentOptions from "@/components/modals/OtherPaymentOptions"
 import AddTip from "@/components/modals/AddTip"
 
 import { PrimaryButton } from "@/components/CusttomButtons"
@@ -205,7 +205,6 @@ function PaymentMethods() {
             alignItems="end"
             py={{ lg: "22px", xs: "22px" }}
             px={{ lg: "22px", xs: "12px" }}
-            
           >
             <Grid item display={{ lg: "flex", xs: "none" }} lg={4}></Grid>
             <Grid item lg={4} xs={6}>

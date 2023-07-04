@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react"
 import CashPaymentMethodImg from "../assets/images/ic_cash_payment_method.png"
 import ActiveCloudImg from "../assets/images/ic_active_cloud.png"
 
-import { Image } from "./styled-components/tableDetails"
+import { Image } from "./styled-components"
 
 function TransactionDateCard({ item, setOrderItems, orderItems }) {
   // useEffect(() => {

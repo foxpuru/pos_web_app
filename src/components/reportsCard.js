@@ -1,6 +1,6 @@
 import { Avatar, Box, SvgIcon, Typography } from "@mui/material"
 import React from "react"
-import { Image } from "./styled-components/tableDetails"
+import { Image } from "./styled-components"
 
 import ClosedCheckImg from "../assets/images/ic_closed_check.png"
 

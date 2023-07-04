@@ -1,7 +1,7 @@
 import BillingItemList from "@/components/BillingItemList"
 import Header from "@/components/Header"
 import SideBarDrawer from "@/components/SideBar"
-import { Image } from "@/components/styled-components/tableDetails"
+import { Image } from "@/components/styled-components"
 import useModalState from "@/hooks/useModalState"
 import { AppBar, Box, Button, Toolbar, Typography } from "@mui/material"
 import React from "react"

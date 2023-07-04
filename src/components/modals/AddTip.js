@@ -5,8 +5,7 @@ import Paper from "@mui/material/Paper"
 
 import CustomModal from "./CustomModal"
 import ClocePopup from "@/assets/images/ic_close_popup.png"
-import { Image, Input } from "../styled-components/tableDetails"
-
+import { Image, Input } from "../styled-components"
 
 import { CalculatorButtonsKey } from "@/data/calculatorKey"
 import ReactNumberFormat from "../ReactNumberFormat"

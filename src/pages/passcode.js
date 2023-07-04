@@ -1,4 +1,4 @@
-import { Image } from "@/components/styled-components/tableDetails"
+import { Image } from "@/components/styled-components"
 import { Box, Button, Grid, Typography } from "@mui/material"
 import React, { useState } from "react"
 import OtpInput from "react-otp-input"

@@ -45,18 +45,6 @@ export default function ReactNumberFormat({
     name: PropTypes.string.isRequired,
     onChange: PropTypes.func.isRequired,
   }
-  // const [values, setValues] = React.useState({
-  //   textmask: "(100) 000-0000",
-  //   numberformat: "1320",
-  // })
-
-  // const handleChangeCash = (event) => {
-  //   setValues({
-  //     ...values,
-  //     [event.target.name]: event.target.value,
-  //   })
-
-  // }
 
   return (
     <Box

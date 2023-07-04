@@ -4,16 +4,10 @@ import Button from "@mui/material/Button"
 import Typography from "@mui/material/Typography"
 import Modal from "@mui/material/Modal"
 
-import ClocePopup from "../assets/images/ic_close_popup.png"
-import AddCustomerImg from "../assets/images/ic_add_customer.png"
-import PrintReceiptGreenBigImg from "../assets/images/ic_print_receipt_green_big.png"
-import BankImg from "../assets/images/ic_bank_transfer.png"
-import MobileImg from "../assets/images/ic_mobile_wallet.png"
-import DebitImg from "../assets/images/ic_direct_debit.png"
-import UpiImg from "../assets/images/ic_upi_payments.png"
+import ClocePopup from "../../assets/images/ic_close_popup.png"
 
-import { Image } from "./styled-components/tableDetails"
-import { FormikInput } from "./inputs"
+import { Image } from "../styled-components"
+import { FormikInput } from "../FormikInput"
 import { Form, Formik } from "formik"
 import {
   Avatar,
@@ -28,8 +22,8 @@ import {
   CheckedBoxIcon,
   RemoveFoodToCartIcon,
   UncheckedBoxIcon,
-} from "./icons"
-import CustomSelect from "./CustomSelect"
+} from "../icons"
+import CustomSelect from "../CustomSelect"
 import { TaxOptions } from "@/data/AddCustomProdcutSelect"
 
 const style = {
@@ -45,7 +39,7 @@ const style = {
   boxShadow: 24,
 }
 
-export default function ExtraCharges({
+export default function AddExtraCharges({
   isOpen,
   handleToggle,
   handleOpen,

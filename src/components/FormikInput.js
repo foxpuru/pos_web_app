@@ -1,5 +1,5 @@
 import { useField } from "formik"
-import { Input } from "../styled-components/tableDetails"
+import { Input } from "./styled-components"
 
 export const FormikInput = ({ styles, ...props }) => {
   const [field, meta] = useField(props)

@@ -4,17 +4,11 @@ import Button from "@mui/material/Button"
 import Typography from "@mui/material/Typography"
 import Modal from "@mui/material/Modal"
 
-import ClocePopup from "../assets/images/ic_close_popup.png"
-import AddCustomerImg from "../assets/images/ic_add_customer.png"
-import PrintReceiptGreenBigImg from "../assets/images/ic_print_receipt_green_big.png"
+import PrintReceiptGreenBigImg from "../../assets/images/ic_print_receipt_green_big.png"
 
-import { Image } from "./styled-components/tableDetails"
-import { FormikInput } from "./inputs"
-import { Form, Formik } from "formik"
-import { Avatar, Grid } from "@mui/material"
-import { AddFoodToCartIcon, RemoveFoodToCartIcon } from "./icons"
+import { Image } from "../styled-components"
 
-import { CancelButton, PrimaryButton } from "./CusttomButtons"
+import { CancelButton, PrimaryButton } from "../CusttomButtons"
 
 const style = {
   position: "absolute",
@@ -43,7 +37,7 @@ const btnStyle = {
   },
 }
 
-export default function PrinterErrorPopup({
+export default function PrinterError({
   isOpen,
   handleToggle,
   handleOpen,

@@ -8,7 +8,7 @@ import Typography from "@mui/material/Typography"
 import useModalState from "@/hooks/useModalState"
 import SideBarDrawer from "./SideBar"
 
-import { Image } from "./styled-components/tableDetails"
+import { Image } from "./styled-components"
 import { useMediaQuery } from "@mui/material"
 
 import MuseposLogo from "../assets/images/musepos_logo_colored_nav.png"
