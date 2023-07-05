@@ -1,11 +1,14 @@
 import BillingItemList from "@/components/BillingItemList"
 import Header from "@/components/Header"
+import Loader from "@/components/Loader"
 import SideBarDrawer from "@/components/SideBar"
 import { Image } from "@/components/styled-components"
 import UrlTitle from "@/components/Title"
 import useModalState from "@/hooks/useModalState"
 import { AppBar, Box, Button, Toolbar, Typography } from "@mui/material"
-import React from "react"
+import { useRouter } from "next/router"
+import React, { useEffect } from "react"
+import { useSelector } from "react-redux"
 
 import BtnLeftMenuImg from "../assets/images/btn_left_menu.png"
 
@@ -17,8 +20,22 @@ export default function SettingsLayout({ children }) {
     handleClose: handleCloseSidebar,
   } = useModalState(false)
 
+  const router = useRouter()
+  const deviceCodes = useSelector((state) => state.auth.deviceCode)
+  const passcode = useSelector((state) => state.auth.isAuthenticated)
+
+  useEffect(() => {
+    if (deviceCodes.length > 11) {
+      // router.push("/plan-renewal")
+    } else {
+      router.push("/")
+    }
+  }, [deviceCodes])
+
   return (
     <>
+      {!deviceCodes && !passcode && <Loader />}
+
       <UrlTitle />
       <AppBar
         position="static"

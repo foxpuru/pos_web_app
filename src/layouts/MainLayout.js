@@ -1,11 +1,21 @@
 import Header from "@/components/Header"
 import UrlTitle from "@/components/Title"
-import React from "react"
+import { useRouter } from "next/router"
+import React, { useEffect } from "react"
 import { useSelector } from "react-redux"
 
 function MainLayout({ children, isPaymentMethod }) {
-  // const deviceCode = useSelector((state) => state.auth.deviceCode)
-  // console.log("device code", deviceCode)
+  // const router = useRouter()
+  // const deviceCodes = useSelector((state) => state.auth.deviceCode)
+
+  // useEffect(() => {
+  //   // alert("dfdfd")
+  //   if (deviceCodes.length > 11) {
+  //     router.push("/plan-renewal")
+  //   } else {
+  //     router.push("/")
+  //   }
+  // }, [deviceCodes])
   return (
     <>
       <UrlTitle />

@@ -22,6 +22,7 @@ import React from "react"
 import { useDispatch, useSelector } from "react-redux"
 import LayoutGridImg from "../assets/images/ic_layout_grid.png"
 import PrintReceiptGreenImg from "../assets/images/ic_print_receipt_green_big.png"
+import Loader from "@/components/Loader"
 
 const IOSSwitch = styled((props) => (
   <Switch focusVisibleClassName=".Mui-focusVisible" disableRipple {...props} />
@@ -368,6 +369,8 @@ function Settings() {
           ))}
         </Box>
       </Box>
+
+      {/* <Loader /> */}
       <ChangeLayout
         isOpen={isOpenChangeLayout}
         handleOpen={handleOpenChangeLayout}

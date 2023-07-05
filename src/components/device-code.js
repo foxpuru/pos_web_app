@@ -1,6 +1,6 @@
 import { Image } from "@/components/styled-components"
 import { Box, Button, Grid, Typography } from "@mui/material"
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 
 import navLogoImg from "../assets/images/musepos_logo_colored_nav.png"
 import signWithDeviceLogoImg from "../assets/images/ic_sign_in_with_device_code.png"
@@ -34,6 +34,15 @@ const GridItem = () => {
 function DeviceCode() {
   const [otp, setOtp] = useState("")
   // const deviceCode = useSelector((state) => state.auth.deviceCode)
+  const deviceCodes = useSelector((state) => state.auth.deviceCode)
+  useEffect(() => {
+    // alert("dfdfd")
+    if (deviceCodes.length > 11) {
+      router.push("/plan-renewal")
+    } else {
+      router.push("/")
+    }
+  }, [deviceCodes])
 
   // console.log("device code", deviceCode)
   const router = useRouter()

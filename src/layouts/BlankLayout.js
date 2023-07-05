@@ -1,3 +1,4 @@
+import Loader from "@/components/Loader"
 import UrlTitle from "@/components/Title"
 import { useRouter } from "next/router"
 import React, { useEffect } from "react"
@@ -8,6 +9,7 @@ const BlankLayout = ({ children }) => {
   const deviceCodes = useSelector((state) => state.auth.deviceCode)
 
   useEffect(() => {
+    // alert("dfdfd")
     if (deviceCodes.length > 11) {
       router.push("/plan-renewal")
     } else {
@@ -18,6 +20,7 @@ const BlankLayout = ({ children }) => {
   console.log("device code", deviceCodes)
   return (
     <>
+      {/* <Loader /> */}
       <UrlTitle />
       {children}
     </>

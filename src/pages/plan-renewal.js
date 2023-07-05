@@ -1,7 +1,7 @@
 import { Image } from "@/components/styled-components"
 import BlankLayout from "@/layouts/BlankLayout"
 import { Box, Button, Typography } from "@mui/material"
-import React from "react"
+import React, { useEffect } from "react"
 
 import navLogoImg from "../assets/images/musepos_logo_colored_nav.png"
 
@@ -9,9 +9,12 @@ import PlanRenewalImg from "../assets/images/ic_plan_renewal_payment_problem.png
 import { useRouter } from "next/router"
 import { PrimaryButton } from "@/components/CusttomButtons"
 import UrlTitle from "@/components/Title"
+import { useSelector } from "react-redux"
 
 function PlanRenewal() {
   const router = useRouter()
+  // const deviceCodes = useSelector((state) => state.auth.deviceCode)
+
   return (
     <Box>
       <UrlTitle />
