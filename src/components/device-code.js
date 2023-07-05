@@ -10,6 +10,10 @@ import OTPInput from "react-otp-input"
 import BlankLayout from "@/layouts/BlankLayout"
 import { useRouter } from "next/router"
 import { PrimaryButton } from "./CusttomButtons"
+import { useDispatch, useSelector } from "react-redux"
+import { login } from "@/redux/slices/authSlice"
+import Head from "next/head"
+import UrlTitle from "./Title"
 
 const GridItem = () => {
   return (
@@ -29,11 +33,22 @@ const GridItem = () => {
 
 function DeviceCode() {
   const [otp, setOtp] = useState("")
+  // const deviceCode = useSelector((state) => state.auth.deviceCode)
 
+  // console.log("device code", deviceCode)
   const router = useRouter()
+  const dispatch = useDispatch()
+
+  const handleLogin = (otp) => {
+    dispatch(login({ deviceCode: otp }))
+    // if (deviceCode === otp) {
+    //   router.push("plan-renewal")
+    // }
+  }
 
   return (
     <Box>
+      <UrlTitle title />
       <Box
         bgcolor="#ffffff"
         py={{ sm: "20px", xs: "12px" }}
@@ -170,7 +185,7 @@ function DeviceCode() {
                   },
                 }}
                 disabled={otp.length == 12 ? false : true}
-                onClick={() => router.push("/plan-renewal")}
+                onClick={() => handleLogin(otp)}
                 label="SUBMIT"
               />
             </Box>

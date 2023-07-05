@@ -20,7 +20,7 @@ import { Image } from "@/components/styled-components"
 import PaymentLayout from "@/layouts/PaymentLayout"
 import GiftCard from "@/components/modals/GiftCard"
 import useModalState from "@/hooks/useModalState"
-import OtherPaymentOptions from "@/components/OtherPaymentOptions"
+import OtherPaymentOptions from "@/components/modals/OtherPaymentOptions"
 import { PrimaryButton } from "@/components/CusttomButtons"
 
 function SplitByItem() {

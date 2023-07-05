@@ -8,11 +8,13 @@ import navLogoImg from "../assets/images/musepos_logo_colored_nav.png"
 import PlanRenewalImg from "../assets/images/ic_plan_renewal_payment_problem.png"
 import { useRouter } from "next/router"
 import { PrimaryButton } from "@/components/CusttomButtons"
+import UrlTitle from "@/components/Title"
 
 function PlanRenewal() {
   const router = useRouter()
   return (
     <Box>
+      <UrlTitle />
       <Box
         bgcolor="#ffffff"
         py={{ sm: "20px", xs: "12px" }}

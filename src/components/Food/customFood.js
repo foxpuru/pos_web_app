@@ -65,5 +65,4 @@ function CustomCards({ foodItems }) {
   )
 }
 
-
 export default CustomCards

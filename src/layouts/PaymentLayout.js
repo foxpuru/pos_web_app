@@ -1,11 +1,13 @@
 import BillingItemList from "@/components/BillingItemList"
 import Header from "@/components/Header"
+import UrlTitle from "@/components/Title"
 import { Box } from "@mui/material"
 import React from "react"
 
 export default function PaymentLayout({ children, isPaymentMethod, reports }) {
   return (
     <>
+      <UrlTitle />
       <Header isPaymentMethod={isPaymentMethod} reports={reports} />
       <Box display="flex" width="100%" alignItems="start">
         <BillingItemList reports={reports} />

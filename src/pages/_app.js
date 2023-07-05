@@ -3,7 +3,8 @@ import { store } from "@/redux/store"
 
 import "@/styles/globals.css"
 import { createTheme, ThemeProvider } from "@mui/material"
-import { Provider } from "react-redux"
+import { useEffect } from "react"
+import { Provider, useSelector } from "react-redux"
 // import "../assets/styles/index.css"
 import "../assets/styles/style.scss"
 
@@ -14,6 +15,8 @@ const theme = createTheme({
 })
 
 export default function App({ Component, pageProps }) {
+  
+  // useEffect(() => {}, [])
   const getLayout =
     Component.getLayout ?? ((page) => <MainLayout> {page} </MainLayout>)
 

@@ -2,6 +2,7 @@ import BillingItemList from "@/components/BillingItemList"
 import Header from "@/components/Header"
 import SideBarDrawer from "@/components/SideBar"
 import { Image } from "@/components/styled-components"
+import UrlTitle from "@/components/Title"
 import useModalState from "@/hooks/useModalState"
 import { AppBar, Box, Button, Toolbar, Typography } from "@mui/material"
 import React from "react"
@@ -18,6 +19,7 @@ export default function SettingsLayout({ children }) {
 
   return (
     <>
+      <UrlTitle />
       <AppBar
         position="static"
         sx={{

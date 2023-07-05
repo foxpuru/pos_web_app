@@ -125,7 +125,7 @@ function ChineseFood() {
           <Box
             height={{
               lg: "calc(100vh - 60px - 290px)",
-              xs: "calc(100vh - 252px)",
+              xs: "calc(100vh - 250px)",
             }}
             overflow="auto"
           >
@@ -364,7 +364,7 @@ function ChineseFood() {
         </Box>
       </Box>
       <AddDiscount
-        setDiscountValue={(e) => setDiscountValue(e.tafget.value)}
+        setDiscountValue={(e) => setDiscountValue(e.target.value)}
         isOpen={isOpenAddDiscount}
         handleToggle={handleToggleAddDiscount}
         handleOpen={handleOpenAddDiscount}
