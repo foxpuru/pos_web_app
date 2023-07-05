@@ -23,9 +23,9 @@ function FoodSlicesCard({ foodItems }) {
       }}
       overflow="auto"
       width="100%"
-      p={{ lg: "22px", xs: "12px" }}
+      p={{ lg: "22px", xs: "18px" }}
     >
-      <Box display="flex" flexWrap="wrap" gap={{ lg: "22px", xs: "12px" }}>
+      <Box display="flex" flexWrap="wrap" gap={{ lg: "22px", xs: "18px" }}>
         {foodItems?.food?.slides?.map((item) => (
           <FoodCard food={item} key={item.id} />
         ))}

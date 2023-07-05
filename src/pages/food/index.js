@@ -99,19 +99,22 @@ function ChineseFood() {
             }}
             overflow="auto"
             width="100%"
-            display="flex"
-            flexWrap="wrap"
-            gap={{ lg: "12px", xs: "8px" }}
-            p={{ lg: "22px", xs: "12px" }}
+            p={{ lg: "22px", xs: "18px" }}
           >
-            {foodItems?.foods.map((food, index) => (
-              <FoodCard
-                setCustomizeFoodItem={(e) => setCustomizeFoodItem(e)}
-                setSlidesItem={(e) => setSlidesItem(e)}
-                food={food}
-                key={index}
-              />
-            ))}
+            <Box
+              display="flex"
+              flexWrap="wrap"
+              gap={{ lg: "22px", xs: "18px" }}
+            >
+              {foodItems?.foods.map((food, index) => (
+                <FoodCard
+                  setCustomizeFoodItem={(e) => setCustomizeFoodItem(e)}
+                  setSlidesItem={(e) => setSlidesItem(e)}
+                  food={food}
+                  key={index}
+                />
+              ))}
+            </Box>
           </Box>
         )}
         <Box
@@ -132,14 +135,6 @@ function ChineseFood() {
             {cardData.map((item) => (
               <FoodBillingCard {...item} key={item.id} />
             ))}
-            {/* <FoodBillingCard />
-          <FoodBillingCard />
-          <FoodBillingCard />
-          <FoodBillingCard />
-          <FoodBillingCard />
-          <FoodBillingCard />
-          <FoodBillingCard />
-          <FoodBillingCard /> */}
           </Box>
           <Box pt={{ lg: "44px", xs: "22px" }}>
             <List sx={style} component="nav" aria-label="mailbox folders">
