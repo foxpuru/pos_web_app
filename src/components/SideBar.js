@@ -21,6 +21,8 @@ import { Typography } from "@mui/material"
 import sideBarLogoBottom from "../assets/images/musepos_logo_colored_sidemenu.png"
 import useModalState from "@/hooks/useModalState"
 import LogoutConfirmation from "./modals/logoutConfirmation"
+import Loader from "./Loader"
+import { useSelector } from "react-redux"
 
 export default function SideBarDrawer({
   isOpen,
@@ -246,8 +248,12 @@ export default function SideBarDrawer({
     </Box>
   )
 
+  const deviceCodes = useSelector((state) => state.auth.deviceCode)
+
+  const passcode = useSelector((state) => state.auth.isAuthenticated)
   return (
     <>
+      {!deviceCodes && !passcode && <Loader />}
       <Drawer
         anchor={"left"}
         open={isOpen}

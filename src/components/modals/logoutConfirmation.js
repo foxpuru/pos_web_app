@@ -7,6 +7,8 @@ import { Image } from "../styled-components"
 import { Typography } from "@mui/material"
 
 import { CancelButton, PrimaryButton } from "../CusttomButtons"
+import { useDispatch } from "react-redux"
+import { logout } from "@/redux/slices/authSlice"
 
 export default function LogoutConfirmation({
   isOpen,
@@ -14,6 +16,8 @@ export default function LogoutConfirmation({
   handleOpen,
   handleClose,
 }) {
+  const dispatch = useDispatch()
+
   return (
     <CustomModal
       isOpen={isOpen}
@@ -42,7 +46,7 @@ export default function LogoutConfirmation({
           Are your sure you want to Logout?
         </Typography>
         <Box display="flex" width="100%" gap={{ lg: "12px", xs: "10px" }}>
-          <PrimaryButton label="OK" onClick={handleClose} />
+          <PrimaryButton label="OK" onClick={() => dispatch(logout())} />
           <CancelButton onClick={handleClose} />
         </Box>
       </Box>

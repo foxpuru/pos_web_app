@@ -14,6 +14,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { login } from "@/redux/slices/authSlice"
 import Head from "next/head"
 import UrlTitle from "./Title"
+import Loader from "./Loader"
 
 const GridItem = () => {
   return (
@@ -33,8 +34,9 @@ const GridItem = () => {
 
 function DeviceCode() {
   const [otp, setOtp] = useState("")
-  // const deviceCode = useSelector((state) => state.auth.deviceCode)
+
   const deviceCodes = useSelector((state) => state.auth.deviceCode)
+  const passcode = useSelector((state) => state.auth.isAuthenticated)
   useEffect(() => {
     // alert("dfdfd")
     if (deviceCodes.length > 11) {
@@ -57,6 +59,7 @@ function DeviceCode() {
 
   return (
     <Box>
+      {deviceCodes && passcode && <Loader />}
       <UrlTitle title />
       <Box
         bgcolor="#ffffff"

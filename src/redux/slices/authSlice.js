@@ -17,9 +17,15 @@ const AuthSlice = createSlice({
     loginThroughPasscode: (state, action) => {
       state.isAuthenticated = true
     },
+    logout: (state, action) => {
+      state.isLoading = true
+      state.isAuthenticated = false
+      state.deviceCode = ""
+      state.isLoggedIn = false
+    },
   },
 })
 
-export const { login, loginThroughPasscode } = AuthSlice.actions
+export const { login, loginThroughPasscode, logout } = AuthSlice.actions
 
 export default AuthSlice.reducer
