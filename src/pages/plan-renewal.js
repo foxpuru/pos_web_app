@@ -1,20 +1,28 @@
-import { Image } from "@/components/styled-components"
-import BlankLayout from "@/layouts/BlankLayout"
-import { Box, Button, Typography } from "@mui/material"
-import React, { useEffect } from "react"
+import { Image } from "@/components/styled-components";
+import BlankLayout from "@/layouts/BlankLayout";
+import { Box, Button, Typography } from "@mui/material";
+import React, { useEffect } from "react";
 
-import navLogoImg from "../assets/images/musepos_logo_colored_nav.png"
+import navLogoImg from "../assets/images/musepos_logo_colored_nav.png";
 
-import PlanRenewalImg from "../assets/images/ic_plan_renewal_payment_problem.png"
-import { useRouter } from "next/router"
-import { PrimaryButton } from "@/components/CusttomButtons"
-import UrlTitle from "@/components/Title"
-import { useSelector } from "react-redux"
+import PlanRenewalImg from "../assets/images/ic_plan_renewal_payment_problem.png";
+import { useRouter } from "next/router";
+import { PrimaryButton } from "@/components/CusttomButtons";
+import UrlTitle from "@/components/Title";
+import { useSelector } from "react-redux";
+import { getData, saveData } from "@/components/OfflineData";
 
 function PlanRenewal() {
-  const router = useRouter()
+  const router = useRouter();
   // const deviceCodes = useSelector((state) => state.auth.deviceCode)
+  // useEffect(async () => {
+  //   saveData("espn_hola", { lang: "espn", greet: "hola" });
 
+  //   // Get data from IndexedDB
+  //   const data = await getData("espn_hola");
+  //   console.log("espn_hola", data);
+  //   return () => {};
+  // }, []);
   return (
     <Box>
       <UrlTitle />
@@ -148,8 +156,8 @@ function PlanRenewal() {
         </Box>
       </Box>
     </Box>
-  )
+  );
 }
 
-PlanRenewal.getLayout = (page) => <BlankLayout>{page}</BlankLayout>
-export default PlanRenewal
+PlanRenewal.getLayout = (page) => <BlankLayout>{page}</BlankLayout>;
+export default PlanRenewal;
