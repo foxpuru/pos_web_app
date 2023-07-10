@@ -80,11 +80,9 @@ export default function SideBarDrawer({
               Joe Pizza
             </Typography>
           </Box>
-          <List>
+          <List sx={{}}>
             {SideBarItems.map((item) => (
               <ListItem
-                // display="flex"
-
                 key={item}
                 sx={{
                   p: { sm: "12px", xs: "4px" },
@@ -96,8 +94,15 @@ export default function SideBarDrawer({
                       ? "#EEF5F6"
                       : undefined,
                   cursor: "pointer",
+                  "& :hover": {
+                    // backgroundColor: "#000000",
+                  },
                   "&:hover": {
-                    // backgroundColor: "#EEF5F6",
+                    backgroundColor:
+                      router.pathname === item.path ||
+                      item.path.startsWith(`/${router.pathname.split("/")[1]}`)
+                        ? "#EEF5F6 !important"
+                        : "#fff  !important",
                   },
                 }}
                 onClick={() => router.push(item.path)}
@@ -160,7 +165,7 @@ export default function SideBarDrawer({
 
                 cursor: "pointer",
                 "&:hover": {
-                  // backgroundColor: "#EEF5F6",
+                  backgroundColor: "#ffffff !important",
                 },
               }}
               onClick={handleOpenLogoutConfirmation}

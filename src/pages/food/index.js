@@ -62,7 +62,7 @@ function ChineseFood() {
   // console.log("router query", router.query?.foodType)
 
   const cardData = useSelector((state) => state.cart.items)
-  // console.log("cardData", cardData)
+  console.log("cardData", cardData)
 
   // const [showCustom, setShowCustom] = useState(false)
   const [customizeFoodItem, setCustomizeFoodItem] = useState(null)

@@ -8,14 +8,14 @@ const BlankLayout = ({ children }) => {
   const router = useRouter()
   const deviceCodes = useSelector((state) => state.auth.deviceCode)
 
-  useEffect(() => {
-    // alert("dfdfd")
-    if (deviceCodes.length > 11) {
-      router.push("/plan-renewal")
-    } else {
-      router.push("/")
-    }
-  }, [deviceCodes])
+  // useEffect(() => {
+  //   // alert("dfdfd")
+  //   if (deviceCodes.length > 11) {
+  //     router.push("/plan-renewal")
+  //   } else {
+  //     router.push("/")
+  //   }
+  // }, [deviceCodes])
 
   console.log("device code", deviceCodes)
   return (
