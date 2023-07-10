@@ -32,8 +32,8 @@ export default function SideBarDrawer({
 }) {
   const router = useRouter()
   // console.log("routtttt", router.pathname.startsWith("/reports"))
-
-  // console.log("side bar data", SideBarItems.splice(1, 0, "Table Management"))
+  console.log("side bar data", SideBarItems)
+  // .splice(1, 0, "Table Management")
 
   const {
     isOpen: isOpenLogoutConfirmation,

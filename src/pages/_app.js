@@ -1,5 +1,5 @@
 import MainLayout from "@/layouts/MainLayout"
-import { store } from "@/redux/store"
+import store from "@/redux/store"
 
 import "@/styles/globals.css"
 import { createTheme, ThemeProvider } from "@mui/material"
@@ -15,7 +15,6 @@ const theme = createTheme({
 })
 
 export default function App({ Component, pageProps }) {
-  
   // useEffect(() => {}, [])
   const getLayout =
     Component.getLayout ?? ((page) => <MainLayout> {page} </MainLayout>)

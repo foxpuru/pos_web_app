@@ -23,6 +23,7 @@ export default function SettingsLayout({ children }) {
   const router = useRouter()
   const deviceCodes = useSelector((state) => state.auth.deviceCode)
   const passcode = useSelector((state) => state.auth.isAuthenticated)
+  console.log("pathName", router.pathname)
 
   useEffect(() => {
     if (deviceCodes.length > 11) {
@@ -49,6 +50,7 @@ export default function SettingsLayout({ children }) {
           px={{ lg: "22px", xs: "16px" }}
           sx={{
             display: "flex",
+            position: "relative",
             alignItems: "center",
             justifyContent: "space-between",
           }}
@@ -61,35 +63,49 @@ export default function SettingsLayout({ children }) {
               width: { lg: "38px", xs: "28px", cursor: "pointer" },
             }}
           />
-          <Typography color="black" fontWeight="500">
-            Settings
-          </Typography>
-          <Button
+          <Typography
+            color="black"
+            fontWeight="600"
+            letterSpacing="0.65"
+            fontSize={{ lg: "20px", xs: "17px" }}
+            textTransform="capitalize"
             sx={{
-              height: { lg: "32.13px", xs: "25.25px" },
-              p: 0,
-              width: { lg: "150px", xs: "120px" },
-
-              backgroundColor: "#00B153",
-              borderRadius: "10px",
-              color: "#FFFFFF",
-              fontSize: { lg: "18px", xs: "16px" },
-              fontWeight: "400",
-
-              "&:hover": {
-                backgroundColor: "#00B153 !important",
-              },
+              position: "absolute",
+              left: "50%",
+              top: "50%",
+              transform: "translate(-50%, -50%)",
             }}
           >
-            SAVE
-          </Button>
+            {router.pathname.split("/")[1].split("-").join(" ")}
+          </Typography>
+          {router.pathname === "/settings" && (
+            <Button
+              sx={{
+                height: { lg: "32.13px", xs: "25.25px" },
+                p: 0,
+                width: { lg: "150px", xs: "120px" },
+
+                backgroundColor: "#00B153",
+                borderRadius: "10px",
+                color: "#FFFFFF",
+                fontSize: { lg: "18px", xs: "16px" },
+                fontWeight: "400",
+
+                "&:hover": {
+                  backgroundColor: "#00B153 !important",
+                },
+              }}
+            >
+              SAVE
+            </Button>
+          )}
         </Box>
       </AppBar>
       <Box display="flex" width="100%" alignItems="start">
         <Box
           width="100%"
           overflow="auto"
-          height={{ lg: "calc(100vh - 64px)", xs: "calc(100vh - 60px)" }}
+          height={{ lg: "calc(100vh - 64px)", xs: "calc(100vh - 48px)" }}
         >
           {children}
         </Box>

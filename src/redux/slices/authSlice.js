@@ -4,9 +4,9 @@ const AuthSlice = createSlice({
   name: "auth",
   initialState: {
     isLoading: true,
-    isAuthenticated: false,
+    isAuthenticated: true,
     isLoggedIn: false,
-    deviceCode: "",
+    deviceCode: "4545-4545-4553",
   },
   reducers: {
     login: (state, action) => {

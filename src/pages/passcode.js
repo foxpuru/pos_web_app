@@ -40,7 +40,7 @@ function Passcode() {
   }
   return (
     <>
-      {!deviceCodes && !passcode && <Loader />}
+      {!deviceCodes && !passcode && <Loader />}z
       <Box
         sx={{
           backgroundImage: `url(${BackgroundBannerImg.src})`,
