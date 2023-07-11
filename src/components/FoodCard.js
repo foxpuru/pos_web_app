@@ -29,8 +29,15 @@ export default function FoodCard({
   const router = useRouter()
 
   const cartData = useSelector((state) => state.cart.items)
-
+  console.log("cart data", cartData)
   // const existId = cartData.filter((item) => item.id === food.id)
+
+  function isItemExist(itemId) {
+    console.log("isItemExist", itemId)
+    return cartData.map((item) => {
+      item.id === itemId ? true : false
+    })
+  }
 
   console.log(
     "card data",
@@ -69,6 +76,7 @@ export default function FoodCard({
           price: food.price,
         })
       )
+      isItemExist(food.id)
     }
   }
   return (
@@ -91,7 +99,9 @@ export default function FoodCard({
           padding: { lg: "3px", xs: "2px" },
           display: "flex",
           position: "relative",
-          border: "2px solid #000000",
+          // border: "2px solid #000000",
+          // border: () =>
+            // isItemExist(food.id) ? "4px solid #000000" : " 1px solid #000000",
           borderRadius: "10px",
         }}
       >

@@ -14,7 +14,7 @@ function FoodLayout({ children, custom }) {
 
   useEffect(() => {
     // alert("dfdfd")
-    if (deviceCodes.length > 11) {
+    if (deviceCodes.length > 11 && passcode) {
       router.push("/food?category=1c1716111a0c1a")
     } else {
       router.push("/")

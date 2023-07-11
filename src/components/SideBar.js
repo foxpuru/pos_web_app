@@ -10,7 +10,7 @@ import ListItemIcon from "@mui/material/ListItemIcon"
 import ListItemText from "@mui/material/ListItemText"
 import InboxIcon from "@mui/icons-material/MoveToInbox"
 import MailIcon from "@mui/icons-material/Mail"
-import { LogoutIcon, NewCheckIcon, OpenedChecksIcon } from "./icons"
+import { LogoutIcon, NewCheckIcon, OpenedChecksIcon, ProIcon } from "./icons"
 import { SideBarItems } from "@/data/sideBarData"
 import { useRouter } from "next/router"
 
@@ -155,6 +155,33 @@ export default function SideBarDrawer({
                   }}
                   primary={item.label}
                 />
+                {item.pro && (
+                  <ListItemIcon
+                    className={
+                      item.path.startsWith(router.pathname) ||
+                      item.path.startsWith(`/${router.pathname.split("/")[1]}`)
+                        ? "active"
+                        : undefined
+                    }
+                    sx={{
+                      minWidth: { sm: "50px", xs: "30px" },
+
+                      svg: {
+                        width: { sm: "28px", xs: "22px" },
+                        height: { sm: "28px", xs: "22px" },
+                      },
+
+                      "&.active": {
+                        color: "#EEF5F6!important",
+                        svg: {
+                          fill: "#EEF5F6!important",
+                        },
+                      },
+                    }}
+                  >
+                    <ProIcon />
+                  </ListItemIcon>
+                )}
               </ListItem>
             ))}
             <ListItem

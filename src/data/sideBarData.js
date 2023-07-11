@@ -8,6 +8,7 @@ import {
   OpenedChecksIcon,
   ReportsIcon,
   SettingsIcon,
+  TableIcon,
   TranscationsIcon,
 } from "@/components/icons"
 
@@ -32,6 +33,13 @@ export const SideBarItems = [
     label: "Cash Management",
     icon: <CashIcon />,
     path: "/cash-management",
+    pro: true,
+  },
+  {
+    label: "Table Management",
+    icon: <TableIcon />,
+    path: "/table-management",
+    pro: true,
   },
   {
     label: "Reports",

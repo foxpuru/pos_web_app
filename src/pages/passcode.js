@@ -31,8 +31,11 @@ function Passcode() {
 
   const passcode = useSelector((state) => state.auth.isAuthenticated)
   useEffect(() => {
-    passcode && router.push(`/food?category=${Encrypt("chinese")}`)
-    // : router.push("/plan-renewal")
+    if (passcode) {
+      router.push(`/food?category=${Encrypt("chinese")}`)
+    } else {
+      // router.push("/")
+    }
   }, [passcode])
   const dispatch = useDispatch()
   const handleLogin = (otp) => {
@@ -40,7 +43,7 @@ function Passcode() {
   }
   return (
     <>
-      {!deviceCodes && !passcode && <Loader />}z
+      {passcode && <Loader />}
       <Box
         sx={{
           backgroundImage: `url(${BackgroundBannerImg.src})`,

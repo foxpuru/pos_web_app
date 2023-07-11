@@ -10,13 +10,25 @@ import { useRouter } from "next/router"
 import { PrimaryButton } from "@/components/CusttomButtons"
 import UrlTitle from "@/components/Title"
 import { useSelector } from "react-redux"
+import Loader from "@/components/Loader"
+import { Encrypt } from "@/hooks/useEncryption"
 
 function PlanRenewal() {
   const router = useRouter()
-  // const deviceCodes = useSelector((state) => state.auth.deviceCode)
+  const deviceCodes = useSelector((state) => state.auth.deviceCode)
+  const passcode = useSelector((state) => state.auth.isAuthenticated)
+  useEffect(() => {
+    // alert("dfdfd")
+    if (deviceCodes.length > 11 && passcode) {
+      // router.push("/plan-renewal")
+    } else {
+      router.push("/")
+    }
+  }, [deviceCodes])
 
   return (
     <Box>
+      {!deviceCodes && !passcode && <Loader />}
       <UrlTitle />
       <Box
         bgcolor="#ffffff"
@@ -47,7 +59,7 @@ function PlanRenewal() {
                 backgroundColor: "transparent !important",
               },
             }}
-            onClick={() => router.push("/passcode")}
+            onClick={() => router.push(`/food?category=${Encrypt("chinese")}`)}
             label="Continue"
           />
         </Box>

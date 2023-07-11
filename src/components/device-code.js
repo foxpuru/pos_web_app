@@ -35,19 +35,21 @@ const GridItem = () => {
 function DeviceCode() {
   const [otp, setOtp] = useState("")
 
+  const router = useRouter()
+
   const deviceCodes = useSelector((state) => state.auth.deviceCode)
   const passcode = useSelector((state) => state.auth.isAuthenticated)
   useEffect(() => {
     // alert("dfdfd")
     if (deviceCodes.length > 11) {
-      router.push("/plan-renewal")
+      router.push("/passcode")
     } else {
       router.push("/")
     }
   }, [deviceCodes])
 
   // console.log("device code", deviceCode)
-  const router = useRouter()
+
   const dispatch = useDispatch()
 
   const handleLogin = (otp) => {
@@ -63,7 +65,7 @@ function DeviceCode() {
       <UrlTitle title />
       <Box
         bgcolor="#ffffff"
-        py={{ sm: "20px", xs: "12px" }}
+        py={{ sm: "22px", xs: "18px" }}
         justifyContent="center"
         display="flex"
       >
@@ -77,7 +79,7 @@ function DeviceCode() {
         display="flex"
         flexDirection="column"
         p={{ sm: "30px", xs: "15px" }}
-        gap={{ sm: "20px", xs: "12px" }}
+        gap={4}
         alignItems="center"
         // justifyContent="center"
         // textAlign="center"
@@ -129,9 +131,9 @@ function DeviceCode() {
         >
           <Form>
             <Grid
-              py={4}
+              pb={4}
               sx={{
-                width: { lg: "1200px", xs: "650px" },
+                width: { lg: "1000px", xs: "650px" },
                 margin: "auto",
               }}
             >
