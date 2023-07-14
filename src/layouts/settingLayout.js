@@ -1,4 +1,5 @@
 import BillingItemList from "@/components/BillingItemList"
+import { PrimaryButton } from "@/components/CusttomButtons"
 import Header from "@/components/Header"
 import Loader from "@/components/Loader"
 import SideBarDrawer from "@/components/SideBar"
@@ -12,7 +13,7 @@ import { useSelector } from "react-redux"
 
 import BtnLeftMenuImg from "../assets/images/btn_left_menu.png"
 
-export default function SettingsLayout({ children }) {
+export default function SettingsLayout({ tableEdit, children }) {
   const {
     isOpen: isOpenSidebar,
     handleToggle: handleToggleSidebar,
@@ -98,6 +99,22 @@ export default function SettingsLayout({ children }) {
             >
               SAVE
             </Button>
+          )}
+          {router.pathname === "/table-management" && (
+            <PrimaryButton
+              sx={{
+                width: { lg: "200px", xs: "170px" },
+                color: "#000000",
+                backgroundColor: "#EEF5F6",
+                fontSize: { lg: "18px", xs: "16px" },
+                fontWeight: "400",
+
+                "&:hover": {
+                  backgroundColor: "#EEF5F6 !important",
+                },
+              }}
+              label="EDIT"
+            />
           )}
         </Box>
       </AppBar>

@@ -2016,3 +2016,286 @@ export const AverageSalesIcon = () => {
     </svg>
   )
 }
+
+export const RoundTable = () => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      // xmlns:xlink="http://www.w3.org/1999/xlink"
+      width="246"
+      height="248"
+      viewBox="0 0 246 248"
+    >
+      <defs>
+        <filter
+          id="Ellipse_189"
+          x="0"
+          y="0"
+          width="246"
+          height="248"
+          filterUnits="userSpaceOnUse"
+        >
+          <feOffset input="SourceAlpha" />
+          <feGaussianBlur stdDeviation="12.5" result="blur" />
+          <feFlood flood-opacity="0.161" />
+          <feComposite operator="in" in2="blur" />
+          <feComposite in="SourceGraphic" />
+        </filter>
+      </defs>
+      <g id="ic_round_table_unselected" transform="translate(21.099 21.835)">
+        <g
+          id="Rectangle_1319"
+          data-name="Rectangle 1319"
+          transform="translate(70.4 -0.335)"
+          fill="#fff"
+          stroke="#d7dbdc"
+          stroke-width="5"
+        >
+          <rect width="62" height="204" rx="6" stroke="none" />
+          <rect x="2.5" y="2.5" width="57" height="199" rx="3.5" fill="none" />
+        </g>
+        <g
+          id="Rectangle_1320"
+          data-name="Rectangle 1320"
+          transform="translate(202.4 69.665) rotate(90)"
+          fill="#fff"
+          stroke="#d7dbdc"
+          stroke-width="5"
+        >
+          <rect width="65" height="202" rx="6" stroke="none" />
+          <rect x="2.5" y="2.5" width="60" height="197" rx="3.5" fill="none" />
+        </g>
+        <g
+          id="Group_5389"
+          data-name="Group 5389"
+          transform="translate(16.009 16.009)"
+        >
+          <g
+            transform="matrix(1, 0, 0, 1, -37.11, -37.84)"
+            filter="url(#Ellipse_189)"
+          >
+            <g
+              id="Ellipse_189-2"
+              data-name="Ellipse 189"
+              transform="translate(37.5 37.5)"
+              fill="#fff"
+              stroke="#d7dbdc"
+              stroke-width="2"
+            >
+              <ellipse cx="85.5" cy="86.5" rx="85.5" ry="86.5" stroke="none" />
+              <ellipse cx="85.5" cy="86.5" rx="84.5" ry="85.5" fill="none" />
+            </g>
+          </g>
+        </g>
+        <g
+          id="Group_5405"
+          data-name="Group 5405"
+          transform="translate(47.026 48.027)"
+        >
+          <ellipse
+            id="Ellipse_189-3"
+            data-name="Ellipse 189"
+            cx="54.5"
+            cy="55"
+            rx="54.5"
+            ry="55"
+            transform="translate(0.374 -0.361)"
+            fill="#eef5f6"
+          />
+        </g>
+      </g>
+    </svg>
+  )
+}
+
+export const SquareTable = () => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      // xmlns:xlink="http://www.w3.org/1999/xlink"
+      width="246"
+      height="246"
+      viewBox="0 0 246 246"
+    >
+      <defs>
+        <filter
+          id="Rectangle_13181"
+          x="0"
+          y="0"
+          width="246"
+          height="246"
+          filterUnits="userSpaceOnUse"
+        >
+          <feOffset input="SourceAlpha" />
+          <feGaussianBlur stdDeviation="12.5" result="blur" />
+          <feFlood flood-opacity="0.161" />
+          <feComposite operator="in" in2="blur" />
+          <feComposite in="SourceGraphic" />
+        </filter>
+      </defs>
+      <g id="ic_square_table_unselected" transform="translate(21.65 22.5)">
+        <g
+          id="Rectangle_1319"
+          data-name="Rectangle 1319"
+          transform="translate(70.85)"
+          fill="#fff"
+          stroke="#d7dbdc"
+          stroke-width="5"
+        >
+          <rect width="62" height="203" rx="6" stroke="none" />
+          <rect x="2.5" y="2.5" width="57" height="198" rx="3.5" fill="none" />
+        </g>
+        <g
+          id="Rectangle_1320"
+          data-name="Rectangle 1320"
+          transform="translate(203.85 70) rotate(90)"
+          fill="#fff"
+          stroke="#d7dbdc"
+          stroke-width="5"
+        >
+          <rect width="64" height="204" rx="6" stroke="none" />
+          <rect x="2.5" y="2.5" width="59" height="199" rx="3.5" fill="none" />
+        </g>
+        <g
+          id="Group_5389"
+          data-name="Group 5389"
+          transform="translate(16.008 15.008)"
+        >
+          <g
+            transform="matrix(1, 0, 0, 1, -37.66, -37.51)"
+            filter="url(#Rectangle_1318)"
+          >
+            <g
+              id="Rectangle_1318-2"
+              data-name="Rectangle 1318"
+              transform="translate(37.5 37.5)"
+              fill="#fff"
+              stroke="#d7dbdc"
+              stroke-width="2"
+            >
+              <rect width="171" height="171" rx="12" stroke="none" />
+              <rect x="1" y="1" width="169" height="169" rx="11" fill="none" />
+            </g>
+          </g>
+        </g>
+        <g
+          id="Group_5390"
+          data-name="Group 5390"
+          transform="translate(46.025 48.027)"
+        >
+          <rect
+            id="Rectangle_1318-3"
+            data-name="Rectangle 1318"
+            width="109"
+            height="109"
+            rx="6"
+            transform="translate(-0.175 -0.027)"
+            fill="#eef5f6"
+          />
+        </g>
+      </g>
+    </svg>
+  )
+}
+
+export const BigTable = () => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      // xmlns:xlink="http://www.w3.org/1999/xlink"
+      id="Rectangle_1318"
+      width="327"
+      height="250"
+      viewBox="0 0 327 250"
+    >
+      <defs>
+        <filter
+          id="Rectangle_1318"
+          x="0"
+          y="0"
+          width="327"
+          height="250"
+          filterUnits="userSpaceOnUse"
+        >
+          <feOffset input="SourceAlpha" />
+          <feGaussianBlur stdDeviation="12.5" result="blur" />
+          <feFlood flood-opacity="0.161" />
+          <feComposite operator="in" in2="blur" />
+          <feComposite in="SourceGraphic" />
+        </filter>
+      </defs>
+      <g id="ic_big_table_unselected" transform="translate(20.887 23.668)">
+        <g
+          id="Rectangle_1319"
+          data-name="Rectangle 1319"
+          transform="translate(64.613 -0.168)"
+          fill="#fff"
+          stroke="#d7dbdc"
+          stroke-width="5"
+        >
+          <rect width="62" height="204" rx="6" stroke="none" />
+          <rect x="2.5" y="2.5" width="57" height="199" rx="3.5" fill="none" />
+        </g>
+        <g
+          id="Rectangle_1327"
+          data-name="Rectangle 1327"
+          transform="translate(158.613 -0.168)"
+          fill="#fff"
+          stroke="#d7dbdc"
+          stroke-width="5"
+        >
+          <rect width="63" height="204" rx="6" stroke="none" />
+          <rect x="2.5" y="2.5" width="58" height="199" rx="3.5" fill="none" />
+        </g>
+        <g
+          id="Rectangle_1320"
+          data-name="Rectangle 1320"
+          transform="translate(284.613 68.832) rotate(90)"
+          fill="#fff"
+          stroke="#d7dbdc"
+          stroke-width="5"
+        >
+          <rect width="63" height="285" rx="6" stroke="none" />
+          <rect x="2.5" y="2.5" width="58" height="280" rx="3.5" fill="none" />
+        </g>
+        <g
+          id="Group_5389"
+          data-name="Group 5389"
+          transform="translate(17.009 14.008)"
+        >
+          <g
+            transform="matrix(1, 0, 0, 1, -37.9, -37.68)"
+            filter="url(#Rectangle_1318)"
+          >
+            <g
+              id="Rectangle_1318-2"
+              data-name="Rectangle 1318"
+              transform="translate(37.5 37.5)"
+              fill="#fff"
+              stroke="#d7dbdc"
+              stroke-width="2"
+            >
+              <rect width="252" height="175" rx="12" stroke="none" />
+              <rect x="1" y="1" width="250" height="173" rx="11" fill="none" />
+            </g>
+          </g>
+        </g>
+        <g
+          id="Group_5390"
+          data-name="Group 5390"
+          transform="translate(50.028 46.026)"
+        >
+          <rect
+            id="Rectangle_1318-3"
+            data-name="Rectangle 1318"
+            width="188"
+            height="110"
+            rx="6"
+            transform="translate(-0.415 -0.193)"
+            fill="#eef5f6"
+          />
+        </g>
+      </g>
+    </svg>
+  )
+}

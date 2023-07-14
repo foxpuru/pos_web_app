@@ -13,7 +13,6 @@ function FoodLayout({ children, custom }) {
   const passcode = useSelector((state) => state.auth.isAuthenticated)
 
   useEffect(() => {
-    // alert("dfdfd")
     if (deviceCodes.length > 11 && passcode) {
       router.push("/food?category=1c1716111a0c1a")
     } else {

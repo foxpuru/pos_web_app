@@ -54,13 +54,11 @@ function ChineseFood() {
   const style = {
     bgcolor: "background.paper",
   }
-
   const router = useRouter()
   const foodItems = FoodData.find(
     (food) => food.path?.toLowerCase() === router.query?.category
   )
   // console.log("router query", router.query?.foodType)
-
   const cardData = useSelector((state) => state.cart.items)
   // console.log("cardData", cardData)
 
