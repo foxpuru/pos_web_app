@@ -27,9 +27,49 @@ function TableManagement() {
     }
   }, [deviceCodes])
 
+  const OccupiedTableStyle = (isOccupied) => {
+    return (
+      isOccupied && {
+        "& #Rectangle_1318-2,& #Ellipse_189-2": {
+          fill: "#8BCDFF",
+          strokeWidth: "0 !important",
+        },
+        "& #Rectangle_1318-3,& #Ellipse_189-3": {
+          fill: "#0090FF",
+        },
+        "& #Rectangle_1319, & #Rectangle_1320, & #Rectangle_1327": {
+          stroke: "#0090FF",
+        },
+        "& p": {
+          color: "#FFFFFF !important",
+        },
+      }
+    )
+  }
+
+  const BookedTableStyle = (isBooked) => {
+    return (
+      isBooked && {
+        "& #Rectangle_1318-2,& #Ellipse_189-2": {
+          fill: "#65eba4",
+          strokeWidth: "0 !important",
+        },
+        "& #Rectangle_1318-3,& #Ellipse_189-3": {
+          fill: "#00b153",
+        },
+        "& #Rectangle_1319, & #Rectangle_1320, & #Rectangle_1327": {
+          stroke: "#00b153",
+        },
+        "& p": {
+          color: "#FFFFFF !important",
+        },
+      }
+    )
+  }
   const TablesData = TableManagementData.find(
     (item) => item.path?.toLowerCase() === router.query?.category
   )
+
   return (
     <Box>
       <Box display="flex" width="100%" alignItems="start">
@@ -42,12 +82,12 @@ function TableManagement() {
           width="100%"
           // p={{ lg: "22px", xs: "18px" }}
         >
-          <Box display="flex" flexWrap="wrap" gap={{ lg: "22px", xs: "18px" }}>
-            {TablesData?.tables.map((item) => (
+          <Box display="flex" flexWrap="wrap">
+            {TablesData?.tables?.map((item) => (
               <Box
                 key={item.id}
                 sx={{
-                  padding: { lg: "3px", xs: "2px" },
+                  padding: { lg: "10px", xs: "8px" },
                   display: "flex",
                   position: "relative",
                   alignItems: "center",
@@ -60,8 +100,11 @@ function TableManagement() {
                   },
                   "& #Rectangle_1318": {
                     width: { md: "180px", xs: "150px" },
-                    height: { md: "180px", xs: "130px" },
+                    // height: { md: "180px", xs: "130px" },
                   },
+                  ...OccupiedTableStyle(item.occupied),
+                  ...BookedTableStyle(item.booked),
+                  //  {item.booked && ...bookedTableStyle},
                 }}
               >
                 {item.type === "round" ? (
@@ -74,28 +117,65 @@ function TableManagement() {
 
                 <Box
                   sx={{
+                    // height: { lg: "50px", xs: "40px" },
+                    // width: { lg: "60px", xs: "50px" },
                     textAlign: "center",
                     position: "absolute",
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "end",
+                    justifyContent: "end",
 
-                    // top: "50%",
-                    // left: "50%",
-                    // transform: "translate(-50%)",
+                    "&::after": {
+                      position: "absolute",
+                      display: "flex",
+                      justifyContent: "center",
+                      width: "24px",
+                      height: "18px",
+                      content: item.time ? `'(${item.time})'` : "none",
+                      color: "#FFFFFF",
+                      fontSize: { lg: "13px", xs: "12px" },
+                      fontWeight: "500",
+                      letterSpacing: "0.42px",
+                      bottom: "-18px",
+                    },
                   }}
                 >
                   <Typography
                     sx={{
-                      fontSize: { lg: "13px", xs: "9px" },
+                      fontSize: { lg: "22px", xs: "20px" },
                       fontWeight: "500",
-                      color: "#000000",
+                      letterSpacing: "0.9px",
+                      color: "#A5ACAE",
                       width: "100%",
+                      lineHeight: "18px !important",
                       whiteSpace: "nowrap",
                       overflow: "hidden",
                       textOverflow: "ellipsis",
                     }}
                   >
-                    {item.id}
+                    {item.tableNumber.length > 1
+                      ? item.tableNumber
+                      : `0${item.tableNumber}`}
                   </Typography>
                 </Box>
+                {/* <Typography
+                  sx={{
+                    fontSize: { lg: "18px", xs: "16px" },
+                    fontWeight: "500",
+                    letterSpacing: "0.9px",
+                    lineHeight: "18px !important",
+                    color: "#A5ACAE",
+                    width: "100%",
+                    whiteSpace: "nowrap",
+                    overflow: "hidden",
+                    textOverflow: "ellipsis",
+                  }}
+                >
+                  {item.tableNumber.length > 1
+                    ? item.tableNumber
+                    : `0${item.tableNumber}`}
+                </Typography> */}
               </Box>
             ))}
           </Box>
