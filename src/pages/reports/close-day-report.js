@@ -110,7 +110,8 @@ function CloseDayReport() {
       textAlign="center"
       display="flex"
       flexDirection="column"
-      justifyContent={{ lg: "space-between", xs: undefined }}
+      overflow="auto"
+      justifyContent={{ lg: "space-between", xs: "start" }}
       py={{ lg: "22px", xs: "22px" }}
     >
       <Box>
@@ -269,18 +270,22 @@ function CloseDayReport() {
       <Grid
         container
         item
-        spacing={{ lg: 3, xs: 1 }}
+        // spacing={{ lg: 3, md: 0, xs: 1 }}
         justifyContent="center"
         pb={{ lg: undefined, xs: "22px" }}
       >
-        <Grid item xs={4}>
-          <PrimaryButton large label="RUN CLOSE OF DAY" />
+        <Grid item lg={4} xs={6}>
+          <PrimaryButton
+            large
+            label="RUN CLOSE OF DAY"
+            // sx={{ width: { lg: undefined, xs: "180px" } }}
+          />
         </Grid>
       </Grid>
 
       <Box display="flex" justifyContent="center">
         <Typography
-          width={{ lg: "61%", xs: "80%" }}
+          width="80%"
           // margin="auto"
           color="#A5ACAE"
           fontWeight="400"
