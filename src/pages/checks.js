@@ -394,7 +394,7 @@ function Checks() {
                             fontSize: { lg: "15px", xs: "11px" },
                           }}
                         >
-                          Tex
+                          Tax
                         </Typography>
                         <Typography
                           sx={{
