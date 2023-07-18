@@ -245,6 +245,7 @@ function CashManagement() {
           >
             {count.map((item, index) => (
               <AmountColumn
+                key={index}
                 item={item}
                 handleAdd={() => setCount()}
                 handleRemove={() => setCount()}

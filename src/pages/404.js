@@ -42,8 +42,9 @@ function Custom404() {
           fontSize={{ lg: "16px", xs: "14px" }}
           fontWeight="400"
         >
-          The page you are looking for doesn't exist or an other error occurred.
-          Go back, or head over to musepos.com to choose a new direction.
+          The page you are looking for doesn&apos;t exist or an other error
+          occurred. Go back, or head over to musepos.com to choose a new
+          direction.
         </Typography>
         <PrimaryButton
           large
