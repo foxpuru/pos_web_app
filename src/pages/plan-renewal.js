@@ -1,30 +1,30 @@
-import { Image } from "@/components/styled-components"
-import BlankLayout from "@/layouts/BlankLayout"
-import { Box, Button, Typography } from "@mui/material"
-import React, { useEffect } from "react"
+import { Image } from "@/components/styled-components";
+import BlankLayout from "@/layouts/BlankLayout";
+import { Box, Button, Typography } from "@mui/material";
+import React, { useEffect } from "react";
 
-import navLogoImg from "../assets/images/musepos_logo_colored_nav.png"
+import navLogoImg from "../assets/images/musepos_logo_colored_nav.png";
 
-import PlanRenewalImg from "../assets/images/ic_plan_renewal_payment_problem.png"
-import { useRouter } from "next/router"
-import { PrimaryButton } from "@/components/CusttomButtons"
-import UrlTitle from "@/components/Title"
-import { useSelector } from "react-redux"
-import Loader from "@/components/Loader"
-import { Encrypt } from "@/hooks/useEncryption"
+import PlanRenewalImg from "../assets/images/ic_plan_renewal_payment_problem.png";
+import { useRouter } from "next/router";
+import { PrimaryButton } from "@/components/CusttomButtons";
+import UrlTitle from "@/components/Title";
+import { useSelector } from "react-redux";
+import Loader from "@/components/Loader";
+import { Encrypt } from "@/hooks/useEncryption";
 
 function PlanRenewal() {
-  const router = useRouter()
-  const deviceCodes = useSelector((state) => state.auth.deviceCode)
-  const passcode = useSelector((state) => state.auth.isAuthenticated)
+  const router = useRouter();
+  const deviceCodes = useSelector((state) => state.auth.deviceCode);
+  const passcode = useSelector((state) => state.auth.isAuthenticated);
   useEffect(() => {
     // alert("dfdfd")
     if (deviceCodes.length > 11 && passcode) {
       // router.push("/plan-renewal")
     } else {
-      router.push("/")
+      router.push("/");
     }
-  }, [deviceCodes])
+  }, [deviceCodes]);
 
   return (
     <Box>
@@ -160,8 +160,8 @@ function PlanRenewal() {
         </Box>
       </Box>
     </Box>
-  )
+  );
 }
 
-PlanRenewal.getLayout = (page) => <BlankLayout>{page}</BlankLayout>
-export default PlanRenewal
+PlanRenewal.getLayout = (page) => <BlankLayout>{page}</BlankLayout>;
+export default PlanRenewal;

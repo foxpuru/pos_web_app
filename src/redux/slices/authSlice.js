@@ -1,17 +1,36 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { axiosInstance } from "@/utility/axios";
+import { axiosInstance, createAxiosInstance } from "@/utility/axios";
 import { toast } from "react-toastify";
 import { persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 import { clearLocalStorage } from "@/utility/setAndRemoveAuthData";
+import { getUserInfo } from "@/api/userInfo";
+import axios from "axios";
+import { getModifiers } from "@/api/modifiers";
+import { getProductCategories } from "@/api/product";
 
 export const login = createAsyncThunk("login", async (data, thunkApi) => {
   try {
     const res = await axiosInstance.post("auth/login", data);
-    console.log("res login", res);
-    // toast.configure();
-    toast.success(res?.data?.message);
     thunkApi.fulfillWithValue({ ...res?.data?.data, data });
+    console.log("res login", res);
+    const accessToken = res?.data?.data?.tokens?.access?.token;
+    const axiosInstanceWithLoginInfo = createAxiosInstance(accessToken);
+    let userData = await getUserInfo(axiosInstanceWithLoginInfo);
+    console.log("🚀 ~ file: authSlice.js:20 ~ login ~ userData:", userData);
+    let modifiersData = await getModifiers(axiosInstanceWithLoginInfo);
+    console.log(
+      "🚀 ~ file: authSlice.js:23 ~ login ~ modifiersData:",
+      modifiersData
+    );
+    let productCategoriesData = await getProductCategories(
+      axiosInstanceWithLoginInfo
+    );
+    console.log(
+      "🚀 ~ file: authSlice.js:29 ~ login ~ productCategoriesData:",
+      productCategoriesData
+    );
+    toast.success(res?.data?.message);
     return Promise.resolve(res);
   } catch (error) {
     const message = error?.response?.data?.message ?? "Something went wrong";

@@ -21,7 +21,7 @@ function TableManagement() {
 
   useEffect(() => {
     if (deviceCodes.length > 11 && passcode) {
-      router.push("/table-management?category=5f485e594c585f4c4359")
+      // router.push("/table-management?category=5f485e594c585f4c4359")
     } else {
       router.push("/")
     }

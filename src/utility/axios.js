@@ -60,3 +60,14 @@ axiosAuth.interceptors.request.use(function (config) {
   // }`;
   return config;
 });
+
+export const createAxiosInstance = (accessToken) => {
+  const axiosInstanceWithLoginInfo = axios.create({
+    baseURL: process.env.NEXT_PUBLIC_API_BASE_URL,
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${accessToken}`,
+    },
+  });
+  return axiosInstanceWithLoginInfo;
+};
