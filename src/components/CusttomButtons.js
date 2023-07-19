@@ -24,7 +24,7 @@ const style = ({ bgColor, color }) => {
 const largetBtnPrimaryStyle = (large) => {
   return (
     large && {
-      height: { lg: "60px", xs: "50px" },
+      height: { lg: "50px", xs: "40px" },
       fontSize: { lg: "18px", xs: "16px" },
       fontWeight: "400",
       letterSpacing: "0.6px",
