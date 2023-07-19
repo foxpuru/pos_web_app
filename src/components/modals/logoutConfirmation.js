@@ -1,14 +1,14 @@
-import * as React from "react"
-import Box from "@mui/material/Box"
+import * as React from "react";
+import Box from "@mui/material/Box";
 
-import CustomModal from "./CustomModal"
-import LogoutImg from "@/assets/images/ic_confirm_logout.png"
-import { Image } from "../styled-components"
-import { Typography } from "@mui/material"
+import CustomModal from "./CustomModal";
+import LogoutImg from "@/assets/images/ic_confirm_logout.png";
+import { Image } from "../styled-components";
+import { Typography } from "@mui/material";
 
-import { CancelButton, PrimaryButton } from "../CusttomButtons"
-import { useDispatch } from "react-redux"
-import { logout } from "@/redux/slices/authSlice"
+import { CancelButton, PrimaryButton } from "../CusttomButtons";
+import { useDispatch, useSelector } from "react-redux";
+import { logout } from "@/redux/slices/authSlice";
 
 export default function LogoutConfirmation({
   isOpen,
@@ -16,8 +16,8 @@ export default function LogoutConfirmation({
   handleOpen,
   handleClose,
 }) {
-  const dispatch = useDispatch()
-
+  const dispatch = useDispatch();
+  const selector = useSelector((state) => state?.auth?.userData);
   return (
     <CustomModal
       isOpen={isOpen}
@@ -46,10 +46,13 @@ export default function LogoutConfirmation({
           Are your sure you want to Logout?
         </Typography>
         <Box display="flex" width="100%" gap={{ lg: "12px", xs: "10px" }}>
-          <PrimaryButton label="OK" onClick={() => dispatch(logout())} />
+          <PrimaryButton
+            label="OK"
+            onClick={() => dispatch(logout({ refreshToken: selector.refresh }))}
+          />
           <CancelButton onClick={handleClose} />
         </Box>
       </Box>
     </CustomModal>
-  )
+  );
 }

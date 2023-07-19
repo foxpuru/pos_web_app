@@ -1,8 +1,8 @@
-import { Box, Button, Grid, Stack, Typography } from "@mui/material"
-import { useRouter } from "next/router"
-import React, { useEffect, useState } from "react"
-import Divider from "@mui/material/Divider"
-import { styled, alpha } from "@mui/material/styles"
+import { Box, Button, Grid, Stack, Typography } from "@mui/material";
+import { useRouter } from "next/router";
+import React, { useEffect, useState } from "react";
+import Divider from "@mui/material/Divider";
+import { styled, alpha } from "@mui/material/styles";
 import {
   CardCardsIcon,
   CardCashIcon,
@@ -11,21 +11,21 @@ import {
   PrintIconWhite,
   SaveCheckRedIcon,
   SearchGreyIcon,
-} from "@/components/icons"
+} from "@/components/icons";
 
-import PaymentMethodArrowImg from "../assets/images/ic_payment_method_arrow.png"
-import { Image } from "@/components/styled-components"
-import MainLayout from "@/layouts/MainLayout"
-import TransactionDateCard from "@/components/TransactionDateCard"
-import InputBase from "@mui/material/InputBase"
-import { ListDivider } from "@/components/ListDivider"
-import TransactionSideBar from "@/components/transaction-side-bar"
+import PaymentMethodArrowImg from "../assets/images/ic_payment_method_arrow.png";
+import { Image } from "@/components/styled-components";
+import MainLayout from "@/layouts/MainLayout";
+import TransactionDateCard from "@/components/TransactionDateCard";
+import InputBase from "@mui/material/InputBase";
+import { ListDivider } from "@/components/ListDivider";
+import TransactionSideBar from "@/components/transaction-side-bar";
 import {
   GuestDetailsConsumer,
   GuestDetailsProvider,
-} from "@/context/guestDetailsContext"
-import CustomHeaderLayout from "@/layouts/CustomHeaderLayout"
-import { PrimaryButton } from "@/components/CusttomButtons"
+} from "@/context/guestDetailsContext";
+import CustomHeaderLayout from "@/layouts/CustomHeaderLayout";
+import { PrimaryButton } from "@/components/CusttomButtons";
 
 function Transactions() {
   const [items, setItems] = useState([
@@ -43,8 +43,8 @@ function Transactions() {
       price: "₹1843.90",
       finalPrice: "₹1622.20",
     },
-  ])
-  const router = useRouter()
+  ]);
+  const router = useRouter();
   // const [orderItems, setOrderItems] = useState([])
 
   // console.log("order items", orderItems)
@@ -59,7 +59,7 @@ function Transactions() {
     // marginRight: theme.spacing(2),
     marginLeft: 0,
     width: "100%",
-  }))
+  }));
 
   const SearchIconWrapper = styled("div")(({ theme }) => ({
     padding: theme.spacing(0, 1),
@@ -74,7 +74,7 @@ function Transactions() {
       width: "32px",
       height: "32px",
     },
-  }))
+  }));
 
   const StyledInputBase = styled(InputBase)(({ theme }) => ({
     color: "#B1B6B9",
@@ -91,11 +91,11 @@ function Transactions() {
       paddingLeft: `calc(1em + ${theme.spacing(4)})`,
       width: "100%",
     },
-  }))
+  }));
 
   const style = {
     bgcolor: "background.paper",
-  }
+  };
 
   return (
     <Box display="flex" width="100%" alignItems="start">
@@ -573,10 +573,10 @@ function Transactions() {
         </GuestDetailsConsumer>
       </GuestDetailsProvider>
     </Box>
-  )
+  );
 }
 
 Transactions.getLayout = (page) => (
   <CustomHeaderLayout>{page}</CustomHeaderLayout>
-)
-export default Transactions
+);
+export default Transactions;

@@ -1,24 +1,23 @@
-import * as React from "react"
-import List from "@mui/material/List"
-import ListItem from "@mui/material/ListItem"
-import ListItemText from "@mui/material/ListItemText"
-import ListSubheader from "@mui/material/ListSubheader"
-import { transpilePackages } from "../../next.config"
-import { TransactionData } from "@/data/transactionData"
+import * as React from "react";
+import List from "@mui/material/List";
+import ListItem from "@mui/material/ListItem";
+import ListItemText from "@mui/material/ListItemText";
+import ListSubheader from "@mui/material/ListSubheader";
+import { TransactionData } from "@/data/transactionData";
 
-import { Box, Typography } from "@mui/material"
-import TransactionDateCard from "./TransactionDateCard"
-import GuestDetailsCard from "./GuestDetailsCard"
-import { GuestDetailsContext } from "@/context/guestDetailsContext"
+import { Box, Typography } from "@mui/material";
+import TransactionDateCard from "./TransactionDateCard";
+import GuestDetailsCard from "./GuestDetailsCard";
+import { GuestDetailsContext } from "@/context/guestDetailsContext";
 
 export default function TransactionSideBar({ data, card }) {
-  const { setOrderItems } = React.useContext(GuestDetailsContext)
+  const { setOrderItems } = React.useContext(GuestDetailsContext);
   React.useEffect(() => {
     setOrderItems({
       order: TransactionData[0]?.orders[0]?.order,
       orderNumber: TransactionData[0]?.orders[0]?.orderNumber,
-    })
-  }, [TransactionData])
+    });
+  }, [TransactionData]);
 
   return (
     <List
@@ -41,5 +40,5 @@ export default function TransactionSideBar({ data, card }) {
         <GuestDetailsCard key={index} card={card} section={section} />
       ))}
     </List>
-  )
+  );
 }

@@ -1,24 +1,24 @@
-import { Image } from "@/components/styled-components"
-import { Box, Button, Grid, Typography } from "@mui/material"
-import React, { useEffect, useState } from "react"
-import OtpInput from "react-otp-input"
+import { Image } from "@/components/styled-components";
+import { Box, Button, Grid, Typography } from "@mui/material";
+import React, { useEffect, useState } from "react";
+import OtpInput from "react-otp-input";
 
-import BackgroundBannerImg from "../assets/images/clock_in_bg.png"
-import LogoImg from "../assets/images/musepos_logo_colored_white.png"
-import ClockImg from "../assets/images/ic_clock_in.png"
-import { Form, Formik } from "formik"
-import BlankLayout from "@/layouts/BlankLayout"
-import { useRouter } from "next/router"
-import { PrimaryButton } from "@/components/CusttomButtons"
-import { Encrypt } from "@/hooks/useEncryption"
-import { useDispatch, useSelector } from "react-redux"
-import { loginThroughPasscode } from "@/redux/slices/authSlice"
-import Loader from "@/components/Loader"
+import BackgroundBannerImg from "../assets/images/clock_in_bg.png";
+import LogoImg from "../assets/images/musepos_logo_colored_white.png";
+import ClockImg from "../assets/images/ic_clock_in.png";
+import { Form, Formik } from "formik";
+import BlankLayout from "@/layouts/BlankLayout";
+import { useRouter } from "next/router";
+import { PrimaryButton } from "@/components/CusttomButtons";
+import { Encrypt } from "@/hooks/useEncryption";
+import { useDispatch, useSelector } from "react-redux";
+import { loginThroughPasscode } from "@/redux/slices/authSlice";
+import Loader from "@/components/Loader";
 
 function Passcode() {
-  const [otp, setOtp] = useState("")
-  const router = useRouter()
-  const deviceCodes = useSelector((state) => state.auth.deviceCode)
+  const [otp, setOtp] = useState("");
+  const router = useRouter();
+  const deviceCodes = useSelector((state) => state.auth.deviceCode);
 
   // useEffect(() => {
   //   // alert("dfdfd")
@@ -29,21 +29,20 @@ function Passcode() {
   //   }
   // }, [deviceCodes])
 
-  const passcode = useSelector((state) => state.auth.isAuthenticated)
+  const passcode = useSelector((state) => state.auth.passcode);
   useEffect(() => {
     if (passcode) {
-      router.push(`/food?category=${Encrypt("chinese")}`)
-    } else {
-      // router.push("/")
+      router.push(`/food?category=${Encrypt("chinese")}`);
     }
-  }, [passcode])
-  const dispatch = useDispatch()
+    // : router.push("/plan-renewal")
+  }, [passcode]);
+  const dispatch = useDispatch();
   const handleLogin = (otp) => {
-    dispatch(loginThroughPasscode(otp))
-  }
+    dispatch(loginThroughPasscode(otp));
+  };
   return (
     <>
-      {passcode && <Loader />}
+      {!deviceCodes && !passcode && <Loader />}
       <Box
         sx={{
           backgroundImage: `url(${BackgroundBannerImg.src})`,
@@ -135,7 +134,7 @@ function Passcode() {
                         {...props}
                         className={!!props.value ? "fill-otp" : undefined}
                       />
-                    )
+                    );
                   }}
                 />
               </Box>
@@ -166,8 +165,8 @@ function Passcode() {
         </Formik>
       </Box>
     </>
-  )
+  );
 }
 
-Passcode.getLayout = (page) => <BlankLayout>{page}</BlankLayout>
-export default Passcode
+Passcode.getLayout = (page) => <BlankLayout>{page}</BlankLayout>;
+export default Passcode;

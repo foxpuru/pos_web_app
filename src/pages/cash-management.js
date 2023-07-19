@@ -1,25 +1,25 @@
-import { PrimaryButton } from "@/components/CusttomButtons"
-import SettingsLayout from "@/layouts/settingLayout"
-import styled from "@emotion/styled"
-import { Box, Grid, Paper, Typography, useMediaQuery } from "@mui/material"
-import React, { useState } from "react"
-import PlusImg from "../assets/images/ic_plus.png"
-import MinusImg from "../assets/images/ic_minus.png"
-import { Image } from "@/components/styled-components"
+import { PrimaryButton } from "@/components/CusttomButtons";
+import SettingsLayout from "@/layouts/settingLayout";
+import styled from "@emotion/styled";
+import { Box, Grid, Paper, Typography, useMediaQuery } from "@mui/material";
+import React, { useState } from "react";
+import PlusImg from "../assets/images/ic_plus.png";
+import MinusImg from "../assets/images/ic_minus.png";
+import { Image } from "@/components/styled-components";
 
 const buttonStyles = {
   borderRadius: "0px 0px 10px 10px",
   fontSize: { lg: "16px", xs: "16px" },
   height: { lg: "50px", xs: "40px" },
   letterSpacing: 0,
-}
+};
 
 const BoxStyles = {
   display: "flex",
   alignItems: "center",
   px: { lg: "22px", xs: "18px" },
   justifyContent: "space-between",
-}
+};
 
 const TypographyStyles = {
   fontSize: { lg: "18px", xs: "16px" },
@@ -27,7 +27,7 @@ const TypographyStyles = {
   letterSpacing: "0.65px",
   textTransform: "capitalize",
   color: "#000000",
-}
+};
 
 const AmountColumn = ({ item, handleAdd, handleRemove }) => {
   return (
@@ -96,8 +96,8 @@ const AmountColumn = ({ item, handleAdd, handleRemove }) => {
         </Typography>
       </Box>
     </Grid>
-  )
-}
+  );
+};
 
 function CashManagement() {
   const [count, setCount] = useState([
@@ -133,7 +133,7 @@ function CashManagement() {
       amount: 2,
       quantity: 0,
     },
-  ])
+  ]);
 
   // const handleRemove = (item) => {
   //   setCount([])
@@ -144,7 +144,7 @@ function CashManagement() {
   //   { label: "20 Rupees Coin", count: "0", amount: "₹0.00" },
   // ]
 
-  const handleChange = () => {}
+  const handleChange = () => {};
 
   return (
     <Box
@@ -294,10 +294,10 @@ function CashManagement() {
         </Box>
       </Box>
     </Box>
-  )
+  );
 }
 
 CashManagement.getLayout = (page) => (
   <SettingsLayout settingsHeader>{page}</SettingsLayout>
-)
-export default CashManagement
+);
+export default CashManagement;

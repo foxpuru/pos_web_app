@@ -1,8 +1,8 @@
-import { Box, Button, Grid, Stack, Typography } from "@mui/material"
-import { useRouter } from "next/router"
-import React, { useEffect, useState } from "react"
-import Divider from "@mui/material/Divider"
-import { styled, alpha } from "@mui/material/styles"
+import { Box, Button, Grid, Stack, Typography } from "@mui/material";
+import { useRouter } from "next/router";
+import React, { useEffect, useState } from "react";
+import Divider from "@mui/material/Divider";
+import { styled, alpha } from "@mui/material/styles";
 import {
   CardCardsIcon,
   CardCashIcon,
@@ -11,75 +11,71 @@ import {
   PrintIconWhite,
   SaveCheckRedIcon,
   SearchGreyIcon,
-} from "@/components/icons"
+} from "@/components/icons";
 
-import PaymentMethodArrowImg from "../assets/images/ic_payment_method_arrow.png"
-import { Image } from "@/components/styled-components"
-import MainLayout from "@/layouts/MainLayout"
-import TransactionDateCard from "@/components/TransactionDateCard"
-import InputBase from "@mui/material/InputBase"
-import { ListDivider } from "@/components/ListDivider"
-import TransactionSideBar from "@/components/transaction-side-bar"
+import PaymentMethodArrowImg from "../assets/images/ic_payment_method_arrow.png";
+import { Image } from "@/components/styled-components";
+import InputBase from "@mui/material/InputBase";
+import { ListDivider } from "@/components/ListDivider";
+import TransactionSideBar from "@/components/transaction-side-bar";
 import {
   GuestDetailsConsumer,
   GuestDetailsProvider,
-} from "@/context/guestDetailsContext"
-import ChecksDataCard from "@/components/ChecksDataCard"
-import CustomHeaderLayout from "@/layouts/CustomHeaderLayout"
-import { PrimaryButton } from "@/components/CusttomButtons"
+} from "@/context/guestDetailsContext";
+import ChecksDataCard from "@/components/ChecksDataCard";
+import CustomHeaderLayout from "@/layouts/CustomHeaderLayout";
+import { PrimaryButton } from "@/components/CusttomButtons";
+const Search = styled("div")(({ theme }) => ({
+  position: "relative",
+  borderRadius: "8px",
+  backgroundColor: "#FFFFFF",
+  "&:hover": {
+    backgroundColor: "#FFFFFF",
+  },
+  // marginRight: theme.spacing(2),
+  marginLeft: 0,
+  width: "100%",
+}));
 
+const SearchIconWrapper = styled("div")(({ theme }) => ({
+  padding: theme.spacing(0, 1),
+  height: "100%",
+  position: "absolute",
+  pointerEvents: "none",
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+
+  "& svg": {
+    width: "32px",
+    height: "32px",
+  },
+}));
+
+const StyledInputBase = styled(InputBase)(({ theme }) => ({
+  color: "#B1B6B9",
+  fontWeight: "400",
+  leterSpacing: "0.6px",
+  fontSize: { lg: "16px", xs: "12px" },
+  "& .MuiInputBase-input": {
+    color: "#B1B6B9",
+    fontWeight: "400",
+    leterSpacing: "0.6px",
+    fontSize: { lg: "16px", xs: "12px" },
+    padding: theme.spacing(1, 1, 1, 0),
+    // vertical padding + font size from searchIcon
+    paddingLeft: `calc(1em + ${theme.spacing(4)})`,
+    width: "100%",
+  },
+}));
 function Checks() {
   // const [orderItems, setOrderItems] = useState([])
 
   // console.log("order items", orderItems)
 
-  const Search = styled("div")(({ theme }) => ({
-    position: "relative",
-    borderRadius: "8px",
-    backgroundColor: "#FFFFFF",
-    "&:hover": {
-      backgroundColor: "#FFFFFF",
-    },
-    // marginRight: theme.spacing(2),
-    marginLeft: 0,
-    width: "100%",
-  }))
-
-  const SearchIconWrapper = styled("div")(({ theme }) => ({
-    padding: theme.spacing(0, 1),
-    height: "100%",
-    position: "absolute",
-    pointerEvents: "none",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-
-    "& svg": {
-      width: "32px",
-      height: "32px",
-    },
-  }))
-
-  const StyledInputBase = styled(InputBase)(({ theme }) => ({
-    color: "#B1B6B9",
-    fontWeight: "400",
-    leterSpacing: "0.6px",
-    fontSize: { lg: "16px", xs: "12px" },
-    "& .MuiInputBase-input": {
-      color: "#B1B6B9",
-      fontWeight: "400",
-      leterSpacing: "0.6px",
-      fontSize: { lg: "16px", xs: "12px" },
-      padding: theme.spacing(1, 1, 1, 0),
-      // vertical padding + font size from searchIcon
-      paddingLeft: `calc(1em + ${theme.spacing(4)})`,
-      width: "100%",
-    },
-  }))
-
   const style = {
     bgcolor: "background.paper",
-  }
+  };
 
   return (
     <Box display="flex" width="100%" alignItems="start">
@@ -448,8 +444,8 @@ function Checks() {
         </GuestDetailsConsumer>
       </GuestDetailsProvider>
     </Box>
-  )
+  );
 }
 
-Checks.getLayout = (page) => <CustomHeaderLayout>{page}</CustomHeaderLayout>
-export default Checks
+Checks.getLayout = (page) => <CustomHeaderLayout>{page}</CustomHeaderLayout>;
+export default Checks;

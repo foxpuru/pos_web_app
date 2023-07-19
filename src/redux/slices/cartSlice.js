@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit"
+import { createSlice } from "@reduxjs/toolkit";
 
 const CartSlice = createSlice({
   name: "cart",
@@ -13,19 +13,19 @@ const CartSlice = createSlice({
     handleAddToCart(state, action) {
       const existingItem = state.items.find(
         (item) => item.id === action.payload.id
-      )
+      );
 
       if (existingItem) {
-        existingItem.quantity += 1
+        existingItem.quantity += 1;
 
         const existingItemIndex = state.items.findIndex(
           (item) => item.id === action.payload.id
-        )
+        );
 
-        state.items = [...state.items]
-        state.items[existingItemIndex] = existingItem
+        state.items = [...state.items];
+        state.items[existingItemIndex] = existingItem;
       } else {
-        state.items = [...state.items, { ...action.payload, quantity: 1 }]
+        state.items = [...state.items, { ...action.payload, quantity: 1 }];
       }
 
       //   const foundItem = state.items.find(
@@ -42,21 +42,21 @@ const CartSlice = createSlice({
       //   }
     },
     handleUpdateCart(state, action) {
-      state.items = action.payload
+      state.items = action.payload;
     },
     handleRemoveFromCart(state, action) {
       const existingItem = state.items.find(
         (item) => item.id === action.payload.id
-      )
+      );
       // console.log("existing item", existingItem)
 
       if (existingItem.quantity == 1) {
         const existingItemIndex = state.items.findIndex(
           (item) => item.id === action.payload.id
-        )
-        state.items.splice(existingItemIndex, 1)
+        );
+        state.items.splice(existingItemIndex, 1);
       } else if (existingItem) {
-        existingItem.quantity -= 1
+        existingItem.quantity -= 1;
       }
     },
 
@@ -66,51 +66,51 @@ const CartSlice = createSlice({
 
       const existingItem = state.items.find(
         (item) => item.id === action.payload.id
-      )
+      );
 
       if (existingItem) {
         // existingItem.quantity += 1
 
         const existingItemIndex = state.items.findIndex(
           (item) => item.id === action.payload.id
-        )
+        );
 
         const existingCustomFoodItem = existingItem?.customFoodOptions?.find(
           (item) => item.id === action?.payload?.customFoodOption?.id
-        )
+        );
         if (existingCustomFoodItem) {
           const existingCustomFilteredItems = state.items[
             existingItemIndex
           ].customFoodOptions.filter(
             (item) => item.id !== action?.payload?.customFoodOption?.id
-          )
+          );
           // state.items = [...state.items]
           state.items[existingItemIndex].customFoodOptions =
-            existingCustomFilteredItems
+            existingCustomFilteredItems;
         } else {
           if (action.payload.customFoodOption.type === "varient") {
             const existingVarientilteredItems = state.items[
               existingItemIndex
             ].customFoodOptions.filter(
               (item) => item.type !== action?.payload?.customFoodOption?.type
-            )
+            );
 
             console.log(
               "existingVarientilteredItems",
               existingVarientilteredItems
-            )
-            state.items = [...state.items]
+            );
+            state.items = [...state.items];
             state.items[existingItemIndex].customFoodOptions = [
               // ...state.items[existingItemIndex].customFoodOptions,
               ...existingVarientilteredItems,
               action.payload.customFoodOption,
-            ]
+            ];
           } else {
-            state.items = [...state.items]
+            state.items = [...state.items];
             state.items[existingItemIndex].customFoodOptions = [
               ...state.items[existingItemIndex].customFoodOptions,
               action.payload.customFoodOption,
-            ]
+            ];
           }
         }
         // // existingItem.customFoodOptions
@@ -129,8 +129,8 @@ const CartSlice = createSlice({
         // //   },
         // // ]
       } else {
-        const customFood = { ...action.payload.customFoodOption }
-        delete action.payload.customFoodOption
+        const customFood = { ...action.payload.customFoodOption };
+        delete action.payload.customFoodOption;
 
         state.items = [
           ...state.items,
@@ -139,7 +139,7 @@ const CartSlice = createSlice({
             quantity: 1,
             customFoodOptions: [customFood],
           },
-        ]
+        ];
       }
     },
     handleSaveChecks(state) {
@@ -147,12 +147,12 @@ const CartSlice = createSlice({
         id: "qwsq",
         createdAt: "2323",
         data: state.items,
-      }
-      state.savedChecks = [...state.savedChecks, cheksData]
-      state.items = []
+      };
+      state.savedChecks = [...state.savedChecks, cheksData];
+      state.items = [];
     },
   },
-})
+});
 
 export const {
   handleAddToCart,
@@ -160,6 +160,6 @@ export const {
   handleUpdateCart,
   handleAddCustomizableFoodItem,
   handleSaveChecks,
-} = CartSlice.actions
+} = CartSlice.actions;
 
-export default CartSlice.reducer
+export default CartSlice.reducer;

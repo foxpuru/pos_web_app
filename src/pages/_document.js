@@ -1,5 +1,5 @@
-import { Html, Head, Main, NextScript } from "next/document"
-import Script from "next/script"
+import { Html, Head, Main, NextScript } from "next/document";
+import Script from "next/script";
 export default function Document() {
   return (
     <Html>
@@ -127,20 +127,6 @@ export default function Document() {
         <Main />
         <NextScript />
       </body>
-      {/* <Script
-        type="text/javascript"
-        src="https://cdn.weglot.com/weglot.min.js"
-        // onLoad={() =>
-        //   Weglot.initialize({
-        //     api_key: "wg_7e6335342baee7f0a35412f3586e80944",
-        //   })
-        // }
-      ></Script>
-      <Script>
-        {Weglot.initialize({
-          api_key: "wg_7e6335342baee7f0a35412f3586e80944",
-        })}
-      </Script> */}
     </Html>
-  )
+  );
 }
