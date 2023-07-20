@@ -12,7 +12,7 @@ const style = {
   left: "50%",
   transform: "translate(-50%, -50%)",
   width: { lg: 550, xs: 450 },
-  height: { md: 370,  xs: 300 },
+  height: { md: 370, xs: 300 },
   bgcolor: "#FFFFFF",
   borderRadius: "10px",
   boxShadow: 24,
@@ -31,7 +31,7 @@ export default function SelectLayout({
     { label: "Foods", value: "Foods" },
   ]
   return (
-    <Modal open={isOpen} onClose={handleClose}>
+    <Modal open={isOpen}>
       <Box sx={style}>
         <Box
           px={{ lg: "22px", xs: "12px" }}

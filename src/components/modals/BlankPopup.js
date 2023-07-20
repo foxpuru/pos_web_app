@@ -47,7 +47,7 @@ export default function BlankPopup({
   handleClose,
 }) {
   return (
-    <Modal open={isOpen} onClose={handleClose}>
+    <Modal open={isOpen}>
       <Box sx={style}>
         <Box display="flex" alignItems="center">
           {/* <Image src={DoneImg.src} alt="done" /> */}
