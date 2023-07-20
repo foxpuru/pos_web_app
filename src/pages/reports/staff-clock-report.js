@@ -153,7 +153,7 @@ function Reports() {
 
       <Box position="relative">
         <ListDivider
-          styles={{
+          sx={{
             borderBottomWidth: "2px",
             borderColor: "#D7DBDC",
           }}

@@ -204,7 +204,7 @@ function Transactions() {
 
                   <Box position="relative">
                     <ListDivider
-                      styles={{
+                      sx={{
                         borderBottomWidth: "2px",
                         borderColor: "#D7DBDC",
                       }}
@@ -345,7 +345,7 @@ function Transactions() {
                             </Box>
                           </Box>
                           <ListDivider
-                            styles={{ mb: { lg: "16px", xs: "12px" } }}
+                            sx={{ mb: { lg: "16px", xs: "12px" } }}
                           />
                         </Box>
                       ))}
