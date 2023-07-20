@@ -84,8 +84,10 @@ function Checks() {
           {({ orderItems }) => (
             <>
               <Box
-                maxWidth={{ lg: "370px", xs: "230px" }}
-                minWidth={{ lg: "370px", xs: "230px" }}
+                // maxWidth={{ lg: "370px", xs: "230px" }}
+                // minWidth={{ lg: "370px", xs: "230px" }}
+                maxWidth={{ lg: "350px", md: "300px", xs: "250px" }}
+                minWidth={{ lg: "350px", md: "300px", xs: "250px" }}
                 bgcolor="#FFFFFF"
                 height={{ lg: "calc(100vh - 64px)", xs: "calc(100vh - 60px)" }}
                 overflow="auto"
@@ -110,7 +112,7 @@ function Checks() {
 
               <Box
                 width="100%"
-                p={{ lg: "22px", xs: "12px" }}
+                p={{ lg: "22px", md: "18px", xs: "12px" }}
                 height={{ lg: "calc(100vh - 64px)", xs: "calc(100vh - 60px)" }}
               >
                 <Box
@@ -119,78 +121,76 @@ function Checks() {
                   bgcolor="#FFFFFF"
                   border="1px solid #D7DBDC"
                   borderRadius="10px"
-                  sx={{ opacity: 1 }}
+                  // sx={{ opacity: 1 }}
                   textAlign="center"
+                  display="flex"
+                  flexDirection="column"
+                  justifyContent="space-between"
                 >
-                  <Box
-                    py={{ lg: "12px", xs: "12px" }}
-                    display="flex"
-                    flexDirection="column"
-                    gap={{ lg: "6px", xs: "6px" }}
-                  >
-                    <Typography
-                      color="#000000"
-                      fontWeight="400"
-                      fontSize={{ lg: "40px", xs: "28px" }}
-                      letterSpacing="0.7px"
-                    >
-                      ₹2175.8
-                    </Typography>
-                    <Typography
-                      color="#A1A1A1"
-                      fontWeight="400"
-                      fontSize={{ lg: "16px", xs: "12px" }}
-                      letterSpacing="0.53px"
-                    >
-                      Total Amount Paid (Cash)
-                    </Typography>
-                    <Typography
-                      color="#A1A1A1"
-                      fontWeight="400"
-                      fontSize={{ lg: "16px", xs: "12px" }}
-                      letterSpacing="0.53px"
-                    >
-                      <Typography component={"span"} color="#00B153">
-                        Successful{" "}
-                      </Typography>
-                      Mar 13 2023 - 04:25 PM - The Muse
-                    </Typography>
-                  </Box>
-                  <Box position="relative">
-                    <ListDivider
-                      sx={{
-                        borderBottomWidth: "2px",
-                        borderColor: "#D7DBDC",
-                      }}
-                    />
-                    <Image
-                      src={PaymentMethodArrowImg.src}
-                      alt="Payment Method Arrow"
-                      sx={{
-                        position: "absolute",
-                        top: "0px",
-                        left: "50%",
-                        transform: "translateX(-50%)",
-                        width: { lg: "22px", xs: "14px" },
-                      }}
-                    />
-                  </Box>
-                  <Box
-                    p={{ lg: "18px", md: "16px", xs: "12px" }}
-                    width="100%"
-                    // height={{
-                    //   lg: "calc(100% - 144px - 2px - 108px)",
-                    //   xs: "calc(100% - 106px - 2px - 92px)",
-                    // }}
-                  >
+                  <Box>
                     <Box
-                      overflow="auto"
+                      py={{ lg: "12px", xs: "12px" }}
+                      display="flex"
+                      flexDirection="column"
+                      // gap={{ lg: "6px", xs: "6px" }}
+                    >
+                      <Typography
+                        color="#000000"
+                        fontWeight="400"
+                        fontSize={{ lg: "40px", xs: "28px" }}
+                        letterSpacing="0.7px"
+                      >
+                        ₹2175.8
+                      </Typography>
+                      <Typography
+                        color="#A1A1A1"
+                        fontWeight="400"
+                        fontSize={{ lg: "16px", xs: "12px" }}
+                        letterSpacing="0.53px"
+                      >
+                        Total Amount Paid (Cash)
+                      </Typography>
+                      <Typography
+                        color="#A1A1A1"
+                        fontWeight="400"
+                        fontSize={{ lg: "16px", xs: "12px" }}
+                        letterSpacing="0.53px"
+                      >
+                        <Typography component={"span"} color="#00B153">
+                          Successful{" "}
+                        </Typography>
+                        Mar 13 2023 - 04:25 PM - The Muse
+                      </Typography>
+                    </Box>
+                    <Box position="relative">
+                      <ListDivider
+                        sx={{
+                          borderBottomWidth: "2px",
+                          borderColor: "#D7DBDC",
+                        }}
+                      />
+                      <Image
+                        src={PaymentMethodArrowImg.src}
+                        alt="Payment Method Arrow"
+                        sx={{
+                          position: "absolute",
+                          top: "0px",
+                          left: "50%",
+                          transform: "translateX(-50%)",
+                          width: { lg: "22px", xs: "14px" },
+                        }}
+                      />
+                    </Box>
+                    <Box
+                      // p={{ lg: "18px", md: "16px", xs: "12px" }}
+                      p={{ lg: "22px", md: "18px", xs: "12px" }}
+                      width="100%"
                       height={{
-                        lg: "calc(100% - 124px)",
-                        xs: "calc(100% - 106px)",
+                        lg: "calc(100vh - 502px)",
+                        md: "calc(100vh - 426px)",
+                        xs: "calc(100vh - 396px)",
                       }}
-                      // p={{ lg: "18px", xs: "12px" }}
-                      sx={{ paddingTop: "0 !important" }}
+                      overflow="auto"
                     >
                       {orderItems?.order?.map((item, index) => (
                         <Box key={index}>
@@ -303,130 +303,127 @@ function Checks() {
                         </Box>
                       ))}
                     </Box>
-                    <Box border="1px solid #D7DBDC" borderRadius="8px">
-                      <Box
-                        display="flex"
-                        alignItems="center"
-                        justifyContent="space-between"
-                        width="100%"
-                        px={{ lg: "10px", xs: "10px" }}
-                        py={{ lg: "8px", xs: "8px" }}
-                      >
-                        <Typography
-                          sx={{
-                            fontWeight: "400",
-                            color: "#FF4141",
-                            letterSpacing: "0.53px",
-                            fontSize: { lg: "15px", xs: "11px" },
-                          }}
-                        >
-                          Discount
-                        </Typography>
-                        <Typography
-                          sx={{
-                            fontWeight: "400",
-                            color: "#FF4141",
-                            letterSpacing: "0.55px",
-                            fontSize: { lg: "16px", xs: "12px" },
-                          }}
-                        >
-                          ₹0.00
-                        </Typography>
-                      </Box>
-                      <Divider
-                        sx={{
-                          borderBottomWidth: "1px",
-                          borderColor: "#D7DBDC",
-                        }}
-                      />
-                      <Box
-                        display="flex"
-                        alignItems="center"
-                        justifyContent="space-between"
-                        width="100%"
-                        px={{ lg: "10px", xs: "12px" }}
-                        py={{ lg: "8px", xs: "8px" }}
-                      >
-                        <Typography
-                          sx={{
-                            fontWeight: "400",
-                            color: "#A5ACAE",
-                            letterSpacing: "0.53px",
-                            fontSize: { lg: "15px", xs: "11px" },
-                          }}
-                        >
-                          Sub Total
-                        </Typography>
-                        <Typography
-                          sx={{
-                            fontWeight: "400",
-                            color: "#000000",
-                            letterSpacing: "0.55px",
-                            fontSize: { lg: "16px", xs: "12px" },
-                          }}
-                        >
-                          ₹1843.90
-                        </Typography>
-                      </Box>
-                      <Divider
-                        sx={{
-                          borderBottomWidth: "1px",
-                          borderColor: "#D7DBDC",
-                        }}
-                      />
-                      <Box
-                        display="flex"
-                        alignItems="center"
-                        justifyContent="space-between"
-                        width="100%"
-                        px={{ lg: "10px", xs: "12px" }}
-                        py={{ lg: "8px", xs: "8px" }}
-                      >
-                        <Typography
-                          sx={{
-                            fontWeight: "400",
-                            color: "#A5ACAE",
-                            letterSpacing: "0.53px",
-                            fontSize: { lg: "15px", xs: "11px" },
-                          }}
-                        >
-                          Tax
-                        </Typography>
-                        <Typography
-                          sx={{
-                            fontWeight: "400",
-                            color: "#000000",
-                            letterSpacing: "0.55px",
-                            fontSize: { lg: "16px", xs: "12px" },
-                          }}
-                        >
-                          ₹331.90
-                        </Typography>
-                      </Box>
-                    </Box>
                   </Box>
 
-                  <Grid
-                    container
-                    item
-                    spacing={{ lg: 3, md: 2, xs: 1 }}
-                    // height="100%"
-                    // alignItems="end"
-                    // py={{ lg: "22px", xs: "22px" }}
-                    px={{ lg: "22px", md: "16px", xs: "12px" }}
-                  >
-                    <Grid item xs={4}></Grid>
-                    <Grid item xs={4}>
-                      <PrimaryButton
-                        large
-                        startIcon={<PrintIconWhite />}
-                        label="receipt"
-                      />
+                  <Box p={{ lg: "22px", md: "18px", xs: "12px" }}>
+                    <Box pb={{ lg: "22px", md: "18px", xs: "12px" }}>
+                      <Box border="1px solid #D7DBDC" borderRadius="8px">
+                        <Box
+                          display="flex"
+                          alignItems="center"
+                          justifyContent="space-between"
+                          width="100%"
+                          px={{ lg: "10px", xs: "10px" }}
+                          py={{ lg: "8px", xs: "8px" }}
+                        >
+                          <Typography
+                            sx={{
+                              fontWeight: "400",
+                              color: "#FF4141",
+                              letterSpacing: "0.53px",
+                              fontSize: { lg: "15px", xs: "11px" },
+                            }}
+                          >
+                            Discount
+                          </Typography>
+                          <Typography
+                            sx={{
+                              fontWeight: "400",
+                              color: "#FF4141",
+                              letterSpacing: "0.55px",
+                              fontSize: { lg: "16px", xs: "12px" },
+                            }}
+                          >
+                            ₹0.00
+                          </Typography>
+                        </Box>
+                        <Divider
+                          sx={{
+                            borderBottomWidth: "1px",
+                            borderColor: "#D7DBDC",
+                          }}
+                        />
+                        <Box
+                          display="flex"
+                          alignItems="center"
+                          justifyContent="space-between"
+                          width="100%"
+                          px={{ lg: "10px", xs: "12px" }}
+                          py={{ lg: "8px", xs: "8px" }}
+                        >
+                          <Typography
+                            sx={{
+                              fontWeight: "400",
+                              color: "#A5ACAE",
+                              letterSpacing: "0.53px",
+                              fontSize: { lg: "15px", xs: "11px" },
+                            }}
+                          >
+                            Sub Total
+                          </Typography>
+                          <Typography
+                            sx={{
+                              fontWeight: "400",
+                              color: "#000000",
+                              letterSpacing: "0.55px",
+                              fontSize: { lg: "16px", xs: "12px" },
+                            }}
+                          >
+                            ₹1843.90
+                          </Typography>
+                        </Box>
+                        <Divider
+                          sx={{
+                            borderBottomWidth: "1px",
+                            borderColor: "#D7DBDC",
+                          }}
+                        />
+                        <Box
+                          display="flex"
+                          alignItems="center"
+                          justifyContent="space-between"
+                          width="100%"
+                          px={{ lg: "10px", xs: "12px" }}
+                          py={{ lg: "8px", xs: "8px" }}
+                        >
+                          <Typography
+                            sx={{
+                              fontWeight: "400",
+                              color: "#A5ACAE",
+                              letterSpacing: "0.53px",
+                              fontSize: { lg: "15px", xs: "11px" },
+                            }}
+                          >
+                            Tax
+                          </Typography>
+                          <Typography
+                            sx={{
+                              fontWeight: "400",
+                              color: "#000000",
+                              letterSpacing: "0.55px",
+                              fontSize: { lg: "16px", xs: "12px" },
+                            }}
+                          >
+                            ₹331.90
+                          </Typography>
+                        </Box>
+                      </Box>
+                    </Box>
+
+                    <Grid container columnSpacing={{ md: 3, xs: 2 }}>
+                      <Grid item xs={4}></Grid>
+                      <Grid item xs={4}>
+                        <PrimaryButton
+                          large
+                          startIcon={<PrintIconWhite />}
+                          label="receipt"
+                        />
+                      </Grid>
+                      <Grid item xs={4}>
+                        <PrimaryButton large label="refund check" />
+                      </Grid>
                     </Grid>
-                    <Grid item xs={4}>
-                      <PrimaryButton large label="refund check" />
-                    </Grid>
-                  </Grid>
+                  </Box>
                 </Box>
               </Box>
             </>

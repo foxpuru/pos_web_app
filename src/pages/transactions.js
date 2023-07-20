@@ -129,8 +129,8 @@ function Transactions() {
           {({ orderItems }) => (
             <>
               <Box
-                maxWidth={{ lg: "370px", xs: "230px" }}
-                minWidth={{ lg: "370px", xs: "230px" }}
+                // maxWidth={{ lg: "370px", xs: "230px" }}
+                // minWidth={{ lg: "370px", xs: "230px" }}
                 bgcolor="#FFFFFF"
                 height={{ lg: "calc(100vh - 64px)", xs: "calc(100vh - 60px)" }}
                 overflow="auto"
