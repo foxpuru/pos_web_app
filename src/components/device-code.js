@@ -56,7 +56,7 @@ function DeviceCode() {
 
   const handleLogin = (otp) => {
     // device_code: "YDNW-WMM5-C4K5" }
-    dispatch(login({ device_code: otp }));
+    dispatch(login({ device_code: "YDNW-WMM5-C4K5" }));
     // if (deviceCode === otp) {
     //   router.push("plan-renewal")
     // }

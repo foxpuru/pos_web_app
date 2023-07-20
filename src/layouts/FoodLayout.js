@@ -1,26 +1,26 @@
-import Footer from "@/components/Footer"
-import Header from "@/components/Header"
-import Loader from "@/components/Loader"
-import UrlTitle from "@/components/Title"
-import { useRouter } from "next/router"
-import React, { useEffect } from "react"
-import { useSelector } from "react-redux"
+import Footer from "@/components/Footer";
+import Header from "@/components/Header";
+import Loader from "@/components/Loader";
+import UrlTitle from "@/components/Title";
+import { useRouter } from "next/router";
+import React, { useEffect } from "react";
+import { useSelector } from "react-redux";
 
 function FoodLayout({ children, custom }) {
-  const router = useRouter()
+  const router = useRouter();
 
-  const deviceCodes = useSelector((state) => state.auth.deviceCode)
-  const passcode = useSelector((state) => state.auth.isAuthenticated)
+  const deviceCodes = useSelector((state) => state.auth.deviceCode);
+  const passcode = useSelector((state) => state.auth.isAuthenticated);
 
   useEffect(() => {
     if (deviceCodes.length > 11 && passcode) {
-      router.push("/food?category=1c1716111a0c1a")
+      // router.push("/food?category=1c1716111a0c1a")
     } else {
-      router.push("/")
+      router.push("/");
     }
-  }, [deviceCodes])
+  }, [deviceCodes]);
 
-  console.log("router", router.query.foodType)
+  console.log("router", router.query.foodType);
   return (
     <>
       {!deviceCodes && !passcode && <Loader />}
@@ -30,7 +30,7 @@ function FoodLayout({ children, custom }) {
       {children}
       {router.query.foodType === "custom" ? <Footer custom /> : <Footer />}
     </>
-  )
+  );
 }
 
-export default FoodLayout
+export default FoodLayout;
