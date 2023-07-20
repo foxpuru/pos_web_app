@@ -1,8 +1,8 @@
-import { Box, Button, Grid, Stack, Typography } from "@mui/material";
-import { useRouter } from "next/router";
-import React, { useEffect, useState } from "react";
-import Divider from "@mui/material/Divider";
-import { styled, alpha } from "@mui/material/styles";
+import { Box, Button, Grid, Stack, Typography } from "@mui/material"
+import { useRouter } from "next/router"
+import React, { useEffect, useState } from "react"
+import Divider from "@mui/material/Divider"
+import { styled, alpha } from "@mui/material/styles"
 import {
   CardCardsIcon,
   CardCashIcon,
@@ -11,20 +11,20 @@ import {
   PrintIconWhite,
   SaveCheckRedIcon,
   SearchGreyIcon,
-} from "@/components/icons";
+} from "@/components/icons"
 
-import PaymentMethodArrowImg from "../assets/images/ic_payment_method_arrow.png";
-import { Image } from "@/components/styled-components";
-import InputBase from "@mui/material/InputBase";
-import { ListDivider } from "@/components/ListDivider";
-import TransactionSideBar from "@/components/transaction-side-bar";
+import PaymentMethodArrowImg from "../assets/images/ic_payment_method_arrow.png"
+import { Image } from "@/components/styled-components"
+import InputBase from "@mui/material/InputBase"
+import { ListDivider } from "@/components/ListDivider"
+import TransactionSideBar from "@/components/transaction-side-bar"
 import {
   GuestDetailsConsumer,
   GuestDetailsProvider,
-} from "@/context/guestDetailsContext";
-import ChecksDataCard from "@/components/ChecksDataCard";
-import CustomHeaderLayout from "@/layouts/CustomHeaderLayout";
-import { PrimaryButton } from "@/components/CusttomButtons";
+} from "@/context/guestDetailsContext"
+import ChecksDataCard from "@/components/ChecksDataCard"
+import CustomHeaderLayout from "@/layouts/CustomHeaderLayout"
+import { PrimaryButton } from "@/components/CusttomButtons"
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
   borderRadius: "8px",
@@ -35,7 +35,7 @@ const Search = styled("div")(({ theme }) => ({
   // marginRight: theme.spacing(2),
   marginLeft: 0,
   width: "100%",
-}));
+}))
 
 const SearchIconWrapper = styled("div")(({ theme }) => ({
   padding: theme.spacing(0, 1),
@@ -50,7 +50,7 @@ const SearchIconWrapper = styled("div")(({ theme }) => ({
     width: "32px",
     height: "32px",
   },
-}));
+}))
 
 const StyledInputBase = styled(InputBase)(({ theme }) => ({
   color: "#B1B6B9",
@@ -67,7 +67,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
     paddingLeft: `calc(1em + ${theme.spacing(4)})`,
     width: "100%",
   },
-}));
+}))
 function Checks() {
   // const [orderItems, setOrderItems] = useState([])
 
@@ -75,7 +75,7 @@ function Checks() {
 
   const style = {
     bgcolor: "background.paper",
-  };
+  }
 
   return (
     <Box display="flex" width="100%" alignItems="start">
@@ -176,12 +176,12 @@ function Checks() {
                     />
                   </Box>
                   <Box
-                    p={{ lg: "18px", xs: "12px" }}
+                    p={{ lg: "18px", md: "16px", xs: "12px" }}
                     width="100%"
-                    height={{
-                      lg: "calc(100% - 144px - 2px - 108px)",
-                      xs: "calc(100% - 106px - 2px - 92px)",
-                    }}
+                    // height={{
+                    //   lg: "calc(100% - 144px - 2px - 108px)",
+                    //   xs: "calc(100% - 106px - 2px - 92px)",
+                    // }}
                   >
                     <Box
                       overflow="auto"
@@ -408,33 +408,23 @@ function Checks() {
 
                   <Grid
                     container
-                    height={
-                      {
-                        // lg: "calc(100% - 144px - 247px)",
-                        // xs: "calc(100% - 120px - 195px)",
-                      }
-                    }
+                    item
+                    spacing={{ lg: 3, md: 2, xs: 1 }}
+                    // height="100%"
+                    // alignItems="end"
+                    // py={{ lg: "22px", xs: "22px" }}
+                    px={{ lg: "22px", md: "16px", xs: "12px" }}
                   >
-                    <Grid
-                      container
-                      item
-                      spacing={{ lg: 3, xs: 1 }}
-                      height="100%"
-                      alignItems="end"
-                      py={{ lg: "22px", xs: "22px" }}
-                      px={{ lg: "22px", xs: "12px" }}
-                    >
-                      <Grid item xs={4}></Grid>
-                      <Grid item xs={4}>
-                        <PrimaryButton
-                          large
-                          startIcon={<PrintIconWhite />}
-                          label="receipt"
-                        />
-                      </Grid>
-                      <Grid item xs={4}>
-                        <PrimaryButton large label="refund check" />
-                      </Grid>
+                    <Grid item xs={4}></Grid>
+                    <Grid item xs={4}>
+                      <PrimaryButton
+                        large
+                        startIcon={<PrintIconWhite />}
+                        label="receipt"
+                      />
+                    </Grid>
+                    <Grid item xs={4}>
+                      <PrimaryButton large label="refund check" />
                     </Grid>
                   </Grid>
                 </Box>
@@ -444,8 +434,8 @@ function Checks() {
         </GuestDetailsConsumer>
       </GuestDetailsProvider>
     </Box>
-  );
+  )
 }
 
-Checks.getLayout = (page) => <CustomHeaderLayout>{page}</CustomHeaderLayout>;
-export default Checks;
+Checks.getLayout = (page) => <CustomHeaderLayout>{page}</CustomHeaderLayout>
+export default Checks

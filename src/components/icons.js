@@ -2299,3 +2299,32 @@ export const BigTable = () => {
     </svg>
   )
 }
+
+export const CloseIcon = () => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="46"
+      height="46"
+      viewBox="0 0 46 46"
+    >
+      <g id="ic_close_popup" transform="translate(0.192 0.15)">
+        <rect
+          id="Rectangle_356"
+          data-name="Rectangle 356"
+          width="46"
+          height="46"
+          rx="10"
+          transform="translate(-0.192 -0.15)"
+        />
+        <path
+          fill="#ff000d"
+          id="Union_30"
+          data-name="Union 30"
+          d="M.38,15.743.257,15.62a1,1,0,0,1,0-1.414L6.463,8,.257,1.794a1,1,0,0,1,0-1.415L.379.257a1,1,0,0,1,1.414,0L8,6.464,14.206.257a1,1,0,0,1,1.415,0l.122.123a1,1,0,0,1,0,1.414L9.536,8l6.206,6.206a1,1,0,0,1,0,1.415l-.122.121a1,1,0,0,1-1.414,0L8,9.536,1.794,15.743a1,1,0,0,1-1.414,0Z"
+          transform="translate(14.808 14.85)"
+        />
+      </g>
+    </svg>
+  )
+}

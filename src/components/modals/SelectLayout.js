@@ -12,13 +12,13 @@ const style = {
   left: "50%",
   transform: "translate(-50%, -50%)",
   width: { lg: 550, xs: 450 },
-  height: { lg: 414, xs: 390 },
+  height: { md: 370,  xs: 300 },
   bgcolor: "#FFFFFF",
   borderRadius: "10px",
   boxShadow: 24,
 }
 
-export default function ChangeLayout({
+export default function SelectLayout({
   isOpen,
   handleToggle,
   handleOpen,
@@ -27,10 +27,8 @@ export default function ChangeLayout({
   const [layout, setLayout] = React.useState("Pizzeria")
 
   const options = [
-    { label: "Sunday Menu", value: "Sunday Menu" },
-    { label: "Pizzeria", value: "Pizzeria" },
-    { label: "Christmas", value: "Christmas" },
-    { label: "Restaurant", value: "Restaurant" },
+    { label: "My Layout", value: "My Layout" },
+    { label: "Foods", value: "Foods" },
   ]
   return (
     <Modal open={isOpen} onClose={handleClose}>

@@ -14,6 +14,9 @@ import { Encrypt } from "@/hooks/useEncryption"
 import { useDispatch, useSelector } from "react-redux"
 import { loginThroughPasscode } from "@/redux/slices/authSlice"
 import Loader from "@/components/Loader"
+import SelectLayout from "@/components/modals/SelectLayout"
+import useModalState from "@/hooks/useModalState"
+import BlankPopup from "@/components/modals/BlankPopup"
 
 function Passcode() {
   const [otp, setOtp] = useState("")
@@ -40,6 +43,21 @@ function Passcode() {
   const handleLogin = (otp) => {
     dispatch(loginThroughPasscode(otp))
   }
+
+  const {
+    isOpen: isOpenSelectLayout,
+    handleOpen: handleOpenSelectLayout,
+    handleClose: handleCloseSelectLayout,
+    handleToggle: handleToggleSelectLayout,
+  } = useModalState(false)
+
+  const {
+    isOpen: isOpenBlankPopup,
+    handleOpen: handleOpenBlankPopup,
+    handleClose: handleCloseBlankPopup,
+    handleToggle: handleToggleBlankPopup,
+  } = useModalState(true)
+
   return (
     <>
       {!deviceCodes && !passcode && <Loader />}
@@ -165,6 +183,21 @@ function Passcode() {
           </Form>
         </Formik>
       </Box>
+      <SelectLayout
+        isOpen={isOpenSelectLayout}
+        handleOpen={handleOpenSelectLayout}
+        handleClose={handleCloseSelectLayout}
+        handleToggle={handleToggleSelectLayout}
+      />
+      <BlankPopup
+        isOpen={isOpenBlankPopup}
+        handleOpen={handleOpenBlankPopup}
+        handleClose={() => {
+          handleOpenSelectLayout()
+          handleCloseBlankPopup()
+        }}
+        handleToggle={handleToggleBlankPopup}
+      />
     </>
   )
 }
