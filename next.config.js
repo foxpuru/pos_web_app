@@ -1,5 +1,8 @@
+const runtimeCaching = require("next-pwa/cache");
 const withPWA = require("next-pwa")({
   dest: "public",
+  swSrc: "/service-worker.js",
+  runtimeCaching,
   disable: true,
   register: true,
   sw: "_offline.js",
@@ -8,7 +11,7 @@ const withPWA = require("next-pwa")({
 module.exports = withPWA({
   reactStrictMode: true,
   images: {
-    domains: ["source.unsplash.com"],
+    domains: ["musepos.com"],
     unoptimized: true,
   },
   future: {

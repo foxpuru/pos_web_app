@@ -64,6 +64,7 @@ axiosAuth.interceptors.request.use(function (config) {
 export const createAxiosInstance = (accessToken) => {
   const axiosInstanceWithLoginInfo = axios.create({
     baseURL: process.env.NEXT_PUBLIC_API_BASE_URL,
+    data: { last_updated_datetime: "" },
     headers: {
       "Content-Type": "application/json",
       Authorization: `Bearer ${accessToken}`,

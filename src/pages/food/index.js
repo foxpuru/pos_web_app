@@ -1,86 +1,86 @@
-import FoodBillingCard from "@/components/FoodBillingCard"
-import FoodCard from "@/components/FoodCard"
-import { FoodData } from "@/data/food/foodData"
-import FoodLayout from "@/layouts/FoodLayout"
-import { Box, Button, Stack, Typography } from "@mui/material"
-import { useRouter } from "next/router"
-import React, { useEffect, useState } from "react"
-import List from "@mui/material/List"
-import Divider from "@mui/material/Divider"
+import FoodBillingCard from "@/components/FoodBillingCard";
+import FoodCard from "@/components/FoodCard";
+import { FoodData } from "@/data/food/foodData";
+import FoodLayout from "@/layouts/FoodLayout";
+import { Box, Button, Stack, Typography } from "@mui/material";
+import { useRouter } from "next/router";
+import React, { useEffect, useState } from "react";
+import List from "@mui/material/List";
+import Divider from "@mui/material/Divider";
 
-import { PrintIcon, SaveCheckRedIcon } from "@/components/icons"
-import { useSelector } from "react-redux"
-import CustomCards from "@/components/Food/customFood"
-import AddDiscount from "@/components/modals/AddDiscount"
-import useModalState from "@/hooks/useModalState"
-import ReactNumberFormat from "@/components/ReactNumberFormat"
+import { PrintIcon, SaveCheckRedIcon } from "@/components/icons";
+import { useSelector } from "react-redux";
+import CustomCards from "@/components/Food/customFood";
+import AddDiscount from "@/components/modals/AddDiscount";
+import useModalState from "@/hooks/useModalState";
+import ReactNumberFormat from "@/components/ReactNumberFormat";
 
-import FoodSlicesCard from "@/components/Food/FoodSlidesCards"
-import { PrimaryButton } from "@/components/CusttomButtons"
-import PrinterError from "@/components/modals/PrinterError"
+import FoodSlicesCard from "@/components/Food/FoodSlidesCards";
+import { PrimaryButton } from "@/components/CusttomButtons";
+import PrinterError from "@/components/modals/PrinterError";
 
 const encrypt = (salt) => {
-  const textToChars = (text) => text.split("").map((c) => c.charCodeAt(0))
-  const byteHex = (n) => ("0" + Number(n).toString(16)).substr(-2)
+  const textToChars = (text) => text.split("").map((c) => c.charCodeAt(0));
+  const byteHex = (n) => ("0" + Number(n).toString(16)).substr(-2);
   const applySaltToChar = (code) =>
-    textToChars(salt).reduce((a, b) => a ^ b, code)
+    textToChars(salt).reduce((a, b) => a ^ b, code);
   const text = salt
     .split("")
     .map(textToChars)
     .map(applySaltToChar)
     .map(byteHex)
-    .join("")
-  return text
-}
+    .join("");
+  return text;
+};
 
 const decrypt = (salt) => {
-  const textToChars = (text) => text.split("").map((c) => c.charCodeAt(0))
+  const textToChars = (text) => text.split("").map((c) => c.charCodeAt(0));
   const applySaltToChar = (code) =>
-    textToChars(salt).reduce((a, b) => a ^ b, code)
+    textToChars(salt).reduce((a, b) => a ^ b, code);
 
   const text = salt
     .match(/.{1,2}/g)
     .map((hex) => parseInt(hex, 16))
     .map(applySaltToChar)
     .map((charCode) => String.fromCharCode(charCode))
-    .join("")
-  return text
-}
+    .join("");
+  return text;
+};
 
-console.log("encrypt", encrypt("naresh"))
-console.log("decrypt", decrypt(encrypt("naresh")))
+console.log("encrypt", encrypt("naresh"));
+console.log("decrypt", decrypt(encrypt("naresh")));
 
 function ChineseFood() {
   const style = {
     bgcolor: "background.paper",
-  }
-  const router = useRouter()
+  };
+  const router = useRouter();
   const foodItems = FoodData.find(
     (food) => food.path?.toLowerCase() === router.query?.category
-  )
+  );
   // console.log("router query", router.query?.foodType)
-  const cardData = useSelector((state) => state.cart.items)
+  const cardData = useSelector((state) => state.cart.items);
   // console.log("cardData", cardData)
 
   // const [showCustom, setShowCustom] = useState(false)
-  const [customizeFoodItem, setCustomizeFoodItem] = useState(null)
-  const [slidesItem, setSlidesItem] = useState(null)
+  const [customizeFoodItem, setCustomizeFoodItem] = useState(null);
+  const [slidesItem, setSlidesItem] = useState(null);
   // console.log("customizeFoodItem", customizeFoodItem)
 
-  const [discountValue, setDiscountValue] = useState()
+  const [discountValue, setDiscountValue] = useState();
   const {
     isOpen: isOpenAddDiscount,
     handleToggle: handleToggleAddDiscount,
     handleOpen: handleOpenAddDiscount,
     handleClose: handleCloseAddDiscount,
-  } = useModalState(false)
+  } = useModalState(false);
 
   const {
     isOpen: isOpenPrinterError,
     handleToggle: handleTogglePrinterError,
     handleOpen: handleOpenPrinterError,
     handleClose: handleClosePrinterError,
-  } = useModalState(false)
+  } = useModalState(false);
   return (
     <>
       <Box display="flex" width="100%" alignItems="start">
@@ -370,8 +370,8 @@ function ChineseFood() {
         handleClose={handleClosePrinterError}
       />
     </>
-  )
+  );
 }
 
-ChineseFood.getLayout = (page) => <FoodLayout>{page}</FoodLayout>
-export default ChineseFood
+ChineseFood.getLayout = (page) => <FoodLayout>{page}</FoodLayout>;
+export default ChineseFood;

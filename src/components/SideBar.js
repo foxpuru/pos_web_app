@@ -1,28 +1,28 @@
-import * as React from "react"
-import Box from "@mui/material/Box"
-import Drawer from "@mui/material/Drawer"
-import Button from "@mui/material/Button"
-import List from "@mui/material/List"
-import Divider from "@mui/material/Divider"
-import ListItem from "@mui/material/ListItem"
-import ListItemButton from "@mui/material/ListItemButton"
-import ListItemIcon from "@mui/material/ListItemIcon"
-import ListItemText from "@mui/material/ListItemText"
-import InboxIcon from "@mui/icons-material/MoveToInbox"
-import MailIcon from "@mui/icons-material/Mail"
-import { LogoutIcon, NewCheckIcon, OpenedChecksIcon, ProIcon } from "./icons"
-import { SideBarItems } from "@/data/sideBarData"
-import { useRouter } from "next/router"
+import * as React from "react";
+import Box from "@mui/material/Box";
+import Drawer from "@mui/material/Drawer";
+import Button from "@mui/material/Button";
+import List from "@mui/material/List";
+import Divider from "@mui/material/Divider";
+import ListItem from "@mui/material/ListItem";
+import ListItemButton from "@mui/material/ListItemButton";
+import ListItemIcon from "@mui/material/ListItemIcon";
+import ListItemText from "@mui/material/ListItemText";
+import InboxIcon from "@mui/icons-material/MoveToInbox";
+import MailIcon from "@mui/icons-material/Mail";
+import { LogoutIcon, NewCheckIcon, OpenedChecksIcon, ProIcon } from "./icons";
+import { SideBarItems } from "@/data/sideBarData";
+import { useRouter } from "next/router";
 
-import DasImg from "../assets/images/das.png"
-import { Image } from "./styled-components"
-import { Typography } from "@mui/material"
+import DasImg from "../assets/images/das.png";
+import { Image } from "./styled-components";
+import { Typography } from "@mui/material";
 
-import sideBarLogoBottom from "../assets/images/musepos_logo_colored_sidemenu.png"
-import useModalState from "@/hooks/useModalState"
-import LogoutConfirmation from "./modals/logoutConfirmation"
-import Loader from "./Loader"
-import { useSelector } from "react-redux"
+import sideBarLogoBottom from "../assets/images/musepos_logo_colored_sidemenu.png";
+import useModalState from "@/hooks/useModalState";
+import LogoutConfirmation from "./modals/logoutConfirmation";
+import Loader from "./Loader";
+import { useSelector } from "react-redux";
 
 export default function SideBarDrawer({
   isOpen,
@@ -30,9 +30,9 @@ export default function SideBarDrawer({
   handleClose,
   handleOpen,
 }) {
-  const router = useRouter()
+  const router = useRouter();
   // console.log("routtttt", router.pathname.startsWith("/reports"))
-  console.log("side bar data", SideBarItems)
+  console.log("side bar data", SideBarItems);
   // .splice(1, 0, "Table Management")
 
   const {
@@ -40,7 +40,7 @@ export default function SideBarDrawer({
     handleToggle: handleToggleLogoutConfirmation,
     handleOpen: handleOpenLogoutConfirmation,
     handleClose: handleCloseLogoutConfirmation,
-  } = useModalState(false)
+  } = useModalState(false);
 
   const list = () => (
     <Box
@@ -278,11 +278,11 @@ export default function SideBarDrawer({
         </Box>
       </Box>
     </Box>
-  )
+  );
 
-  const deviceCodes = useSelector((state) => state.auth.deviceCode)
+  const deviceCodes = useSelector((state) => state.auth.deviceCode);
 
-  const passcode = useSelector((state) => state.auth.isAuthenticated)
+  const passcode = useSelector((state) => state.auth.isAuthenticated);
   return (
     <>
       {!deviceCodes && !passcode && <Loader />}
@@ -301,5 +301,5 @@ export default function SideBarDrawer({
         handleClose={handleCloseLogoutConfirmation}
       />
     </>
-  )
+  );
 }
