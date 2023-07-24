@@ -1,58 +1,57 @@
-import * as React from "react"
-import { useTheme } from "@mui/material/styles"
-import Box from "@mui/material/Box"
-import Card from "@mui/material/Card"
-import CardContent from "@mui/material/CardContent"
-import CardMedia from "@mui/material/CardMedia"
-import IconButton from "@mui/material/IconButton"
-import Typography from "@mui/material/Typography"
-import SkipPreviousIcon from "@mui/icons-material/SkipPrevious"
-import PlayArrowIcon from "@mui/icons-material/PlayArrow"
-import SkipNextIcon from "@mui/icons-material/SkipNext"
+import * as React from "react";
+import { useTheme } from "@mui/material/styles";
+import Box from "@mui/material/Box";
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
+import CardMedia from "@mui/material/CardMedia";
+import IconButton from "@mui/material/IconButton";
+import Typography from "@mui/material/Typography";
+import SkipPreviousIcon from "@mui/icons-material/SkipPrevious";
+import PlayArrowIcon from "@mui/icons-material/PlayArrow";
+import SkipNextIcon from "@mui/icons-material/SkipNext";
 
-import FoodFishImg from "../assets/images/food_fish.jpg"
-import { useDispatch, useSelector } from "react-redux"
+import FoodFishImg from "../assets/images/food_fish.jpg";
+import { useDispatch, useSelector } from "react-redux";
 import {
   handleAddCustomizableFoodItem,
   handleAddToCart,
   handleUpdateCart,
-} from "@/redux/slices/cartSlice"
-import { useRouter } from "next/router"
+} from "@/redux/slices/cartSlice";
+import { useRouter } from "next/router";
 
 export default function FoodCard({
   food,
   setCustomizeFoodItem,
   setSlidesItem,
 }) {
-  const theme = useTheme()
-  const dispatch = useDispatch()
-  const router = useRouter()
+  const theme = useTheme();
+  const dispatch = useDispatch();
+  const router = useRouter();
 
-  const cartData = useSelector((state) => state.cart.items)
-  console.log("cart data", cartData)
+  const cartData = useSelector((state) => state.cart.items);
   // const existId = cartData.filter((item) => item.id === food.id)
 
   function isItemExist(itemId) {
-    console.log("isItemExist", itemId)
+    // console.log("isItemExist", itemId);
     return cartData.map((item) => {
-      item.id === itemId ? true : false
-    })
+      item.id === itemId ? true : false;
+    });
   }
 
-  console.log(
-    "card data",
-    cartData.map((item) => item.id)
-  )
+  // console.log(
+  //   "card data",
+  //   cartData.map((item) => item.id)
+  // );
 
   const addToCart = (food) => {
     if (food.isCutomizable) {
-      setCustomizeFoodItem({ food })
-      router.query.foodType = "custom"
-      router.push(router)
+      setCustomizeFoodItem({ food });
+      router.query.foodType = "custom";
+      router.push(router);
 
       const defaultVarient = food?.customizeFoodOptions?.find(
         (item) => item?.category?.toLowerCase() === "varient"
-      )?.section[0]
+      )?.section[0];
       dispatch(
         handleAddCustomizableFoodItem({
           id: food.id,
@@ -62,11 +61,11 @@ export default function FoodCard({
           customFoodOption: defaultVarient,
           // customFoodOption: food,
         })
-      )
+      );
     } else if (food.slides) {
-      setSlidesItem({ food })
-      router.query.foodType = "slides"
-      router.push(router)
+      setSlidesItem({ food });
+      router.query.foodType = "slides";
+      router.push(router);
     } else {
       dispatch(
         handleAddToCart({
@@ -75,10 +74,10 @@ export default function FoodCard({
           id: food.id,
           price: food.price,
         })
-      )
-      isItemExist(food.id)
+      );
+      isItemExist(food.id);
     }
-  }
+  };
   return (
     <Box
       sx={{
@@ -101,7 +100,7 @@ export default function FoodCard({
           position: "relative",
           // border: "2px solid #000000",
           // border: () =>
-            // isItemExist(food.id) ? "4px solid #000000" : " 1px solid #000000",
+          // isItemExist(food.id) ? "4px solid #000000" : " 1px solid #000000",
           borderRadius: "10px",
         }}
       >
@@ -161,5 +160,5 @@ export default function FoodCard({
         />
       )}
     </Box>
-  )
+  );
 }

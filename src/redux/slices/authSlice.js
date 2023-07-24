@@ -1,37 +1,38 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
-import { axiosInstance, createAxiosInstance } from "@/utility/axios"
-import { toast } from "react-toastify"
-import { persistReducer } from "redux-persist"
-import storage from "redux-persist/lib/storage"
-import { clearLocalStorage } from "@/utility/setAndRemoveAuthData"
-import { getUserInfo } from "@/api/userInfo"
-import axios from "axios"
-import { getModifiers } from "@/api/modifiers"
-import { getProductCategories } from "@/api/product"
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { axiosInstance, createAxiosInstance } from "@/utility/axios";
+import { toast } from "react-toastify";
+import { persistReducer } from "redux-persist";
+import storage from "redux-persist/lib/storage";
+import { clearLocalStorage } from "@/utility/setAndRemoveAuthData";
+import { getUserInfo } from "@/api/userInfo";
+import axios from "axios";
+import { getModifiers } from "@/api/modifiers";
+import { getProductCategories, getProducts } from "@/api/product";
+import { addDataInAuthStore } from "@/indexedDB/authStore";
 
 export const login = createAsyncThunk("login", async (data, thunkApi) => {
   try {
-    const res = await axiosInstance.post("auth/login", data)
-    thunkApi.fulfillWithValue({ ...res?.data?.data, data })
-    console.log("res login", res)
-    const accessToken = res?.data?.data?.tokens?.access?.token
-    const axiosInstanceWithLoginInfo = createAxiosInstance(accessToken)
-    let userData = await getUserInfo(axiosInstanceWithLoginInfo)
-    console.log("🚀 ~ file: authSlice.js:20 ~ login ~ userData:", userData)
-    let modifiersData = await getModifiers(axiosInstanceWithLoginInfo)
-    console.log(
-      "🚀 ~ file: authSlice.js:23 ~ login ~ modifiersData:",
-      modifiersData
-    )
+    const authData = await axiosInstance.post("auth/login", data);
+    thunkApi.fulfillWithValue({ ...authData?.data?.data, data });
+    console.log("authData login", authData);
+    await addDataInAuthStore(authData?.data?.data);
+    const accessToken = authData?.data?.data?.tokens?.access?.token;
+    const axiosInstanceWithLoginInfo = createAxiosInstance(accessToken);
+    let userData = await getUserInfo(axiosInstanceWithLoginInfo);
+    let modifiersData = await getModifiers(axiosInstanceWithLoginInfo);
     let productCategoriesData = await getProductCategories(
       axiosInstanceWithLoginInfo
-    )
-    console.log(
-      "🚀 ~ file: authSlice.js:29 ~ login ~ productCategoriesData:",
-      productCategoriesData
-    )
-    toast.success(res?.data?.message)
-    return Promise.resolve(res)
+    );
+    let productData = await getProducts(axiosInstanceWithLoginInfo);
+
+    console.log({
+      userData,
+      modifiersData,
+      productCategoriesData,
+      productData,
+    });
+    toast.success(authData?.data?.message);
+    return Promise.resolve(authData);
   } catch (error) {
     const message = error?.response?.data?.message ?? "Something went wrong"
     toast.error(message)
@@ -39,7 +40,8 @@ export const login = createAsyncThunk("login", async (data, thunkApi) => {
     thunkApi.rejectWithValue(error)
     return Promise.reject(error)
   }
-})
+});
+
 export const logout = createAsyncThunk("logout", async (data, thunkApi) => {
   try {
     const res = await axiosInstance.post("auth/logout", data)
@@ -62,7 +64,6 @@ const AuthSlice = createSlice({
     isLoading: false,
     submitButtonLoading: false,
     isAuthenticated: false,
-    isLoggedIn: false,
     deviceCode: "",
     passcode: "",
     userData: {},
@@ -70,12 +71,14 @@ const AuthSlice = createSlice({
   reducers: {
     // login: (state, action) => {
     //   state.isLoading = false;
-    //   state.isLoggedIn = false;
     //   state.deviceCode = action.payload.deviceCode;
     // },
     loginThroughPasscode: (state, action) => {
       console.log("action", action)
       state.passcode = action.payload
+    },
+    lofginThroughIndexedDb: (state, action) => {
+      state.isAuthenticated = action.payload;
     },
     // logout: (state, action) => {
     //   state.isLoading = false;
@@ -83,7 +86,6 @@ const AuthSlice = createSlice({
     //   state.submitButtonLoading = false;
     //   state.deviceCode = "";
     //   state.passcode = "";
-    //   state.isLoggedIn = false;
     //   state.userData = {};
     // },
   },
@@ -93,12 +95,11 @@ const AuthSlice = createSlice({
         state.submitButtonLoading = true
       })
       .addCase(login.fulfilled, (state, action) => {
-        console.log("state_action_success", action.payload?.data?.data?.tokens)
-        const { access, refresh } = action.payload?.data?.data?.tokens
-        state.submitButtonLoading = false
-        state.isLoggedIn = true
-        state.deviceCode = action?.meta.arg?.device_code
-        state.isAuthenticated = true
+        console.log("state_action_success", action.payload?.data?.data?.tokens);
+        const { access, refresh } = action.payload?.data?.data?.tokens;
+        state.submitButtonLoading = false;
+        state.deviceCode = action?.meta.arg?.device_code;
+        state.isAuthenticated = true;
         state.userData = {
           access: access.token,
           refresh: refresh.token,
@@ -109,12 +110,11 @@ const AuthSlice = createSlice({
         state.submitButtonLoading = false
       })
       .addCase(logout.fulfilled, (state, action) => {
-        state.isLoggedIn = false
-        state.deviceCode = ""
-        state.isAuthenticated = false
-        state.userData = {}
-        state.passcode = ""
-      })
+        state.deviceCode = "";
+        state.isAuthenticated = false;
+        state.userData = {};
+        state.passcode = "";
+      });
     // .addCase(logout.pending, (state, action) => {})
     // .addCase(logout.rejected, (state, action) => {});
   },
@@ -122,7 +122,8 @@ const AuthSlice = createSlice({
 const persistConfig = {
   key: "root",
   storage,
-}
-export const { loginThroughPasscode } = AuthSlice.actions
+};
+export const { loginThroughPasscode, lofginThroughIndexedDb } =
+  AuthSlice.actions;
 // persistReducer(persistConfig, AuthSlice.reducer);
 export default persistReducer(persistConfig, AuthSlice.reducer)

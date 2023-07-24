@@ -1,21 +1,21 @@
-import { Image } from "@/components/styled-components"
-import { Box, Button, Grid, Typography } from "@mui/material"
-import React, { useEffect, useState } from "react"
+import { Image } from "@/components/styled-components";
+import { Box, Button, Grid, Typography } from "@mui/material";
+import React, { useEffect, useState } from "react";
 
-import navLogoImg from "../assets/images/musepos_logo_colored_nav.png"
-import signWithDeviceLogoImg from "../assets/images/ic_sign_in_with_device_code.png"
-import { Form, Formik } from "formik"
+import navLogoImg from "../assets/images/musepos_logo_colored_nav.png";
+import signWithDeviceLogoImg from "../assets/images/ic_sign_in_with_device_code.png";
+import { Form, Formik } from "formik";
 
-import OTPInput from "react-otp-input"
-import BlankLayout from "@/layouts/BlankLayout"
-import { useRouter } from "next/router"
-import { PrimaryButton } from "./CusttomButtons"
-import { useDispatch, useSelector } from "react-redux"
-import { login } from "@/redux/slices/authSlice"
+import OTPInput from "react-otp-input";
+import BlankLayout from "@/layouts/BlankLayout";
+import { useRouter } from "next/router";
+import { PrimaryButton } from "./CusttomButtons";
+import { useDispatch, useSelector } from "react-redux";
+import { login } from "@/redux/slices/authSlice";
 
-import Head from "next/head"
-import UrlTitle from "./Title"
-import Loader from "./Loader"
+import Head from "next/head";
+import UrlTitle from "./Title";
+import Loader from "./Loader";
 
 const GridItem = () => {
   return (
@@ -30,35 +30,35 @@ const GridItem = () => {
     >
       <Typography></Typography>
     </Grid>
-  )
-}
+  );
+};
 
 function DeviceCode() {
-  const [otp, setOtp] = useState("")
+  const [otp, setOtp] = useState("");
 
-  const router = useRouter()
+  const router = useRouter();
 
-  const passcode = useSelector((state) => state.auth.isAuthenticated)
-  const deviceCodes = useSelector((state) => state.auth?.deviceCode)
+  const passcode = useSelector((state) => state.auth.isAuthenticated);
+  const deviceCodes = useSelector((state) => state.auth?.deviceCode);
   const submitButtonLoading = useSelector(
     (state) => state.auth?.submitButtonLoading
-  )
+  );
   useEffect(() => {
-    if (deviceCodes) {
-      router.push("/passcode")
+    if (deviceCodes.length > 11) {
+      router.push("/passcode");
     } else {
-      router.push("/")
+      router.push("/");
     }
   }, [deviceCodes])
   const dispatch = useDispatch()
 
   const handleLogin = (otp) => {
     // device_code: "YDNW-WMM5-C4K5" }
-    dispatch(login({ device_code: "YDNW-WMM5-C4K5" }))
+    dispatch(login({ device_code: "YDNW-WMM5-C4K5" }));
     // if (deviceCode === otp) {
     //   router.push("plan-renewal")
     // }
-  }
+  };
 
   return (
     <>
@@ -221,4 +221,4 @@ function DeviceCode() {
   )
 }
 
-export default DeviceCode
+export default DeviceCode;

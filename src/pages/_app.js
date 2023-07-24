@@ -7,11 +7,12 @@ import "@/styles/globals.css";
 import { createTheme, ThemeProvider } from "@mui/material";
 // ** React Toastify
 // import "@styles/react/libs/toastify/toastify.scss";
-import { Provider } from "react-redux";
+import { Provider, useDispatch } from "react-redux";
 // import "../assets/styles/index.css"
 import "../assets/styles/style.scss";
 import { PersistGate } from "redux-persist/integration/react";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { IndexedDB_Connection } from "@/indexedDB/connection";
 
 const theme = createTheme({
   typography: {
@@ -34,23 +35,9 @@ export default function App({ Component, pageProps }) {
   const getLayout =
     Component.getLayout ?? ((page) => <MainLayout> {page} </MainLayout>);
 
-  // useEffect(() => {
-  //   if ("serviceWorker" in navigator) {
-  //     window.addEventListener("load", () => {
-  //       navigator.serviceWorker
-  //         .register("../service-worker.js")
-  //         .then((registration) => {
-  //           // console.log(
-  //           //   "Service Worker registered with scope:",
-  //           //   registration.scope
-  //           // );
-  //         })
-  //         .catch((error) => {
-  //           // console.error("Service Worker registration failed:", error);
-  //         });
-  //     });
-  //   }
-  // }, []);
+  useEffect(() => {
+    IndexedDB_Connection();
+  }, []);
 
   return (
     <Provider store={store}>

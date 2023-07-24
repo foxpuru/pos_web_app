@@ -29,4 +29,4 @@ function MainLayout({ children, isPaymentMethod }) {
   )
 }
 
-export default MainLayout
+export default MainLayout;
