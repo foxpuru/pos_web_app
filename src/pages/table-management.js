@@ -1,5 +1,5 @@
 import { Image } from "@/components/styled-components"
-import SettingsLayout from "@/layouts/settingLayout"
+
 import { Box, Card, CardMedia, Typography } from "@mui/material"
 import React, { useEffect } from "react"
 
@@ -12,6 +12,7 @@ import { useSelector } from "react-redux"
 import { useRouter } from "next/router"
 import { BigTable, RoundTable, SquareTable } from "@/components/icons"
 import { Matches } from "@/hooks/useCustomQuery"
+import CustomLayout from "@/layouts/CustomLayout"
 
 function TableManagement() {
   const router = useRouter()
@@ -241,6 +242,8 @@ function TableManagement() {
 }
 
 TableManagement.getLayout = (page) => (
-  <SettingsLayout settingsHeader>{page}</SettingsLayout>
+  <CustomLayout blankHeader header={{ label: "table management" }}>
+    {page}
+  </CustomLayout>
 )
 export default TableManagement

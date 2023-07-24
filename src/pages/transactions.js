@@ -1,8 +1,8 @@
-import { Box, Button, Grid, Stack, Typography } from "@mui/material";
-import { useRouter } from "next/router";
-import React, { useEffect, useState } from "react";
-import Divider from "@mui/material/Divider";
-import { styled, alpha } from "@mui/material/styles";
+import { Box, Button, Grid, Stack, Typography } from "@mui/material"
+import { useRouter } from "next/router"
+import React, { useEffect, useState } from "react"
+import Divider from "@mui/material/Divider"
+import { styled, alpha } from "@mui/material/styles"
 import {
   CardCardsIcon,
   CardCashIcon,
@@ -11,43 +11,26 @@ import {
   PrintIconWhite,
   SaveCheckRedIcon,
   SearchGreyIcon,
-} from "@/components/icons";
+} from "@/components/icons"
 
-import PaymentMethodArrowImg from "../assets/images/ic_payment_method_arrow.png";
-import { Image } from "@/components/styled-components";
-import MainLayout from "@/layouts/MainLayout";
-import TransactionDateCard from "@/components/TransactionDateCard";
-import InputBase from "@mui/material/InputBase";
-import { ListDivider } from "@/components/ListDivider";
-import TransactionSideBar from "@/components/transaction-side-bar";
+import PaymentMethodArrowImg from "../assets/images/ic_payment_method_arrow.png"
+import { Image } from "@/components/styled-components"
+import MainLayout from "@/layouts/MainLayout"
+import TransactionDateCard from "@/components/TransactionDateCard"
+import InputBase from "@mui/material/InputBase"
+import { ListDivider } from "@/components/ListDivider"
+import TransactionSideBar from "@/components/transaction-side-bar"
 import {
   GuestDetailsConsumer,
   GuestDetailsProvider,
-} from "@/context/guestDetailsContext";
-import CustomHeaderLayout from "@/layouts/CustomHeaderLayout";
-import { PrimaryButton } from "@/components/CusttomButtons";
+} from "@/context/guestDetailsContext"
+
+import { PrimaryButton } from "@/components/CusttomButtons"
+import BlankLayout from "@/layouts/BlankLayout"
+import CustomLayout from "@/layouts/CustomLayout"
 
 function Transactions() {
-  const [items, setItems] = useState([
-    {
-      count: "1",
-      foodName: "Veg. triple schezwan",
-      foodDescription: "Veg. triple schezwan",
-      price: "₹1843.90",
-      finalPrice: "₹1622.20",
-    },
-    {
-      count: "3",
-      foodName: "Veg. triple schezwan",
-      foodDescription: "Veg. triple schezwan",
-      price: "₹1843.90",
-      finalPrice: "₹1622.20",
-    },
-  ]);
-  const router = useRouter();
-  // const [orderItems, setOrderItems] = useState([])
-
-  // console.log("order items", orderItems)
+  const router = useRouter()
 
   const Search = styled("div")(({ theme }) => ({
     position: "relative",
@@ -59,7 +42,7 @@ function Transactions() {
     // marginRight: theme.spacing(2),
     marginLeft: 0,
     width: "100%",
-  }));
+  }))
 
   const SearchIconWrapper = styled("div")(({ theme }) => ({
     padding: theme.spacing(0, 1),
@@ -74,7 +57,7 @@ function Transactions() {
       width: "32px",
       height: "32px",
     },
-  }));
+  }))
 
   const StyledInputBase = styled(InputBase)(({ theme }) => ({
     color: "#B1B6B9",
@@ -91,39 +74,10 @@ function Transactions() {
       paddingLeft: `calc(1em + ${theme.spacing(4)})`,
       width: "100%",
     },
-  }));
-
-  const style = {
-    bgcolor: "background.paper",
-  };
+  }))
 
   return (
     <Box display="flex" width="100%" alignItems="start">
-      {/* <Box
-        maxWidth={{ lg: "370px", xs: "230px" }}
-        minWidth={{ lg: "370px", xs: "230px" }}
-        height={{ lg: "calc(100vh - 64px)", xs: "calc(100vh - 60px)" }}
-        overflow="auto"
-        bgcolor="#FFFFFF"
-      >
-        <Box overflow="auto">
-          <Box bgcolor="#D7DBDC" p={{ lg: "12px", xs: "8px" }}>
-            <Search>
-              <SearchIconWrapper>
-                <SearchGreyIcon />
-              </SearchIconWrapper>
-              <StyledInputBase
-                placeholder="Search"
-                inputProps={{ "aria-label": "search" }}
-              />
-            </Search>
-          </Box>
-          <TransactionDateCard />
-          <TransactionDateCard />
-          <TransactionDateCard />
-          <TransactionDateCard />
-        </Box>
-      </Box> */}
       <GuestDetailsProvider>
         <GuestDetailsConsumer>
           {({ orderItems }) => (
@@ -131,6 +85,8 @@ function Transactions() {
               <Box
                 // maxWidth={{ lg: "370px", xs: "230px" }}
                 // minWidth={{ lg: "370px", xs: "230px" }}
+                maxWidth={{ lg: "350px", md: "300px", xs: "250px" }}
+                minWidth={{ lg: "350px", md: "300px", xs: "250px" }}
                 bgcolor="#FFFFFF"
                 height={{ lg: "calc(100vh - 64px)", xs: "calc(100vh - 60px)" }}
                 overflow="auto"
@@ -573,10 +529,10 @@ function Transactions() {
         </GuestDetailsConsumer>
       </GuestDetailsProvider>
     </Box>
-  );
+  )
 }
 
 Transactions.getLayout = (page) => (
-  <CustomHeaderLayout>{page}</CustomHeaderLayout>
-);
-export default Transactions;
+  <CustomLayout header={{ label: "Transactions" }}>{page}</CustomLayout>
+)
+export default Transactions

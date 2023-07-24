@@ -1,8 +1,8 @@
-import { Box, Button, Grid, Stack, Typography } from "@mui/material";
-import { useRouter } from "next/router";
-import React, { useEffect, useState } from "react";
-import Divider from "@mui/material/Divider";
-import { styled, alpha } from "@mui/material/styles";
+import { Box, Button, Grid, Stack, Typography } from "@mui/material"
+import { useRouter } from "next/router"
+import React, { useEffect, useState } from "react"
+import Divider from "@mui/material/Divider"
+import { styled, alpha } from "@mui/material/styles"
 import {
   CardCardsIcon,
   CardCashIcon,
@@ -11,24 +11,25 @@ import {
   PrintIconWhite,
   SaveCheckRedIcon,
   SearchGreyIcon,
-} from "@/components/icons";
+} from "@/components/icons"
 
-import PaymentMethodArrowImg from "@/assets/images/ic_payment_method_arrow.png";
-import { Image } from "@/components/styled-components";
-import MainLayout from "@/layouts/MainLayout";
-import TransactionDateCard from "@/components/TransactionDateCard";
-import InputBase from "@mui/material/InputBase";
-import { ListDivider } from "@/components/ListDivider";
-import TransactionSideBar from "@/components/transaction-side-bar";
+import PaymentMethodArrowImg from "@/assets/images/ic_payment_method_arrow.png"
+import { Image } from "@/components/styled-components"
+import MainLayout from "@/layouts/MainLayout"
+import TransactionDateCard from "@/components/TransactionDateCard"
+import InputBase from "@mui/material/InputBase"
+import { ListDivider } from "@/components/ListDivider"
+import TransactionSideBar from "@/components/transaction-side-bar"
 import {
   GuestDetailsConsumer,
   GuestDetailsProvider,
-} from "@/context/guestDetailsContext";
-import PaymentLayout from "@/layouts/PaymentLayout";
-import Table from "@/components/Table";
+} from "@/context/guestDetailsContext"
 
-import NextImg from "@/assets/images/ic_next.png";
-import PrevImg from "@/assets/images/ic_previous.png";
+import Table from "@/components/Table"
+
+import NextImg from "@/assets/images/ic_next.png"
+import PrevImg from "@/assets/images/ic_previous.png"
+import CustomLayout from "@/layouts/CustomLayout"
 const data = [
   {
     staff: "Joe Pizza",
@@ -36,7 +37,7 @@ const data = [
     clockedOut: "May 15 2023 | 08:38 AM",
     hours: "00:00:20: hr",
   },
-];
+]
 
 function Reports() {
   const coloums = [
@@ -72,7 +73,7 @@ function Reports() {
       selector: (row) => row.hours,
       right: true,
     },
-  ];
+  ]
   const dates = [
     "May 12 2023",
     "May 13 2023",
@@ -83,11 +84,12 @@ function Reports() {
     "May 18 2023",
     "May 19 2023",
     "May 20 2023",
-  ];
-  const [selectedDate, setSelectedDate] = useState(6);
+  ]
+  const [selectedDate, setSelectedDate] = useState(6)
   return (
     <Box
       height="100%"
+      overflow="auto"
       // display="grid"
       bgcolor="#FFFFFF"
       border="1px solid #D7DBDC"
@@ -115,7 +117,7 @@ function Reports() {
               alt="previous arrow"
               onClick={() => {
                 if (selectedDate > 0) {
-                  setSelectedDate(selectedDate - 1);
+                  setSelectedDate(selectedDate - 1)
                 }
               }}
               sx={{ width: { lg: "40px", xs: "30px" } }}
@@ -140,7 +142,7 @@ function Reports() {
               alt="next arrow"
               onClick={() => {
                 if (selectedDate < dates.length - 1) {
-                  setSelectedDate(selectedDate + 1);
+                  setSelectedDate(selectedDate + 1)
                 }
               }}
               sx={{ width: { lg: "40px", xs: "30px" } }}
@@ -175,12 +177,15 @@ function Reports() {
         <Table columns={coloums} data={data} />
       </Box>
     </Box>
-  );
+  )
 }
 
 Reports.getLayout = (page) => (
-  <PaymentLayout isPaymentMethod={true} reports={true}>
+  <CustomLayout
+    reports
+    header={{ label: "Reports", title: "Staff Clock in / Clock Out Report" }}
+  >
     {page}
-  </PaymentLayout>
-);
-export default Reports;
+  </CustomLayout>
+)
+export default Reports

@@ -4,8 +4,7 @@ import { PrimaryButton } from "@/components/CusttomButtons"
 import { Image } from "@/components/styled-components"
 
 import useModalState from "@/hooks/useModalState"
-import MainLayout from "@/layouts/MainLayout"
-import SettingsLayout from "@/layouts/settingLayout"
+
 import {
   handleCashManagement,
   handleTableManagement,
@@ -23,6 +22,7 @@ import { useDispatch, useSelector } from "react-redux"
 import LayoutGridImg from "../assets/images/ic_layout_grid.png"
 import PrintReceiptGreenImg from "../assets/images/ic_print_receipt_green_big.png"
 import Loader from "@/components/Loader"
+import CustomLayout from "@/layouts/CustomLayout"
 
 const IOSSwitch = styled((props) => (
   <Switch focusVisibleClassName=".Mui-focusVisible" disableRipple {...props} />
@@ -178,7 +178,12 @@ function Settings() {
   const dispatch = useDispatch()
   return (
     <>
-      <Box p={{ lg: "22px", xs: "16px" }} bgcolor="#EEF5F6">
+      <Box
+        p={{ lg: "22px", xs: "16px" }}
+        bgcolor="#EEF5F6"
+        height={{ lg: "calc(100vh - 64px)", xs: "calc(100vh - 60px)" }}
+        overflow="auto"
+      >
         <Box
           border="1px solid #D7DBDC"
           borderRadius="10px 10px 10px 10px"
@@ -382,6 +387,8 @@ function Settings() {
 }
 
 Settings.getLayout = (page) => (
-  <SettingsLayout settingsHeader>{page}</SettingsLayout>
+  <CustomLayout blankHeader header={{ label: "Settings" }}>
+    {page}
+  </CustomLayout>
 )
 export default Settings

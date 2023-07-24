@@ -1,61 +1,61 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { axiosInstance, createAxiosInstance } from "@/utility/axios";
-import { toast } from "react-toastify";
-import { persistReducer } from "redux-persist";
-import storage from "redux-persist/lib/storage";
-import { clearLocalStorage } from "@/utility/setAndRemoveAuthData";
-import { getUserInfo } from "@/api/userInfo";
-import axios from "axios";
-import { getModifiers } from "@/api/modifiers";
-import { getProductCategories } from "@/api/product";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
+import { axiosInstance, createAxiosInstance } from "@/utility/axios"
+import { toast } from "react-toastify"
+import { persistReducer } from "redux-persist"
+import storage from "redux-persist/lib/storage"
+import { clearLocalStorage } from "@/utility/setAndRemoveAuthData"
+import { getUserInfo } from "@/api/userInfo"
+import axios from "axios"
+import { getModifiers } from "@/api/modifiers"
+import { getProductCategories } from "@/api/product"
 
 export const login = createAsyncThunk("login", async (data, thunkApi) => {
   try {
-    const res = await axiosInstance.post("auth/login", data);
-    thunkApi.fulfillWithValue({ ...res?.data?.data, data });
-    console.log("res login", res);
-    const accessToken = res?.data?.data?.tokens?.access?.token;
-    const axiosInstanceWithLoginInfo = createAxiosInstance(accessToken);
-    let userData = await getUserInfo(axiosInstanceWithLoginInfo);
-    console.log("🚀 ~ file: authSlice.js:20 ~ login ~ userData:", userData);
-    let modifiersData = await getModifiers(axiosInstanceWithLoginInfo);
+    const res = await axiosInstance.post("auth/login", data)
+    thunkApi.fulfillWithValue({ ...res?.data?.data, data })
+    console.log("res login", res)
+    const accessToken = res?.data?.data?.tokens?.access?.token
+    const axiosInstanceWithLoginInfo = createAxiosInstance(accessToken)
+    let userData = await getUserInfo(axiosInstanceWithLoginInfo)
+    console.log("🚀 ~ file: authSlice.js:20 ~ login ~ userData:", userData)
+    let modifiersData = await getModifiers(axiosInstanceWithLoginInfo)
     console.log(
       "🚀 ~ file: authSlice.js:23 ~ login ~ modifiersData:",
       modifiersData
-    );
+    )
     let productCategoriesData = await getProductCategories(
       axiosInstanceWithLoginInfo
-    );
+    )
     console.log(
       "🚀 ~ file: authSlice.js:29 ~ login ~ productCategoriesData:",
       productCategoriesData
-    );
-    toast.success(res?.data?.message);
-    return Promise.resolve(res);
+    )
+    toast.success(res?.data?.message)
+    return Promise.resolve(res)
   } catch (error) {
-    const message = error?.response?.data?.message ?? "Something went wrong";
-    toast.error(message);
-    console.log("error", error);
-    thunkApi.rejectWithValue(error);
-    return Promise.reject(error);
+    const message = error?.response?.data?.message ?? "Something went wrong"
+    toast.error(message)
+    console.log("error", error)
+    thunkApi.rejectWithValue(error)
+    return Promise.reject(error)
   }
-});
+})
 export const logout = createAsyncThunk("logout", async (data, thunkApi) => {
   try {
-    const res = await axiosInstance.post("auth/logout", data);
-    console.log("res logout", res);
-    toast.success(res?.data?.message);
-    thunkApi.fulfillWithValue({ data: {} });
-    clearLocalStorage();
-    return Promise.resolve(res);
+    const res = await axiosInstance.post("auth/logout", data)
+    console.log("res logout", res)
+    toast.success(res?.data?.message)
+    thunkApi.fulfillWithValue({ data: {} })
+    clearLocalStorage()
+    return Promise.resolve(res)
   } catch (error) {
-    const message = error?.response?.data?.message ?? "Something went wrong";
-    toast.error(message);
-    console.log("error", error);
-    thunkApi.rejectWithValue(error);
-    return Promise.reject(error);
+    const message = error?.response?.data?.message ?? "Something went wrong"
+    toast.error(message)
+    console.log("error", error)
+    thunkApi.rejectWithValue(error)
+    return Promise.reject(error)
   }
-});
+})
 const AuthSlice = createSlice({
   name: "auth",
   initialState: {
@@ -74,8 +74,8 @@ const AuthSlice = createSlice({
     //   state.deviceCode = action.payload.deviceCode;
     // },
     loginThroughPasscode: (state, action) => {
-      console.log("action", action);
-      state.passcode = action.payload;
+      console.log("action", action)
+      state.passcode = action.payload
     },
     // logout: (state, action) => {
     //   state.isLoading = false;
@@ -90,39 +90,39 @@ const AuthSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(login.pending, (state, action) => {
-        state.submitButtonLoading = true;
+        state.submitButtonLoading = true
       })
       .addCase(login.fulfilled, (state, action) => {
-        console.log("state_action_success", action.payload?.data?.data?.tokens);
-        const { access, refresh } = action.payload?.data?.data?.tokens;
-        state.submitButtonLoading = false;
-        state.isLoggedIn = true;
-        state.deviceCode = action?.meta.arg?.device_code;
-        state.isAuthenticated = true;
+        console.log("state_action_success", action.payload?.data?.data?.tokens)
+        const { access, refresh } = action.payload?.data?.data?.tokens
+        state.submitButtonLoading = false
+        state.isLoggedIn = true
+        state.deviceCode = action?.meta.arg?.device_code
+        state.isAuthenticated = true
         state.userData = {
           access: access.token,
           refresh: refresh.token,
-        };
+        }
       })
       .addCase(login.rejected, (state, action) => {
-        console.log("state_action_error", action.payload);
-        state.submitButtonLoading = false;
+        console.log("state_action_error", action.payload)
+        state.submitButtonLoading = false
       })
       .addCase(logout.fulfilled, (state, action) => {
-        state.isLoggedIn = false;
-        state.deviceCode = "";
-        state.isAuthenticated = false;
-        state.userData = {};
-        state.passcode = "";
-      });
+        state.isLoggedIn = false
+        state.deviceCode = ""
+        state.isAuthenticated = false
+        state.userData = {}
+        state.passcode = ""
+      })
     // .addCase(logout.pending, (state, action) => {})
     // .addCase(logout.rejected, (state, action) => {});
   },
-});
+})
 const persistConfig = {
   key: "root",
   storage,
-};
-export const { loginThroughPasscode } = AuthSlice.actions;
+}
+export const { loginThroughPasscode } = AuthSlice.actions
 // persistReducer(persistConfig, AuthSlice.reducer);
-export default persistReducer(persistConfig, AuthSlice.reducer);
+export default persistReducer(persistConfig, AuthSlice.reducer)

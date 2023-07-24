@@ -23,8 +23,8 @@ function BillingItemList({ reports }) {
     <>
       {reports == true ? (
         <Box
-          maxWidth={{ lg: "370px", xs: "230px" }}
-          minWidth={{ lg: "370px", xs: "230px" }}
+          maxWidth={{ lg: "350px", md: "300px", xs: "250px" }}
+          minWidth={{ lg: "350px", md: "300px", xs: "250px" }}
           height={{ lg: "calc(100vh - 64px)", xs: "calc(100vh - 60px)" }}
           overflow="auto"
           bgcolor="#FFFFFF"
@@ -66,8 +66,8 @@ function BillingItemList({ reports }) {
       ) : (
         <Box
           borderTop="2px solid #e5ebec"
-          maxWidth={{ lg: "370px", xs: "230px" }}
-          minWidth={{ lg: "370px", xs: "230px" }}
+          maxWidth={{ lg: "350px", md: "300px", xs: "250px" }}
+          minWidth={{ lg: "350px", md: "300px", xs: "250px" }}
           height={{ lg: "calc(100vh - 64px)", xs: "calc(100vh - 60px)" }}
           overflow="auto"
           bgcolor="#FFFFFF"

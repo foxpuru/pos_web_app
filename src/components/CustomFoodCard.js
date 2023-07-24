@@ -3,9 +3,9 @@ import * as React from "react"
 import Box from "@mui/material/Box"
 import Card from "@mui/material/Card"
 import Typography from "@mui/material/Typography"
-import FoodLayout from "@/layouts/FoodLayout"
 import { useDispatch } from "react-redux"
 import { handleAddCustomizableFoodItem } from "@/redux/slices/cartSlice"
+import MainLayout from "@/layouts/MainLayout"
 
 function CustomFoodCard({ section, food, type }) {
   const dispatch = useDispatch()
@@ -87,5 +87,4 @@ function CustomFoodCard({ section, food, type }) {
   )
 }
 
-CustomFoodCard.getLayout = (page) => <FoodLayout>{page}</FoodLayout>
 export default CustomFoodCard

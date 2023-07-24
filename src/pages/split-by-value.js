@@ -1,7 +1,7 @@
 import FoodBillingCard from "@/components/FoodBillingCard"
 import FoodCard from "@/components/FoodCard"
 import { FoodData } from "@/data/food/foodData"
-import FoodLayout from "@/layouts/FoodLayout"
+
 import { Box, Button, Grid, Stack, Typography } from "@mui/material"
 import { useRouter } from "next/router"
 import React, { useEffect, useState } from "react"
@@ -17,11 +17,12 @@ import { CardCardsIcon, CardCashIcon, CardGiftIcon } from "@/components/icons"
 import PaymentMethodArrowImg from "../assets/images/ic_payment_method_arrow.png"
 import { Image } from "@/components/styled-components"
 
-import PaymentLayout from "@/layouts/PaymentLayout"
+
 import GiftCard from "@/components/modals/GiftCard"
 import useModalState from "@/hooks/useModalState"
 import OtherPaymentOptions from "@/components/modals/OtherPaymentOptions"
 import { PrimaryButton } from "@/components/CusttomButtons"
+import CustomLayout from "@/layouts/CustomLayout"
 
 function SplitByValue() {
   const router = useRouter()
@@ -34,177 +35,163 @@ function SplitByValue() {
   } = useModalState(false)
   return (
     <>
-      <Box
-        height="100%"
-        display="flex"
-        flexDirection="column"
-        justifyContent="space-between"
-        bgcolor="#FFFFFF"
-        border="1px solid #D7DBDC"
-        borderRadius="10px"
-        sx={{ opacity: 1 }}
-      >
-        <Box textAlign="center">
-          <Box
-            py={{ lg: "12px", xs: "12px" }}
-            display="flex"
-            flexDirection="column"
+      <Box textAlign="center">
+        <Box pb="12px" display="flex" flexDirection="column">
+          <Typography
+            color="#000000"
+            fontWeight="400"
+            fontSize={{ lg: "40px", xs: "28px" }}
+            letterSpacing="0.7px"
           >
-            <Typography
-              color="#000000"
-              fontWeight="400"
-              fontSize={{ lg: "40px", xs: "28px" }}
-              letterSpacing="0.7px"
-            >
-              ₹1843.90
-            </Typography>
-            <Typography
-              color="#A1A1A1"
-              fontWeight="400"
-              fontSize={{ lg: "16px", xs: "12px" }}
-              letterSpacing="0.53px"
-            >
-              Total Amount Due
-            </Typography>
-          </Box>
-
-          <Divider sx={{ borderBottomWidth: "1px", borderColor: "#D7DBDC" }} />
-          <Grid container>
-            <Grid
-              container
-              item
-              spacing={{ lg: 3, xs: 1 }}
-              // height="100%"
-              alignItems="center"
-              justifyContent="center"
-              py={{ lg: "22px", xs: "22px" }}
-              px={{ lg: "22px", xs: "12px" }}
-            >
-              <Grid item xs={7}>
-                <Typography
-                  //   width="50%"
-                  textAlign="left"
-                  color="#000000"
-                  fontWeight="400"
-                  fontSize={{ lg: "18px", xs: "14px" }}
-                  letterSpacing="0.68px"
-                >
-                  Payment #1
-                </Typography>
-              </Grid>
-              <Grid item xs={2}>
-                <Box
-                  pl={{ lg: "10px", xS: "8px" }}
-                  sx={{
-                    border: "1px solid #FF4141",
-                    height: { lg: "60px", xs: "40px" },
-
-                    backgroundColor: "#FF4141",
-                    overflow: "hidden",
-                    borderRadius: "10px",
-                    cursor: "pointer",
-                  }}
-                  fullWidth
-                >
-                  <Box
-                    //   ml={{ lg: "6px", xs: "4px" }}
-                    bgcolor="white"
-                    display="flex"
-                    alignItems="center"
-                    justifyContent="center"
-                    width="100%"
-                    height="100%"
-                    sx={
-                      {
-                        // borderRightTopRadius: "10px",
-                        // borderRightBottomRadius: "10px",
-                      }
-                    }
-                  >
-                    <Typography
-                      sx={{
-                        color: "#FF4141",
-                        fontSize: { lg: "22px", xs: "16px" },
-                        fontWeight: "400",
-                        letterSpacing: "0.88px",
-                        textTransform: "uppercase",
-                      }}
-                    >
-                      PRINT
-                    </Typography>
-                  </Box>
-                </Box>
-              </Grid>
-              <Grid item xs={3}>
-                <Box
-                  pl={{ lg: "10px", xS: "8px" }}
-                  sx={{
-                    border: "1px solid #00B153",
-                    height: { lg: "60px", xs: "40px" },
-
-                    backgroundColor: "#00B153",
-                    overflow: "hidden",
-                    borderRadius: "10px",
-                    cursor: "pointer",
-                  }}
-                  fullWidth
-                >
-                  <Box
-                    //   ml={{ lg: "6px", xs: "4px" }}
-                    bgcolor="white"
-                    display="flex"
-                    alignItems="center"
-                    justifyContent="center"
-                    width="100%"
-                    height="100%"
-                    sx={
-                      {
-                        // borderRightTopRadius: "10px",
-                        // borderRightBottomRadius: "10px",
-                      }
-                    }
-                  >
-                    <Typography
-                      sx={{
-                        color: "#00B153",
-                        fontSize: { lg: "22px", xs: "16px" },
-                        fontWeight: "400",
-                        letterSpacing: "0.88px",
-                        textTransform: "capitalize",
-                      }}
-                    >
-                      Charge ₹0.00
-                    </Typography>
-                  </Box>
-                </Box>
-              </Grid>
-            </Grid>
-          </Grid>
+            ₹1843.90
+          </Typography>
+          <Typography
+            color="#A1A1A1"
+            fontWeight="400"
+            fontSize={{ lg: "16px", xs: "12px" }}
+            letterSpacing="0.53px"
+          >
+            Total Amount Due
+          </Typography>
         </Box>
 
+        <Divider sx={{ borderBottomWidth: "1px", borderColor: "#D7DBDC" }} />
         <Grid container>
           <Grid
             container
             item
             spacing={{ lg: 3, xs: 1 }}
-            height="100%"
-            alignItems="end"
+            // height="100%"
+            alignItems="center"
             justifyContent="center"
             py={{ lg: "22px", xs: "22px" }}
             px={{ lg: "22px", xs: "12px" }}
           >
-            <Grid item xs={4}>
-              <PrimaryButton large label="add payment" />
+            <Grid item xs={7}>
+              <Typography
+                //   width="50%"
+                textAlign="left"
+                color="#000000"
+                fontWeight="400"
+                fontSize={{ lg: "18px", xs: "14px" }}
+                letterSpacing="0.68px"
+              >
+                Payment #1
+              </Typography>
             </Grid>
-            <Grid item xs={4}>
-              <PrimaryButton large label="PRINT ALL" />
+            <Grid item xs={2}>
+              <Box
+                pl={{ lg: "10px", xS: "8px" }}
+                sx={{
+                  border: "1px solid #FF4141",
+                  height: { lg: "60px", xs: "40px" },
+
+                  backgroundColor: "#FF4141",
+                  overflow: "hidden",
+                  borderRadius: "10px",
+                  cursor: "pointer",
+                }}
+                fullWidth
+              >
+                <Box
+                  //   ml={{ lg: "6px", xs: "4px" }}
+                  bgcolor="white"
+                  display="flex"
+                  alignItems="center"
+                  justifyContent="center"
+                  width="100%"
+                  height="100%"
+                  sx={
+                    {
+                      // borderRightTopRadius: "10px",
+                      // borderRightBottomRadius: "10px",
+                    }
+                  }
+                >
+                  <Typography
+                    sx={{
+                      color: "#FF4141",
+                      fontSize: { lg: "22px", xs: "16px" },
+                      fontWeight: "400",
+                      letterSpacing: "0.88px",
+                      textTransform: "uppercase",
+                    }}
+                  >
+                    PRINT
+                  </Typography>
+                </Box>
+              </Box>
             </Grid>
-            <Grid item xs={4}>
-              <PrimaryButton large label="SAVE CHECK" />
+            <Grid item xs={3}>
+              <Box
+                pl={{ lg: "10px", xS: "8px" }}
+                sx={{
+                  border: "1px solid #00B153",
+                  height: { lg: "60px", xs: "40px" },
+
+                  backgroundColor: "#00B153",
+                  overflow: "hidden",
+                  borderRadius: "10px",
+                  cursor: "pointer",
+                }}
+                fullWidth
+              >
+                <Box
+                  //   ml={{ lg: "6px", xs: "4px" }}
+                  bgcolor="white"
+                  display="flex"
+                  alignItems="center"
+                  justifyContent="center"
+                  width="100%"
+                  height="100%"
+                  sx={
+                    {
+                      // borderRightTopRadius: "10px",
+                      // borderRightBottomRadius: "10px",
+                    }
+                  }
+                >
+                  <Typography
+                    sx={{
+                      color: "#00B153",
+                      fontSize: { lg: "22px", xs: "16px" },
+                      fontWeight: "400",
+                      letterSpacing: "0.88px",
+                      textTransform: "capitalize",
+                    }}
+                  >
+                    Charge ₹0.00
+                  </Typography>
+                </Box>
+              </Box>
             </Grid>
           </Grid>
         </Grid>
       </Box>
+
+      <Grid container>
+        <Grid
+          container
+          item
+          spacing={{ lg: 3, xs: 1 }}
+          height="100%"
+          alignItems="end"
+          justifyContent="center"
+          pt={{ lg: "22px", xs: "28px" }}
+          px={{ lg: "22px", xs: "12px" }}
+        >
+          <Grid item xs={4}>
+            <PrimaryButton large label="add payment" />
+          </Grid>
+          <Grid item xs={4}>
+            <PrimaryButton large label="PRINT ALL" />
+          </Grid>
+          <Grid item xs={4}>
+            <PrimaryButton large label="SAVE CHECK" />
+          </Grid>
+        </Grid>
+      </Grid>
+
       <OtherPaymentOptions
         isOpen={isOpenOther}
         handleToggle={handleToggleOther}
@@ -216,6 +203,8 @@ function SplitByValue() {
 }
 
 SplitByValue.getLayout = (page) => (
-  <PaymentLayout isPaymentMethod>{page}</PaymentLayout>
+  <CustomLayout paymentMethod header={{ label: "check total" }}>
+    {page}
+  </CustomLayout>
 )
 export default SplitByValue

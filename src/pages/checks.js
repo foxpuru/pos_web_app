@@ -23,8 +23,10 @@ import {
   GuestDetailsProvider,
 } from "@/context/guestDetailsContext"
 import ChecksDataCard from "@/components/ChecksDataCard"
-import CustomHeaderLayout from "@/layouts/CustomHeaderLayout"
+
 import { PrimaryButton } from "@/components/CusttomButtons"
+import BlankLayout from "@/layouts/BlankLayout"
+import CustomLayout from "@/layouts/CustomLayout"
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
   borderRadius: "8px",
@@ -69,14 +71,6 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }))
 function Checks() {
-  // const [orderItems, setOrderItems] = useState([])
-
-  // console.log("order items", orderItems)
-
-  const style = {
-    bgcolor: "background.paper",
-  }
-
   return (
     <Box display="flex" width="100%" alignItems="start">
       <GuestDetailsProvider>
@@ -113,10 +107,12 @@ function Checks() {
               <Box
                 width="100%"
                 p={{ lg: "22px", md: "18px", xs: "12px" }}
-                height={{ lg: "calc(100vh - 64px)", xs: "calc(100vh - 60px)" }}
+                height="100%"
+                // height={{ lg: "calc(100vh - 64px)", xs: "calc(100vh - 60px)" }}
+                // overflow="auto"
               >
                 <Box
-                  height="100%"
+                  // height="100%"
                   // display="grid"
                   bgcolor="#FFFFFF"
                   border="1px solid #D7DBDC"
@@ -126,6 +122,12 @@ function Checks() {
                   display="flex"
                   flexDirection="column"
                   justifyContent="space-between"
+                  height={{
+                    lg: "calc(100vh - 64px - 44px)",
+                    md: "calc(100vh - 60px - 36px)",
+                    xs: "calc(100vh - 60px - 24px)",
+                  }}
+                  overflow="auto"
                 >
                   <Box>
                     <Box
@@ -411,16 +413,20 @@ function Checks() {
                     </Box>
 
                     <Grid container columnSpacing={{ md: 3, xs: 2 }}>
-                      <Grid item xs={4}></Grid>
-                      <Grid item xs={4}>
+                      <Grid
+                        item
+                        display={{ md: "flex", xs: "none" }}
+                        md={4}
+                      ></Grid>
+                      <Grid item md={4} xs={6}>
                         <PrimaryButton
                           large
                           startIcon={<PrintIconWhite />}
                           label="receipt"
                         />
                       </Grid>
-                      <Grid item xs={4}>
-                        <PrimaryButton large label="refund check" />
+                      <Grid item md={4} xs={6}>
+                        <PrimaryButton large label="restore check" />
                       </Grid>
                     </Grid>
                   </Box>
@@ -434,5 +440,7 @@ function Checks() {
   )
 }
 
-Checks.getLayout = (page) => <CustomHeaderLayout>{page}</CustomHeaderLayout>
+Checks.getLayout = (page) => (
+  <CustomLayout header={{ label: "Check total" }}>{page}</CustomLayout>
+)
 export default Checks

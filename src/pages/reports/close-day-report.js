@@ -1,8 +1,8 @@
-import { Box, Button, Grid, Stack, Typography } from "@mui/material";
-import { useRouter } from "next/router";
-import React, { useEffect, useState } from "react";
-import Divider from "@mui/material/Divider";
-import { styled, alpha } from "@mui/material/styles";
+import { Box, Button, Grid, Stack, Typography } from "@mui/material"
+import { useRouter } from "next/router"
+import React, { useEffect, useState } from "react"
+import Divider from "@mui/material/Divider"
+import { styled, alpha } from "@mui/material/styles"
 import {
   CardCardsIcon,
   CardCashIcon,
@@ -11,23 +11,23 @@ import {
   PrintIconWhite,
   SaveCheckRedIcon,
   SearchGreyIcon,
-} from "@/components/icons";
+} from "@/components/icons"
 
-import PaymentMethodArrowImg from "@/assets/images/ic_payment_method_arrow.png";
-import { Image } from "@/components/styled-components";
-import MainLayout from "@/layouts/MainLayout";
-import TransactionDateCard from "@/components/TransactionDateCard";
-import InputBase from "@mui/material/InputBase";
-import { ListDivider } from "@/components/ListDivider";
-import TransactionSideBar from "@/components/transaction-side-bar";
+import PaymentMethodArrowImg from "@/assets/images/ic_payment_method_arrow.png"
+import { Image } from "@/components/styled-components"
+import MainLayout from "@/layouts/MainLayout"
+import TransactionDateCard from "@/components/TransactionDateCard"
+import InputBase from "@mui/material/InputBase"
+import { ListDivider } from "@/components/ListDivider"
+import TransactionSideBar from "@/components/transaction-side-bar"
 import {
   GuestDetailsConsumer,
   GuestDetailsProvider,
-} from "@/context/guestDetailsContext";
-import PaymentLayout from "@/layouts/PaymentLayout";
-import ReportCard from "@/components/reportsCard";
-import { CloseDayReportData } from "@/data/closeDayReportData";
-import { PrimaryButton } from "@/components/CusttomButtons";
+} from "@/context/guestDetailsContext"
+import ReportCard from "@/components/reportsCard"
+import { CloseDayReportData } from "@/data/closeDayReportData"
+import { PrimaryButton } from "@/components/CusttomButtons"
+import CustomLayout from "@/layouts/CustomLayout"
 
 function CloseDayReport() {
   const [items, setItems] = useState([
@@ -45,7 +45,7 @@ function CloseDayReport() {
       price: "₹1843.90",
       finalPrice: "₹1622.20",
     },
-  ]);
+  ])
 
   // const [orderItems, setOrderItems] = useState([])
 
@@ -61,7 +61,7 @@ function CloseDayReport() {
     // marginRight: theme.spacing(2),
     marginLeft: 0,
     width: "100%",
-  }));
+  }))
 
   const SearchIconWrapper = styled("div")(({ theme }) => ({
     padding: theme.spacing(0, 1),
@@ -76,7 +76,7 @@ function CloseDayReport() {
       width: "32px",
       height: "32px",
     },
-  }));
+  }))
 
   const StyledInputBase = styled(InputBase)(({ theme }) => ({
     color: "#B1B6B9",
@@ -93,11 +93,11 @@ function CloseDayReport() {
       paddingLeft: `calc(1em + ${theme.spacing(4)})`,
       width: "100%",
     },
-  }));
+  }))
 
   const style = {
     bgcolor: "background.paper",
-  };
+  }
 
   return (
     <Box
@@ -298,12 +298,19 @@ function CloseDayReport() {
         </Typography>
       </Box>
     </Box>
-  );
+  )
 }
 
 CloseDayReport.getLayout = (page) => (
-  <PaymentLayout isPaymentMethod={true} reports={true}>
+  <CustomLayout
+    reports
+    header={{
+      label: "Reports",
+      title: "Close of Day",
+      description: "Fri, Feb 24, 11:29 AM - Mon, Mar 13, 06:44 PM",
+    }}
+  >
     {page}
-  </PaymentLayout>
-);
-export default CloseDayReport;
+  </CustomLayout>
+)
+export default CloseDayReport

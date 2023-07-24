@@ -1,7 +1,6 @@
 import FoodBillingCard from "@/components/FoodBillingCard"
 import FoodCard from "@/components/FoodCard"
 import { FoodData } from "@/data/food/foodData"
-import FoodLayout from "@/layouts/FoodLayout"
 import { Box, Button, Stack, Typography } from "@mui/material"
 import { useRouter } from "next/router"
 import React, { useEffect, useState } from "react"
@@ -18,6 +17,7 @@ import ReactNumberFormat from "@/components/ReactNumberFormat"
 import FoodSlicesCard from "@/components/Food/FoodSlidesCards"
 import { PrimaryButton } from "@/components/CusttomButtons"
 import PrinterError from "@/components/modals/PrinterError"
+import MainLayout from "@/layouts/MainLayout"
 
 const encrypt = (salt) => {
   const textToChars = (text) => text.split("").map((c) => c.charCodeAt(0))
@@ -373,5 +373,5 @@ function ChineseFood() {
   )
 }
 
-ChineseFood.getLayout = (page) => <FoodLayout>{page}</FoodLayout>
+
 export default ChineseFood

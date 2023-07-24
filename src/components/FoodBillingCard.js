@@ -24,6 +24,7 @@ import CompitemPopup from "./modals/CompItemPopup"
 import useModalState from "@/hooks/useModalState"
 import { useDispatch } from "react-redux"
 import { handleAddToCart, handleRemoveFromCart } from "@/redux/slices/cartSlice"
+import AddDiscount from "./modals/AddDiscount"
 
 function generate(element) {
   return [0, 1, 2].map((value) =>
@@ -55,6 +56,14 @@ export default function FoodBillingCard({
     handleOpen: handleOpenItemPopup,
     handleClose: handleCloseItemPopup,
   } = useModalState(false)
+
+  const {
+    isOpen: isOpenAddDiscount,
+    handleToggle: handleToggleAddDiscount,
+    handleOpen: handleOpenAddDiscount,
+    handleClose: handleCloseAddDiscount,
+  } = useModalState(false)
+
   const dispatch = useDispatch()
   // console.log("customFoodOptions", customFoodOptions.length)
   return (
@@ -149,6 +158,9 @@ export default function FoodBillingCard({
             alignItems="start"
             justifyContent="start"
             // pr={{ lg: "18px", xs: "14px" }}
+            sx={{ cursor: "pointer" }}
+            onClick={handleOpenItemPopup}
+            // }}
           >
             <Typography
               sx={{
@@ -217,8 +229,10 @@ export default function FoodBillingCard({
                   borderRadius: "6px",
                   width: { lg: "28px", xs: "18px" },
                   height: { lg: "28px", xs: "22px" },
+                  cursor: "pointer",
                 }}
-                onClick={handleOpenItemPopup}
+                // onClick={handleOpenItemPopup}
+                onClick={handleOpenAddDiscount}
               >
                 <OfferOnFoodIcon />
               </Avatar>
@@ -232,6 +246,13 @@ export default function FoodBillingCard({
         handleToggle={handleToggleItemPopup}
         handleOpen={handleOpenItemPopup}
         handleClose={handleCloseItemPopup}
+      />
+      <AddDiscount
+        // setDiscountValue={(e) => setDiscountValue(e.target.value)}
+        isOpen={isOpenAddDiscount}
+        handleToggle={handleToggleAddDiscount}
+        handleOpen={handleOpenAddDiscount}
+        handleClose={handleCloseAddDiscount}
       />
     </>
   )

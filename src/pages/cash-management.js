@@ -1,25 +1,26 @@
-import { PrimaryButton } from "@/components/CusttomButtons";
-import SettingsLayout from "@/layouts/settingLayout";
-import styled from "@emotion/styled";
-import { Box, Grid, Paper, Typography, useMediaQuery } from "@mui/material";
-import React, { useState } from "react";
-import PlusImg from "../assets/images/ic_plus.png";
-import MinusImg from "../assets/images/ic_minus.png";
-import { Image } from "@/components/styled-components";
+import { PrimaryButton } from "@/components/CusttomButtons"
+
+
+import { Box, Grid, Paper, Typography, useMediaQuery } from "@mui/material"
+import React, { useState } from "react"
+import PlusImg from "../assets/images/ic_plus.png"
+import MinusImg from "../assets/images/ic_minus.png"
+import { Image } from "@/components/styled-components"
+import CustomLayout from "@/layouts/CustomLayout"
 
 const buttonStyles = {
   borderRadius: "0px 0px 10px 10px",
   fontSize: { lg: "16px", xs: "16px" },
   height: { lg: "50px", xs: "40px" },
   letterSpacing: 0,
-};
+}
 
 const BoxStyles = {
   display: "flex",
   alignItems: "center",
   px: { lg: "22px", xs: "18px" },
   justifyContent: "space-between",
-};
+}
 
 const TypographyStyles = {
   fontSize: { lg: "18px", xs: "16px" },
@@ -27,7 +28,7 @@ const TypographyStyles = {
   letterSpacing: "0.65px",
   textTransform: "capitalize",
   color: "#000000",
-};
+}
 
 const AmountColumn = ({ item, handleAdd, handleRemove }) => {
   return (
@@ -96,8 +97,8 @@ const AmountColumn = ({ item, handleAdd, handleRemove }) => {
         </Typography>
       </Box>
     </Grid>
-  );
-};
+  )
+}
 
 function CashManagement() {
   const [count, setCount] = useState([
@@ -133,30 +134,18 @@ function CashManagement() {
       amount: 2,
       quantity: 0,
     },
-  ]);
-
-  // const handleRemove = (item) => {
-  //   setCount([])
-  // }
-
-  // const amounts = [
-  //   { label: "2000 Rupees", count: "0", amount: "₹0.00" },
-  //   { label: "20 Rupees Coin", count: "0", amount: "₹0.00" },
-  // ]
-
-  const handleChange = () => {};
+  ])
 
   return (
     <Box
       p={{ lg: "22px", xs: "18px" }}
       pt="0 !important"
-      height={{
-        lg: "calc(100vh - 64px)",
-        xs: "calc(100vh - 48px)",
-      }}
+      height={{ lg: "calc(100vh - 64px)", xs: "calc(100vh - 60px)" }}
+      overflow="auto"
     >
       <Box
         height="100%"
+        overflow="auto"
         px={{ lg: "22px", xs: "18px" }}
         bgcolor="#FFFFFF"
         borderRadius="0px 0px 10px 10px"
@@ -294,10 +283,13 @@ function CashManagement() {
         </Box>
       </Box>
     </Box>
-  );
+  )
 }
 
 CashManagement.getLayout = (page) => (
-  <SettingsLayout settingsHeader>{page}</SettingsLayout>
-);
-export default CashManagement;
+  <CustomLayout blankHeader header={{ label: "Cash management" }}>
+    {page}
+  </CustomLayout>
+)
+
+export default CashManagement

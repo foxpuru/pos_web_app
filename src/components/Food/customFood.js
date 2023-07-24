@@ -1,5 +1,5 @@
 import CustomFoodCard from "@/components/CustomFoodCard"
-import FoodLayout from "@/layouts/FoodLayout"
+
 import { Box, Typography } from "@mui/material"
 import { useRouter } from "next/router"
 import React, { useEffect } from "react"

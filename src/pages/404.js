@@ -10,10 +10,21 @@ import { Image } from "@/components/styled-components"
 import BlankLayout from "@/layouts/BlankLayout"
 import { PrimaryButton } from "@/components/CusttomButtons"
 import { useRouter } from "next/router"
+import { useSelector } from "react-redux"
+import Loader from "@/components/Loader"
+import { useEffect } from "react"
 
 function Custom404() {
   const router = useRouter()
-  return (
+  const passcode = useSelector((state) => state.auth.passcode)
+  const deviceCodes = useSelector((state) => state.auth.deviceCode)
+
+  useEffect(() => {
+    if (!passcode || !deviceCodes) {
+      router.push("/")
+    }
+  }, [passcode, deviceCodes])
+  return passcode && deviceCodes ? (
     <Box
       sx={{ width: "100%", height: "100vh " }}
       display="flex"
@@ -57,6 +68,8 @@ function Custom404() {
         />
       </Box>
     </Box>
+  ) : (
+    <Loader />
   )
 }
 

@@ -11,6 +11,7 @@ import {
   TableIcon,
   TranscationsIcon,
 } from "@/components/icons"
+import { TableManagementData } from "./tableManagement"
 
 export const SideBarItems = [
   {
@@ -38,7 +39,7 @@ export const SideBarItems = [
   {
     label: "Table Management",
     icon: <TableIcon />,
-    path: "/table-management",
+    path: `/table-management?category=${TableManagementData[0].path}`,
     pro: true,
   },
   {

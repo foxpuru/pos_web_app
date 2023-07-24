@@ -24,7 +24,7 @@ import {
   GuestDetailsConsumer,
   GuestDetailsProvider,
 } from "@/context/guestDetailsContext"
-import PaymentLayout from "@/layouts/PaymentLayout"
+
 import ReportCard from "@/components/reportsCard"
 import { CloseDayReportData } from "@/data/closeDayReportData"
 import DatePicker from "@/components/DatePicker"
@@ -34,6 +34,7 @@ import DateTimePicker from "@/components/modals/DatePicker"
 import useModalState from "@/hooks/useModalState"
 import Table from "@/components/Table"
 import { PrimaryButton } from "@/components/CusttomButtons"
+import CustomLayout from "@/layouts/CustomLayout"
 
 const coloums = [
   {
@@ -342,8 +343,8 @@ function SalesReport() {
 }
 
 SalesReport.getLayout = (page) => (
-  <PaymentLayout isPaymentMethod={true} reports={true}>
+  <CustomLayout reports header={{ label: "Reports", title: "Sales Report" }}>
     {page}
-  </PaymentLayout>
+  </CustomLayout>
 )
 export default SalesReport
