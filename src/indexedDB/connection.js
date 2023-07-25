@@ -6,10 +6,11 @@ import {
   category_store,
   merchant_store,
   modifier_store,
+  modifiers_group_store,
   product_cache_images_store,
   product_store,
   timestamp_store,
-  variant_store,
+  product_variant_store,
 } from "./storeNames";
 const DB_NAME = "pos-web-app";
 
@@ -35,6 +36,18 @@ const createStore = async () => {
       db.createObjectStore(product_store, {
         keyPath: "_id",
       });
+      // modifier_store
+      db.createObjectStore(modifier_store, {
+        keyPath: "_id",
+      });
+      // modifiers_group_store
+      db.createObjectStore(modifiers_group_store, {
+        keyPath: "_id",
+      });
+      // product_variant_store
+      db.createObjectStore(product_variant_store, {
+        keyPath: "_id",
+      });
       // product_cache_images_store
       db.createObjectStore(product_cache_images_store, {
         keyPath: "_id",
@@ -43,14 +56,7 @@ const createStore = async () => {
       db.createObjectStore(category_store, {
         keyPath: "_id",
       });
-      // modifier_store
-      db.createObjectStore(modifier_store, {
-        keyPath: "_id",
-      });
-      // variant_store
-      db.createObjectStore(variant_store, {
-        keyPath: "_id",
-      });
+
       db.close();
     },
   });

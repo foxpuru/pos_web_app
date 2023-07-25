@@ -6,8 +6,12 @@ import storage from "redux-persist/lib/storage";
 import { clearLocalStorage } from "@/utility/setAndRemoveAuthData";
 import { getUserInfo } from "@/api/userInfo";
 import axios from "axios";
-import { getModifiers } from "@/api/modifiers";
-import { getProductCategories, getProducts } from "@/api/product";
+import { getModifierGroups, getModifiers } from "@/api/modifiers";
+import {
+  getProductCategories,
+  getProducts,
+  getProductVariants,
+} from "@/api/product";
 import {
   addDataInAuthStore,
   getDataFromAuthStore,
@@ -26,18 +30,25 @@ export const login = createAsyncThunk("login", async (data, thunkApi) => {
     await addDataInAuthStore(authData?.data?.data);
     const accessToken = authData?.data?.data?.tokens?.access?.token;
     const axiosInstanceWithLoginInfo = createAxiosInstance(accessToken);
-    let userData = await getUserInfo(axiosInstanceWithLoginInfo);
-    let modifiersData = await getModifiers(axiosInstanceWithLoginInfo);
+    const userData = await getUserInfo(axiosInstanceWithLoginInfo);
+    const modifiersData = await getModifiers(axiosInstanceWithLoginInfo);
+    const modifierGroupsData = await getModifierGroups(
+      axiosInstanceWithLoginInfo
+    );
     let productCategoriesData = await getProductCategories(
       axiosInstanceWithLoginInfo
     );
     let productData = await getProducts(axiosInstanceWithLoginInfo);
-
+    let productVariantsData = await getProductVariants(
+      axiosInstanceWithLoginInfo
+    );
     console.log({
       userData,
       modifiersData,
+      modifierGroupsData,
       productCategoriesData,
       productData,
+      productVariantsData,
     });
     toast.success(authData?.data?.message);
     return Promise.resolve(authData);

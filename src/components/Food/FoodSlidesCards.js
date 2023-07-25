@@ -1,20 +1,20 @@
-import CustomFoodCard from "@/components/CustomFoodCard"
-import { Box, Typography } from "@mui/material"
-import { useRouter } from "next/router"
-import React, { useEffect } from "react"
-import FoodCard from "../FoodCard"
+import CustomFoodCard from "@/components/CustomFoodCard";
+import { Box, Typography } from "@mui/material";
+import { useRouter } from "next/router";
+import React, { useEffect } from "react";
+import FoodCard from "../FoodCard";
 
 function FoodSlicesCard({ foodItems }) {
-  const router = useRouter()
+  const router = useRouter();
   useEffect(() => {
     if (!foodItems) {
       // alert("lord rohit jangid")
-      delete router.query.foodType
-      router.push(router)
+      delete router.query.foodType;
+      router.push(router);
     }
-  }, [foodItems])
+  }, [foodItems]);
 
-  console.log("foodItems", foodItems)
+  console.log("foodItems", foodItems);
   return (
     <Box
       height={{
@@ -31,7 +31,7 @@ function FoodSlicesCard({ foodItems }) {
         ))}
       </Box>
     </Box>
-  )
+  );
 }
 
-export default FoodSlicesCard
+export default FoodSlicesCard;
