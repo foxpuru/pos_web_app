@@ -27,6 +27,7 @@ import LogoutLogo from "../assets/images/btn_logout.png"
 import RightMenuImg from "../assets/images/btn_right_menu.png"
 import CheckNameModal from "./modals/ChecksNamePopup"
 import BtnBackArrow from "../assets/images/btn_back_arrow.png"
+import BtnInfoNav from "../assets/images/btn_info_nav.png"
 
 import MenuModal from "./Menu"
 import { useRouter } from "next/router"
@@ -34,48 +35,6 @@ import ExtraCharges from "./modals/AddExtraCharges"
 import UserMenu from "./UserMenu"
 import { Matches } from "@/hooks/useCustomQuery"
 import { PrimaryButton } from "./CusttomButtons"
-
-const Search = styled("div")(({ theme }) => ({
-  position: "relative",
-  borderRadius: theme.shape.borderRadius,
-  backgroundColor: alpha(theme.palette.common.white, 0.15),
-  "&:hover": {
-    backgroundColor: alpha(theme.palette.common.white, 0.25),
-  },
-  marginLeft: 0,
-  width: "100%",
-  [theme.breakpoints.up("sm")]: {
-    marginLeft: theme.spacing(1),
-    width: "auto",
-  },
-}))
-
-const SearchIconWrapper = styled("div")(({ theme }) => ({
-  padding: theme.spacing(0, 2),
-  height: "100%",
-  position: "absolute",
-  pointerEvents: "none",
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "center",
-}))
-
-const StyledInputBase = styled(InputBase)(({ theme }) => ({
-  color: "inherit",
-  "& .MuiInputBase-input": {
-    padding: theme.spacing(1, 1, 1, 0),
-    // vertical padding + font size from searchIcon
-    paddingLeft: `calc(1em + ${theme.spacing(4)})`,
-    transition: theme.transitions.create("width"),
-    width: "100%",
-    [theme.breakpoints.up("sm")]: {
-      width: "12ch",
-      "&:focus": {
-        width: "20ch",
-      },
-    },
-  },
-}))
 
 export default function Header({ isPaymentMethod, reports }) {
   const [age, setAge] = React.useState(10)
@@ -117,20 +76,18 @@ export default function Header({ isPaymentMethod, reports }) {
       >
         <Toolbar
           sx={{
-            display: { lg: undefined, xs: "flex" },
             minHeight: { lg: "64px", xs: "60px" },
             p: "0 !important",
             boxShadow: "0px !important",
-            width: { lg: undefined, xs: "100%" },
             justifyContent: "space-between",
           }}
         >
           <Box
-            // py={{ lg: "10px", xs: "7px" }}
-            px={{ lg: "22px", xs: "12px" }}
+            px={{ lg: "22px", md: "18px", xs: "12px" }}
             width={{
-              lg: isPaymentMethod ? "100%" : "calc(100% - 370px)",
-              xs: isPaymentMethod ? "100%" : "60%",
+              lg: "calc(100% - 350px)",
+              md: "calc(100% - 300px)",
+              xs: "calc(100% - 250px)",
             }}
             sx={{
               display: "flex",
@@ -139,28 +96,27 @@ export default function Header({ isPaymentMethod, reports }) {
               justifyContent: "space-between",
             }}
           >
-            {!isPaymentMethod && (
-              <Box display="flex" alignItems="center">
-                {["custom", "slides"].includes(router.query.foodType) ? (
-                  <Image
-                    src={BtnBackArrow.src}
-                    onClick={() => router.back()}
-                    alt="btn left"
-                    sx={{
-                      width: { lg: "38px", xs: "28px", cursor: "pointer" },
-                    }}
-                  />
-                ) : (
-                  <Image
-                    src={BtnLeftMenuImg.src}
-                    onClick={handleOpenSidebar}
-                    alt="btn left"
-                    sx={{
-                      width: { lg: "38px", xs: "28px", cursor: "pointer" },
-                    }}
-                  />
-                )}
-                {/* {!["custom", "slides"].includes(router.query.foodType) && (
+            {!["custom", "slides"].includes(router.query.foodType) ? (
+              <Image
+                src={BtnLeftMenuImg.src}
+                onClick={handleOpenSidebar}
+                alt="btn left"
+                sx={{
+                  width: { lg: "38px", xs: "28px", cursor: "pointer" },
+                }}
+              />
+            ) : (
+              <Image
+                src={BtnBackArrow.src}
+                onClick={() => router.back()}
+                alt="btn left"
+                sx={{
+                  width: { lg: "38px", xs: "28px", cursor: "pointer" },
+                }}
+              />
+            )}
+
+            {/* {!["custom", "slides"].includes(router.query.foodType) && (
                   <Box
                     // width="100%"
                     display="flex"
@@ -205,10 +161,62 @@ export default function Header({ isPaymentMethod, reports }) {
                     </Button>
                   </Box>
                 )} */}
-              </Box>
-            )}
 
-            {reports && (
+            <Image
+              // src={imageMatches ? MuseposLogo.src : MuseLogo.src}
+              src={MuseposLogo.src}
+              alt="musepos logo"
+              sx={{ height: { lg: "28px", xs: "20px" }, cursor: "pointer" }}
+              onClick={() => router.push("/food?category=chinese")}
+            />
+            <Box display="flex" alignItems="center">
+              {!["custom", "slides"].includes(router.query.foodType) ? (
+                <>
+                  <Typography
+                    mr={{ ls: "22px", md: "18px", xs: "12px" }}
+                    sx={{
+                      textAlign: "right",
+                      color: "#000000",
+                      fontSize: { lg: "18px", xs: "14px" },
+                      fontWeight: "500",
+                      width: { lg: "180px", xs: "140px" },
+                      letterSpacing: "0.65px",
+                      whiteSpace: "nowrap",
+                      overflow: "hidden",
+                      textOverflow: "ellipsis",
+                    }}
+                  >
+                    John Pizza
+                  </Typography>
+                  <Image
+                    src={LogoutLogo.src}
+                    alt="logout logo"
+                    sx={{
+                      width: {
+                        lg: "38px",
+                        xs: "28px",
+                        cursor: "pointer",
+                      },
+                    }}
+                    onClick={handleClickUserMenu}
+                  />
+                </>
+              ) : (
+                <Image
+                  src={BtnInfoNav.src}
+                  alt="negatvie modifier icon"
+                  sx={{
+                    width: {
+                      lg: "38px",
+                      xs: "28px",
+                      cursor: "pointer",
+                    },
+                  }}
+                  onClick={handleClickUserMenu}
+                />
+              )}
+            </Box>
+            {/* {reports && (
               <Box display="flex" alignItems="center">
                 <Image
                   src={BtnLeftMenuImg.src}
@@ -241,165 +249,77 @@ export default function Header({ isPaymentMethod, reports }) {
                   {reports ? "Reports" : "CHECK TOTAL"}
                 </Typography>
               </Box>
-            )}
-
-            <Box
-              width={{ lg: "calc(100% - 370px)", xs: "calc(100% - 230px)" }}
-              display="flex"
-              justifyContent="space-between"
-              alignItems="center"
-            >
-              {isPaymentMethod && (
-                <Image
-                  src={BtnBackArrow.src}
-                  // onClick={() => router.push("/food?category=chinese")}
-                  onClick={() => router.back()}
-                  // src={}
-
-                  alt="musepos logo"
-                  sx={{
-                    height: { lg: "34px", xs: "24px" },
-                    cursor: "pointer",
-                    display: reports ? "none" : undefined,
-                  }}
-                />
-              )}
-              <Box
-                width={isPaymentMethod && "100%"}
-                display="flex"
-                justifyContent="center"
-              >
-                <Image
-                  src={imageMatches ? MuseposLogo.src : MuseLogo.src}
-                  // src={}
-                  alt="musepos logo"
-                  sx={{ height: { lg: "28px", xs: "20px" }, cursor: "pointer" }}
-                  onClick={() => router.push("/food?category=chinese")}
-                />
-              </Box>
-
-              <Box
-                display={isPaymentMethod ? "none" : "flex"}
-                alignItems="center"
-              >
-                {!["custom", "slides"].includes(router.query.foodType) ? (
-                  <>
-                    <Typography
-                      mr={{ ls: "22px", xs: "12px" }}
-                      sx={{
-                        textAlign: "right",
-                        color: "#000000",
-                        fontSize: { lg: "18px", xs: "14px" },
-                        fontWeight: "500",
-                        width: { lg: "180px", xs: "140px" },
-                        letterSpacing: "0.65px",
-                        whiteSpace: "nowrap",
-                        overflow: "hidden",
-                        textOverflow: "ellipsis",
-                      }}
-                    >
-                      John Pizza
-                    </Typography>
-                    <Image
-                      src={LogoutLogo.src}
-                      alt="logout logo"
-                      sx={{
-                        width: {
-                          lg: "38px",
-                          xs: "28px",
-                          cursor: "pointer",
-                        },
-                      }}
-                      onClick={handleClickUserMenu}
-                    />
-                  </>
-                ) : (
-                  ["custom"].includes(router.query.foodType) && (
-                    <Image
-                      src={LogoutLogo.src}
-                      alt="logout logo"
-                      sx={{
-                        width: {
-                          lg: "38px",
-                          xs: "28px",
-                          cursor: "pointer",
-                        },
-                      }}
-                      onClick={handleClickUserMenu}
-                    />
-                  )
-                )}
-              </Box>
-            </Box>
+            )} */}
           </Box>
-          {!isPaymentMethod && (
-            <Box
-              // width={{ lg: "30%", xs: "40%" }}
-              width={{ lg: "370px", xs: "40%" }}
-              // width={Matches ? "370px" : "40%"}
-              display="flex"
-              justifyContent="space-between"
-              alignItems="center"
-              px={{ lg: "22px", xs: "0px" }}
-              pr={{ lg: "22px", xs: "10px" }}
-            >
-              <Box>
-                <FormControl sx={{ m: 0, minWidth: 120 }}>
-                  <Select
-                    value={age}
-                    onChange={handleChange}
-                    // defaultOpen
-                    // displayEmpty
-                    inputProps={{ "aria-label": "Without label" }}
-                    sx={{
-                      padding: "0 !important",
-                      margin: "0 !important",
-                      borderRadius: "10px",
-                      color: "#E57607",
-                      fontSize: { lg: "14px", xs: "12px" },
-                      fontWeight: "400",
-                      letterSpacing: "0.45px",
+
+          <Box
+            // width={{ lg: "30%", xs: "40%" }}
+            // width={{ md: "370px", xs: "40%" }}
+            width={{ lg: "350px", md: "300px", xs: "250px" }}
+            // minWidth={{ lg: "350px", md: "300px", xs: "250px" }}
+            // width={Matches ? "370px" : "40%"}
+            display="flex"
+            justifyContent="space-between"
+            alignItems="center"
+            px={{ lg: "22px", md: "18px", xs: "12px" }}
+          >
+            <Box>
+              <FormControl sx={{ m: 0, minWidth: 120 }}>
+                <Select
+                  value={age}
+                  onChange={handleChange}
+                  // defaultOpen
+                  // displayEmpty
+                  inputProps={{ "aria-label": "Without label" }}
+                  sx={{
+                    padding: "0 !important",
+                    margin: "0 !important",
+                    borderRadius: "10px",
+                    color: "#E57607",
+                    fontSize: { lg: "14px", xs: "12px" },
+                    fontWeight: "400",
+                    letterSpacing: "0.45px",
+                    width: { lg: "130px", xs: "110px" },
+
+                    ".MuiSelect-select": {
+                      padding: { lg: "6px", xs: "4px" },
+                      px: { lg: "18px", xs: "8px" },
+                    },
+
+                    fieldset: {
+                      border: "1px solid #F3F3F3",
                       width: { lg: "130px", xs: "110px" },
+                    },
+                  }}
+                >
+                  <MenuItem value={10}>Take Away</MenuItem>
+                  <MenuItem value={20}>Dine-In</MenuItem>
+                </Select>
+              </FormControl>
+            </Box>
+            <PrimaryButton
+              sx={{
+                height: { lg: "32.13px", xs: "25.25px" },
+                minWidth: { lg: "100px", xs: "80px" },
+                width: { lg: "100px", xs: "80px" },
 
-                      ".MuiSelect-select": {
-                        padding: { lg: "6px", xs: "4px" },
-                        px: { lg: "18px", xs: "8px" },
-                      },
-
-                      fieldset: {
-                        border: "1px solid #F3F3F3",
-                        width: { lg: "130px", xs: "110px" },
-                      },
-                    }}
-                  >
-                    <MenuItem value={10}>Take Away</MenuItem>
-                    <MenuItem value={20}>Dine-In</MenuItem>
-                  </Select>
-                </FormControl>
-              </Box>
-              <PrimaryButton
-                sx={{
-                  height: { lg: "32.13px", xs: "25.25px" },
-                  minWidth: { lg: "100px", xs: "80px" },
-                  width: { lg: "100px", xs: "80px" },
-
-                  border: "1px solid #F3F3F3",
-                  backgroundColor: "transparent",
-                  color: "#000000",
-                  fontWeight: "5500",
-                  textTransform: "uppercase",
-                  letterSpacing: "0.4px",
-                  whiteSpace: "nowrap",
-                  overflow: "hidden",
-                  textOverflow: "ellipsis",
-                  "&:hover": {
-                    backgroundColor: "transparent !important",
-                  },
-                }}
-                onClick={handleOpen}
-                label="Guest-68"
-              />
-              <PrimaryButton
+                border: "1px solid #F3F3F3",
+                backgroundColor: "transparent",
+                color: "#000000",
+                fontWeight: "5500",
+                textTransform: "uppercase",
+                letterSpacing: "0.4px",
+                whiteSpace: "nowrap",
+                overflow: "hidden",
+                textOverflow: "ellipsis",
+                "&:hover": {
+                  backgroundColor: "transparent !important",
+                },
+              }}
+              onClick={handleOpen}
+              label="Guest-68"
+            />
+            {/* <PrimaryButton
                 sx={{
                   height: { lg: "32.13px", xs: "25.25px" },
                   minWidth: { lg: "50px", xs: "40px" },
@@ -414,32 +334,29 @@ export default function Header({ isPaymentMethod, reports }) {
                   },
                 }}
                 label="save"
-              />
-              <Image
-                onClick={handleClickMenu}
-                src={RightMenuImg.src}
-                alt="btn left"
-                sx={{ width: { lg: "28px", xs: "22px" } }}
-              />
-            </Box>
-          )}
-
-          <CheckNameModal
-            isOpen={isOpen}
-            handleToggle={handleToggle}
-            handleOpen={handleOpen}
-            handleClose={handleClose}
-          />
-          <MenuModal
-            open={openMenu}
-            handleClick={handleClickMenu}
-            anchorEl={anchorElMenu}
-            handleClose={handleCloseMenu}
-          />
+              /> */}
+            <Image
+              onClick={handleClickMenu}
+              src={RightMenuImg.src}
+              alt="btn left"
+              sx={{ width: { lg: "28px", xs: "22px" } }}
+            />
+          </Box>
         </Toolbar>
-        {/* <SideBarDrawer /> */}
       </AppBar>
 
+      <CheckNameModal
+        isOpen={isOpen}
+        handleToggle={handleToggle}
+        handleOpen={handleOpen}
+        handleClose={handleClose}
+      />
+      <MenuModal
+        open={openMenu}
+        handleClick={handleClickMenu}
+        anchorEl={anchorElMenu}
+        handleClose={handleCloseMenu}
+      />
       <SideBarDrawer
         isOpen={isOpenSidebar}
         handleToggle={handleToggleSidebar}

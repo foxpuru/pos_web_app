@@ -27,7 +27,11 @@ export default function Footer() {
       display="flex"
       alignItems="center"
       bgcolor="white"
-      width={{ lg: "calc(100% - 370px)", xs: "calc(100% - 230px)" }}
+      width={{
+        lg: "calc(100% - 350px)",
+        md: "calc(100% - 300px)",
+        xs: "calc(100% - 250px)",
+      }}
       boxShadow="0px -3px 6px #0000001A"
       sx={{
         position: "fixed",
