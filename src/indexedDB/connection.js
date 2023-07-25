@@ -11,38 +11,45 @@ import {
   timestamp_store,
   variant_store,
 } from "./storeNames";
-import { addDataInAuthStore, getDataFromAuthStore } from "./authStore";
 const DB_NAME = "pos-web-app";
 
 const VERSION = 1;
 
-const addTimeStampStore = async () => {
+const createStore = async () => {
   await openDB(DB_NAME, VERSION, {
     upgrade(db) {
-      db.createObjectStore(timestamp_store, { keyPath: "id" }).add({
-        id: Date.now(),
+      // timestamp_store
+      db.createObjectStore(timestamp_store, { keyPath: "_id" }).add({
+        _id: Date.now(),
         last_updated_time: new Date().toISOString(),
       });
+      // auth_store
       db.createObjectStore(auth_store, {
-        keyPath: "id",
+        keyPath: "_id",
       });
+      // merchant_store
       db.createObjectStore(merchant_store, {
-        keyPath: "id",
+        keyPath: "_id",
       });
+      // product_store
       db.createObjectStore(product_store, {
         keyPath: "_id",
       });
+      // product_cache_images_store
       db.createObjectStore(product_cache_images_store, {
         keyPath: "_id",
       });
+      // category_store
       db.createObjectStore(category_store, {
         keyPath: "_id",
       });
+      // modifier_store
       db.createObjectStore(modifier_store, {
-        keyPath: "id",
+        keyPath: "_id",
       });
+      // variant_store
       db.createObjectStore(variant_store, {
-        keyPath: "id",
+        keyPath: "_id",
       });
       db.close();
     },
@@ -52,7 +59,7 @@ const addTimeStampStore = async () => {
 
 export const IndexedDB_Connection = () => {
   if ("indexedDB" in window) {
-    addTimeStampStore();
+    createStore();
     console.log("This browser support IndexedDB");
   } else {
     alert("This browser doesn't support IndexedDB");

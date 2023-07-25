@@ -12,7 +12,7 @@ export const addDataInAuthStore = async (authData) => {
     let transaction = authStoreRequest.transaction([auth_store], "readwrite");
     const authStore = transaction.objectStore(auth_store);
     authStore.add({
-      id: Date.now(),
+      _id: Date.now(),
       tokens: { access: access?.token, refresh: refresh?.token },
     });
     authStoreRequest.close();

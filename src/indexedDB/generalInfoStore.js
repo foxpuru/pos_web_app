@@ -16,22 +16,11 @@ export const addDataInMerchantStore = async (merchantData) => {
     );
     const merchantStore = transaction.objectStore(merchant_store);
     merchantStore.add({
-      id: Date.now(),
-      merchantData: merchantData,
+      _id: merchantData?.merchant_info?._id,
+      ...merchantData,
     });
     merchantStoreRequest.close();
   } catch (error) {
     console.log("error==>merchantData", error);
   }
 };
-
-// console.log("merchantStoreRequest0", merchantStoreRequest.objectStoreNames);
-// console.log(
-//   "merchantStoreRequest1",
-//   merchantStoreRequest.objectStoreNames.contains(merchant_store)
-// );
-// if (!merchantStoreRequest.objectStoreNames.contains(merchant_store)) {
-//   merchantStoreRequest.createObjectStore(merchant_store, {
-//     keyPath: "id",
-//   });
-// }

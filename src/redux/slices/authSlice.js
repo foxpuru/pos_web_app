@@ -13,10 +13,14 @@ import {
   getDataFromAuthStore,
   isAuthStoreExist,
 } from "@/indexedDB/authStore";
+import { IndexedDB_Connection } from "@/indexedDB/connection";
 
 export const login = createAsyncThunk("login", async (data, thunkApi) => {
   try {
     const authData = await axiosInstance.post("auth/login", data);
+    if (authData?.data?.data) {
+      IndexedDB_Connection();
+    }
     thunkApi.fulfillWithValue({ ...authData?.data?.data, data });
     console.log("authData login", authData);
     await addDataInAuthStore(authData?.data?.data);
