@@ -12,43 +12,10 @@ import { useSelector } from "react-redux"
 import CustomCards from "@/components/Food/customFood"
 import AddDiscount from "@/components/modals/AddDiscount"
 import useModalState from "@/hooks/useModalState"
-import ReactNumberFormat from "@/components/ReactNumberFormat"
 
 import FoodSlicesCard from "@/components/Food/FoodSlidesCards"
 import { PrimaryButton } from "@/components/CusttomButtons"
 import PrinterError from "@/components/modals/PrinterError"
-import MainLayout from "@/layouts/MainLayout"
-
-const encrypt = (salt) => {
-  const textToChars = (text) => text.split("").map((c) => c.charCodeAt(0))
-  const byteHex = (n) => ("0" + Number(n).toString(16)).substr(-2)
-  const applySaltToChar = (code) =>
-    textToChars(salt).reduce((a, b) => a ^ b, code)
-  const text = salt
-    .split("")
-    .map(textToChars)
-    .map(applySaltToChar)
-    .map(byteHex)
-    .join("")
-  return text
-}
-
-const decrypt = (salt) => {
-  const textToChars = (text) => text.split("").map((c) => c.charCodeAt(0))
-  const applySaltToChar = (code) =>
-    textToChars(salt).reduce((a, b) => a ^ b, code)
-
-  const text = salt
-    .match(/.{1,2}/g)
-    .map((hex) => parseInt(hex, 16))
-    .map(applySaltToChar)
-    .map((charCode) => String.fromCharCode(charCode))
-    .join("")
-  return text
-}
-
-console.log("encrypt", encrypt("naresh"))
-console.log("decrypt", decrypt(encrypt("naresh")))
 
 function ChineseFood() {
   const style = {

@@ -1,9 +1,10 @@
 import { Image } from "@/components/styled-components"
 
 import { Box, Card, CardMedia, Typography } from "@mui/material"
-import React, { useEffect } from "react"
+import React, { useEffect, useState } from "react"
 
 import IpadGrayImg from "@/assets/images/btn_ipad_gray.png"
+import TableAddSection from "@/assets/images/btn_table_add.png"
 import { FoodData } from "@/data/food/foodData"
 import Link from "next/link"
 import FooterFoodCategory from "@/components/FooterFoodCategory"
@@ -13,8 +14,13 @@ import { useRouter } from "next/router"
 import { BigTable, RoundTable, SquareTable } from "@/components/icons"
 import { Matches } from "@/hooks/useCustomQuery"
 import CustomLayout from "@/layouts/CustomLayout"
+import { Encrypt } from "@/hooks/useEncryption"
 
 function TableManagement() {
+  const [showEdit, setShowEdit] = useState(false)
+
+  const [sections, setSections] = useState(TableManagementData)
+
   const router = useRouter()
 
   const deviceCodes = useSelector((state) => state.auth.deviceCode)
@@ -67,9 +73,21 @@ function TableManagement() {
       }
     )
   }
-  const TablesData = TableManagementData.find(
+  const TablesData = sections.find(
     (item) => item.path?.toLowerCase() === router.query?.category
   )
+
+  const addTableSection = () => {
+    console.log(
+      "TablesData",
+      // (TableManagementData.push = [
+      //   ...TableManagementData,
+      //   { category: "barr" },
+      // ])
+      sections
+    )
+    setSections([...sections, { category: "CAFE", path: Encrypt("CAFE") }])
+  }
 
   return (
     <Box>
@@ -223,7 +241,7 @@ function TableManagement() {
             "& a:hover": { textDecoration: "none" },
           }}
         >
-          {TableManagementData.map((item) => (
+          {sections.map((item) => (
             <Link
               href={`/table-management?category=${item.path}`}
               key={item.category}
@@ -236,13 +254,32 @@ function TableManagement() {
             </Link>
           ))}
         </Box>
+        {router.query.type === "edit" && (
+          <Box
+            display="flex"
+            alignItems="center"
+            p={{ lg: "10px 16px 10px 16px", xs: "6px" }}
+            sx={{ backgroundColor: "#D7DBDC" }}
+          >
+            <Image
+              src={TableAddSection.src}
+              alt="add table section"
+              sx={{ width: { lg: "40px", xs: "26px" }, cursur: "pointer" }}
+              onClick={() => addTableSection()}
+            />
+          </Box>
+        )}
       </Box>
     </Box>
   )
 }
 
 TableManagement.getLayout = (page) => (
-  <CustomLayout blankHeader header={{ label: "table management" }}>
+  <CustomLayout
+    blankHeader
+    header={{ label: "table management" }}
+    // showEdit={showEdit}
+  >
     {page}
   </CustomLayout>
 )

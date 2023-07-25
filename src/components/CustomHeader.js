@@ -34,6 +34,12 @@ export default function CustomHeader({
 
   const router = useRouter()
   console.log("transactions router path", router.pathname)
+
+  const editTables = () => {
+    router.query.type = "edit"
+    router.push(router)
+    console.log("edit", router.query.type)
+  }
   return (
     <>
       <AppBar
@@ -60,26 +66,40 @@ export default function CustomHeader({
               justifyContent="space-between"
               alignItems="center"
             >
-              <Image
-                src={BtnLeftMenuImg.src}
-                onClick={handleOpenSidebar}
-                alt="btn left"
-                sx={{
-                  width: { lg: "38px", xs: "28px", cursor: "pointer" },
-                }}
-              />
-              <Typography
-                color="black"
-                fontWeight="500"
-                letterSpacing="0.65"
-                fontSize={{ lg: "20px", xs: "17px" }}
-                textTransform="capitalize"
-                sx={{
-                  margin: "auto",
-                }}
-              >
-                {header.label}
-              </Typography>
+              {router.query.type === "edit" ? (
+                <Typography
+                  color="#000000"
+                  fontSize={{ md: "18px", xs: "16px" }}
+                  fontWeight="400"
+                  sx={{ cursor: "pointer" }}
+                >
+                  NEW TABLE
+                </Typography>
+              ) : (
+                <>
+                  <Image
+                    src={BtnLeftMenuImg.src}
+                    onClick={handleOpenSidebar}
+                    alt="btn left"
+                    sx={{
+                      width: { lg: "38px", xs: "28px", cursor: "pointer" },
+                    }}
+                  />
+
+                  <Typography
+                    color="black"
+                    fontWeight="500"
+                    letterSpacing="0.65"
+                    fontSize={{ lg: "20px", xs: "17px" }}
+                    textTransform="capitalize"
+                    sx={{
+                      margin: "auto",
+                    }}
+                  >
+                    {header.label}
+                  </Typography>
+                </>
+              )}
               {router.pathname === "/settings" && (
                 <PrimaryButton
                   sx={{
@@ -100,7 +120,24 @@ export default function CustomHeader({
                   label="SAVE"
                 />
               )}
-              {router.pathname === "/table-management" && (
+              {router.pathname === "/table-management" &&
+              router.query.type === "edit" ? (
+                <PrimaryButton
+                  sx={{
+                    width: { lg: "200px", xs: "170px" },
+                    color: "#000000",
+                    backgroundColor: "#EEF5F6",
+                    fontSize: { lg: "18px", xs: "16px" },
+                    fontWeight: "400",
+
+                    "&:hover": {
+                      backgroundColor: "#EEF5F6 !important",
+                    },
+                  }}
+                  label="close edit"
+                  onClick={() => router.back()}
+                />
+              ) : (
                 <PrimaryButton
                   sx={{
                     width: { lg: "200px", xs: "170px" },
@@ -114,6 +151,7 @@ export default function CustomHeader({
                     },
                   }}
                   label="EDIT"
+                  onClick={() => editTables()}
                 />
               )}
             </Box>

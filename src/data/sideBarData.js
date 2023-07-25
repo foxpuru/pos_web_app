@@ -20,6 +20,12 @@ export const SideBarItems = [
     path: `/food?category=${Encrypt("chinese")}`,
   },
   {
+    label: "Table Management",
+    icon: <TableIcon />,
+    path: `/table-management?category=${TableManagementData[0].path}`,
+    pro: true,
+  },
+  {
     label: "Opened Checks",
     icon: <OpenedChecksIcon />,
     path: "/checks",
@@ -36,12 +42,7 @@ export const SideBarItems = [
     path: "/cash-management",
     pro: true,
   },
-  {
-    label: "Table Management",
-    icon: <TableIcon />,
-    path: `/table-management?category=${TableManagementData[0].path}`,
-    pro: true,
-  },
+
   {
     label: "Reports",
     icon: <ReportsIcon />,
