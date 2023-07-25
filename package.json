@@ -8,7 +8,7 @@
     "export:staging": "env-cmd -f .env.staging next build && next export",
     "export:dev": "env-cmd -f .env.dev next build && next export",
     "export:production": "env-cmd -f .env.production next build && next export",
-    "start": "next start",
+    "start": "env-cmd -f .env.dev next build && next start",
     "lint": "next lint"
   },
   "dependencies": {
@@ -37,6 +37,7 @@
     "redux-logger": "^3.0.6",
     "redux-persist": "^6.0.0",
     "redux-thunk": "^2.4.2",
+    "sharp": "^0.32.4",
     "styled-components": "^6.0.4",
     "workbox-precaching": "^7.0.0"
   },
