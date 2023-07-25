@@ -80,10 +80,6 @@ function TableManagement() {
   const addTableSection = () => {
     console.log(
       "TablesData",
-      // (TableManagementData.push = [
-      //   ...TableManagementData,
-      //   { category: "barr" },
-      // ])
       sections
     )
     setSections([...sections, { category: "CAFE", path: Encrypt("CAFE") }])
