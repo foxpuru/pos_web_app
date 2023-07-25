@@ -1,11 +1,18 @@
 const runtimeCaching = require("next-pwa/cache");
 const withPWA = require("next-pwa")({
-  dest: "public",
-  swSrc: "/service-worker.js",
   runtimeCaching,
-  disable: true,
+  dest: "public",
   register: true,
-  sw: "_offline.js",
+  // precache: {
+  //   enable: true,
+  //   globPatterns: [
+  //     "_offline.js", // Example: an offline fallback page
+  //     "/src/assets/images/*.png", // Example: PNG images in the "images" folder
+  //     "/src/assets/styles/*.css", // Example: CSS files in the "styles" folder
+  //     // "scripts/*.js", // Example: JS files in the "scripts" folder
+  //     // Add other file paths as needed
+  //   ],
+  // },
 });
 
 module.exports = withPWA({

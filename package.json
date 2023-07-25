@@ -37,7 +37,8 @@
     "redux-logger": "^3.0.6",
     "redux-persist": "^6.0.0",
     "redux-thunk": "^2.4.2",
-    "styled-components": "^6.0.4"
+    "styled-components": "^6.0.4",
+    "workbox-precaching": "^7.0.0"
   },
   "devDependencies": {
     "sass": "^1.62.1"

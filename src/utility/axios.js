@@ -50,7 +50,6 @@ axiosAuth.interceptors.response.use(
     return Promise.reject(error);
   }
 );
-console.log("loadFromLocalStorage", loadFromLocalStorage());
 axiosAuth.interceptors.request.use(function (config) {
   // config.headers.Authorization = `Bearer ${
   //   storeReducer.getState().auth.tokenData.access.token

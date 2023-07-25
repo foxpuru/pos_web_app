@@ -17,8 +17,7 @@ export const addDataInProductCategoryStore = async (categoryData) => {
     const categoryStore = transaction.objectStore(category_store);
     categoryData?.categories.forEach((cItem) => {
       categoryStore.add({
-        _id: cItem?._id,
-        categoryDetails: cItem,
+        ...cItem,
       });
     });
 
@@ -39,7 +38,7 @@ export const getataFromProductCategoryStore = async () => {
     let data = await pCategoryStore.getAll();
     console.log("getataFromProductCategoryStore", data);
     productCategoryStoreRequest.close();
-    return data?.map((item) => item?.categoryDetails);
+    return data;
   } catch (error) {
     console.log("error==>getataFromProductCategoryStore", error);
   }

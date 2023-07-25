@@ -17,8 +17,7 @@ export const addDataInProductStore = async (productData) => {
     const productStore = transaction.objectStore(product_store);
     productData?.products.forEach((pItem) => {
       productStore.add({
-        _id: pItem?._id,
-        productDetails: pItem,
+        ...pItem,
       });
     });
     productStoreRequest.close();
@@ -38,7 +37,7 @@ export const getDataFromProductStore = async () => {
     const productStore = transaction.objectStore(product_store);
     let data = await productStore.getAll();
     productStoreRequest.close();
-    return data?.map((item) => item?.productDetails);
+    return data;
   } catch (error) {
     console.log("error==>getDataFromProductStore", error);
   }
