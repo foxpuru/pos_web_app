@@ -16,6 +16,7 @@ import { login } from "@/redux/slices/authSlice";
 import Head from "next/head";
 import UrlTitle from "./Title";
 import Loader from "./Loader";
+import { IndexedDB_Connection } from "@/indexedDB/connection";
 
 const GridItem = () => {
   return (
@@ -38,7 +39,6 @@ function DeviceCode() {
 
   const router = useRouter();
 
-  const passcode = useSelector((state) => state.auth.isAuthenticated);
   const deviceCodes = useSelector((state) => state.auth?.deviceCode);
   const submitButtonLoading = useSelector(
     (state) => state.auth?.submitButtonLoading
@@ -54,6 +54,7 @@ function DeviceCode() {
 
   const handleLogin = (otp) => {
     // device_code: "YDNW-WMM5-C4K5" }
+    IndexedDB_Connection();
     dispatch(login({ device_code: "YDNW-WMM5-C4K5" }));
     // if (deviceCode === otp) {
     //   router.push("plan-renewal")

@@ -9,6 +9,8 @@ import { Typography } from "@mui/material";
 import { CancelButton, PrimaryButton } from "../CusttomButtons";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "@/redux/slices/authSlice";
+import { dropIndexedDB } from "@/indexedDB/authStore";
+import { useRouter } from "next/router";
 
 export default function LogoutConfirmation({
   isOpen,
@@ -17,6 +19,7 @@ export default function LogoutConfirmation({
   handleClose,
 }) {
   const dispatch = useDispatch();
+  const router = useRouter();
   const selector = useSelector((state) => state?.auth?.userData);
   return (
     <CustomModal
@@ -48,7 +51,14 @@ export default function LogoutConfirmation({
         <Box display="flex" width="100%" gap={{ lg: "12px", xs: "10px" }}>
           <PrimaryButton
             label="OK"
-            onClick={() => dispatch(logout({ refreshToken: selector.refresh }))}
+            onClick={() => {
+              dropIndexedDB();
+              dispatch(logout({ refreshToken: selector.refresh })).then(
+                (res) => {
+                  // router.push();
+                }
+              );
+            }}
           />
           <CancelButton onClick={handleClose} />
         </Box>

@@ -110,7 +110,7 @@ export default function FoodCard({
             component="img"
             // sx={{ width: 131 }}
             // image={`https://source.unsplash.com/featured/?category=food}`}
-            image={food.image.src}
+            image={food.image ? food.image : FoodFishImg?.src}
             alt="Live from space album cover"
           />
           <Box

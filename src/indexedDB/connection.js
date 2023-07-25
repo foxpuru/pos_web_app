@@ -3,8 +3,10 @@ import { handle_IndexedDb_Connection } from "@/redux/slices/indexedDb_Slice";
 import { openDB, deleteDB, wrap, unwrap } from "idb";
 import {
   auth_store,
+  category_store,
   merchant_store,
   modifier_store,
+  product_cache_images_store,
   product_store,
   timestamp_store,
   variant_store,
@@ -28,7 +30,13 @@ const addTimeStampStore = async () => {
         keyPath: "id",
       });
       db.createObjectStore(product_store, {
-        keyPath: "id",
+        keyPath: "_id",
+      });
+      db.createObjectStore(product_cache_images_store, {
+        keyPath: "_id",
+      });
+      db.createObjectStore(category_store, {
+        keyPath: "_id",
       });
       db.createObjectStore(modifier_store, {
         keyPath: "id",
@@ -39,7 +47,7 @@ const addTimeStampStore = async () => {
       db.close();
     },
   });
-  await getDataFromAuthStore();
+  // await getDataFromAuthStore();
 };
 
 export const IndexedDB_Connection = () => {

@@ -3,27 +3,27 @@
 // import bgBack from "../img/bg404.png";
 // import GreyDesignBg from "../img/retail/grey_design_bg.png";
 // import ic_404_error from "../img/ic_404_error.png";
-import { Box, Typography } from "@mui/material"
+import { Box, Typography } from "@mui/material";
 
-import ErrorPageIcon from "@/assets/images/Group 25075.png"
-import { Image } from "@/components/styled-components"
-import BlankLayout from "@/layouts/BlankLayout"
-import { PrimaryButton } from "@/components/CusttomButtons"
-import { useRouter } from "next/router"
-import { useSelector } from "react-redux"
-import Loader from "@/components/Loader"
-import { useEffect } from "react"
+import ErrorPageIcon from "@/assets/images/Group 25075.png";
+import { Image } from "@/components/styled-components";
+import BlankLayout from "@/layouts/BlankLayout";
+import { PrimaryButton } from "@/components/CusttomButtons";
+import { useRouter } from "next/router";
+import { useSelector } from "react-redux";
+import Loader from "@/components/Loader";
+import { useEffect } from "react";
 
 function Custom404() {
-  const router = useRouter()
-  const passcode = useSelector((state) => state.auth.passcode)
-  const deviceCodes = useSelector((state) => state.auth.deviceCode)
+  const router = useRouter();
+  const passcode = useSelector((state) => state.auth.passcode);
+  const deviceCodes = useSelector((state) => state.auth.deviceCode);
 
   useEffect(() => {
     if (!passcode || !deviceCodes) {
-      router.push("/")
+      router.push("/");
     }
-  }, [passcode, deviceCodes])
+  }, [passcode, deviceCodes]);
   return passcode && deviceCodes ? (
     <Box
       sx={{ width: "100%", height: "100vh " }}
@@ -60,7 +60,7 @@ function Custom404() {
         <PrimaryButton
           large
           label="GO TO HOME PAGE"
-          onClick={() => router.push("/food?category=1c1716111a0c1a")}
+          onClick={() => router.push("/food")}
           sx={{
             width: { lg: "240px", xs: "260px" },
             height: { lg: "50px", xs: "40px" },
@@ -70,8 +70,8 @@ function Custom404() {
     </Box>
   ) : (
     <Loader />
-  )
+  );
 }
 
-Custom404.getLayout = (page) => <BlankLayout>{page}</BlankLayout>
-export default Custom404
+Custom404.getLayout = (page) => <BlankLayout>{page}</BlankLayout>;
+export default Custom404;

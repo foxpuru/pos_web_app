@@ -1,8 +1,8 @@
-import { Box, Button, Grid, Stack, Typography } from "@mui/material"
-import { useRouter } from "next/router"
-import React, { useEffect, useState } from "react"
-import Divider from "@mui/material/Divider"
-import { styled, alpha } from "@mui/material/styles"
+import { Box, Button, Grid, Stack, Typography } from "@mui/material";
+import { useRouter } from "next/router";
+import React, { useEffect, useState } from "react";
+import Divider from "@mui/material/Divider";
+import { styled, alpha } from "@mui/material/styles";
 import {
   CardCardsIcon,
   CardCashIcon,
@@ -11,22 +11,22 @@ import {
   PrintIconWhite,
   SaveCheckRedIcon,
   SearchGreyIcon,
-} from "@/components/icons"
+} from "@/components/icons";
 
-import PaymentMethodArrowImg from "../assets/images/ic_payment_method_arrow.png"
-import { Image } from "@/components/styled-components"
-import InputBase from "@mui/material/InputBase"
-import { ListDivider } from "@/components/ListDivider"
-import TransactionSideBar from "@/components/transaction-side-bar"
+import PaymentMethodArrowImg from "../assets/images/ic_payment_method_arrow.png";
+import { Image } from "@/components/styled-components";
+import InputBase from "@mui/material/InputBase";
+import { ListDivider } from "@/components/ListDivider";
+import TransactionSideBar from "@/components/transaction-side-bar";
 import {
   GuestDetailsConsumer,
   GuestDetailsProvider,
-} from "@/context/guestDetailsContext"
-import ChecksDataCard from "@/components/ChecksDataCard"
+} from "@/context/guestDetailsContext";
+import ChecksDataCard from "@/components/ChecksDataCard";
 
-import { PrimaryButton } from "@/components/CusttomButtons"
-import BlankLayout from "@/layouts/BlankLayout"
-import CustomLayout from "@/layouts/CustomLayout"
+import { PrimaryButton } from "@/components/CusttomButtons";
+import BlankLayout from "@/layouts/BlankLayout";
+import CustomLayout from "@/layouts/CustomLayout";
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
   borderRadius: "8px",
@@ -37,7 +37,7 @@ const Search = styled("div")(({ theme }) => ({
   // marginRight: theme.spacing(2),
   marginLeft: 0,
   width: "100%",
-}))
+}));
 
 const SearchIconWrapper = styled("div")(({ theme }) => ({
   padding: theme.spacing(0, 1),
@@ -52,7 +52,7 @@ const SearchIconWrapper = styled("div")(({ theme }) => ({
     width: "32px",
     height: "32px",
   },
-}))
+}));
 
 const StyledInputBase = styled(InputBase)(({ theme }) => ({
   color: "#B1B6B9",
@@ -69,7 +69,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
     paddingLeft: `calc(1em + ${theme.spacing(4)})`,
     width: "100%",
   },
-}))
+}));
 function Checks() {
   return (
     <Box display="flex" width="100%" alignItems="start">
@@ -437,10 +437,10 @@ function Checks() {
         </GuestDetailsConsumer>
       </GuestDetailsProvider>
     </Box>
-  )
+  );
 }
 
 Checks.getLayout = (page) => (
   <CustomLayout header={{ label: "Check total" }}>{page}</CustomLayout>
-)
-export default Checks
+);
+export default Checks;

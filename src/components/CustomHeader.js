@@ -1,23 +1,23 @@
-import * as React from "react"
-import { styled, alpha } from "@mui/material/styles"
-import AppBar from "@mui/material/AppBar"
-import Box from "@mui/material/Box"
-import Toolbar from "@mui/material/Toolbar"
+import * as React from "react";
+import { styled, alpha } from "@mui/material/styles";
+import AppBar from "@mui/material/AppBar";
+import Box from "@mui/material/Box";
+import Toolbar from "@mui/material/Toolbar";
 
-import Typography from "@mui/material/Typography"
-import useModalState from "@/hooks/useModalState"
-import SideBarDrawer from "./SideBar"
+import Typography from "@mui/material/Typography";
+import useModalState from "@/hooks/useModalState";
+import SideBarDrawer from "./SideBar";
 
-import { Image } from "./styled-components"
-import { useMediaQuery } from "@mui/material"
+import { Image } from "./styled-components";
+import { useMediaQuery } from "@mui/material";
 
-import BtnBackArrow from "../assets/images/btn_back_arrow.png"
-import MuseposLogo from "../assets/images/musepos_logo_colored_nav.png"
+import BtnBackArrow from "../assets/images/btn_back_arrow.png";
+import MuseposLogo from "../assets/images/musepos_logo_colored_nav.png";
 
-import BtnLeftMenuImg from "../assets/images/btn_left_menu.png"
+import BtnLeftMenuImg from "../assets/images/btn_left_menu.png";
 
-import { useRouter } from "next/router"
-import { PrimaryButton } from "./CusttomButtons"
+import { useRouter } from "next/router";
+import { PrimaryButton } from "./CusttomButtons";
 
 export default function CustomHeader({
   paymentMethod,
@@ -30,10 +30,10 @@ export default function CustomHeader({
     handleToggle: handleToggleSidebar,
     handleOpen: handleOpenSidebar,
     handleClose: handleCloseSidebar,
-  } = useModalState(false)
+  } = useModalState(false);
 
-  const router = useRouter()
-  console.log("transactions router path", router.pathname)
+  const router = useRouter();
+  console.log("transactions router path", router.pathname);
   return (
     <>
       <AppBar
@@ -236,5 +236,5 @@ export default function CustomHeader({
         handleClose={handleCloseSidebar}
       />
     </>
-  )
+  );
 }

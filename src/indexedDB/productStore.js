@@ -15,12 +15,31 @@ export const addDataInProductStore = async (productData) => {
       "readwrite"
     );
     const productStore = transaction.objectStore(product_store);
-    productStore.add({
-      id: Date.now(),
-      merchantData: productData,
+    productData?.products.forEach((pItem) => {
+      productStore.add({
+        _id: pItem?._id,
+        productDetails: pItem,
+      });
     });
     productStoreRequest.close();
   } catch (error) {
     console.log("error==>productData", error);
+  }
+};
+
+export const getDataFromProductStore = async () => {
+  try {
+    let productStoreRequest = await openDB(DB_NAME, VERSION);
+
+    let transaction = productStoreRequest.transaction(
+      [product_store],
+      "readwrite"
+    );
+    const productStore = transaction.objectStore(product_store);
+    let data = await productStore.getAll();
+    productStoreRequest.close();
+    return data?.map((item) => item?.productDetails);
+  } catch (error) {
+    console.log("error==>getDataFromProductStore", error);
   }
 };

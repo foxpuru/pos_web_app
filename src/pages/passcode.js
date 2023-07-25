@@ -1,59 +1,65 @@
-import { Image } from "@/components/styled-components"
-import { Box, Button, Grid, Typography } from "@mui/material"
-import React, { useEffect, useState } from "react"
-import OtpInput from "react-otp-input"
+import { Image } from "@/components/styled-components";
+import { Box, Button, Grid, Typography } from "@mui/material";
+import React, { useEffect, useState } from "react";
+import OtpInput from "react-otp-input";
 
-import BackgroundBannerImg from "../assets/images/clock_in_bg.png"
-import LogoImg from "../assets/images/musepos_logo_colored_white.png"
-import ClockImg from "../assets/images/ic_clock_in.png"
-import { Form, Formik } from "formik"
-import BlankLayout from "@/layouts/BlankLayout"
-import { useRouter } from "next/router"
-import { PrimaryButton } from "@/components/CusttomButtons"
-import { Encrypt } from "@/hooks/useEncryption"
-import { useDispatch, useSelector } from "react-redux"
-import { loginThroughPasscode } from "@/redux/slices/authSlice"
-import Loader from "@/components/Loader"
-import SelectLayout from "@/components/modals/SelectLayout"
-import useModalState from "@/hooks/useModalState"
-import BlankPopup from "@/components/modals/BlankPopup"
+import BackgroundBannerImg from "../assets/images/clock_in_bg.png";
+import LogoImg from "../assets/images/musepos_logo_colored_white.png";
+import ClockImg from "../assets/images/ic_clock_in.png";
+import { Form, Formik } from "formik";
+import BlankLayout from "@/layouts/BlankLayout";
+import { useRouter } from "next/router";
+import { PrimaryButton } from "@/components/CusttomButtons";
+import { Encrypt } from "@/hooks/useEncryption";
+import { useDispatch, useSelector } from "react-redux";
+import { loginThroughPasscode } from "@/redux/slices/authSlice";
+import Loader from "@/components/Loader";
+import SelectLayout from "@/components/modals/SelectLayout";
+import useModalState from "@/hooks/useModalState";
+import BlankPopup from "@/components/modals/BlankPopup";
 
 function Passcode() {
-  const [otp, setOtp] = useState("")
-  const router = useRouter()
-  const deviceCodes = useSelector((state) => state.auth.deviceCode)
+  const [otp, setOtp] = useState("");
+  const router = useRouter();
+  const deviceCodes = useSelector((state) => state.auth.deviceCode);
 
-  const passcode = useSelector((state) => state.auth.passcode)
+  // useEffect(() => {
+  //   // alert("dfdfd")
+  //   if (deviceCodes.length > 11) {
+  //     router.push("/plan-renewal")
+  //   } else {
+  //     router.push("/")
+  //   }
+  // }, [deviceCodes])
+
+  const passcode = useSelector((state) => state.auth.passcode);
   useEffect(() => {
     if (passcode) {
-      router.push(`/food?category=${Encrypt("chinese")}`)
-    } else if (!deviceCodes) {
-      router.push("/")
+      router.push(`/food`);
     }
-  }, [passcode])
-
-  const dispatch = useDispatch()
-
+    // : router.push("/plan-renewal")
+  }, [passcode]);
+  const dispatch = useDispatch();
   const handleLogin = (otp) => {
-    dispatch(loginThroughPasscode(otp))
-  }
+    dispatch(loginThroughPasscode(otp));
+  };
 
   const {
     isOpen: isOpenSelectLayout,
     handleOpen: handleOpenSelectLayout,
     handleClose: handleCloseSelectLayout,
     handleToggle: handleToggleSelectLayout,
-  } = useModalState(false)
+  } = useModalState(false);
 
   const {
     isOpen: isOpenBlankPopup,
     handleOpen: handleOpenBlankPopup,
     handleClose: handleCloseBlankPopup,
     handleToggle: handleToggleBlankPopup,
-  } = useModalState(false)
+  } = useModalState(false);
 
   if (passcode) {
-    return <Loader />
+    return <Loader />;
   }
 
   return (
@@ -151,7 +157,7 @@ function Passcode() {
                           {...props}
                           className={!!props.value ? "fill-otp" : undefined}
                         />
-                      )
+                      );
                     }}
                   />
                 </Box>
@@ -193,14 +199,14 @@ function Passcode() {
         isOpen={isOpenBlankPopup}
         handleOpen={handleOpenBlankPopup}
         handleClose={() => {
-          handleOpenSelectLayout()
-          handleCloseBlankPopup()
+          handleOpenSelectLayout();
+          handleCloseBlankPopup();
         }}
         handleToggle={handleToggleBlankPopup}
       />
     </>
-  )
+  );
 }
 
-Passcode.getLayout = (page) => <BlankLayout>{page}</BlankLayout>
-export default Passcode
+Passcode.getLayout = (page) => <BlankLayout>{page}</BlankLayout>;
+export default Passcode;

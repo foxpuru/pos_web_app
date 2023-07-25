@@ -1,27 +1,39 @@
-import * as React from "react"
-import Box from "@mui/material/Box"
-import BottomNavigation from "@mui/material/BottomNavigation"
-import BottomNavigationAction from "@mui/material/BottomNavigationAction"
-import RestoreIcon from "@mui/icons-material/Restore"
-import FavoriteIcon from "@mui/icons-material/Favorite"
-import LocationOnIcon from "@mui/icons-material/LocationOn"
+import * as React from "react";
+import Box from "@mui/material/Box";
+import BottomNavigation from "@mui/material/BottomNavigation";
+import BottomNavigationAction from "@mui/material/BottomNavigationAction";
+import RestoreIcon from "@mui/icons-material/Restore";
+import FavoriteIcon from "@mui/icons-material/Favorite";
+import LocationOnIcon from "@mui/icons-material/LocationOn";
 
-import SearchBigImg from "../assets/images/btn_search_big.png"
-import TableBigImg from "../assets/images/btn_table_big.png"
-import { Image } from "./styled-components"
-import { Grid, Typography } from "@mui/material"
-import FooterFoodCategory from "./FooterFoodCategory"
-import { FoodData } from "@/data/food/foodData"
-import Link from "next/link"
+import SearchBigImg from "../assets/images/btn_search_big.png";
+import TableBigImg from "../assets/images/btn_table_big.png";
+import { Image } from "./styled-components";
+import { Grid, Typography } from "@mui/material";
+import FooterFoodCategory from "./FooterFoodCategory";
+import { FoodData } from "@/data/food/foodData";
+import Link from "next/link";
 
-import { useRouter } from "next/router"
-import { useSelector } from "react-redux"
-import { PrimaryButton } from "./CusttomButtons"
+import { useRouter } from "next/router";
+import { useSelector } from "react-redux";
+import { PrimaryButton } from "./CusttomButtons";
+import { getataFromProductCategoryStore } from "@/indexedDB/categoryStore";
 
 export default function Footer() {
-  const [value, setValue] = React.useState(0)
-  const router = useRouter()
-  const showTableManagement = useSelector((state) => state.settings.options)
+  const [value, setValue] = React.useState(0);
+  const router = useRouter();
+  const showTableManagement = useSelector((state) => state.settings.options);
+  const [productCategories, setProductCategories] = React.useState([]);
+  React.useEffect(() => {
+    getataFromProductCategoryStore()
+      .then((res) => {
+        console.log("getProductCategories_res", res);
+        if (res) {
+          setProductCategories(res);
+        }
+      })
+      .catch((err) => {});
+  }, []);
   return (
     <Grid
       display="flex"
@@ -79,12 +91,12 @@ export default function Footer() {
               "& a:hover": { textDecoration: "none" },
             }}
           >
-            {FoodData.map((food) => (
-              <Link href={`/food?category=${food.path}`} key={food.category}>
+            {productCategories.map((food) => (
+              <Link href={`/food?category=${food._id}`} key={food._id}>
                 <FooterFoodCategory
-                  key={food.category}
-                  path={food.path}
-                  title={food.category}
+                  key={food._id}
+                  path={food?._id}
+                  title={food.name}
                 />
               </Link>
             ))}
@@ -107,5 +119,5 @@ export default function Footer() {
         </>
       )}
     </Grid>
-  )
+  );
 }

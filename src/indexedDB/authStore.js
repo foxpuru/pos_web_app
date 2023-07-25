@@ -21,16 +21,37 @@ export const addDataInAuthStore = async (authData) => {
   }
 };
 
-export const getDataFromAuthStore = async () => {
+export const getDataFromAuthStore = async (props) => {
   try {
     let authStoreRequest = await openDB(DB_NAME, VERSION);
     let transaction = authStoreRequest.transaction([auth_store], "readonly");
     const authStore = transaction.objectStore(auth_store);
     let data = await authStore.getAll();
-    console.log("datas", data);
+    console.log("datas_30", props, data[0]);
     authStoreRequest.close();
-    return data;
+    if (props?.isReduxInitialState) {
+      return {
+        isAuthenticated: data[0]?.tokens ? true : false,
+        deviceCode: "",
+        passcode: "",
+        userData: data[0]?.tokens ?? {},
+      };
+    } else {
+      return data[0];
+    }
   } catch (error) {
     console.log("error==>addDataInAuthStore", error);
+    return {};
   }
+};
+
+export const dropIndexedDB = async () => {
+  await deleteDB(DB_NAME);
+};
+
+export const deleteDatabseWhileLogout = async () => {
+  let authStoreRequest = await openDB(DB_NAME, VERSION).de;
+  const isAuthExist = authStoreRequest?.delete();
+  authStoreRequest.close();
+  return isAuthExist;
 };

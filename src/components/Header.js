@@ -1,39 +1,39 @@
-import * as React from "react"
-import { styled, alpha } from "@mui/material/styles"
-import AppBar from "@mui/material/AppBar"
-import Box from "@mui/material/Box"
-import Toolbar from "@mui/material/Toolbar"
-import IconButton from "@mui/material/IconButton"
-import Typography from "@mui/material/Typography"
-import InputBase from "@mui/material/InputBase"
-import MenuIcon from "@mui/icons-material/Menu"
-import SearchIcon from "@mui/icons-material/Search"
-import useModalState from "@/hooks/useModalState"
-import SideBarDrawer from "./SideBar"
+import * as React from "react";
+import { styled, alpha } from "@mui/material/styles";
+import AppBar from "@mui/material/AppBar";
+import Box from "@mui/material/Box";
+import Toolbar from "@mui/material/Toolbar";
+import IconButton from "@mui/material/IconButton";
+import Typography from "@mui/material/Typography";
+import InputBase from "@mui/material/InputBase";
+import MenuIcon from "@mui/icons-material/Menu";
+import SearchIcon from "@mui/icons-material/Search";
+import useModalState from "@/hooks/useModalState";
+import SideBarDrawer from "./SideBar";
 
-import InputLabel from "@mui/material/InputLabel"
-import MenuItem from "@mui/material/MenuItem"
-import FormHelperText from "@mui/material/FormHelperText"
-import FormControl from "@mui/material/FormControl"
-import Select from "@mui/material/Select"
+import InputLabel from "@mui/material/InputLabel";
+import MenuItem from "@mui/material/MenuItem";
+import FormHelperText from "@mui/material/FormHelperText";
+import FormControl from "@mui/material/FormControl";
+import Select from "@mui/material/Select";
 
-import { Image } from "./styled-components"
-import { Button, useMediaQuery } from "@mui/material"
+import { Image } from "./styled-components";
+import { Button, useMediaQuery } from "@mui/material";
 
-import BtnLeftMenuImg from "../assets/images/btn_left_menu.png"
-import MuseposLogo from "../assets/images/musepos_logo_colored_nav.png"
-import MuseLogo from "../assets/images/m_musepos logo.png"
-import LogoutLogo from "../assets/images/btn_logout.png"
-import RightMenuImg from "../assets/images/btn_right_menu.png"
-import CheckNameModal from "./modals/ChecksNamePopup"
-import BtnBackArrow from "../assets/images/btn_back_arrow.png"
+import BtnLeftMenuImg from "../assets/images/btn_left_menu.png";
+import MuseposLogo from "../assets/images/musepos_logo_colored_nav.png";
+import MuseLogo from "../assets/images/m_musepos logo.png";
+import LogoutLogo from "../assets/images/btn_logout.png";
+import RightMenuImg from "../assets/images/btn_right_menu.png";
+import CheckNameModal from "./modals/ChecksNamePopup";
+import BtnBackArrow from "../assets/images/btn_back_arrow.png";
 
-import MenuModal from "./Menu"
-import { useRouter } from "next/router"
-import ExtraCharges from "./modals/AddExtraCharges"
-import UserMenu from "./UserMenu"
-import { Matches } from "@/hooks/useCustomQuery"
-import { PrimaryButton } from "./CusttomButtons"
+import MenuModal from "./Menu";
+import { useRouter } from "next/router";
+import ExtraCharges from "./modals/AddExtraCharges";
+import UserMenu from "./UserMenu";
+import { Matches } from "@/hooks/useCustomQuery";
+import { PrimaryButton } from "./CusttomButtons";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -48,7 +48,7 @@ const Search = styled("div")(({ theme }) => ({
     marginLeft: theme.spacing(1),
     width: "auto",
   },
-}))
+}));
 
 const SearchIconWrapper = styled("div")(({ theme }) => ({
   padding: theme.spacing(0, 2),
@@ -58,7 +58,7 @@ const SearchIconWrapper = styled("div")(({ theme }) => ({
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
-}))
+}));
 
 const StyledInputBase = styled(InputBase)(({ theme }) => ({
   color: "inherit",
@@ -75,36 +75,37 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
       },
     },
   },
-}))
+}));
 
 export default function Header({ isPaymentMethod, reports }) {
-  const [age, setAge] = React.useState(10)
+  const [age, setAge] = React.useState(10);
 
   const handleChange = (event) => {
-    setAge(event.target.value)
-  }
-  const imageMatches = useMediaQuery((theme) => theme.breakpoints.up("960"))
+    setAge(event.target.value);
+  };
+  const imageMatches = useMediaQuery((theme) => theme.breakpoints.up("960"));
 
-  const { isOpen, handleToggle, handleOpen, handleClose } = useModalState(false)
+  const { isOpen, handleToggle, handleOpen, handleClose } =
+    useModalState(false);
 
   const {
     isOpen: isOpenSidebar,
     handleToggle: handleToggleSidebar,
     handleOpen: handleOpenSidebar,
     handleClose: handleCloseSidebar,
-  } = useModalState(false)
+  } = useModalState(false);
 
   const { anchorElMenu, openMenu, handleClickMenu, handleCloseMenu } =
-    useModalState(false)
+    useModalState(false);
 
-  const router = useRouter()
+  const router = useRouter();
 
   const {
     anchorElMenu: anchorElUserMenu,
     openMenu: openUserMenu,
     handleClickMenu: handleClickUserMenu,
     handleCloseMenu: handleCloseUserMenu,
-  } = useModalState()
+  } = useModalState();
 
   return (
     <>
@@ -274,7 +275,7 @@ export default function Header({ isPaymentMethod, reports }) {
                   // src={}
                   alt="musepos logo"
                   sx={{ height: { lg: "28px", xs: "20px" }, cursor: "pointer" }}
-                  onClick={() => router.push("/food?category=chinese")}
+                  onClick={() => router.push("/food")}
                 />
               </Box>
 
@@ -453,5 +454,5 @@ export default function Header({ isPaymentMethod, reports }) {
         handleClose={handleCloseUserMenu}
       />
     </>
-  )
+  );
 }
