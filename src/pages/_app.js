@@ -12,7 +12,6 @@ import { Provider, useDispatch } from "react-redux";
 import "../assets/styles/style.scss";
 import { PersistGate } from "redux-persist/integration/react";
 import { useEffect, useState } from "react";
-import { IndexedDB_Connection } from "@/indexedDB/connection";
 
 const theme = createTheme({
   typography: {
@@ -35,9 +34,7 @@ export default function App({ Component, pageProps }) {
   const getLayout =
     Component.getLayout ?? ((page) => <MainLayout> {page} </MainLayout>);
 
-  useEffect(() => {
-    IndexedDB_Connection();
-  }, []);
+  useEffect(() => {}, []);
 
   return (
     <Provider store={store}>

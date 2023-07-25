@@ -59,7 +59,7 @@ function PlanRenewal() {
                 backgroundColor: "transparent !important",
               },
             }}
-            onClick={() => router.push(`/food?category=${Encrypt("chinese")}`)}
+            onClick={() => router.push(`/food`)}
             label="Continue"
           />
         </Box>

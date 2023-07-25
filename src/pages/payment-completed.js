@@ -1,7 +1,7 @@
-import { Box, Grid, Typography } from "@mui/material"
-import { useRouter } from "next/router"
-import React from "react"
-import Divider from "@mui/material/Divider"
+import { Box, Grid, Typography } from "@mui/material";
+import { useRouter } from "next/router";
+import React from "react";
+import Divider from "@mui/material/Divider";
 
 import {
   CardCardsIcon,
@@ -11,28 +11,29 @@ import {
   PrintIcon,
   PrintIconWhite,
   SaveCheckRedIcon,
-} from "@/components/icons"
+} from "@/components/icons";
 
-import PaymentMethodArrowImg from "../assets/images/ic_payment_method_arrow.png"
-import CheckGreenImg from "../assets/images/ic_check_green.png"
-import { Image } from "@/components/styled-components"
+import PaymentMethodArrowImg from "../assets/images/ic_payment_method_arrow.png";
+import CheckGreenImg from "../assets/images/ic_check_green.png";
+import { Image } from "@/components/styled-components";
 
-import useModalState from "@/hooks/useModalState"
-import { PrimaryButton } from "@/components/CusttomButtons"
-import PrinterError from "@/components/modals/PrinterError"
-import CustomLayout from "@/layouts/CustomLayout"
-import { Encrypt } from "@/hooks/useEncryption"
-import EmailRecipt from "@/components/modals/EmailReceipt"
+import useModalState from "@/hooks/useModalState";
+import { PrimaryButton } from "@/components/CusttomButtons";
+import PrinterError from "@/components/modals/PrinterError";
+import CustomLayout from "@/layouts/CustomLayout";
+import { Encrypt } from "@/hooks/useEncryption";
+import EmailRecipt from "@/components/modals/EmailReceipt";
 
 function PaymentCompleted() {
-  const router = useRouter()
-  const { isOpen, handleToggle, handleOpen, handleClose } = useModalState(false)
+  const router = useRouter();
+  const { isOpen, handleToggle, handleOpen, handleClose } =
+    useModalState(false);
   const {
     isOpen: isOpenEmailReceipt,
     handleToggle: handleToggleEmailReceipt,
     handleOpen: handleOpenEmailReceipt,
     handleClose: handleCloseEmailReceipt,
-  } = useModalState(false)
+  } = useModalState(false);
   return (
     <>
       <Box textAlign="center">
@@ -168,12 +169,12 @@ function PaymentCompleted() {
         handleClose={handleCloseEmailReceipt}
       />
     </>
-  )
+  );
 }
 
 PaymentCompleted.getLayout = (page) => (
   <CustomLayout paymentMethod header={{ label: "check total" }}>
     {page}
   </CustomLayout>
-)
-export default PaymentCompleted
+);
+export default PaymentCompleted;

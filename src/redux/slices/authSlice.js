@@ -8,7 +8,11 @@ import { getUserInfo } from "@/api/userInfo";
 import axios from "axios";
 import { getModifiers } from "@/api/modifiers";
 import { getProductCategories, getProducts } from "@/api/product";
-import { addDataInAuthStore } from "@/indexedDB/authStore";
+import {
+  addDataInAuthStore,
+  getDataFromAuthStore,
+  isAuthStoreExist,
+} from "@/indexedDB/authStore";
 
 export const login = createAsyncThunk("login", async (data, thunkApi) => {
   try {
@@ -34,30 +38,32 @@ export const login = createAsyncThunk("login", async (data, thunkApi) => {
     toast.success(authData?.data?.message);
     return Promise.resolve(authData);
   } catch (error) {
-    const message = error?.response?.data?.message ?? "Something went wrong"
-    toast.error(message)
-    console.log("error", error)
-    thunkApi.rejectWithValue(error)
-    return Promise.reject(error)
+    const message = error?.response?.data?.message ?? "Something went wrong";
+    toast.error(message);
+    console.log("error", error);
+    thunkApi.rejectWithValue(error);
+    return Promise.reject(error);
   }
 });
 
 export const logout = createAsyncThunk("logout", async (data, thunkApi) => {
   try {
-    const res = await axiosInstance.post("auth/logout", data)
-    console.log("res logout", res)
-    toast.success(res?.data?.message)
-    thunkApi.fulfillWithValue({ data: {} })
-    clearLocalStorage()
-    return Promise.resolve(res)
+    const res = await axiosInstance.post("auth/logout", data);
+    console.log("res logout", res);
+    toast.success(res?.data?.message);
+    thunkApi.fulfillWithValue({ data: {} });
+    clearLocalStorage();
+    return Promise.resolve(res);
   } catch (error) {
-    const message = error?.response?.data?.message ?? "Something went wrong"
-    toast.error(message)
-    console.log("error", error)
-    thunkApi.rejectWithValue(error)
-    return Promise.reject(error)
+    const message = error?.response?.data?.message ?? "Something went wrong";
+    toast.error(message);
+    console.log("error", error);
+    clearLocalStorage();
+    thunkApi.rejectWithValue(error);
+    return Promise.reject(error);
   }
-})
+});
+
 const AuthSlice = createSlice({
   name: "auth",
   initialState: {
@@ -67,6 +73,9 @@ const AuthSlice = createSlice({
     deviceCode: "",
     passcode: "",
     userData: {},
+    // ...(localStorage.getItem("isAuth")
+    //   ? getDataFromAuthStore({ isReduxInitialState: true })
+    //   : {}),
   },
   reducers: {
     // login: (state, action) => {
@@ -74,8 +83,8 @@ const AuthSlice = createSlice({
     //   state.deviceCode = action.payload.deviceCode;
     // },
     loginThroughPasscode: (state, action) => {
-      console.log("action", action)
-      state.passcode = action.payload
+      console.log("action", action);
+      state.passcode = action.payload;
     },
     lofginThroughIndexedDb: (state, action) => {
       state.isAuthenticated = action.payload;
@@ -92,7 +101,7 @@ const AuthSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(login.pending, (state, action) => {
-        state.submitButtonLoading = true
+        state.submitButtonLoading = true;
       })
       .addCase(login.fulfilled, (state, action) => {
         console.log("state_action_success", action.payload?.data?.data?.tokens);
@@ -103,22 +112,26 @@ const AuthSlice = createSlice({
         state.userData = {
           access: access.token,
           refresh: refresh.token,
-        }
+        };
       })
       .addCase(login.rejected, (state, action) => {
-        console.log("state_action_error", action.payload)
-        state.submitButtonLoading = false
+        console.log("state_action_error", action.payload);
+        state.submitButtonLoading = false;
       })
       .addCase(logout.fulfilled, (state, action) => {
         state.deviceCode = "";
         state.isAuthenticated = false;
         state.userData = {};
         state.passcode = "";
+      })
+      .addCase(logout.rejected, (state, action) => {
+        state.deviceCode = "";
+        state.isAuthenticated = false;
+        state.userData = {};
+        state.passcode = "";
       });
-    // .addCase(logout.pending, (state, action) => {})
-    // .addCase(logout.rejected, (state, action) => {});
   },
-})
+});
 const persistConfig = {
   key: "root",
   storage,
@@ -126,4 +139,4 @@ const persistConfig = {
 export const { loginThroughPasscode, lofginThroughIndexedDb } =
   AuthSlice.actions;
 // persistReducer(persistConfig, AuthSlice.reducer);
-export default persistReducer(persistConfig, AuthSlice.reducer)
+export default persistReducer(persistConfig, AuthSlice.reducer);

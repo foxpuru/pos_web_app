@@ -1,53 +1,70 @@
-import FoodBillingCard from "@/components/FoodBillingCard"
-import FoodCard from "@/components/FoodCard"
-import { FoodData } from "@/data/food/foodData"
-import { Box, Button, Stack, Typography } from "@mui/material"
-import { useRouter } from "next/router"
-import React, { useEffect, useState } from "react"
-import List from "@mui/material/List"
-import Divider from "@mui/material/Divider"
+import FoodBillingCard from "@/components/FoodBillingCard";
+import FoodCard from "@/components/FoodCard";
+import { FoodData } from "@/data/food/foodData";
+import { Box, Button, Stack, Typography } from "@mui/material";
+import { useRouter } from "next/router";
+import React, { useEffect, useState } from "react";
+import List from "@mui/material/List";
+import Divider from "@mui/material/Divider";
 
-import { PrintIcon, SaveCheckRedIcon } from "@/components/icons"
-import { useSelector } from "react-redux"
-import CustomCards from "@/components/Food/customFood"
-import AddDiscount from "@/components/modals/AddDiscount"
-import useModalState from "@/hooks/useModalState"
+import { PrintIcon, SaveCheckRedIcon } from "@/components/icons";
+import { useSelector } from "react-redux";
+import CustomCards from "@/components/Food/customFood";
+import AddDiscount from "@/components/modals/AddDiscount";
+import useModalState from "@/hooks/useModalState";
 
-import FoodSlicesCard from "@/components/Food/FoodSlidesCards"
-import { PrimaryButton } from "@/components/CusttomButtons"
-import PrinterError from "@/components/modals/PrinterError"
+import FoodSlicesCard from "@/components/Food/FoodSlidesCards";
+import { PrimaryButton } from "@/components/CusttomButtons";
+import PrinterError from "@/components/modals/PrinterError";
+import { decrypt, encrypt } from "@/utility/encrypt-decrypt";
+import { getDataFromProductStore } from "@/indexedDB/productStore";
 
 function ChineseFood() {
   const style = {
     bgcolor: "background.paper",
-  }
-  const router = useRouter()
-  const foodItems = FoodData.find(
-    (food) => food.path?.toLowerCase() === router.query?.category
-  )
+  };
+  const router = useRouter();
+  const [foodItems, setFoodItems] = useState([]);
   // console.log("router query", router.query?.foodType)
-  const cardData = useSelector((state) => state.cart.items)
+  const cardData = useSelector((state) => state.cart.items);
   // console.log("cardData", cardData)
 
   // const [showCustom, setShowCustom] = useState(false)
-  const [customizeFoodItem, setCustomizeFoodItem] = useState(null)
-  const [slidesItem, setSlidesItem] = useState(null)
+  const [customizeFoodItem, setCustomizeFoodItem] = useState(null);
+  const [slidesItem, setSlidesItem] = useState(null);
   // console.log("customizeFoodItem", customizeFoodItem)
 
-  const [discountValue, setDiscountValue] = useState()
+  const [discountValue, setDiscountValue] = useState();
   const {
     isOpen: isOpenAddDiscount,
     handleToggle: handleToggleAddDiscount,
     handleOpen: handleOpenAddDiscount,
     handleClose: handleCloseAddDiscount,
-  } = useModalState(false)
+  } = useModalState(false);
 
   const {
     isOpen: isOpenPrinterError,
     handleToggle: handleTogglePrinterError,
     handleOpen: handleOpenPrinterError,
     handleClose: handleClosePrinterError,
-  } = useModalState(false)
+  } = useModalState(false);
+
+  useEffect(() => {
+    getDataFromProductStore()
+      .then((res) => {
+        console.log("res_res", router?.asPath?.split("=")[1], res);
+        if (router?.asPath?.split("=")[1]) {
+          setFoodItems(
+            res.filter(
+              (product) => product.category_id === router?.asPath?.split("=")[1]
+            )
+          );
+        } else {
+          setFoodItems(res);
+        }
+      })
+      .catch((er) => {});
+  }, [router?.asPath]);
   return (
     <>
       <Box display="flex" width="100%" alignItems="start">
@@ -71,14 +88,21 @@ function ChineseFood() {
               flexWrap="wrap"
               gap={{ lg: "22px", xs: "18px" }}
             >
-              {foodItems?.foods.map((food, index) => (
-                <FoodCard
-                  setCustomizeFoodItem={(e) => setCustomizeFoodItem(e)}
-                  setSlidesItem={(e) => setSlidesItem(e)}
-                  food={food}
-                  key={index}
-                />
-              ))}
+              {console.log("foodItems", foodItems)}
+              {foodItems.length > 0 ? (
+                <>
+                  {foodItems?.map((product) => (
+                    <FoodCard
+                      setCustomizeFoodItem={(e) => setCustomizeFoodItem(e)}
+                      setSlidesItem={(e) => setSlidesItem(e)}
+                      food={product}
+                      key={product?._id}
+                    />
+                  ))}
+                </>
+              ) : (
+                "No data found"
+              )}
             </Box>
           </Box>
         )}
@@ -339,7 +363,7 @@ function ChineseFood() {
         handleClose={handleClosePrinterError}
       />
     </>
-  )
+  );
 }
 
-export default ChineseFood
+export default ChineseFood;

@@ -1,4 +1,4 @@
-import { Encrypt } from "@/hooks/useEncryption"
+import { Encrypt } from "@/hooks/useEncryption";
 
 import {
   AddItemsIcon,
@@ -10,14 +10,14 @@ import {
   SettingsIcon,
   TableIcon,
   TranscationsIcon,
-} from "@/components/icons"
-import { TableManagementData } from "./tableManagement"
+} from "@/components/icons";
+import { TableManagementData } from "./tableManagement";
 
 export const SideBarItems = [
   {
     label: "New Check",
     icon: <NewCheckIcon />,
-    path: `/food?category=${Encrypt("chinese")}`,
+    path: `/food`,
   },
   {
     label: "Table Management",
@@ -54,4 +54,4 @@ export const SideBarItems = [
     icon: <SettingsIcon />,
     path: "/settings",
   },
-]
+];
