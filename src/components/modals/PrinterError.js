@@ -60,9 +60,10 @@ export default function PrinterError({
               fontSize: {
                 lg: "22px",
                 xs: "18px",
-                letterSpacing: "1.5px",
-                fontWeight: "400",
               },
+              letterSpacing: "0.6px",
+              fontWeight: "600",
+              textTransform: "uppercase",
             }}
           >
             PRINT

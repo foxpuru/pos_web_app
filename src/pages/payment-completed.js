@@ -22,10 +22,17 @@ import { PrimaryButton } from "@/components/CusttomButtons"
 import PrinterError from "@/components/modals/PrinterError"
 import CustomLayout from "@/layouts/CustomLayout"
 import { Encrypt } from "@/hooks/useEncryption"
+import EmailRecipt from "@/components/modals/EmailReceipt"
 
 function PaymentCompleted() {
   const router = useRouter()
   const { isOpen, handleToggle, handleOpen, handleClose } = useModalState(false)
+  const {
+    isOpen: isOpenEmailReceipt,
+    handleToggle: handleToggleEmailReceipt,
+    handleOpen: handleOpenEmailReceipt,
+    handleClose: handleCloseEmailReceipt,
+  } = useModalState(false)
   return (
     <>
       <Box textAlign="center">
@@ -128,7 +135,7 @@ function PaymentCompleted() {
           <PrimaryButton
             large
             startIcon={<EmailIconWhite />}
-            onClick={handleOpen}
+            onClick={handleOpenEmailReceipt}
             label="email receipt"
           />
         </Grid>
@@ -153,6 +160,12 @@ function PaymentCompleted() {
         handleToggle={handleToggle}
         handleOpen={handleOpen}
         handleClose={handleClose}
+      />
+      <EmailRecipt
+        isOpen={isOpenEmailReceipt}
+        handleToggle={handleToggleEmailReceipt}
+        handleOpen={handleOpenEmailReceipt}
+        handleClose={handleCloseEmailReceipt}
       />
     </>
   )

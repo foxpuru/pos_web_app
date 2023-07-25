@@ -17,7 +17,6 @@ import { CardCardsIcon, CardCashIcon, CardGiftIcon } from "@/components/icons"
 import PaymentMethodArrowImg from "../assets/images/ic_payment_method_arrow.png"
 import { Image } from "@/components/styled-components"
 
-
 import GiftCard from "@/components/modals/GiftCard"
 import useModalState from "@/hooks/useModalState"
 import OtherPaymentOptions from "@/components/modals/OtherPaymentOptions"
@@ -94,26 +93,10 @@ function PaymentMethods() {
           >
             Select Payment Method
           </Typography>
-          <Typography
-            color="#000000"
-            fontWeight="400"
-            fontSize={{ lg: "40px", xs: "28px" }}
-            letterSpacing="0.7px"
-          >
-            ₹1843.90
-          </Typography>
-          <Typography
-            color="#A1A1A1"
-            fontWeight="400"
-            fontSize={{ lg: "16px", xs: "12px" }}
-            letterSpacing="0.53px"
-            mb="12px"
-          >
-            Amount Paid
-          </Typography>
+
           <Divider
             sx={{
-              borderBottomWidth: "2px",
+              borderBottomWidth: "1px",
               borderColor: "#D7DBDC",
             }}
           />
@@ -122,7 +105,7 @@ function PaymentMethods() {
             alt="Payment Method Arrow"
             sx={{
               position: "absolute",
-              bottom: { lg: "-15px", xs: "-9px" },
+              bottom: { lg: "-16px", xs: "-10px" },
               left: "50%",
               transform: "translateX(-50%)",
               width: { lg: "22px", xs: "14px" },
