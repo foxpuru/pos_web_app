@@ -12,7 +12,6 @@ import { useSelector } from "react-redux";
 import CustomCards from "@/components/Food/customFood";
 import AddDiscount from "@/components/modals/AddDiscount";
 import useModalState from "@/hooks/useModalState";
-import ReactNumberFormat from "@/components/ReactNumberFormat";
 
 import FoodSlicesCard from "@/components/Food/FoodSlidesCards";
 import { PrimaryButton } from "@/components/CusttomButtons";
@@ -109,8 +108,10 @@ function ChineseFood() {
         )}
         <Box
           borderTop="2px solid #e5ebec"
-          maxWidth={{ lg: "370px", xs: "230px" }}
-          minWidth={{ lg: "370px", xs: "230px" }}
+          // maxWidth={{ lg: "370px", xs: "230px" }}
+          // minWidth={{ lg: "370px", xs: "230px" }}
+          maxWidth={{ lg: "350px", md: "300px", xs: "250px" }}
+          minWidth={{ lg: "350px", md: "300px", xs: "250px" }}
           height={{ lg: "calc(100vh - 64px)", xs: "calc(100vh - 60px)" }}
           overflow="auto"
           bgcolor="#FFFFFF"

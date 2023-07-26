@@ -36,12 +36,7 @@ export const SideBarItems = [
     path: "/cash-management",
     pro: true,
   },
-  {
-    label: "Table Management",
-    icon: <TableIcon />,
-    path: `/table-management?category=${TableManagementData[0].path}`,
-    pro: true,
-  },
+
   {
     label: "Reports",
     icon: <ReportsIcon />,
